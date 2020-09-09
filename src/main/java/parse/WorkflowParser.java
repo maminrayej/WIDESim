@@ -1,6 +1,7 @@
 package parse;
 
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class WorkflowParser {
 
-    public static void parse(String json) {
+    public static void parse(String json) throws JSONException {
         JSONObject root = new JSONObject(json);
 
         // TODO: Placeholder for Workflow class
