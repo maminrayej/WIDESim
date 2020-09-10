@@ -1,6 +1,8 @@
 package parse;
 
 import core.Enums.*;
+import entity.FogDevice;
+import entity.FogHost;
 import org.cloudbus.cloudsim.*;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,6 +51,9 @@ public class TopologyParser {
                 String ramProvisioning = getOr(hostObj, "ram_provisioning", Default.HOST.RAM_PROVISIONER.toString(), String.class);
                 String bwProvisioning = getOr(hostObj, "bw_provisioning", Default.HOST.BW_PROVISIONER.toString(), String.class);
                 String vmScheduler = getOr(hostObj, "vm_scheduler", Default.HOST.VM_SCHEDULER.toString(), String.class);
+                String powerModel = getOr(hostObj, "power_model", Default.HOST.POWER_MODEL.toString(), String.class);
+                double maxPower = getOr(hostObj, "max_power", Default.HOST.MAX_POWER, double.class);
+                double idlePower = getOr(hostObj, "idle_power", Default.HOST.IDLE_POWER, double.class);
 
                 // Parse vms
                 List<Vm> vms = hostObj.getJSONArray("vms").toList().stream().map(vm -> {
@@ -62,7 +67,11 @@ public class TopologyParser {
                     long vmBw = getOr(vmObj, "bw", Default.VM.BW, long.class);
                     String vmVmm = getOr(vmObj, "vmm", Default.VM.VMM.toString(), String.class);
                     String cloudletScheduler = getOr(vmObj, "cloudlet_scheduler", "Space Shared", String.class);
-                    return new Vm(vmId, hostId, mips, numOfPes, vmRam, vmBw, size, vmVmm, CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes));
+
+                    return new Vm(
+                            vmId, hostId, mips, numOfPes, vmRam, vmBw, size, vmVmm,
+                            CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes)
+                    );
                 }).collect(Collectors.toList());
 
                 // Parse pes
@@ -72,27 +81,41 @@ public class TopologyParser {
                     int peId = peObj.getInt("pe_id");
                     double mips = getOr(peObj, "mips", Default.PE.MIPS, double.class);
                     String peProvisioning = getOr(peObj, "pe_provisioning", Default.PE.PE_PROVISIONING.toString(), String.class);
-                    return new Pe(peId, PeProvisionerEnum.getProvisioner(peProvisioning, mips));
+
+                    return new Pe(
+                            peId,
+                            PeProvisionerEnum.getProvisioner(peProvisioning, mips)
+                    );
                 }).collect(Collectors.toList());
 
-                return new Host(
+                return new FogHost(
                         hostId,
                         RamProvisionerEnum.getProvisioner(ramProvisioning, ram),
                         BwProvisionerEnum.getProvisioner(bwProvisioning, bw),
                         storageCap,
                         pes,
-                        VmSchedulerEnum.getScheduler(vmScheduler, pes)
+                        VmSchedulerEnum.getScheduler(vmScheduler, pes),
+                        PowerModelEnum.getPowerModel(powerModel, maxPower, idlePower),
+                        vms
                 );
-
             }).collect(Collectors.toList());
 
-
-            DatacenterCharacteristics characteristics = new DatacenterCharacteristics(arch, os, vmm, hosts, timeZone, costPerSec, costPerMemory, costPerStorage, costPerBw);
+            DatacenterCharacteristics characteristics = new DatacenterCharacteristics(
+                    arch, os, vmm, hosts, timeZone, costPerSec,
+                    costPerMemory, costPerStorage, costPerBw
+            );
 
             try {
-                return new Datacenter(deviceId, characteristics, VmAllocPolicyEnum.getPolicy(vmAllocationPolicy, hosts), new LinkedList<>(), schedulingInterval);
+                return new FogDevice(
+                        deviceId,
+                        characteristics,
+                        VmAllocPolicyEnum.getPolicy(vmAllocationPolicy, hosts),
+                        new LinkedList<>(),
+                        schedulingInterval,
+                        neighborIds
+                );
             } catch (Exception e) {
-                throw new IllegalStateException(e.getMessage());
+                throw new IllegalArgumentException(e.getMessage());
             }
         }).collect(Collectors.toList());
     }

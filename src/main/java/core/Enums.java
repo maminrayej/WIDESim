@@ -1,6 +1,10 @@
 package core;
 
 import org.cloudbus.cloudsim.*;
+import org.cloudbus.cloudsim.power.models.PowerModel;
+import org.cloudbus.cloudsim.power.models.PowerModelCubic;
+import org.cloudbus.cloudsim.power.models.PowerModelLinear;
+import org.cloudbus.cloudsim.power.models.PowerModelSpecPowerHpProLiantMl110G3PentiumD930;
 import org.cloudbus.cloudsim.provisioners.*;
 
 import java.util.List;
@@ -179,10 +183,6 @@ public class Enums {
             this.provisioner = provisioner;
         }
 
-        String getProvisioner() {
-            return provisioner;
-        }
-
         public static RamProvisioner getProvisioner(String provisioner, int ram) {
             RamProvisionerEnum provisionerEnum = RamProvisionerEnum.valueOf(provisioner);
 
@@ -191,6 +191,10 @@ public class Enums {
             } else {
                 throw new IllegalArgumentException(String.format("%s is not a valid provisioner", provisioner));
             }
+        }
+
+        String getProvisioner() {
+            return provisioner;
         }
 
         @Override
@@ -208,10 +212,6 @@ public class Enums {
             this.provisioner = provisioner;
         }
 
-        String getProvisioner() {
-            return provisioner;
-        }
-
         public static BwProvisioner getProvisioner(String provisioner, long bw) {
             BwProvisionerEnum provisionerEnum = BwProvisionerEnum.valueOf(provisioner);
 
@@ -220,6 +220,10 @@ public class Enums {
             } else {
                 throw new IllegalArgumentException(String.format("%s is not a valid provisioner", provisioner));
             }
+        }
+
+        String getProvisioner() {
+            return provisioner;
         }
 
         @Override
@@ -237,10 +241,6 @@ public class Enums {
             this.provisioner = provisioner;
         }
 
-        String getProvisioner() {
-            return provisioner;
-        }
-
         public static PeProvisioner getProvisioner(String provisioner, double mips) {
             PeProvisionerEnum provisionerEnum = PeProvisionerEnum.valueOf(provisioner);
 
@@ -249,6 +249,10 @@ public class Enums {
             } else {
                 throw new IllegalArgumentException(String.format("%s is not a valid provisioner", provisioner));
             }
+        }
+
+        String getProvisioner() {
+            return provisioner;
         }
 
         @Override
@@ -268,10 +272,6 @@ public class Enums {
             this.scheduler = scheduler;
         }
 
-        String getScheduler() {
-            return this.scheduler;
-        }
-
         public static CloudletScheduler getScheduler(String scheduler, double mips, int numOfPes) {
             CloudletSchedulerEnum schedulerEnum = CloudletSchedulerEnum.valueOf(scheduler);
 
@@ -286,9 +286,45 @@ public class Enums {
             }
         }
 
+        String getScheduler() {
+            return this.scheduler;
+        }
+
         @Override
         public String toString() {
             return getScheduler();
+        }
+    }
+
+    public enum PowerModelEnum {
+        CUBIC("Cubic"),
+        LINEAR("Linear");
+
+        private final String powerModel;
+
+        PowerModelEnum(String powerModel) {
+            this.powerModel = powerModel;
+        }
+
+        String getPowerModel() {
+            return powerModel;
+        }
+
+        public static PowerModel getPowerModel(String powerModel, double maxPower, double staticPowerPercent) {
+            PowerModelEnum powerModelEnum = PowerModelEnum.valueOf(powerModel);
+
+            switch (powerModelEnum) {
+                case CUBIC:
+                    return new PowerModelCubic(maxPower, staticPowerPercent);
+                case LINEAR:
+                default:
+                    return new PowerModelLinear(maxPower, staticPowerPercent);
+            }
+        }
+
+        @Override
+        public String toString() {
+            return getPowerModel();
         }
     }
 

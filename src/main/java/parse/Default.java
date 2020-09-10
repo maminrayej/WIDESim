@@ -30,6 +30,9 @@ public class Default {
         public static final VmSchedulerEnum VM_SCHEDULER = VmSchedulerEnum.TIME_SHARED;
         public static final RamProvisionerEnum RAM_PROVISIONER = RamProvisionerEnum.SIMPLE;
         public static final BwProvisionerEnum BW_PROVISIONER = BwProvisionerEnum.SIMPLE;
+        public static final PowerModelEnum POWER_MODEL = PowerModelEnum.LINEAR;
+        public static final double MAX_POWER = Constants.MetricUnit.KILO;
+        public static final double IDLE_POWER = 1;
     }
 
     public static class VM {
