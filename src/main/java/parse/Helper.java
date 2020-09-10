@@ -3,6 +3,11 @@ package parse;
 import org.json.JSONObject;
 
 public class Helper {
+
+    private Helper() {
+        throw new UnsupportedOperationException("Can not instantiate class: Helper");
+    }
+
     public static <T> T getOr(JSONObject jsonObject, String key, T defaultValue, Class<T> type) {
         if (jsonObject.isNull(key)) {
             return defaultValue;
