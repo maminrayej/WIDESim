@@ -1,15 +1,35 @@
 package parse;
 
 import core.Constants;
-import org.cloudbus.cloudsim.*;
-import org.cloudbus.cloudsim.provisioners.*;
-
-import java.util.List;
+import core.Enums.*;
 
 public class Default {
 
     private Default() {
         throw new UnsupportedOperationException("Can not instantiate class: Default");
+    }
+
+    public static class FOG_DEVICE {
+        public static final ArchEnum ARCH = ArchEnum.X86_64;
+        public static final OsEnum OS = OsEnum.LINUX;
+        public static final double TIME_ZONE = 0.0;
+        public static final double COST_PER_SEC = 1.0;
+        public static final double COST_PER_MEM = 1.0;
+        public static final double COST_PER_BW = 1.0;
+        public static final double COST_PER_STORAGE = 1.0;
+        public static final VmAllocPolicyEnum VM_ALLOC_POLICY = VmAllocPolicyEnum.SIMPLE;
+        public static final AllocPolicyEnum ALLOC_POLICY = AllocPolicyEnum.TIME_SHARED;
+        public static final VmmEnum VMM = VmmEnum.XEN;
+        public static final double SCHEDULING_INTERVAL = 0.0;
+    }
+
+    public static class HOST {
+        public static final long STORAGE_CAP = Constants.DataUnit.GB;
+        public static final int RAM = Constants.PowOfTwo.NINE;
+        public static final long BW = Constants.PowOfTwo.TEN;
+        public static final VmSchedulerEnum VM_SCHEDULER = VmSchedulerEnum.TIME_SHARED;
+        public static final RamProvisionerEnum RAM_PROVISIONER = RamProvisionerEnum.SIMPLE;
+        public static final BwProvisionerEnum BW_PROVISIONER = BwProvisionerEnum.SIMPLE;
     }
 
     public static class VM {
@@ -18,59 +38,13 @@ public class Default {
         public static final int NUM_OF_PES = 1;
         public static final int RAM = Constants.PowOfTwo.NINE;
         public static final long BW = Constants.PowOfTwo.TEN;
-        public static final String VMM = "Xen";
-        public static final String CLOUDLET_SCHEDULER = "Time Shared";
-
-        public static CloudletScheduler cloudletScheduler() {
-            return new CloudletSchedulerSpaceShared();
-        }
-    }
-
-    public static class HOST {
-        public static final long STORAGE_CAP = Constants.DataUnit.GB;
-        public static final int RAM = Constants.PowOfTwo.NINE;
-        public static final long BW = Constants.PowOfTwo.TEN;
-        public static final String VM_SCHEDULER = "Time Shared";
-        public static final String RAM_PROVISIONER = "Simple";
-        public static final String BW_PROVISIONER = "Simple";
-
-        public static RamProvisioner ramProvisioner(int ram) {
-            return new RamProvisionerSimple(ram);
-        }
-
-        public static BwProvisioner bwProvisioner(long bw) {
-            return new BwProvisionerSimple(bw);
-        }
-
-        public static VmScheduler vmScheduler(List<Pe> pes) {
-            return new VmSchedulerTimeShared(pes);
-        }
+        public static final VmmEnum VMM = VmmEnum.XEN;
+        public static final CloudletSchedulerEnum CLOUDLET_SCHEDULER = CloudletSchedulerEnum.TIME_SHARED;
     }
 
     public static class PE {
         public static final double MIPS = Constants.MetricUnit.GIGA;
-        public static final String PE_PROVISIONING = "Simple";
-
-        public static PeProvisioner peProvisioner(double mips) {
-            return new PeProvisionerSimple(mips);
-        }
+        public static final PeProvisionerEnum PE_PROVISIONING = PeProvisionerEnum.SIMPLE;
     }
 
-    public static class FOG_DEVICE {
-        public static final String ARCH = "x86_64";
-        public static final String OS = "Linux";
-        public static final double TIME_ZONE = 0.0;
-        public static final double COST_PER_SEC = 1.0;
-        public static final double COST_PER_MEM = 1.0;
-        public static final double COST_PER_BW = 1.0;
-        public static final double COST_PER_STORAGE = 1.0;
-        public static final String VM_ALLOC_POLICY = "Simple";
-        public static final String ALLOC_POLICY = "Time Shared";
-        public static final String VMM = "Xen";
-        public static final double SCHEDULING_INTERVAL = 0.0;
-
-        public static VmAllocationPolicy vmAllocationPolicy(List<Host> hosts) {
-            return new VmAllocationPolicySimple(hosts);
-        }
-    }
 }
