@@ -26,4 +26,8 @@ public class FogHost extends PowerHost {
 
         this.vms = vms;
     }
+
+    public List<Vm> getVms() {
+        return vms;
+    }
 }

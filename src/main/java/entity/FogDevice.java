@@ -10,8 +10,9 @@ import java.util.List;
 
 public class FogDevice extends PowerDatacenter {
 
-    private HashMap<String, String> routingTable;
-    private List<String> neighbors;
+    private final HashMap<String, String> routingTable;
+
+    private final List<String> neighbors;
 
     public FogDevice(String name,
                      DatacenterCharacteristics characteristics,
@@ -25,7 +26,20 @@ public class FogDevice extends PowerDatacenter {
         this.routingTable = new HashMap<>();
     }
 
-    public void addToRoutingTable(String destination, String hop) {
-        this.routingTable.put(destination, hop);
+    public List<FogHost> getHosts() {
+        return getCharacteristics().getHostList();
     }
+
+    public List<String> getNeighbors() {
+        return neighbors;
+    }
+
+    public void addRoute(String dst, String hop) {
+        routingTable.put(dst, hop);
+    }
+
+    public String nextHop(String dst) {
+        return routingTable.getOrDefault(dst, null);
+    }
+
 }

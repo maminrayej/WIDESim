@@ -1,5 +1,6 @@
 package core;
 
+import entity.FogHost;
 import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.power.models.PowerModel;
 import org.cloudbus.cloudsim.power.models.PowerModelCubic;
@@ -62,7 +63,7 @@ public class Enums {
             this.policy = policy;
         }
 
-        public static VmAllocationPolicy getPolicy(String policy, List<Host> hosts) {
+        public static VmAllocationPolicy getPolicy(String policy, List<FogHost> hosts) {
             VmAllocPolicyEnum policyEnum = VmAllocPolicyEnum.valueOf(policy);
 
             if (policyEnum == SIMPLE) {
