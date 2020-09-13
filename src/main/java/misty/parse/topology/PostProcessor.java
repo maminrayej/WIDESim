@@ -1,8 +1,8 @@
-package parse.topology;
+package misty.parse.topology;
 
-import analyze.TopologyAnalyzer;
-import entity.FogDevice;
-import entity.FogHost;
+import misty.analyze.TopologyAnalyzer;
+import misty.entity.FogDevice;
+import misty.entity.FogHost;
 import org.jgrapht.alg.util.Pair;
 
 import java.util.HashMap;

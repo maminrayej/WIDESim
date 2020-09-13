@@ -1,17 +1,16 @@
-package parse.topology;
+package misty.parse.topology;
 
-import core.Constants;
-import core.Enums.*;
-import entity.FogDevice;
-import entity.FogHost;
+import misty.core.Constants;
+import misty.core.Enums.*;
+import misty.entity.FogDevice;
+import misty.entity.FogHost;
+import misty.parse.Default;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
 import org.cloudbus.cloudsim.Pe;
 import org.cloudbus.cloudsim.Vm;
-import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.jgrapht.alg.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
-import parse.Default;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-import static parse.Helper.getOrDefault;
+import static misty.parse.Helper.getOrDefault;
 
 public class Parser {
 

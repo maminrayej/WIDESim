@@ -1,4 +1,4 @@
-package core;
+package misty.core;
 
 public class Constants {
 

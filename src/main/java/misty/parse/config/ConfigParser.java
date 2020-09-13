@@ -1,13 +1,13 @@
-package parse.config;
+package misty.parse.config;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static parse.Helper.getOrDefault;
+import static misty.parse.Helper.getOrDefault;
 
 public class ConfigParser {
 
-    public static void parse(String json) throws JSONException  {
+    public static void parse(String json) throws JSONException {
         JSONObject root = new JSONObject(json);
 
         if (!root.isEmpty()) {

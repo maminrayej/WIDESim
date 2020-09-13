@@ -1,11 +1,10 @@
-package core;
+package misty.core;
 
-import entity.FogHost;
+import misty.entity.FogHost;
 import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.power.models.PowerModel;
 import org.cloudbus.cloudsim.power.models.PowerModelCubic;
 import org.cloudbus.cloudsim.power.models.PowerModelLinear;
-import org.cloudbus.cloudsim.power.models.PowerModelSpecPowerHpProLiantMl110G3PentiumD930;
 import org.cloudbus.cloudsim.provisioners.*;
 
 import java.util.List;
@@ -307,10 +306,6 @@ public class Enums {
             this.powerModel = powerModel;
         }
 
-        String getPowerModel() {
-            return powerModel;
-        }
-
         public static PowerModel getPowerModel(String powerModel, double maxPower, double staticPowerPercent) {
             PowerModelEnum powerModelEnum = PowerModelEnum.valueOf(powerModel);
 
@@ -321,6 +316,10 @@ public class Enums {
                 default:
                     return new PowerModelLinear(maxPower, staticPowerPercent);
             }
+        }
+
+        String getPowerModel() {
+            return powerModel;
         }
 
         @Override

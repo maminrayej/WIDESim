@@ -1,4 +1,4 @@
-package analyze;
+package misty.analyze;
 
 import org.jgrapht.Graph;
 import org.jgrapht.alg.cycle.CycleDetector;
