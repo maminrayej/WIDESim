@@ -328,4 +328,36 @@ public class Enums {
         }
     }
 
+    public enum UtilizationModelEnum {
+        Full("Full"),
+        STOCHASTIC("Stochastic");
+
+        private final String utilizationModel;
+
+        UtilizationModelEnum(String utilizationModel) {
+            this.utilizationModel = utilizationModel;
+        }
+
+        public String getUtilizationModel() {
+            return utilizationModel;
+        }
+
+        @Override
+        public String toString() {
+            return getUtilizationModel();
+        }
+
+        public static UtilizationModel getUtilizationModel(String utilizationModel) {
+            UtilizationModelEnum utilizationModelEnum = UtilizationModelEnum.valueOf(utilizationModel);
+
+            switch (utilizationModelEnum) {
+                case STOCHASTIC:
+                    return new UtilizationModelStochastic();
+                case Full:
+                default:
+                    return new UtilizationModelFull();
+            }
+        }
+    }
+
 }

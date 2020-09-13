@@ -50,4 +50,11 @@ public class Default {
         public static final PeProvisionerEnum PE_PROVISIONING = PeProvisionerEnum.SIMPLE;
     }
 
+    public static class TASK {
+        public static final UtilizationModelEnum CPU_UTIL_MODEL = UtilizationModelEnum.Full;
+        public static final UtilizationModelEnum RAM_UTIL_MODEL = UtilizationModelEnum.Full;
+        public static final UtilizationModelEnum BW_UTIL_MODEL = UtilizationModelEnum.Full;
+        public static final int NUM_OF_PES = 1;
+    }
+
 }
