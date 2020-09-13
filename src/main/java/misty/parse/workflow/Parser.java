@@ -9,6 +9,9 @@ import misty.parse.Default;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,8 +19,27 @@ import static misty.parse.Helper.getOrDefault;
 
 public class Parser {
 
-    public static List<Workflow> parse(String json) throws JSONException {
-        JSONObject root = new JSONObject(json);
+    private final String workflowsJsonContent;
+
+    public Parser(File workflowsFile) throws IOException {
+        if (!workflowsFile.exists())
+            throw new IOException(String.format("File: %s does not exist", workflowsFile.getPath()));
+
+        if (!workflowsFile.isFile())
+            throw new IllegalArgumentException(String.format("Path: %s is not a file", workflowsFile.getPath()));
+
+        if (!workflowsFile.canRead())
+            throw new IllegalAccessError(String.format("Misty does not have READ access to file: %s", workflowsFile.getPath()));
+
+        // Read content of topology.json file
+        List<String> lines = Files.readAllLines(workflowsFile.toPath());
+
+        // Concat all lines
+        workflowsJsonContent = String.join("\n", lines);
+    }
+
+    public List<Workflow> parse() throws JSONException {
+        JSONObject root = new JSONObject(workflowsJsonContent);
 
         return root.getJSONArray(Tags.WORKFLOWS).toList().stream().map(workflow -> {
             JSONObject workflowObj = (JSONObject) workflow;
