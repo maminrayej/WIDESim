@@ -57,4 +57,10 @@ public class Default {
         public static final int NUM_OF_PES = 1;
     }
 
+    public static class CONFIG {
+        public static final String BROKER_ALGO = "Default";
+        public static final String TOPOLOGY_FILE = "topology.json";
+        public static final String WORKFLOWS_FILE = "workflows.json";
+    }
+
 }

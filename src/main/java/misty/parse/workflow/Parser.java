@@ -1,6 +1,5 @@
 package misty.parse.workflow;
 
-
 import misty.computation.Data;
 import misty.computation.Task;
 import misty.computation.Workflow;
@@ -31,7 +30,6 @@ public class Parser {
         if (!workflowsFile.canRead())
             throw new IllegalAccessError(String.format("Misty does not have READ access to file: %s", workflowsFile.getPath()));
 
-        // Read content of topology.json file
         List<String> lines = Files.readAllLines(workflowsFile.toPath());
 
         // Concat all lines
