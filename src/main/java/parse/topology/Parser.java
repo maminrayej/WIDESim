@@ -1,26 +1,57 @@
 package parse.topology;
 
+import core.Constants;
 import core.Enums.*;
 import entity.FogDevice;
 import entity.FogHost;
-import org.cloudbus.cloudsim.*;
+import org.cloudbus.cloudsim.DatacenterCharacteristics;
+import org.cloudbus.cloudsim.Pe;
+import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.core.CloudSimTags;
+import org.jgrapht.alg.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import parse.Default;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 import static parse.Helper.getOrDefault;
 
-public class TopologyParser {
+public class Parser {
 
-    public static List<FogDevice> parse(String json) throws JSONException {
-        JSONObject root = new JSONObject(json);
+    private final String topologyJsonContent;
+
+    public Parser(File topologyFile) throws IOException {
+
+        if (!topologyFile.exists())
+            throw new IOException(String.format("File: %s does not exist", topologyFile.getPath()));
+
+        if (!topologyFile.isFile())
+            throw new IllegalArgumentException(String.format("Path: %s is not a file", topologyFile.getPath()));
+
+        if (!topologyFile.canRead())
+            throw new IllegalAccessError(String.format("Misty does not have READ access to file: %s", topologyFile.getPath()));
+
+        // Read content of topology.json file
+        List<String> lines = Files.readAllLines(topologyFile.toPath());
+
+        // Concat all lines
+        topologyJsonContent = String.join("\n", lines);
+    }
+
+    public Pair<List<FogDevice>, List<Vm>> parse() throws JSONException {
+        JSONObject root = new JSONObject(topologyJsonContent);
+
+        AtomicReference<List<Vm>> definedVms = new AtomicReference<>();
 
         // Parse fog devices
-        return root.getJSONArray(Tags.FogDevice.FOG_DEVICES).toList().stream().map(fogDevice -> {
+        List<FogDevice> fogDevices = root.getJSONArray(Tags.FogDevice.FOG_DEVICES).toList().stream().map(fogDevice -> {
             // Parse fog device attributes
             JSONObject fogDeviceObj = (JSONObject) fogDevice;
             String deviceId = fogDeviceObj.getString(Tags.FogDevice.DEVICE_ID);
@@ -70,10 +101,12 @@ public class TopologyParser {
                     String cloudletScheduler = getOrDefault(vmObj, Tags.Vm.CLOUDLET_SCHEDULER, Default.VM.CLOUDLET_SCHEDULER.toString(), String.class);
 
                     return new Vm(
-                            vmId, hostId, mips, numOfPes, vmRam, vmBw, size, vmVmm,
+                            vmId, Constants.INVALID_ID, mips, numOfPes, vmRam, vmBw, size, vmVmm,
                             CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes)
                     );
                 }).collect(Collectors.toList());
+
+                definedVms.set(vms);
 
                 // Parse pes
                 List<Pe> pes = hostObj.getJSONArray(Tags.Host.PES).toList().stream().map(pe -> {
@@ -96,8 +129,7 @@ public class TopologyParser {
                         storageCap,
                         pes,
                         VmSchedulerEnum.getScheduler(vmScheduler, pes),
-                        PowerModelEnum.getPowerModel(powerModel, maxPower, idlePower),
-                        vms
+                        PowerModelEnum.getPowerModel(powerModel, maxPower, idlePower)
                 );
             }).collect(Collectors.toList());
 
@@ -119,6 +151,8 @@ public class TopologyParser {
                 throw new IllegalArgumentException(e.getMessage());
             }
         }).collect(Collectors.toList());
+
+        return Pair.of(fogDevices, definedVms.get());
     }
 
     private static class Tags {

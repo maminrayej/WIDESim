@@ -12,22 +12,15 @@ import java.util.List;
 
 public class FogHost extends PowerHost {
 
-    private List<Vm> vms;
-
     public FogHost(int id,
                    RamProvisioner ramProvisioner,
                    BwProvisioner bwProvisioner,
                    long storage,
                    List<? extends Pe> peList,
                    VmScheduler vmScheduler,
-                   PowerModel powerModel,
-                   List<Vm> vms) {
+                   PowerModel powerModel) {
         super(id, ramProvisioner, bwProvisioner, storage, peList, vmScheduler, powerModel);
 
-        this.vms = vms;
     }
 
-    public List<Vm> getVms() {
-        return vms;
-    }
 }

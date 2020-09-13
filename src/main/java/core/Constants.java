@@ -6,6 +6,8 @@ public class Constants {
         throw new UnsupportedOperationException("Can not instantiate class: Constants");
     }
 
+    public static final int INVALID_ID = -1;
+
     public static class DataUnit {
         public static final long BYTE = 8;
         public static final long KB = 1024 * BYTE;

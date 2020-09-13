@@ -29,7 +29,7 @@ public class TopologyAnalyzer {
         return new CycleDetector<>(topology).detectCycles();
     }
 
-    public HashMap<Pair<String, String>, String> getRoutingTable() {
+    public HashMap<Pair<String, String>, String> buildRoutingTable() {
         HashMap<Pair<String, String>, String> routingTable = new HashMap<>();
 
         FloydWarshallShortestPaths<String, DefaultEdge> algo = new FloydWarshallShortestPaths<>(topology);
