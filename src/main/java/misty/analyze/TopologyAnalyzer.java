@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class TopologyAnalyzer {
 
-    Graph<String, DefaultEdge> topology;
+    private final Graph<String, DefaultEdge> topology;
 
     public TopologyAnalyzer() {
         topology = new DefaultDirectedGraph<>(DefaultEdge.class);

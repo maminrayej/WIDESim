@@ -10,7 +10,7 @@ public class Task extends Cloudlet {
     private final List<Data> inputFiles;
     private final List<String> children;
     private final double deadLine;
-    private final String workflowName;
+    private final String workflowId;
 
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
                 UtilizationModel utilizationModelCpu, UtilizationModel utilizationModelRam, UtilizationModel utilizationModelBw,
@@ -19,6 +19,27 @@ public class Task extends Cloudlet {
         this.inputFiles = inputFiles;
         this.children = children;
         this.deadLine = deadLine;
-        this.workflowName = workflowName;
+        this.workflowId = workflowName;
     }
+
+    public List<Data> getInputFiles() {
+        return inputFiles;
+    }
+
+    public List<String> getChildren() {
+        return children;
+    }
+
+    public double getDeadLine() {
+        return deadLine;
+    }
+
+    public String getWorkflowId() {
+        return workflowId;
+    }
+
+    public String getTaskId() {
+        return String.valueOf(super.getCloudletId());
+    }
+
 }
