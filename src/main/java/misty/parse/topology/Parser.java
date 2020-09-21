@@ -26,7 +26,7 @@ public class Parser {
 
     private final String topologyJsonContent;
 
-    public Parser(File topologyFile) throws IOException {
+    public Parser(File topologyFile) throws IOException, IllegalAccessException {
 
         if (!topologyFile.exists())
             throw new IOException(String.format("File: %s does not exist", topologyFile.getPath()));
@@ -35,7 +35,7 @@ public class Parser {
             throw new IllegalArgumentException(String.format("Path: %s is not a file", topologyFile.getPath()));
 
         if (!topologyFile.canRead())
-            throw new IllegalAccessError(String.format("Misty does not have READ access to file: %s", topologyFile.getPath()));
+            throw new IllegalAccessException(String.format("Misty does not have READ access to file: %s", topologyFile.getPath()));
 
         // Read content of topology.json file
         List<String> lines = Files.readAllLines(topologyFile.toPath());
