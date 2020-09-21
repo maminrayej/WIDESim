@@ -15,8 +15,10 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
@@ -44,6 +46,22 @@ public class Parser {
         topologyJsonContent = String.join("\n", lines);
     }
 
+    public static void toJSONObject(Map<?, ?> m) {
+        if (m == null) {
+            System.out.println("map is null");
+        } else {
+            for (final Map.Entry<?, ?> e : m.entrySet()) {
+                if(e.getKey() == null) {
+                    throw new NullPointerException("Null key.");
+                }
+                final Object value = e.getValue();
+                if (value != null) {
+                    System.out.printf("assigning %s -> %s\n", e.getKey().toString(), value.toString());
+                }
+            }
+        }
+    }
+
     public Pair<List<FogDevice>, List<Vm>> parse() throws JSONException {
         JSONObject root = new JSONObject(topologyJsonContent);
 
@@ -51,8 +69,7 @@ public class Parser {
 
         // Parse fog devices
         List<FogDevice> fogDevices = root.getJSONArray(Tags.FogDevice.FOG_DEVICES).toList().stream().map(fogDevice -> {
-            // Parse fog device attributes
-            JSONObject fogDeviceObj = new JSONObject(fogDevice);
+            JSONObject fogDeviceObj = new JSONObject((Map<?, ?>)fogDevice);
             String deviceId = fogDeviceObj.getString(Tags.FogDevice.DEVICE_ID);
             String arch = getOrDefault(fogDeviceObj, Tags.FogDevice.ARCH, Default.FOG_DEVICE.ARCH.toString(), String.class);
             String os = getOrDefault(fogDeviceObj, Tags.FogDevice.OS, Default.FOG_DEVICE.OS.toString(), String.class);
@@ -60,7 +77,7 @@ public class Parser {
                     .getJSONArray(Tags.FogDevice.NEIGHBORS)
                     .toList()
                     .stream()
-                    .map(obj -> ((JSONObject) obj).getString(Tags.FogDevice.NEIGHBOR_ID))
+                    .map(obj -> (new JSONObject((Map<?, ?>)obj)).getString(Tags.FogDevice.NEIGHBOR_ID))
                     .collect(Collectors.toList());
             double timeZone = getOrDefault(fogDeviceObj, Tags.FogDevice.TIME_ZONE, Default.FOG_DEVICE.TIME_ZONE, Double.class);
             double costPerSec = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_SEC, Default.FOG_DEVICE.COST_PER_SEC, Double.class);
@@ -74,7 +91,7 @@ public class Parser {
             // Parse hosts
             List<FogHost> hosts = fogDeviceObj.getJSONArray(Tags.FogDevice.HOSTS).toList().stream().map(host -> {
                 // Parse host attributes
-                JSONObject hostObj = new JSONObject(host);
+                JSONObject hostObj = new JSONObject((Map<?, ?>)host);
                 int hostId = hostObj.getInt(Tags.Host.HOST_ID);
                 long storageCap = getOrDefault(hostObj, Tags.Host.STORAGE_CAP, Default.HOST.STORAGE_CAP, Long.class);
                 int ram = getOrDefault(hostObj, Tags.Host.RAM, Default.HOST.RAM, Integer.class);
@@ -89,7 +106,7 @@ public class Parser {
                 // Parse vms
                 List<Vm> vms = hostObj.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
                     // Parse vm attributes
-                    JSONObject vmObj = new JSONObject(vm);
+                    JSONObject vmObj = new JSONObject((Map<?, ?>)vm);
                     int vmId = vmObj.getInt(Tags.Vm.VM_ID);
                     long size = getOrDefault(vmObj, Tags.Vm.SIZE, Default.VM.SIZE, Long.class);
                     double mips = getOrDefault(vmObj, Tags.Vm.MIPS, Default.VM.MIPS, Double.class);
@@ -110,7 +127,7 @@ public class Parser {
                 // Parse pes
                 List<Pe> pes = hostObj.getJSONArray(Tags.Host.PES).toList().stream().map(pe -> {
                     // Parse pe attributes
-                    JSONObject peObj = new JSONObject(pe);
+                    JSONObject peObj = new JSONObject((Map<?, ?>)pe);
                     int peId = peObj.getInt(Tags.Pe.PE_ID);
                     double mips = getOrDefault(peObj, Tags.Pe.MIPS, Default.PE.MIPS, Double.class);
                     String peProvisioning = getOrDefault(peObj, Tags.Pe.PE_PROVISIONING, Default.PE.PE_PROVISIONING.toString(), String.class);

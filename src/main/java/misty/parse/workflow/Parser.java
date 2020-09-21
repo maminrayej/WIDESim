@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static misty.parse.Helper.getOrDefault;
@@ -40,16 +41,16 @@ public class Parser {
         JSONObject root = new JSONObject(workflowsJsonContent);
 
         return root.getJSONArray(Tags.WORKFLOWS).toList().stream().map(workflow -> {
-            JSONObject workflowObj = (JSONObject) workflow;
+            JSONObject workflowObj = new JSONObject((Map<?, ?>)workflow);
             String workflowId = workflowObj.getString(Tags.WORKFLOW_ID);
 
             List<Task> tasks = workflowObj.getJSONArray(Tags.TASKS).toList().stream().map(task -> {
-                JSONObject taskObj = (JSONObject) task;
+                JSONObject taskObj = new JSONObject((Map<?, ?>)task);
                 int taskId = taskObj.getInt(Tags.TASK_ID);
                 long runtime = taskObj.getLong(Tags.RUNTIME);
 
                 List<Data> inputFiles = taskObj.getJSONArray(Tags.INPUT_FILES).toList().stream().map(file -> {
-                    JSONObject fileObj = (JSONObject) file;
+                    JSONObject fileObj = new JSONObject((Map<?, ?>)file);
                     int srcTaskId = fileObj.getInt(Tags.FROM_TASK);
                     long size = fileObj.getLong(Tags.SIZE);
 
@@ -64,7 +65,7 @@ public class Parser {
                         .getJSONArray(Tags.CHILDREN)
                         .toList()
                         .stream()
-                        .map(childId -> ((JSONObject) childId).getString(Tags.TASK_ID))
+                        .map(childId -> (new JSONObject((Map<?, ?>)childId)).getString(Tags.TASK_ID))
                         .collect(Collectors.toList());
 
                 double deadLine = getOrDefault(taskObj, Tags.DEAD_LINE, Double.MAX_VALUE, Double.class);
