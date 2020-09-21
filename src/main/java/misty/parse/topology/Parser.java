@@ -52,7 +52,7 @@ public class Parser {
         // Parse fog devices
         List<FogDevice> fogDevices = root.getJSONArray(Tags.FogDevice.FOG_DEVICES).toList().stream().map(fogDevice -> {
             // Parse fog device attributes
-            JSONObject fogDeviceObj = (JSONObject) fogDevice;
+            JSONObject fogDeviceObj = new JSONObject(fogDevice);
             String deviceId = fogDeviceObj.getString(Tags.FogDevice.DEVICE_ID);
             String arch = getOrDefault(fogDeviceObj, Tags.FogDevice.ARCH, Default.FOG_DEVICE.ARCH.toString(), String.class);
             String os = getOrDefault(fogDeviceObj, Tags.FogDevice.OS, Default.FOG_DEVICE.OS.toString(), String.class);
@@ -74,7 +74,7 @@ public class Parser {
             // Parse hosts
             List<FogHost> hosts = fogDeviceObj.getJSONArray(Tags.FogDevice.HOSTS).toList().stream().map(host -> {
                 // Parse host attributes
-                JSONObject hostObj = (JSONObject) host;
+                JSONObject hostObj = new JSONObject(host);
                 int hostId = hostObj.getInt(Tags.Host.HOST_ID);
                 long storageCap = getOrDefault(hostObj, Tags.Host.STORAGE_CAP, Default.HOST.STORAGE_CAP, Long.class);
                 int ram = getOrDefault(hostObj, Tags.Host.RAM, Default.HOST.RAM, Integer.class);
@@ -89,7 +89,7 @@ public class Parser {
                 // Parse vms
                 List<Vm> vms = hostObj.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
                     // Parse vm attributes
-                    JSONObject vmObj = (JSONObject) vm;
+                    JSONObject vmObj = new JSONObject(vm);
                     int vmId = vmObj.getInt(Tags.Vm.VM_ID);
                     long size = getOrDefault(vmObj, Tags.Vm.SIZE, Default.VM.SIZE, Long.class);
                     double mips = getOrDefault(vmObj, Tags.Vm.MIPS, Default.VM.MIPS, Double.class);
@@ -110,7 +110,7 @@ public class Parser {
                 // Parse pes
                 List<Pe> pes = hostObj.getJSONArray(Tags.Host.PES).toList().stream().map(pe -> {
                     // Parse pe attributes
-                    JSONObject peObj = (JSONObject) pe;
+                    JSONObject peObj = new JSONObject(pe);
                     int peId = peObj.getInt(Tags.Pe.PE_ID);
                     double mips = getOrDefault(peObj, Tags.Pe.MIPS, Default.PE.MIPS, Double.class);
                     String peProvisioning = getOrDefault(peObj, Tags.Pe.PE_PROVISIONING, Default.PE.PE_PROVISIONING.toString(), String.class);

@@ -2,6 +2,7 @@ package parser;
 
 import misty.parse.topology.Parser;
 import org.apache.commons.lang3.reflect.FieldUtils;
+import org.json.JSONException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -49,6 +50,25 @@ public class TopologyParserTest {
             Object content = FieldUtils.readField(topologyParser, "topologyJsonContent", true);
 
             assertEquals("test content 1\ntest content 2", content.toString());
+        }
+    }
+
+    @Nested
+    public class FogDevice {
+        @Test
+        @DisplayName("empty topology")
+        void parseEmptyTopology() throws IOException, IllegalAccessException {
+            Parser parser = new Parser(new File("src/test/my_res/parser/topology/empty.json"));
+
+            assertThrows(JSONException.class, parser::parse);
+        }
+
+        @Test
+        @DisplayName("no fog device id")
+        void parseFileWithNoDeviceId() throws IOException, IllegalAccessException {
+            Parser parser = new Parser(new File("src/test/my_res/parser/topology/no_device_id.json"));
+
+            assertThrows(JSONException.class, parser::parse);
         }
     }
 }
