@@ -62,14 +62,14 @@ public class Parser {
                     .stream()
                     .map(obj -> ((JSONObject) obj).getString(Tags.FogDevice.NEIGHBOR_ID))
                     .collect(Collectors.toList());
-            double timeZone = getOrDefault(fogDeviceObj, Tags.FogDevice.TIME_ZONE, Default.FOG_DEVICE.TIME_ZONE, double.class);
-            double costPerSec = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_SEC, Default.FOG_DEVICE.COST_PER_SEC, double.class);
-            double costPerStorage = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_STORAGE, Default.FOG_DEVICE.COST_PER_STORAGE, double.class);
-            double costPerMemory = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_MEM, Default.FOG_DEVICE.COST_PER_MEM, double.class);
-            double costPerBw = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_BW, Default.FOG_DEVICE.COST_PER_BW, double.class);
+            double timeZone = getOrDefault(fogDeviceObj, Tags.FogDevice.TIME_ZONE, Default.FOG_DEVICE.TIME_ZONE, Double.class);
+            double costPerSec = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_SEC, Default.FOG_DEVICE.COST_PER_SEC, Double.class);
+            double costPerStorage = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_STORAGE, Default.FOG_DEVICE.COST_PER_STORAGE, Double.class);
+            double costPerMemory = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_MEM, Default.FOG_DEVICE.COST_PER_MEM, Double.class);
+            double costPerBw = getOrDefault(fogDeviceObj, Tags.FogDevice.COST_PER_BW, Default.FOG_DEVICE.COST_PER_BW, Double.class);
             String vmAllocationPolicy = getOrDefault(fogDeviceObj, Tags.FogDevice.VM_ALLOC_POLICY, Default.FOG_DEVICE.VM_ALLOC_POLICY.toString(), String.class);
             String vmm = getOrDefault(fogDeviceObj, Tags.FogDevice.VMM, Default.FOG_DEVICE.VMM.toString(), String.class);
-            double schedulingInterval = getOrDefault(fogDeviceObj, Tags.FogDevice.SCHEDULE_INTERVAL, Default.FOG_DEVICE.SCHEDULING_INTERVAL, double.class);
+            double schedulingInterval = getOrDefault(fogDeviceObj, Tags.FogDevice.SCHEDULE_INTERVAL, Default.FOG_DEVICE.SCHEDULING_INTERVAL, Double.class);
 
             // Parse hosts
             List<FogHost> hosts = fogDeviceObj.getJSONArray(Tags.FogDevice.HOSTS).toList().stream().map(host -> {
@@ -77,14 +77,14 @@ public class Parser {
                 JSONObject hostObj = (JSONObject) host;
                 int hostId = hostObj.getInt(Tags.Host.HOST_ID);
                 long storageCap = getOrDefault(hostObj, Tags.Host.STORAGE_CAP, Default.HOST.STORAGE_CAP, Long.class);
-                int ram = getOrDefault(hostObj, Tags.Host.RAM, Default.HOST.RAM, int.class);
-                long bw = getOrDefault(hostObj, Tags.Host.BW, Default.HOST.BW, long.class);
+                int ram = getOrDefault(hostObj, Tags.Host.RAM, Default.HOST.RAM, Integer.class);
+                long bw = getOrDefault(hostObj, Tags.Host.BW, Default.HOST.BW, Long.class);
                 String ramProvisioning = getOrDefault(hostObj, Tags.Host.RAM_PROV, Default.HOST.RAM_PROVISIONER.toString(), String.class);
                 String bwProvisioning = getOrDefault(hostObj, Tags.Host.BW_PROV, Default.HOST.BW_PROVISIONER.toString(), String.class);
                 String vmScheduler = getOrDefault(hostObj, Tags.Host.VM_SCHEDULER, Default.HOST.VM_SCHEDULER.toString(), String.class);
                 String powerModel = getOrDefault(hostObj, Tags.Host.POWER_MODEL, Default.HOST.POWER_MODEL.toString(), String.class);
-                double maxPower = getOrDefault(hostObj, Tags.Host.MAX_POWER, Default.HOST.MAX_POWER, double.class);
-                double idlePower = getOrDefault(hostObj, Tags.Host.IDLE_POWER, Default.HOST.IDLE_POWER, double.class);
+                double maxPower = getOrDefault(hostObj, Tags.Host.MAX_POWER, Default.HOST.MAX_POWER, Double.class);
+                double idlePower = getOrDefault(hostObj, Tags.Host.IDLE_POWER, Default.HOST.IDLE_POWER, Double.class);
 
                 // Parse vms
                 List<Vm> vms = hostObj.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
@@ -92,10 +92,10 @@ public class Parser {
                     JSONObject vmObj = (JSONObject) vm;
                     int vmId = vmObj.getInt(Tags.Vm.VM_ID);
                     long size = getOrDefault(vmObj, Tags.Vm.SIZE, Default.VM.SIZE, Long.class);
-                    double mips = getOrDefault(vmObj, Tags.Vm.MIPS, Default.VM.MIPS, double.class);
-                    int numOfPes = getOrDefault(vmObj, Tags.Vm.NUM_OF_PES, Default.VM.NUM_OF_PES, int.class);
-                    int vmRam = getOrDefault(vmObj, Tags.Vm.RAM, Default.VM.RAM, int.class);
-                    long vmBw = getOrDefault(vmObj, Tags.Vm.BW, Default.VM.BW, long.class);
+                    double mips = getOrDefault(vmObj, Tags.Vm.MIPS, Default.VM.MIPS, Double.class);
+                    int numOfPes = getOrDefault(vmObj, Tags.Vm.NUM_OF_PES, Default.VM.NUM_OF_PES, Integer.class);
+                    int vmRam = getOrDefault(vmObj, Tags.Vm.RAM, Default.VM.RAM, Integer.class);
+                    long vmBw = getOrDefault(vmObj, Tags.Vm.BW, Default.VM.BW, Long.class);
                     String vmVmm = getOrDefault(vmObj, Tags.Vm.VMM, Default.VM.VMM.toString(), String.class);
                     String cloudletScheduler = getOrDefault(vmObj, Tags.Vm.CLOUDLET_SCHEDULER, Default.VM.CLOUDLET_SCHEDULER.toString(), String.class);
 
@@ -112,7 +112,7 @@ public class Parser {
                     // Parse pe attributes
                     JSONObject peObj = (JSONObject) pe;
                     int peId = peObj.getInt(Tags.Pe.PE_ID);
-                    double mips = getOrDefault(peObj, Tags.Pe.MIPS, Default.PE.MIPS, double.class);
+                    double mips = getOrDefault(peObj, Tags.Pe.MIPS, Default.PE.MIPS, Double.class);
                     String peProvisioning = getOrDefault(peObj, Tags.Pe.PE_PROVISIONING, Default.PE.PE_PROVISIONING.toString(), String.class);
 
                     return new Pe(

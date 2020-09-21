@@ -67,12 +67,12 @@ public class Parser {
                         .map(childId -> ((JSONObject) childId).getString(Tags.TASK_ID))
                         .collect(Collectors.toList());
 
-                double deadLine = getOrDefault(taskObj, Tags.DEAD_LINE, Double.MAX_VALUE, double.class);
+                double deadLine = getOrDefault(taskObj, Tags.DEAD_LINE, Double.MAX_VALUE, Double.class);
 
                 String cpuUtilModel = getOrDefault(taskObj, Tags.CPU_UTIL, Default.TASK.CPU_UTIL_MODEL.toString(), String.class);
                 String ramUtilModel = getOrDefault(taskObj, Tags.RAM_UTIL, Default.TASK.RAM_UTIL_MODEL.toString(), String.class);
                 String bwUtilModel = getOrDefault(taskObj, Tags.BW_UTIL_MODEL, Default.TASK.BW_UTIL_MODEL.toString(), String.class);
-                int pes = getOrDefault(taskObj, Tags.NUM_OF_PES, Default.TASK.NUM_OF_PES, int.class);
+                int pes = getOrDefault(taskObj, Tags.NUM_OF_PES, Default.TASK.NUM_OF_PES, Integer.class);
 
                 return new Task(
                         taskId, runtime, pes, inputFileSize, outputFileSize,
