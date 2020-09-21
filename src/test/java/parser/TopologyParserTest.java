@@ -1,9 +1,11 @@
 package parser;
 
+import misty.core.Enums;
 import misty.entity.FogDevice;
 import misty.parse.topology.Parser;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.core.CloudSim;
 import org.jgrapht.alg.util.Pair;
 import org.json.JSONException;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -110,10 +113,12 @@ public class TopologyParserTest {
         @Test
         @DisplayName("minimal valid")
         void parseMinimalValidTopology() throws IOException, IllegalAccessException {
+            CloudSim.init(1, Calendar.getInstance(), false);
+
             Parser parser = new Parser(new File("src/test/my_res/parser/topology/minimal_valid.json"));
 
             Pair<List<FogDevice>, List<Vm>> result = parser.parse();
-//
+
 //            List<FogDevice> fogDevices = result.getFirst();
 //
 //            assertEquals(0, fogDevices.stream().filter(fogDevice -> {

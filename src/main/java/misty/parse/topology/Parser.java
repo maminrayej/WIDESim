@@ -77,6 +77,7 @@ public class Parser {
                     .getJSONArray(Tags.FogDevice.NEIGHBORS)
                     .toList()
                     .stream()
+                    .filter(obj -> !(new JSONObject((Map<?,?>)obj)).isEmpty())
                     .map(obj -> (new JSONObject((Map<?, ?>)obj)).getString(Tags.FogDevice.NEIGHBOR_ID))
                     .collect(Collectors.toList());
             double timeZone = getOrDefault(fogDeviceObj, Tags.FogDevice.TIME_ZONE, Default.FOG_DEVICE.TIME_ZONE, Double.class);
@@ -164,6 +165,7 @@ public class Parser {
                         neighborIds
                 );
             } catch (Exception e) {
+                e.printStackTrace();
                 throw new IllegalArgumentException(e.getMessage());
             }
         }).collect(Collectors.toList());

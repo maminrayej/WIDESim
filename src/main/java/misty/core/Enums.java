@@ -15,6 +15,17 @@ public class Enums {
         throw new UnsupportedOperationException("Can not instantiate class: Enums");
     }
 
+    public static <T extends Enum<T>> T enumOf(Class<T> enumClass, String type) {
+        T[] enumValues = enumClass.getEnumConstants();
+
+        for (T mEnum : enumValues)
+            if (mEnum.toString().equals(type))
+                return mEnum;
+
+        throw new IllegalArgumentException(String.format("%s is not a valid enum type of %s", type, enumClass.toString()));
+    }
+
+
     public enum ArchEnum {
         X86_64("x86_64");
 
@@ -63,7 +74,7 @@ public class Enums {
         }
 
         public static VmAllocationPolicy getPolicy(String policy, List<FogHost> hosts) {
-            VmAllocPolicyEnum policyEnum = VmAllocPolicyEnum.valueOf(policy);
+            VmAllocPolicyEnum policyEnum = enumOf(VmAllocPolicyEnum.class, policy);
 
             if (policyEnum == SIMPLE) {
                 return new VmAllocationPolicySimple(hosts);
@@ -95,7 +106,7 @@ public class Enums {
         }
 
         public static int getPolicy(String policy) {
-            AllocPolicyEnum policyEnum = AllocPolicyEnum.valueOf(policy);
+            AllocPolicyEnum policyEnum = enumOf(AllocPolicyEnum.class, policy);
 
             switch (policyEnum) {
                 case SPACE_SHARED:
@@ -151,7 +162,7 @@ public class Enums {
         }
 
         public static VmScheduler getScheduler(String scheduler, List<Pe> pes) {
-            VmSchedulerEnum schedulerEnum = VmSchedulerEnum.valueOf(scheduler);
+            VmSchedulerEnum schedulerEnum = enumOf(VmSchedulerEnum.class, scheduler);
 
             switch (schedulerEnum) {
                 case SPACE_SHARED:
@@ -184,7 +195,7 @@ public class Enums {
         }
 
         public static RamProvisioner getProvisioner(String provisioner, int ram) {
-            RamProvisionerEnum provisionerEnum = RamProvisionerEnum.valueOf(provisioner);
+            RamProvisionerEnum provisionerEnum = enumOf(RamProvisionerEnum.class, provisioner);
 
             if (provisionerEnum == SIMPLE) {
                 return new RamProvisionerSimple(ram);
@@ -213,7 +224,7 @@ public class Enums {
         }
 
         public static BwProvisioner getProvisioner(String provisioner, long bw) {
-            BwProvisionerEnum provisionerEnum = BwProvisionerEnum.valueOf(provisioner);
+            BwProvisionerEnum provisionerEnum = enumOf(BwProvisionerEnum.class, provisioner);
 
             if (provisionerEnum == SIMPLE) {
                 return new BwProvisionerSimple(bw);
@@ -242,7 +253,7 @@ public class Enums {
         }
 
         public static PeProvisioner getProvisioner(String provisioner, double mips) {
-            PeProvisionerEnum provisionerEnum = PeProvisionerEnum.valueOf(provisioner);
+            PeProvisionerEnum provisionerEnum = enumOf(PeProvisionerEnum.class, provisioner);
 
             if (provisionerEnum == SIMPLE) {
                 return new PeProvisionerSimple(mips);
@@ -273,7 +284,7 @@ public class Enums {
         }
 
         public static CloudletScheduler getScheduler(String scheduler, double mips, int numOfPes) {
-            CloudletSchedulerEnum schedulerEnum = CloudletSchedulerEnum.valueOf(scheduler);
+            CloudletSchedulerEnum schedulerEnum = enumOf(CloudletSchedulerEnum.class, scheduler);
 
             switch (schedulerEnum) {
                 case SPACE_SHARED:
@@ -307,7 +318,7 @@ public class Enums {
         }
 
         public static PowerModel getPowerModel(String powerModel, double maxPower, double staticPowerPercent) {
-            PowerModelEnum powerModelEnum = PowerModelEnum.valueOf(powerModel);
+            PowerModelEnum powerModelEnum = enumOf(PowerModelEnum.class, powerModel);
 
             switch (powerModelEnum) {
                 case CUBIC:
@@ -348,7 +359,7 @@ public class Enums {
         }
 
         public static UtilizationModel getUtilizationModel(String utilizationModel) {
-            UtilizationModelEnum utilizationModelEnum = UtilizationModelEnum.valueOf(utilizationModel);
+            UtilizationModelEnum utilizationModelEnum = enumOf(UtilizationModelEnum.class, utilizationModel);
 
             switch (utilizationModelEnum) {
                 case STOCHASTIC:
