@@ -2,10 +2,16 @@ package parser;
 
 import misty.core.Enums;
 import misty.entity.FogDevice;
+import misty.entity.FogHost;
+import misty.parse.Default;
 import misty.parse.topology.Parser;
 import org.apache.commons.lang3.reflect.FieldUtils;
+import org.cloudbus.cloudsim.Datacenter;
+import org.cloudbus.cloudsim.DatacenterCharacteristics;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.power.models.PowerModel;
+import org.cloudbus.cloudsim.power.models.PowerModelLinear;
 import org.jgrapht.alg.util.Pair;
 import org.json.JSONException;
 import org.junit.jupiter.api.DisplayName;
@@ -14,8 +20,13 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -119,11 +130,91 @@ public class TopologyParserTest {
 
             Pair<List<FogDevice>, List<Vm>> result = parser.parse();
 
-//            List<FogDevice> fogDevices = result.getFirst();
-//
-//            assertEquals(0, fogDevices.stream().filter(fogDevice -> {
-//                return false;
-//            }).count());
+            List<FogDevice> fogDevices = result.getFirst();
+
+            AtomicInteger fogDeviceNum = new AtomicInteger(-1);
+
+            // all fog devices must pass the validation filter
+            assertEquals(fogDevices.size(), fogDevices.stream().filter(fogDevice -> {
+                fogDeviceNum.getAndIncrement();
+                return isDefaultFogDeviceValid(fogDevice, "device_" + fogDeviceNum);
+            }).count());
+        }
+
+        private boolean isDefaultFogDeviceValid(FogDevice fogDevice, String fogDeviceId) {
+            try {
+                // use reflection to get access to datacenterCharacteristics
+                Method getDatacenterCharacteristics = Datacenter.class.getDeclaredMethod("getCharacteristics");
+                getDatacenterCharacteristics.setAccessible(true);
+                DatacenterCharacteristics datacenterCharacteristics = (DatacenterCharacteristics) getDatacenterCharacteristics.invoke(fogDevice);
+
+                // extract datacenter characteristics
+                String arch = FieldUtils.readDeclaredField(datacenterCharacteristics, "architecture", true).toString();
+                String os = FieldUtils.readDeclaredField(datacenterCharacteristics, "os", true).toString();
+                String vmm = datacenterCharacteristics.getVmm();
+                double timeZone = (double) FieldUtils.readDeclaredField(datacenterCharacteristics, "timeZone", true);
+                double costPerSec = datacenterCharacteristics.getCostPerSecond();
+                double costPerMem = datacenterCharacteristics.getCostPerMem();
+                double costPerStorage = datacenterCharacteristics.getCostPerStorage();
+                double costPerBw = datacenterCharacteristics.getCostPerBw();
+                var vmAllocationPolicyClass = fogDevice.getVmAllocationPolicy().getClass();
+                double schedulingInterval = (double) FieldUtils.readField(fogDevice, "schedulingInterval", true);
+
+                AtomicInteger hostId = new AtomicInteger(-1);
+                boolean areHostsValid = fogDevice.getHosts().stream().allMatch(fogHost -> {
+                    hostId.getAndIncrement();
+                    return isDefaultHostValid(fogHost, hostId.get());
+                });
+
+                // make sure everything is set to default
+                return fogDevice.getName().equals(fogDeviceId) &&
+                        arch.equals(Default.FOG_DEVICE.ARCH.toString()) &&
+                        os.equals(Default.FOG_DEVICE.OS.toString()) &&
+                        vmm.equals(Default.FOG_DEVICE.VMM.toString()) &&
+                        timeZone == Default.FOG_DEVICE.TIME_ZONE &&
+                        costPerSec == Default.FOG_DEVICE.COST_PER_SEC &&
+                        costPerMem == Default.FOG_DEVICE.COST_PER_MEM &&
+                        costPerStorage == Default.FOG_DEVICE.COST_PER_STORAGE &&
+                        costPerBw == Default.FOG_DEVICE.COST_PER_BW &&
+                        vmAllocationPolicyClass == Enums.VmAllocPolicyEnum.getPolicy(Default.FOG_DEVICE.VM_ALLOC_POLICY.toString(), new ArrayList<>()).getClass() &&
+                        schedulingInterval == Default.FOG_DEVICE.SCHEDULING_INTERVAL &&
+                        areHostsValid;
+
+            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+        private boolean isDefaultHostValid(FogHost host, int hostId) {
+            long storageCap = host.getStorage();
+            int ram = host.getRam();
+            long bw = host.getBw();
+            var ramProvisioningClass = host.getRamProvisioner().getClass();
+            var bwProvisioningClass = host.getBwProvisioner().getClass();
+            var vmSchedulerClass = host.getVmScheduler().getClass();
+            var powerModelClass = host.getPowerModel().getClass();
+            double maxPower;
+            double staticPower;
+
+            try {
+                maxPower = (double) FieldUtils.readField(host.getPowerModel(), "maxPower", true);
+                staticPower = (double) FieldUtils.readField(host.getPowerModel(), "staticPower", true);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return false;
+            }
+
+            return host.getId() == hostId &&
+                    storageCap == Default.HOST.STORAGE_CAP &&
+                    ram == Default.HOST.RAM &&
+                    bw == Default.HOST.BW &&
+                    ramProvisioningClass == Enums.RamProvisionerEnum.getProvisioner(Default.HOST.RAM_PROVISIONER.toString(), 1).getClass() &&
+                    bwProvisioningClass == Enums.BwProvisionerEnum.getProvisioner(Default.HOST.BW_PROVISIONER.toString(), 1).getClass() &&
+                    vmSchedulerClass == Enums.VmSchedulerEnum.getScheduler(Default.HOST.VM_SCHEDULER.toString(), new ArrayList<>()).getClass() &&
+                    powerModelClass == Enums.PowerModelEnum.getPowerModel(Default.HOST.POWER_MODEL.toString(), 2, 1).getClass() &&
+                    maxPower == Default.HOST.MAX_POWER &&
+                    staticPower / maxPower == Default.HOST.STATIC_POWER_PERCENT;
         }
     }
 }

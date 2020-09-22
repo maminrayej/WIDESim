@@ -32,7 +32,7 @@ public class Default {
         public static final BwProvisionerEnum BW_PROVISIONER = BwProvisionerEnum.SIMPLE;
         public static final PowerModelEnum POWER_MODEL = PowerModelEnum.LINEAR;
         public static final double MAX_POWER = Constants.MetricUnit.KILO;
-        public static final double IDLE_POWER = 1;
+        public static final double STATIC_POWER_PERCENT = 0.5;
     }
 
     public static class VM {

@@ -15,7 +15,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -102,7 +101,7 @@ public class Parser {
                 String vmScheduler = getOrDefault(hostObj, Tags.Host.VM_SCHEDULER, Default.HOST.VM_SCHEDULER.toString(), String.class);
                 String powerModel = getOrDefault(hostObj, Tags.Host.POWER_MODEL, Default.HOST.POWER_MODEL.toString(), String.class);
                 double maxPower = getOrDefault(hostObj, Tags.Host.MAX_POWER, Default.HOST.MAX_POWER, Double.class);
-                double idlePower = getOrDefault(hostObj, Tags.Host.IDLE_POWER, Default.HOST.IDLE_POWER, Double.class);
+                double staticPowerPercent = getOrDefault(hostObj, Tags.Host.STATIC_POWER_PERCENT, Default.HOST.STATIC_POWER_PERCENT, Double.class);
 
                 // Parse vms
                 List<Vm> vms = hostObj.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
@@ -146,7 +145,7 @@ public class Parser {
                         storageCap,
                         pes,
                         VmSchedulerEnum.getScheduler(vmScheduler, pes),
-                        PowerModelEnum.getPowerModel(powerModel, maxPower, idlePower)
+                        PowerModelEnum.getPowerModel(powerModel, maxPower, staticPowerPercent)
                 );
             }).collect(Collectors.toList());
 
@@ -202,7 +201,7 @@ public class Parser {
             public static final String VM_SCHEDULER = "vm_scheduler";
             public static final String POWER_MODEL = "power_model";
             public static final String MAX_POWER = "max_power";
-            public static final String IDLE_POWER = "idle_power";
+            public static final String STATIC_POWER_PERCENT = "static_power_percent";
             public static final String VMS = "vms";
             public static final String PES = "pes";
         }
