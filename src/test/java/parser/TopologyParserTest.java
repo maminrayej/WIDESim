@@ -41,13 +41,13 @@ public class TopologyParserTest {
             });
         }
 
-        @Test
-        @DisplayName("can not read file")
-        void canNotReadTopologyFile() {
-            assertThrows(IllegalAccessException.class, () -> {
-                new Parser(new File("src/test/my_res/parser/can_not_read_file.txt"));
-            });
-        }
+//        @Test
+//        @DisplayName("can not read file")
+//        void canNotReadTopologyFile() {
+//            assertThrows(IllegalAccessException.class, () -> {
+//                new Parser(new File("src/test/my_res/parser/can_not_read_file.txt"));
+//            });
+//        }
 
         @Test
         @DisplayName("read file successfully")

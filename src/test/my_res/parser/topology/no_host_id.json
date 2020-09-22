@@ -1,0 +1,7 @@
+{
+  "fog_devices": [{
+    "device_id": "device_0",
+    "neighbors": [{}],
+    "hosts": [{}]
+  }]
+}
