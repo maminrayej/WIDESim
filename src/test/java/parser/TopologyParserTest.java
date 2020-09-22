@@ -45,14 +45,14 @@ public class TopologyParserTest {
 //        @DisplayName("can not read file")
 //        void canNotReadTopologyFile() {
 //            assertThrows(IllegalAccessException.class, () -> {
-//                new Parser(new File("src/test/my_res/parser/can_not_read_file.txt"));
+//                new Parser(new File("src/test/resources/parser/can_not_read_file.txt"));
 //            });
 //        }
 
         @Test
         @DisplayName("read file successfully")
         void readFileSuccessfully() throws IOException, IllegalAccessException, NoSuchFieldException {
-            Parser topologyParser = new Parser(new File("src/test/my_res/parser/can_read_file.txt"));
+            Parser topologyParser = new Parser(new File("src/test/resources/parser/can_read_file.txt"));
 
             Object content = FieldUtils.readField(topologyParser, "topologyJsonContent", true);
 
@@ -65,7 +65,7 @@ public class TopologyParserTest {
         @Test
         @DisplayName("empty topology")
         void parseEmptyTopology() throws IOException, IllegalAccessException {
-            Parser parser = new Parser(new File("src/test/my_res/parser/topology/empty.json"));
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/empty.json"));
 
             assertThrows(JSONException.class, parser::parse);
         }
@@ -73,7 +73,7 @@ public class TopologyParserTest {
         @Test
         @DisplayName("no fog device id")
         void parseFileWithNoDeviceId() throws IOException, IllegalAccessException {
-            Parser parser = new Parser(new File("src/test/my_res/parser/topology/no_device_id.json"));
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/no_device_id.json"));
 
             assertThrows(JSONException.class, parser::parse);
         }
@@ -81,7 +81,7 @@ public class TopologyParserTest {
         @Test
         @DisplayName("no neighbors array")
         void parseFileWithNoNeighborsList() throws IOException, IllegalAccessException {
-            Parser parser = new Parser(new File("src/test/my_res/parser/topology/no_device_id.json"));
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/no_device_id.json"));
 
             assertThrows(JSONException.class, parser::parse);
         }
@@ -89,7 +89,7 @@ public class TopologyParserTest {
         @Test
         @DisplayName("no host id")
         void parseFileWithNoHostId() throws IOException, IllegalAccessException {
-            Parser parser = new Parser(new File("src/test/my_res/parser/topology/no_host_id.json"));
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/no_host_id.json"));
 
             assertThrows(JSONException.class, parser::parse);
         }
@@ -97,7 +97,7 @@ public class TopologyParserTest {
         @Test
         @DisplayName("no vm id")
         void parseFileWithNoVmId() throws IOException, IllegalAccessException {
-            Parser parser = new Parser(new File("src/test/my_res/parser/topology/no_vm_id.json"));
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/no_vm_id.json"));
 
             assertThrows(JSONException.class, parser::parse);
         }
@@ -105,7 +105,7 @@ public class TopologyParserTest {
         @Test
         @DisplayName("no pe id")
         void parseFileWithNoPeId() throws IOException, IllegalAccessException {
-            Parser parser = new Parser(new File("src/test/my_res/parser/topology/no_pe_id.json"));
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/no_pe_id.json"));
 
             assertThrows(JSONException.class, parser::parse);
         }
@@ -115,7 +115,7 @@ public class TopologyParserTest {
         void parseMinimalValidTopology() throws IOException, IllegalAccessException {
             CloudSim.init(1, Calendar.getInstance(), false);
 
-            Parser parser = new Parser(new File("src/test/my_res/parser/topology/minimal_valid.json"));
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/minimal_valid.json"));
 
             Pair<List<FogDevice>, List<Vm>> result = parser.parse();
 
