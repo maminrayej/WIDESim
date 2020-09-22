@@ -37,17 +37,13 @@ public class TopologyParserTest {
         @Test
         @DisplayName("file does not exist")
         void topologyFileDoesNotExist() {
-            assertThrows(IOException.class, () -> {
-                new Parser(new File("InvalidFile.json"));
-            });
+            assertThrows(IOException.class, () -> new Parser(new File("InvalidFile.json")));
         }
 
         @Test
         @DisplayName("path is a directory")
         void topologyFileIsDir() {
-            assertThrows(IllegalArgumentException.class, () -> {
-                new Parser(new File("./"));
-            });
+            assertThrows(IllegalArgumentException.class, () -> new Parser(new File("./")));
         }
 
 //        @Test
@@ -60,7 +56,7 @@ public class TopologyParserTest {
 
         @Test
         @DisplayName("read file successfully")
-        void readFileSuccessfully() throws IOException, IllegalAccessException, NoSuchFieldException {
+        void readFileSuccessfully() throws IOException, IllegalAccessException {
             Parser topologyParser = new Parser(new File("src/test/resources/parser/can_read_file.txt"));
 
             Object content = FieldUtils.readField(topologyParser, "topologyJsonContent", true);
@@ -125,6 +121,33 @@ public class TopologyParserTest {
             CloudSim.init(1, Calendar.getInstance(), false);
 
             Parser parser = new Parser(new File("src/test/resources/parser/topology/minimal_valid.json"));
+
+            Pair<List<FogDevice>, List<Vm>> result = parser.parse();
+
+            List<FogDevice> fogDevices = result.getFirst();
+            List<Vm> vms = result.getSecond();
+
+            // all fog devices must pass the validation filter
+            AtomicInteger fogDeviceNum = new AtomicInteger(-1);
+            assertEquals(fogDevices.size(), fogDevices.stream().filter(fogDevice -> {
+                fogDeviceNum.getAndIncrement();
+                return isDefaultFogDeviceValid(fogDevice, "device_" + fogDeviceNum);
+            }).count());
+
+            // all vms must pass the filter
+            AtomicInteger vmId = new AtomicInteger(-1);
+            assertEquals(vms.size(), vms.stream().filter(vm -> {
+                vmId.getAndIncrement();
+                return isDefaultVmValid(vm, vmId.get());
+            }).count());
+        }
+
+        @Test
+        @DisplayName("valid")
+        void parseValidTopology() throws IOException, IllegalAccessException {
+            CloudSim.init(1, Calendar.getInstance(), false);
+
+            Parser parser = new Parser(new File("src/test/resources/parser/topology/valid.json"));
 
             Pair<List<FogDevice>, List<Vm>> result = parser.parse();
 
