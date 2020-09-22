@@ -8,10 +8,9 @@ import misty.parse.topology.Parser;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.cloudbus.cloudsim.Datacenter;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
+import org.cloudbus.cloudsim.Pe;
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
-import org.cloudbus.cloudsim.power.models.PowerModel;
-import org.cloudbus.cloudsim.power.models.PowerModelLinear;
 import org.jgrapht.alg.util.Pair;
 import org.json.JSONException;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +19,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -131,13 +129,20 @@ public class TopologyParserTest {
             Pair<List<FogDevice>, List<Vm>> result = parser.parse();
 
             List<FogDevice> fogDevices = result.getFirst();
-
-            AtomicInteger fogDeviceNum = new AtomicInteger(-1);
+            List<Vm> vms = result.getSecond();
 
             // all fog devices must pass the validation filter
+            AtomicInteger fogDeviceNum = new AtomicInteger(-1);
             assertEquals(fogDevices.size(), fogDevices.stream().filter(fogDevice -> {
                 fogDeviceNum.getAndIncrement();
                 return isDefaultFogDeviceValid(fogDevice, "device_" + fogDeviceNum);
+            }).count());
+
+            // all vms must pass the filter
+            AtomicInteger vmId = new AtomicInteger(-1);
+            assertEquals(vms.size(), vms.stream().filter(vm -> {
+                vmId.getAndIncrement();
+                return isDefaultVmValid(vm, vmId.get());
             }).count());
         }
 
@@ -205,6 +210,12 @@ public class TopologyParserTest {
                 return false;
             }
 
+            AtomicInteger peId = new AtomicInteger(-1);
+            boolean arePesValid = host.getPeList().stream().allMatch(pe -> {
+                peId.getAndIncrement();
+                return isDefaultPeValid(pe, peId.get());
+            });
+
             return host.getId() == hostId &&
                     storageCap == Default.HOST.STORAGE_CAP &&
                     ram == Default.HOST.RAM &&
@@ -214,7 +225,25 @@ public class TopologyParserTest {
                     vmSchedulerClass == Enums.VmSchedulerEnum.getScheduler(Default.HOST.VM_SCHEDULER.toString(), new ArrayList<>()).getClass() &&
                     powerModelClass == Enums.PowerModelEnum.getPowerModel(Default.HOST.POWER_MODEL.toString(), 2, 1).getClass() &&
                     maxPower == Default.HOST.MAX_POWER &&
-                    staticPower / maxPower == Default.HOST.STATIC_POWER_PERCENT;
+                    staticPower / maxPower == Default.HOST.STATIC_POWER_PERCENT &&
+                    arePesValid;
+        }
+
+        private boolean isDefaultPeValid(Pe pe, int peId) {
+            return pe.getId() == peId &&
+                    pe.getMips() == Default.PE.MIPS &&
+                    pe.getPeProvisioner().getClass() == Enums.PeProvisionerEnum.getProvisioner(Default.PE.PE_PROVISIONING.toString(), 1).getClass();
+        }
+
+        private boolean isDefaultVmValid(Vm vm, int vmId) {
+            return vm.getId() == vmId &&
+                    vm.getSize() == Default.VM.SIZE &&
+                    vm.getMips() == Default.VM.MIPS &&
+                    vm.getNumberOfPes() == Default.VM.NUM_OF_PES &&
+                    vm.getRam() == Default.VM.RAM &&
+                    vm.getBw() == Default.VM.BW &&
+                    vm.getVmm().equals(Default.VM.VMM.toString()) &&
+                    vm.getCloudletScheduler().getClass() == Enums.CloudletSchedulerEnum.getScheduler(Default.VM.CLOUDLET_SCHEDULER.toString(), 1, 1).getClass();
         }
     }
 }
