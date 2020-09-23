@@ -15,20 +15,20 @@ public class PostProcessor {
             analyzer.addVertex(task.getTaskId());
 
         for (Task task : workflow.getTasks())
-            for (String childId : task.getChildren())
+            for (int childId : task.getChildren())
                 analyzer.addEdge(task.getTaskId(), childId);
 
         return analyzer;
     }
 
     public static boolean isWorkflowValid(Workflow workflow) {
-        HashSet<String> taskIds = new HashSet<>();
+        HashSet<Integer> taskIds = new HashSet<>();
 
         for (Task task : workflow.getTasks())
             taskIds.add(task.getTaskId());
 
         for (Task task : workflow.getTasks())
-            for (String childId : task.getChildren())
+            for (int childId : task.getChildren())
                 if (!taskIds.contains(childId))
                     return false;
 

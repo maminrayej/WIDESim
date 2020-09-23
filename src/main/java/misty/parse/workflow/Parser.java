@@ -61,13 +61,14 @@ public class Parser {
 
                 long outputFileSize = taskObj.getLong(Tags.OUTPUT_FILE_SIZE);
 
-                List<String> childTaskIds = taskObj
+                List<Integer> childTaskIds = taskObj
                         .getJSONArray(Tags.CHILDREN)
                         .toList()
                         .stream()
-                        .map(childId -> (new JSONObject((Map<?, ?>)childId)).getString(Tags.TASK_ID))
+                        .map(childId -> (new JSONObject((Map<?, ?>)childId)).getInt(Tags.TASK_ID))
                         .collect(Collectors.toList());
 
+                double entry_time = getOrDefault(taskObj, Tags.ENTRY_TIME, 0.0, Double.class);
                 double deadLine = getOrDefault(taskObj, Tags.DEAD_LINE, Double.MAX_VALUE, Double.class);
 
                 String cpuUtilModel = getOrDefault(taskObj, Tags.CPU_UTIL, Default.TASK.CPU_UTIL_MODEL.toString(), String.class);
@@ -80,7 +81,7 @@ public class Parser {
                         UtilizationModelEnum.getUtilizationModel(cpuUtilModel),
                         UtilizationModelEnum.getUtilizationModel(ramUtilModel),
                         UtilizationModelEnum.getUtilizationModel(bwUtilModel),
-                        inputFiles, childTaskIds, deadLine, workflowId
+                        inputFiles, childTaskIds, deadLine, entry_time, workflowId
                 );
             }).collect(Collectors.toList());
 
@@ -100,6 +101,7 @@ public class Parser {
         public static final String OUTPUT_FILE_SIZE = "output_file_size";
         public static final String CHILDREN = "children";
         public static final String DEAD_LINE = "dead_line";
+        public static final String ENTRY_TIME = "entry_time";
         public static final String CPU_UTIL = "cpu_util_model";
         public static final String RAM_UTIL = "ram_util_model";
         public static final String BW_UTIL_MODEL = "bw_util_model";

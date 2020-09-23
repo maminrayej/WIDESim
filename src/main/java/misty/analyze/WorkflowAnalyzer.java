@@ -7,17 +7,17 @@ import org.jgrapht.graph.DefaultEdge;
 
 public class WorkflowAnalyzer {
 
-    private final Graph<String, DefaultEdge> workflow;
+    private final Graph<Integer, DefaultEdge> workflow;
 
     public WorkflowAnalyzer() {
         workflow = new DefaultDirectedGraph<>(DefaultEdge.class);
     }
 
-    public void addVertex(String taskId) {
+    public void addVertex(int taskId) {
         workflow.addVertex(taskId);
     }
 
-    public void addEdge(String srcTaskId, String dstTaskId) {
+    public void addEdge(int srcTaskId, int dstTaskId) {
         workflow.addEdge(srcTaskId, dstTaskId);
     }
 
