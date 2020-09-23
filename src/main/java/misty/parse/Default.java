@@ -55,6 +55,8 @@ public class Default {
         public static final UtilizationModelEnum RAM_UTIL_MODEL = UtilizationModelEnum.Full;
         public static final UtilizationModelEnum BW_UTIL_MODEL = UtilizationModelEnum.Full;
         public static final int NUM_OF_PES = 1;
+        public static final double ENTRY_TIME = 0.0;
+        public static final double DEAD_LINE = Double.MAX_VALUE;
     }
 
     public static class CONFIG {

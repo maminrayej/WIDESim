@@ -68,8 +68,8 @@ public class Parser {
                         .map(childId -> (new JSONObject((Map<?, ?>)childId)).getInt(Tags.TASK_ID))
                         .collect(Collectors.toList());
 
-                double entry_time = getOrDefault(taskObj, Tags.ENTRY_TIME, 0.0, Double.class);
-                double deadLine = getOrDefault(taskObj, Tags.DEAD_LINE, Double.MAX_VALUE, Double.class);
+                double entry_time = getOrDefault(taskObj, Tags.ENTRY_TIME, Default.TASK.ENTRY_TIME, Double.class);
+                double deadLine = getOrDefault(taskObj, Tags.DEAD_LINE, Default.TASK.DEAD_LINE, Double.class);
 
                 String cpuUtilModel = getOrDefault(taskObj, Tags.CPU_UTIL, Default.TASK.CPU_UTIL_MODEL.toString(), String.class);
                 String ramUtilModel = getOrDefault(taskObj, Tags.RAM_UTIL, Default.TASK.RAM_UTIL_MODEL.toString(), String.class);
@@ -85,7 +85,7 @@ public class Parser {
                 );
             }).collect(Collectors.toList());
 
-            return new Workflow(tasks);
+            return new Workflow(tasks, workflowId);
         }).collect(Collectors.toList());
     }
 

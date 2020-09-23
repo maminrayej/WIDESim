@@ -47,4 +47,12 @@ public class Task extends Cloudlet {
     public double getEntryTime() {
         return entryTime;
     }
+
+    public long getRuntime() {
+        return super.getCloudletLength();
+    }
+
+    public long getTotalRuntime() {
+        return super.getCloudletTotalLength();
+    }
 }
