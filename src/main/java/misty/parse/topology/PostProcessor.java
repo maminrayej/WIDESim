@@ -33,10 +33,10 @@ public class PostProcessor {
 
     public static void setRoutingTableOfFogDevices(List<FogDevice> fogDevices,
                                                    HashMap<Pair<String, String>, String> routingTable) {
-        for (FogDevice fogDevice : fogDevices) {
-            for (String neighbor : fogDevice.getNeighbors()) {
-                String hop = routingTable.getOrDefault(Pair.of(fogDevice.getName(), neighbor), null);
-                fogDevice.addRoute(neighbor, hop);
+        for (FogDevice src : fogDevices) {
+            for (FogDevice dst : fogDevices) {
+                String hop = routingTable.getOrDefault(Pair.of(src.getName(), dst.getName()), null);
+                src.addRoute(dst.getName(), hop);
             }
         }
     }
