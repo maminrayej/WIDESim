@@ -3,12 +3,16 @@ package misty.computation;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.UtilizationModel;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Task extends Cloudlet {
 
     private final List<Data> inputFiles;
     private final List<Integer> children;
+    private final HashSet<Integer> parents;
     private final double deadLine;
     private final double entryTime;
     private final String workflowId;
@@ -22,6 +26,7 @@ public class Task extends Cloudlet {
         this.deadLine = deadLine;
         this.workflowId = workflowName;
         this.entryTime = entryTime;
+        this.parents = new HashSet<>();
     }
 
     public List<Data> getInputFiles() {
@@ -54,5 +59,13 @@ public class Task extends Cloudlet {
 
     public long getTotalRuntime() {
         return super.getCloudletTotalLength();
+    }
+
+    public void addParentId(int parentId) {
+        this.parents.add(parentId);
+    }
+
+    public List<Integer> getParents() {
+        return new ArrayList<>(this.parents);
     }
 }

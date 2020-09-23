@@ -8,6 +8,14 @@ import java.util.HashSet;
 
 public class PostProcessor {
 
+    public static void connectChildTasksToParent(Workflow workflow) {
+        for (Task parentTask : workflow.getTasks())
+            for (int childId : parentTask.getChildren()) {
+                Task childTask = workflow.getTask(childId);
+                childTask.addParentId(parentTask.getTaskId());
+            }
+    }
+
     public static WorkflowAnalyzer buildWorkflowAnalyzer(Workflow workflow) {
         WorkflowAnalyzer analyzer = new WorkflowAnalyzer();
 
