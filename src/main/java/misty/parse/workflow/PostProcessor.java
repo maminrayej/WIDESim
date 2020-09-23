@@ -29,17 +29,17 @@ public class PostProcessor {
         return analyzer;
     }
 
-    public static boolean isWorkflowValid(Workflow workflow) {
-        HashSet<Integer> taskIds = new HashSet<>();
+    public static boolean isWorkflowValid(WorkflowAnalyzer analyzer) {
+//        HashSet<Integer> taskIds = new HashSet<>();
+//
+//        for (Task task : workflow.getTasks())
+//            taskIds.add(task.getTaskId());
+//
+//        for (Task task : workflow.getTasks())
+//            for (int childId : task.getChildren())
+//                if (!taskIds.contains(childId))
+//                    return false;
 
-        for (Task task : workflow.getTasks())
-            taskIds.add(task.getTaskId());
-
-        for (Task task : workflow.getTasks())
-            for (int childId : task.getChildren())
-                if (!taskIds.contains(childId))
-                    return false;
-
-        return true;
+        return !analyzer.hasCycle();
     }
 }

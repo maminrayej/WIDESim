@@ -1,5 +1,6 @@
 package parser;
 
+import misty.analyze.WorkflowAnalyzer;
 import misty.computation.Task;
 import misty.computation.Workflow;
 import misty.parse.workflow.Parser;
@@ -41,5 +42,31 @@ public class WorkflowPostProcessTest {
         assertEquals(2, task3.getParents().size());
         assertTrue(task3.getParents().contains(1));
         assertTrue(task3.getParents().contains(2));
+    }
+
+    @Test
+    @DisplayName("check workflow validation")
+    void checkWorkflowValidation() throws IOException {
+        Parser parser = new Parser(new File("src/test/resources/parser/workflow/postprocess/workflows.json"));
+
+        List<Workflow> workflows = parser.parse();
+
+        Workflow workflow = workflows.get(0);
+
+        WorkflowAnalyzer analyzer = PostProcessor.buildWorkflowAnalyzer(workflow);
+        assertTrue(PostProcessor.isWorkflowValid(analyzer));
+    }
+
+    @Test
+    @DisplayName("check cycle detection")
+    void checkCycleDetection() throws IOException {
+        Parser parser = new Parser(new File("src/test/resources/parser/workflow/postprocess/cycle.json"));
+
+        List<Workflow> workflows = parser.parse();
+
+        Workflow workflow = workflows.get(0);
+
+        WorkflowAnalyzer analyzer = PostProcessor.buildWorkflowAnalyzer(workflow);
+        assertFalse(PostProcessor.isWorkflowValid(analyzer));
     }
 }

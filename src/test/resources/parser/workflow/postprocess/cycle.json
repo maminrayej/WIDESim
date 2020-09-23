@@ -1,0 +1,45 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "workflow_0",
+      "tasks": [
+        {
+          "task_id": 0,
+          "runtime": 10,
+          "input_files": [],
+          "children": [
+            { "task_id": 1 },
+            { "task_id": 2 }
+          ],
+          "output_file_size": 128
+        },
+        {
+          "task_id": 1,
+          "runtime": 10,
+          "input_files": [],
+          "children": [
+            { "task_id" :  3},
+            { "task_id" :  0}
+          ],
+          "output_file_size": 128
+        },
+        {
+          "task_id": 2,
+          "runtime": 10,
+          "input_files": [],
+          "children": [
+            { "task_id" :  3}
+          ],
+          "output_file_size": 128
+        },
+        {
+          "task_id": 3,
+          "runtime": 10,
+          "input_files": [],
+          "children": [],
+          "output_file_size": 128
+        }
+      ]
+    }
+  ]
+}
