@@ -37,4 +37,9 @@ public class Constants {
         public static final int NINE = 2 * EIGHT;
         public static final int TEN = 2 * NINE;
     }
+
+    public static class MsgTag {
+        private static final int BASE = 6000;
+        public static final int TASK_INCOMING = BASE + 1;
+    }
 }
