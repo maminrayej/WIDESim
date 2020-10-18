@@ -14,9 +14,9 @@ import java.util.List;
 public class TaskManager extends SimEntity {
 
     private final List<Task> tasks = new ArrayList<>();
-    private final String brokerId;
+    private final Integer brokerId;
 
-    public TaskManager(String brokerId, List<Workflow> workflows) {
+    public TaskManager(Integer brokerId, List<Workflow> workflows) {
         super("TaskManager");
 
         this.brokerId = brokerId;
@@ -32,8 +32,10 @@ public class TaskManager extends SimEntity {
         System.out.println("Starting Task Manager...");
 
         // dispatch tasks to broker
-        for (Task task : tasks)
-            schedule(brokerId, task.getEntryTime() - CloudSim.clock(), Constants.MsgTag.TASK_INCOMING, task);
+        for (Task task : tasks) {
+            System.out.printf("TaskManager: Sending task: %s of workflow: %s\n", task.getTaskId(), task.getWorkflowId());
+            schedule(brokerId, task.getEntryTime() - CloudSim.clock(), Constants.MsgTag.INCOMING_TASK, task);
+        }
     }
 
     @Override

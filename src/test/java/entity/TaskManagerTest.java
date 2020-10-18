@@ -155,7 +155,7 @@ public class TaskManagerTest {
 
         DummyBroker dummyBroker = new DummyBroker("dummy_broker");
 
-        TaskManager taskManager = new TaskManager("dummy_broker", new ArrayList<>(){{
+        TaskManager taskManager = new TaskManager(dummyBroker.getId(), new ArrayList<>(){{
             add(new Workflow(tasks, null));
         }});
 
@@ -175,7 +175,7 @@ class DummyBroker extends SimEntity {
 
     @Override
     public void processEvent(SimEvent ev) {
-        if (ev.getTag() == Constants.MsgTag.TASK_INCOMING) {
+        if (ev.getTag() == Constants.MsgTag.INCOMING_TASK) {
             Task task = (Task) ev.getData();
             assert task.getEntryTime() == CloudSim.clock();
         }

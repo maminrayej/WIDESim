@@ -40,6 +40,9 @@ public class Constants {
 
     public static class MsgTag {
         private static final int BASE = 6000;
-        public static final int TASK_INCOMING = BASE + 1;
+        public static final int INCOMING_TASK = BASE + 1;
+        public static final int INIT = BASE + 2;
+        public static final int INCOMING_RESOURCE_CHARACTERISTICS = BASE + 3;
+        public static final int RESOURCE_REQUEST = BASE + 4;
     }
 }
