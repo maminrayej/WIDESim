@@ -14,9 +14,9 @@ import java.util.Map;
 
 public class FogBroker extends PowerDatacenterBroker {
 
-    private List<Task> taskQueue;
-    private List<Integer> fogDeviceIds;
-    private Map<Integer, DatacenterCharacteristics> fogDeviceIdToCharacteristics;
+    private final List<Task> taskQueue;
+    private final List<Integer> fogDeviceIds;
+    private final Map<Integer, DatacenterCharacteristics> fogDeviceIdToCharacteristics;
 
     public FogBroker(String name) throws Exception {
         super(name);
@@ -43,7 +43,8 @@ public class FogBroker extends PowerDatacenterBroker {
             case Constants.MsgTag.INCOMING_TASK:
                 processIncomingTask(ev);
                 break;
-            case Constants.MsgTag.INCOMING_RESOURCE_CHARACTERISTICS:
+            case Constants.MsgTag.RESOURCE_REQUEST_RESPONSE:
+                processResourceRequestResponse(ev);
                 break;
             default:
                 processOtherEvent(ev);
@@ -54,13 +55,6 @@ public class FogBroker extends PowerDatacenterBroker {
     @Override
     public void shutdownEntity() {
 
-    }
-
-    protected void processIncomingTask(SimEvent event) {
-        Task task = (Task) event.getData();
-        this.taskQueue.add(task);
-
-        System.out.printf("Broker: task: %s of workflow: %s received\n", task.getTaskId(), task.getWorkflowId());
     }
 
     protected void init(SimEvent event) {
@@ -74,7 +68,21 @@ public class FogBroker extends PowerDatacenterBroker {
         }
     }
 
-    protected void processIncomingResourceCharacteristics(SimEvent event) {
-        System.out.println("Resource characteristics received");
+    protected void processIncomingTask(SimEvent event) {
+        Task task = (Task) event.getData();
+        this.taskQueue.add(task);
+
+        System.out.printf("Broker: task: %s of workflow: %s received\n", task.getTaskId(), task.getWorkflowId());
+    }
+
+    protected void processResourceRequestResponse(SimEvent event) {
+        System.out.println("Broker: resource received from fog device: " + event.getSource());
+
+        this.fogDeviceIdToCharacteristics.put(event.getSource(), (DatacenterCharacteristics) event.getData());
+
+        // if all fog devices have sent their characteristics, call task to vm mapper
+        if (this.fogDeviceIdToCharacteristics.size() == this.fogDeviceIds.size()) {
+            System.out.println("Broker: all resources received");
+        }
     }
 }

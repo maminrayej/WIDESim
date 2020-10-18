@@ -2,17 +2,73 @@ package entity;
 
 import misty.computation.Task;
 import misty.computation.Workflow;
+import misty.core.Enums;
 import misty.entity.FogBroker;
+import misty.entity.FogDevice;
+import misty.entity.FogHost;
 import misty.entity.TaskManager;
+import misty.parse.Default;
 import org.apache.commons.lang3.reflect.FieldUtils;
+import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple;
+import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
+import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.List;
 
 public class FogBrokerTest {
+
+    private FogDevice getDummyFogDevice(int deviceId) {
+        List<FogHost> hostList = new ArrayList<>();
+
+        for (int i = 1; i <= 20; i++) {
+            List<Pe> peList1 = new ArrayList<>();
+            int mips = 2000;
+            peList1.add(new Pe(0, new PeProvisionerSimple(mips)));
+            peList1.add(new Pe(1, new PeProvisionerSimple(mips)));
+
+            int hostId = 0;
+            int ram = 2048;
+            long storage = 1000000;
+            int bw = 10000;
+            hostList.add(
+                    new FogHost(
+                            hostId,
+                            new RamProvisionerSimple(ram),
+                            new BwProvisionerSimple(bw),
+                            storage,
+                            peList1,
+                            new VmSchedulerTimeShared(peList1),
+                            Enums.PowerModelEnum.getPowerModel(Default.HOST.POWER_MODEL.toString(), Default.HOST.MAX_POWER, Default.HOST.STATIC_POWER_PERCENT)
+                            ));
+        }
+
+        DatacenterCharacteristics characteristics = new DatacenterCharacteristics(
+                Default.FOG_DEVICE.ARCH.toString(), Default.FOG_DEVICE.OS.toString(),
+                Default.FOG_DEVICE.VMM.toString(), hostList, Default.FOG_DEVICE.TIME_ZONE,
+                Default.FOG_DEVICE.COST_PER_SEC, Default.FOG_DEVICE.COST_PER_MEM,
+                Default.FOG_DEVICE.COST_PER_STORAGE, Default.FOG_DEVICE.COST_PER_BW
+        );
+
+        try {
+            return new FogDevice(
+                    String.valueOf(deviceId),
+                    characteristics,
+                    Enums.VmAllocPolicyEnum.getPolicy(Default.FOG_DEVICE.VM_ALLOC_POLICY.toString(), hostList),
+                    new LinkedList<>(),
+                    Default.FOG_DEVICE.SCHEDULING_INTERVAL,
+                    null
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException(e.getMessage());
+        }
+    }
 
     @Test
     void testStarting() throws Exception {
@@ -35,6 +91,11 @@ public class FogBrokerTest {
         TaskManager taskManager = new TaskManager(broker.getId(), new ArrayList<>(1) {{
             add(new Workflow(tasks, null));
         }});
+
+        var fogDevice0 = getDummyFogDevice(0);
+        var fogDevice1 = getDummyFogDevice(1);
+        var fogDevice2 = getDummyFogDevice(2);
+        var fogDevice3 = getDummyFogDevice(3);
 
         CloudSim.startSimulation();
     }

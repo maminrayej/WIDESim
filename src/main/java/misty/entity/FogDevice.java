@@ -1,8 +1,13 @@
 package misty.entity;
 
+import misty.core.Constants;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
+import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.Storage;
 import org.cloudbus.cloudsim.VmAllocationPolicy;
+import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.core.CloudSimTags;
+import org.cloudbus.cloudsim.core.SimEvent;
 import org.cloudbus.cloudsim.power.PowerDatacenter;
 
 import java.util.HashMap;
@@ -24,6 +29,39 @@ public class FogDevice extends PowerDatacenter {
 
         this.neighbors = neighbors;
         this.routingTable = new HashMap<>();
+    }
+
+    @Override
+    public void startEntity() {
+        Log.printConcatLine("FogDevice: " + getId(), " is starting...");
+
+        // this resource should register to regional CIS.
+        // However, if not specified, then register to system CIS (the
+        // default CloudInformationService) entity.
+        int gisID = CloudSim.getEntityId(this.getRegionalCisName());
+        if (gisID == -1) {
+            gisID = CloudSim.getCloudInfoServiceEntityId();
+        }
+
+        // send the registration to CIS
+        sendNow(gisID, CloudSimTags.REGISTER_RESOURCE, getId());
+
+        // Below method is for a child class to override
+        registerOtherEntity();
+    }
+
+    @Override
+    public void processEvent(SimEvent ev) {
+        switch (ev.getTag()) {
+            // request each fog device for its characteristics
+            case Constants.MsgTag.RESOURCE_REQUEST:
+                processResourceRequest(ev);
+                break;
+        }
+    }
+
+    protected void processResourceRequest(SimEvent event) {
+        sendNow(event.getSource(), Constants.MsgTag.RESOURCE_REQUEST_RESPONSE, this.getCharacteristics());
     }
 
     public List<FogHost> getHosts() {
