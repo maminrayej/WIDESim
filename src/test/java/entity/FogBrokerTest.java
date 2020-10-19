@@ -7,8 +7,9 @@ import misty.entity.FogBroker;
 import misty.entity.FogDevice;
 import misty.entity.FogHost;
 import misty.entity.TaskManager;
+import misty.mapper.SimpleTaskToVmMapper;
+import misty.mapper.SimpleVmToDatacenterMapper;
 import misty.parse.Default;
-import org.apache.commons.lang3.reflect.FieldUtils;
 import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple;
@@ -86,7 +87,7 @@ public class FogBrokerTest {
                     null, null, 0.0, 2.0, null));
         }};
 
-        FogBroker broker = new FogBroker("broker");
+        FogBroker broker = new FogBroker("broker", new SimpleVmToDatacenterMapper(), new SimpleTaskToVmMapper());
 
         TaskManager taskManager = new TaskManager(broker.getId(), new ArrayList<>(1) {{
             add(new Workflow(tasks, null));
