@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Map;
 
 public interface TaskToVmMapper {
-    Map<Integer, Integer> map(List<Vm> createdVms, List<Vm> failedVms, List<Task> tasks);
+    Map<Integer, Integer> map(List<Vm> createdVms, List<Vm> failedVms, List<Task> tasks, Map<Integer, Integer> taskToVm);
 }

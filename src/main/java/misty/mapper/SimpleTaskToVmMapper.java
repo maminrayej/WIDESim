@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class SimpleTaskToVmMapper implements TaskToVmMapper {
     @Override
-    public Map<Integer, Integer> map(List<Vm> createdVms, List<Vm> failedVms, List<Task> tasks) {
+    public Map<Integer, Integer> map(List<Vm> createdVms, List<Vm> failedVms, List<Task> tasks, Map<Integer, Integer> taskToVm) {
         return null;
     }
 }

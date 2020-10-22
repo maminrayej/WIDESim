@@ -46,6 +46,9 @@ public class Constants {
         public static final int RESOURCE_REQUEST = BASE + 4;
         public static final int VM_CREATE = BASE + 5;
         public static final int VM_CREATE_ACK = BASE + 6;
-        public static final int EXECUTE_TASK = BASE + 7;
+        public static final int VM_DESTROY = BASE + 7;
+        public static final int VM_DESTROY_ACK = BASE + 8;
+        public static final int EXECUTE_TASK = BASE + 9;
+        public static final int TASK_IS_DONE = BASE + 10;
     }
 }
