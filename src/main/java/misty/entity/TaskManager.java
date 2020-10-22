@@ -3,6 +3,7 @@ package misty.entity;
 import misty.computation.Task;
 import misty.computation.Workflow;
 import misty.core.Constants;
+import misty.message.IncomingTaskMsg;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.SimEntity;
 import org.cloudbus.cloudsim.core.SimEvent;
@@ -34,7 +35,7 @@ public class TaskManager extends SimEntity {
         // dispatch tasks to broker
         for (Task task : tasks) {
             System.out.printf("TaskManager: Sending task: %s of workflow: %s\n", task.getTaskId(), task.getWorkflowId());
-            schedule(brokerId, task.getEntryTime() - CloudSim.clock(), Constants.MsgTag.INCOMING_TASK, task);
+            schedule(brokerId, task.getEntryTime() - CloudSim.clock(), Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(task));
         }
     }
 

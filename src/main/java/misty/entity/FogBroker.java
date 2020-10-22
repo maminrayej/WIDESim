@@ -4,6 +4,7 @@ import misty.computation.Task;
 import misty.core.Constants;
 import misty.mapper.TaskToVmMapper;
 import misty.mapper.VmToDatacenterMapper;
+import misty.message.*;
 import misty.provision.VmProvisioner;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
 import org.cloudbus.cloudsim.Vm;
@@ -115,7 +116,9 @@ public class FogBroker extends PowerDatacenterBroker {
     }
 
     protected void processIncomingTask(SimEvent event) {
-        Task task = (Task) event.getData();
+        IncomingTaskMsg incomingTaskMsg = (IncomingTaskMsg) event.getData();
+        Task task = incomingTaskMsg.getTask();
+
         this.taskQueue.add(task);
 
         System.out.printf("Broker: task: %s of workflow: %s received\n", task.getTaskId(), task.getWorkflowId());
@@ -124,7 +127,9 @@ public class FogBroker extends PowerDatacenterBroker {
     protected void processResourceRequestResponse(SimEvent event) {
         System.out.println("Broker: resource received from fog device: " + event.getSource());
 
-        this.fogDeviceIdToCharacteristics.put(event.getSource(), (DatacenterCharacteristics) event.getData());
+        ResourceRequestResponseMsg responseMsg = (ResourceRequestResponseMsg) event.getData();
+
+        this.fogDeviceIdToCharacteristics.put(event.getSource(), responseMsg.getCharacteristics());
 
         // if all fog devices have sent their characteristics, try to create vms
         if (this.fogDeviceIdToCharacteristics.size() == this.fogDeviceIds.size()) {
@@ -140,7 +145,7 @@ public class FogBroker extends PowerDatacenterBroker {
                 sendNow(
                         datacenterId, // send message to datacenter
                         Constants.MsgTag.VM_CREATE, // tell datacenter to create a vm
-                        VmList.getById(this.getVmList(), vmId) // vm
+                        new VmCreateMsg(VmList.getById(this.getVmList(), vmId)) // vm
                 );
 
                 // add the datacenter to datacenters that has been requested to create a vm
@@ -156,10 +161,10 @@ public class FogBroker extends PowerDatacenterBroker {
         // add sender of the ack to datacenters that answered to creating the vm
         this.vmCreateAckFromDatacenters.add(event.getSource());
 
-        int[] data = (int[]) event.getData();
-        int datacenterId = data[0];
-        int vmId = data[1];
-        boolean isCreated = data[2] == 1;
+        VmCreateAckMsg ackMsg = (VmCreateAckMsg) event.getData();
+        int datacenterId = ackMsg.getDatacenterId();
+        int vmId = ackMsg.getVmId();
+        boolean isCreated = ackMsg.isCreated;
 
         if (isCreated)
             this.createdVms.add(VmList.getById(this.getVmList(), vmId));
@@ -181,7 +186,7 @@ public class FogBroker extends PowerDatacenterBroker {
                     sendNow(
                             this.vmToDatacenter.get(mappedVmId), // datacenter containing the vm
                             Constants.MsgTag.EXECUTE_TASK, // tell datacenter to execute the task
-                            Pair.of(task, mappedVmId) // send task with its corresponding vm
+                            new ExecuteTaskMsg(task, mappedVmId) // send task with its corresponding vm
                     );
 
                     this.dispatchedTasks.add(task);
@@ -229,7 +234,7 @@ public class FogBroker extends PowerDatacenterBroker {
                 sendNow(
                         datacenterId,
                         Constants.MsgTag.VM_DESTROY,
-                        vmId
+                        new VmDestroyMsg(vmId)
                 );
                 this.vmDestroyRequestedFromDatacenter.add(datacenterId);
             }
@@ -242,7 +247,7 @@ public class FogBroker extends PowerDatacenterBroker {
                 sendNow(
                         this.vmToDatacenter.get(vmId),
                         Constants.MsgTag.VM_CREATE,
-                        vmId
+                        new VmCreateMsg(VmList.getById(getVmList(), vmId))
                 );
                 this.vmCreateRequestedFromDatacenter.add(datacenterId);
             }

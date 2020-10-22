@@ -1,6 +1,7 @@
 package misty.entity;
 
 import misty.core.Constants;
+import misty.message.ResourceRequestResponseMsg;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
 import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.Storage;
@@ -61,7 +62,7 @@ public class FogDevice extends PowerDatacenter {
     }
 
     protected void processResourceRequest(SimEvent event) {
-        sendNow(event.getSource(), Constants.MsgTag.RESOURCE_REQUEST_RESPONSE, this.getCharacteristics());
+        sendNow(event.getSource(), Constants.MsgTag.RESOURCE_REQUEST_RESPONSE, new ResourceRequestResponseMsg(this.getCharacteristics()));
     }
 
     public List<FogHost> getHosts() {
