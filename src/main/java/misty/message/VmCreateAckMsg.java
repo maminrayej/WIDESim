@@ -2,18 +2,18 @@ package misty.message;
 
 public class VmCreateAckMsg {
 
-    public final int datacenterId;
+    public final int fogDeviceId;
     public final int vmId;
     public final boolean isCreated;
 
-    public VmCreateAckMsg(int datacenterId, int vmId, boolean isCreated) {
-        this.datacenterId = datacenterId;
+    public VmCreateAckMsg(int fogDeviceId, int vmId, boolean isCreated) {
+        this.fogDeviceId = fogDeviceId;
         this.vmId = vmId;
         this.isCreated = isCreated;
     }
 
-    public int getDatacenterId() {
-        return datacenterId;
+    public int getFogDeviceId() {
+        return fogDeviceId;
     }
 
     public int getVmId() {
