@@ -98,8 +98,6 @@ public class FogBroker extends PowerDatacenterBroker {
             case Constants.MsgTag.TASK_IS_DONE:
                 processTaskIsDone(event);
                 break;
-            case Constants.MsgTag.NEXT_TASK_DST:
-                break;
             default:
                 processOtherEvent(event);
                 break;
@@ -204,9 +202,19 @@ public class FogBroker extends PowerDatacenterBroker {
                 if (this.createdVms.stream().anyMatch(vm -> vm.getId() == mappedVmId)
                         && this.completedTasks.containsAll(parentTasks))
                 {
-                    // TODO: inform fog devices of parent tasks to send output of parent tasks to the target fog device
+                    int dstFogDeviceId = this.vmToFogDevice.get(mappedVmId);
+
+                    // inform fog devices containing parent tasks to send output of parent tasks to the fog device containing the child task
+                    for (int parentId : task.getParents()) {
+                        int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
+                        sendNow(
+                                fogDeviceId,
+                                Constants.MsgTag.STAGE_OUT_DATA,
+                                new StageOutDataMsg(task.getTaskId(), dstFogDeviceId)
+                        );
+                    }
                     sendNow(
-                            this.vmToFogDevice.get(mappedVmId), // fog device containing the vm
+                            dstFogDeviceId, // fog device containing the vm
                             Constants.MsgTag.EXECUTE_TASK, // tell fog device to execute the task
                             new ExecuteTaskMsg(task, mappedVmId) // send task with its corresponding vm
                     );

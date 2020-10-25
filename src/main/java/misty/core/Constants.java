@@ -50,6 +50,6 @@ public class Constants {
         public static final int VM_DESTROY_ACK = BASE + 8;
         public static final int EXECUTE_TASK = BASE + 9;
         public static final int TASK_IS_DONE = BASE + 10;
-        public static final int NEXT_TASK_DST = BASE + 11;
+        public static final int STAGE_OUT_DATA = BASE + 11;
     }
 }
