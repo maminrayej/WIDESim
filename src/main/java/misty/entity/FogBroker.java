@@ -40,7 +40,6 @@ public class FogBroker extends PowerDatacenterBroker {
     private Map<Integer, Integer> taskToVm;
     private final Set<Task> dispatchedTasks;
     private final Set<Task> completedTasks;
-    private final Set<Integer> waitingOnDispatch;
 
     public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper, TaskToVmMapper taskToVmMapper) throws Exception {
         super(name);
@@ -64,7 +63,6 @@ public class FogBroker extends PowerDatacenterBroker {
         this.vmToFogDevice = new HashMap<>();
         this.dispatchedTasks = new HashSet<>();
         this.completedTasks = new HashSet<>();
-        this.waitingOnDispatch = new HashSet<>();
     }
 
     @Override
@@ -80,7 +78,7 @@ public class FogBroker extends PowerDatacenterBroker {
         switch (event.getTag()) {
             // start the broker by requesting each fog device for its characteristics
             case Constants.MsgTag.INIT:
-                init(event);
+                init();
                 break;
             // process incoming task from Task Manager
             case Constants.MsgTag.INCOMING_TASK:
@@ -109,7 +107,7 @@ public class FogBroker extends PowerDatacenterBroker {
 
     }
 
-    protected void init(SimEvent event) {
+    protected void init() {
         System.out.println("Broker: requesting for fog devices characteristics");
 
         // store id of all fog devices that registered their selves
@@ -261,6 +259,7 @@ public class FogBroker extends PowerDatacenterBroker {
                     this.getVmList(),
                     this.taskToVm,
                     this.completedTasks,
+                    this.dispatchedTasks,
                     this.waitingTaskQueue
             );
 

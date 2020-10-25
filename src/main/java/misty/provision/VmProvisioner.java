@@ -15,6 +15,7 @@ public interface VmProvisioner {
             List<Vm> vms,
             Map<Integer, Integer> taskToVm,
             Set<Task> completedTasks,
+            Set<Task> dispatchedTasks,
             List<Task> queuedTasks
     );
 }

@@ -16,6 +16,7 @@ public class SimpleVmProvisioner implements VmProvisioner {
                                                                          List<Vm> vms,
                                                                          Map<Integer, Integer> taskToVm,
                                                                          Set<Task> completedTasks,
+                                                                         Set<Task> dispatchedTasks,
                                                                          List<Task> queuedTasks) {
         return null;
     }
