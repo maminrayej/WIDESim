@@ -51,5 +51,7 @@ public class Constants {
         public static final int EXECUTE_TASK = BASE + 9;
         public static final int TASK_IS_DONE = BASE + 10;
         public static final int STAGE_OUT_DATA = BASE + 11;
+        public static final int BROADCAST_ID = BASE + 12;
+        public static final int FOG_TO_FOG = BASE + 13;
     }
 }

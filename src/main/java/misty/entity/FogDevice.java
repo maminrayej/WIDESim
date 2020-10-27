@@ -1,7 +1,8 @@
 package misty.entity;
 
+import misty.computation.Task;
 import misty.core.Constants;
-import misty.message.ResourceRequestResponseMsg;
+import misty.message.*;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
 import org.cloudbus.cloudsim.Log;
 import org.cloudbus.cloudsim.Storage;
@@ -11,14 +12,21 @@ import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
 import org.cloudbus.cloudsim.power.PowerDatacenter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FogDevice extends PowerDatacenter {
+
+    private final HashMap<String, Integer> nameToId;
+    private final HashMap<Integer, String> idToName;
 
     private final HashMap<String, String> routingTable;
 
     private final List<String> neighbors;
+
+    private final Map<Integer, Task> tasks;
 
     public FogDevice(String name,
                      DatacenterCharacteristics characteristics,
@@ -30,6 +38,11 @@ public class FogDevice extends PowerDatacenter {
 
         this.neighbors = neighbors;
         this.routingTable = new HashMap<>();
+
+        this.nameToId = new HashMap<>();
+        this.idToName = new HashMap<>();
+
+        this.tasks = new HashMap<>();
     }
 
     @Override
@@ -49,20 +62,99 @@ public class FogDevice extends PowerDatacenter {
 
         // Below method is for a child class to override
         registerOtherEntity();
+
+        sendNow(getId(), Constants.MsgTag.INIT);
     }
 
     @Override
-    public void processEvent(SimEvent ev) {
-        switch (ev.getTag()) {
-            // request each fog device for its characteristics
-            case Constants.MsgTag.RESOURCE_REQUEST:
-                processResourceRequest(ev);
+    public void processEvent(SimEvent event) {
+        switch (event.getTag()) {
+            case Constants.MsgTag.INIT:
+                processInit();
                 break;
+            case Constants.MsgTag.RESOURCE_REQUEST:
+                processResourceRequest(event);
+                break;
+            case Constants.MsgTag.BROADCAST_ID:
+                processBroadcastId(event);
+                break;
+            case Constants.MsgTag.STAGE_OUT_DATA:
+                processStageOutData(event);
+                break;
+            case Constants.MsgTag.EXECUTE_TASK:
+                processExecuteTask(event);
+                break;
+            case Constants.MsgTag.FOG_TO_FOG:
+                processFogToFog(event);
+            default:
+                processOtherEvent(event);
+                break;
+        }
+    }
+
+    protected void processInit() {
+        List<Integer> fogDeviceIds = CloudSim.getCloudResourceList();
+
+        // broadcast name and id of the fog device to other fog devices
+        for (int fogDeviceId : fogDeviceIds)
+            if (fogDeviceId != getId()) {
+                sendNow(fogDeviceId, Constants.MsgTag.BROADCAST_ID, new BroadcastIdMsg(this.getName(), this.getId()));
         }
     }
 
     protected void processResourceRequest(SimEvent event) {
         sendNow(event.getSource(), Constants.MsgTag.RESOURCE_REQUEST_RESPONSE, new ResourceRequestResponseMsg(this.getCharacteristics()));
+    }
+
+    protected void processBroadcastId(SimEvent event) {
+        BroadcastIdMsg broadcastMsg = (BroadcastIdMsg) event.getData();
+
+        this.nameToId.put(broadcastMsg.getName(), broadcastMsg.getId());
+        this.idToName.put(broadcastMsg.getId(), broadcastMsg.getName());
+    }
+
+    protected void processStageOutData(SimEvent event) {
+        StageOutDataMsg stageOutDataMsg = (StageOutDataMsg) event.getData();
+
+        String dstName = this.idToName.get(stageOutDataMsg.getDstFogDeviceId());
+
+        String nextHopName = this.nextHop(dstName);
+
+        int nextHopId = this.nameToId.get(nextHopName);
+
+        Task task = this.tasks.get(stageOutDataMsg.getTaskId());
+
+        sendNow(
+                nextHopId,
+                Constants.MsgTag.FOG_TO_FOG,
+                new FogToFogMsg(stageOutDataMsg.getDstFogDeviceId(), stageOutDataMsg.getTaskId(), task.getCloudletOutputSize())
+        );
+    }
+
+    protected void processFogToFog(SimEvent event) {
+        FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
+
+        if (this.getId() == fogToFogMsg.getDstFogDeviceId()) {
+            // TODO: consume
+        } else {
+            String dstName = this.idToName.get(fogToFogMsg.getDstFogDeviceId());
+
+            String nextHopName = this.nextHop(dstName);
+
+            int nextHopId = this.nameToId.get(nextHopName);
+
+            sendNow(
+                    nextHopId,
+                    Constants.MsgTag.FOG_TO_FOG,
+                    fogToFogMsg
+            );
+        }
+    }
+
+    protected void processExecuteTask(SimEvent event) {
+        ExecuteTaskMsg executeTaskMsg = (ExecuteTaskMsg) event.getData();
+
+        this.tasks.put(executeTaskMsg.getTask().getTaskId(), executeTaskMsg.getTask());
     }
 
     public List<FogHost> getHosts() {
