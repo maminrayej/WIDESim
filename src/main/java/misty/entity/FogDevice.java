@@ -12,10 +12,7 @@ import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
 import org.cloudbus.cloudsim.power.PowerDatacenter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FogDevice extends PowerDatacenter {
 
@@ -27,6 +24,8 @@ public class FogDevice extends PowerDatacenter {
     private final List<String> neighbors;
 
     private final Map<Integer, Task> tasks;
+    private final List<Integer> waitingTasks;
+    private final HashSet<Integer> receivedData;
 
     public FogDevice(String name,
                      DatacenterCharacteristics characteristics,
@@ -43,6 +42,8 @@ public class FogDevice extends PowerDatacenter {
         this.idToName = new HashMap<>();
 
         this.tasks = new HashMap<>();
+        this.waitingTasks = new ArrayList<>();
+        this.receivedData = new HashSet<>();
     }
 
     @Override
@@ -97,9 +98,8 @@ public class FogDevice extends PowerDatacenter {
 
         // broadcast name and id of the fog device to other fog devices
         for (int fogDeviceId : fogDeviceIds)
-            if (fogDeviceId != getId()) {
+            if (fogDeviceId != getId())
                 sendNow(fogDeviceId, Constants.MsgTag.BROADCAST_ID, new BroadcastIdMsg(this.getName(), this.getId()));
-        }
     }
 
     protected void processResourceRequest(SimEvent event) {
@@ -135,7 +135,21 @@ public class FogDevice extends PowerDatacenter {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
 
         if (this.getId() == fogToFogMsg.getDstFogDeviceId()) {
-            // TODO: consume
+            // TODO: download the data
+            this.receivedData.add(fogToFogMsg.getTaskId());
+
+            // iterate over waiting tasks and check if any of them can be executed
+            for (int taskId : this.waitingTasks) {
+                Task task = this.tasks.get(taskId);
+
+                if (this.receivedData.containsAll(task.getParents())) {
+                    sendNow(
+                            getId(),
+                            Constants.MsgTag.EXECUTE_TASK,
+                            new ExecuteTaskMsg(task, task.getVmId())
+                    );
+                }
+            }
         } else {
             String dstName = this.idToName.get(fogToFogMsg.getDstFogDeviceId());
 
@@ -155,6 +169,20 @@ public class FogDevice extends PowerDatacenter {
         ExecuteTaskMsg executeTaskMsg = (ExecuteTaskMsg) event.getData();
 
         this.tasks.put(executeTaskMsg.getTask().getTaskId(), executeTaskMsg.getTask());
+
+        // check if all input data is provided
+        if (this.receivedData.containsAll(executeTaskMsg.getTask().getParents())) {
+            // execute the task
+            sendNow(
+                    getId(),
+                    CloudSimTags.CLOUDLET_SUBMIT,
+                    executeTaskMsg.getTask()
+            );
+
+            this.waitingTasks.remove(executeTaskMsg.getTask().getTaskId());
+        } else {
+            this.waitingTasks.add(executeTaskMsg.getTask().getTaskId());
+        }
     }
 
     public List<FogHost> getHosts() {

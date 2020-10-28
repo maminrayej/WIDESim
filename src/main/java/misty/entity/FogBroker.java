@@ -123,6 +123,7 @@ public class FogBroker extends PowerDatacenterBroker {
         IncomingTaskMsg incomingTaskMsg = (IncomingTaskMsg) event.getData();
         Task task = incomingTaskMsg.getTask();
 
+        task.setUserId(getId());
         this.waitingTaskQueue.add(task);
         this.tasks.put(task.getTaskId(), task);
 
@@ -188,6 +189,10 @@ public class FogBroker extends PowerDatacenterBroker {
                     this.dispatchedTasks,
                     this.taskToVm
             );
+
+            for (int taskId: this.taskToVm.keySet()) {
+                this.tasks.get(taskId).setVmId(this.taskToVm.get(taskId));
+            }
 
             for (Task task : this.waitingTaskQueue) {
                 // vm for current task
