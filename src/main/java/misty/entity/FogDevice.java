@@ -16,6 +16,9 @@ import java.util.*;
 
 public class FogDevice extends PowerDatacenter {
 
+    private final long upLinkBw;
+    private final long downLinkBw;
+
     private final HashMap<String, Integer> nameToId;
     private final HashMap<Integer, String> idToName;
 
@@ -32,7 +35,9 @@ public class FogDevice extends PowerDatacenter {
                      VmAllocationPolicy vmAllocationPolicy,
                      List<Storage> storageList,
                      double schedulingInterval,
-                     List<String> neighbors) throws Exception {
+                     List<String> neighbors,
+                     long upLinkBw,
+                     long downLinkBw) throws Exception {
         super(name, characteristics, vmAllocationPolicy, storageList, schedulingInterval);
 
         this.neighbors = neighbors;
@@ -44,6 +49,9 @@ public class FogDevice extends PowerDatacenter {
         this.tasks = new HashMap<>();
         this.waitingTasks = new ArrayList<>();
         this.receivedData = new HashSet<>();
+
+        this.upLinkBw = upLinkBw;
+        this.downLinkBw = downLinkBw;
     }
 
     @Override
@@ -87,6 +95,9 @@ public class FogDevice extends PowerDatacenter {
                 break;
             case Constants.MsgTag.FOG_TO_FOG:
                 processFogToFog(event);
+            case Constants.MsgTag.DOWNLOAD_FOG_TO_FOG:
+                processDownloadedFogToFog(event);
+                break;
             default:
                 processOtherEvent(event);
                 break;
@@ -124,8 +135,9 @@ public class FogDevice extends PowerDatacenter {
 
         Task task = this.tasks.get(stageOutDataMsg.getTaskId());
 
-        sendNow(
+        send(
                 nextHopId,
+                (double) task.getCloudletOutputSize() / this.upLinkBw,
                 Constants.MsgTag.FOG_TO_FOG,
                 new FogToFogMsg(stageOutDataMsg.getDstFogDeviceId(), stageOutDataMsg.getTaskId(), task.getCloudletOutputSize())
         );
@@ -134,8 +146,13 @@ public class FogDevice extends PowerDatacenter {
     protected void processFogToFog(SimEvent event) {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
 
+        send(getId(), (double) fogToFogMsg.getData() / this.downLinkBw, Constants.MsgTag.DOWNLOAD_FOG_TO_FOG, fogToFogMsg);
+    }
+
+    protected void processDownloadedFogToFog(SimEvent event) {
+        FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
+
         if (this.getId() == fogToFogMsg.getDstFogDeviceId()) {
-            // TODO: download the data
             this.receivedData.add(fogToFogMsg.getTaskId());
 
             // iterate over waiting tasks and check if any of them can be executed
@@ -157,8 +174,9 @@ public class FogDevice extends PowerDatacenter {
 
             int nextHopId = this.nameToId.get(nextHopName);
 
-            sendNow(
+            send(
                     nextHopId,
+                    (double) fogToFogMsg.getData() / this.upLinkBw,
                     Constants.MsgTag.FOG_TO_FOG,
                     fogToFogMsg
             );

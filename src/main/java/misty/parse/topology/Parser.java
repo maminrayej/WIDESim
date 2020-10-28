@@ -87,6 +87,8 @@ public class Parser {
             String vmAllocationPolicy = getOrDefault(fogDeviceObj, Tags.FogDevice.VM_ALLOC_POLICY, Default.FOG_DEVICE.VM_ALLOC_POLICY.toString(), String.class);
             String vmm = getOrDefault(fogDeviceObj, Tags.FogDevice.VMM, Default.FOG_DEVICE.VMM.toString(), String.class);
             double schedulingInterval = getOrDefault(fogDeviceObj, Tags.FogDevice.SCHEDULE_INTERVAL, Default.FOG_DEVICE.SCHEDULING_INTERVAL, Double.class);
+            long upLinkBw = getOrDefault(fogDeviceObj, Tags.FogDevice.UP_LINK_BW, Default.FOG_DEVICE.UP_LINK_BW, Long.class);
+            long downLinkBw = getOrDefault(fogDeviceObj, Tags.FogDevice.DOWN_LINK_BW, Default.FOG_DEVICE.DOWN_LINK_BW, Long.class);
 
             // Parse hosts
             List<FogHost> hosts = fogDeviceObj.getJSONArray(Tags.FogDevice.HOSTS).toList().stream().map(host -> {
@@ -161,7 +163,9 @@ public class Parser {
                         VmAllocPolicyEnum.getPolicy(vmAllocationPolicy, hosts),
                         new LinkedList<>(),
                         schedulingInterval,
-                        neighborIds
+                        neighborIds,
+                        upLinkBw,
+                        downLinkBw
                 );
             } catch (Exception e) {
                 e.printStackTrace();
@@ -189,6 +193,8 @@ public class Parser {
             public static final String VMM = "vmm";
             public static final String SCHEDULE_INTERVAL = "schedule_interval";
             public static final String HOSTS = "hosts";
+            public static final String UP_LINK_BW = "up_link_bw";
+            public static final String DOWN_LINK_BW = "down_link_bw";
         }
 
         public static class Host {

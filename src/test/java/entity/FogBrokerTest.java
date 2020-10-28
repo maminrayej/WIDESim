@@ -64,7 +64,9 @@ public class FogBrokerTest {
                     Enums.VmAllocPolicyEnum.getPolicy(Default.FOG_DEVICE.VM_ALLOC_POLICY.toString(), hostList),
                     new LinkedList<>(),
                     Default.FOG_DEVICE.SCHEDULING_INTERVAL,
-                    null
+                    null,
+                    Default.FOG_DEVICE.UP_LINK_BW,
+                    Default.FOG_DEVICE.DOWN_LINK_BW
             );
         } catch (Exception e) {
             e.printStackTrace();
