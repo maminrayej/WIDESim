@@ -1,5 +1,6 @@
 package misty.entity;
 
+import misty.computation.Data;
 import misty.computation.Task;
 import misty.core.Constants;
 import misty.mapper.TaskToVmMapper;
@@ -21,6 +22,9 @@ public class FogBroker extends PowerDatacenterBroker {
     private final List<Integer> fogDeviceIds;
     private final Map<Integer, DatacenterCharacteristics> fogDeviceIdToCharacteristics;
 
+    private final long downLinkBw;
+    private final long upLinkBw;
+
     // variables for vm management
     private final VmProvisioner vmProvisioner;
     private final VmToFogDeviceMapper vmToFogDeviceMapper;
@@ -41,7 +45,7 @@ public class FogBroker extends PowerDatacenterBroker {
     private final Set<Task> dispatchedTasks;
     private final Set<Task> completedTasks;
 
-    public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper, TaskToVmMapper taskToVmMapper) throws Exception {
+    public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper, TaskToVmMapper taskToVmMapper, long downLinkBw, long upLinkBw) throws Exception {
         super(name);
 
         this.waitingTaskQueue = new ArrayList<>();
@@ -63,6 +67,9 @@ public class FogBroker extends PowerDatacenterBroker {
         this.vmToFogDevice = new HashMap<>();
         this.dispatchedTasks = new HashSet<>();
         this.completedTasks = new HashSet<>();
+
+        this.upLinkBw = upLinkBw;
+        this.downLinkBw = downLinkBw;
     }
 
     @Override
@@ -216,11 +223,22 @@ public class FogBroker extends PowerDatacenterBroker {
                                 new StageOutDataMsg(task.getTaskId(), dstFogDeviceId)
                         );
                     }
-                    sendNow(
-                            dstFogDeviceId, // fog device containing the vm
-                            Constants.MsgTag.EXECUTE_TASK, // tell fog device to execute the task
-                            new ExecuteTaskMsg(task, mappedVmId) // send task with its corresponding vm
-                    );
+
+                    // if task does not have any parent, its data must be stage in
+                    if (task.getParents().isEmpty()) {
+                        send(
+                                dstFogDeviceId,
+                                (double) task.getTotalInputDataSize() / this.upLinkBw,
+                                Constants.MsgTag.EXECUTE_TASK_WITH_DATA,
+                                new ExecuteTaskMsg(task, mappedVmId)
+                        );
+                    } else {
+                        sendNow(
+                                dstFogDeviceId, // fog device containing the vm
+                                Constants.MsgTag.EXECUTE_TASK, // tell fog device to execute the task
+                                new ExecuteTaskMsg(task, mappedVmId) // send task with its corresponding vm
+                        );
+                    }
 
                     this.dispatchedTasks.add(task);
 

@@ -1,5 +1,6 @@
 package misty.entity;
 
+import misty.computation.Data;
 import misty.computation.Task;
 import misty.core.Constants;
 import misty.message.*;
@@ -89,6 +90,9 @@ public class FogDevice extends PowerDatacenter {
                 break;
             case Constants.MsgTag.STAGE_OUT_DATA:
                 processStageOutData(event);
+                break;
+            case Constants.MsgTag.EXECUTE_TASK_WITH_DATA:
+                processExecuteTaskWithData(event);
                 break;
             case Constants.MsgTag.EXECUTE_TASK:
                 processExecuteTask(event);
@@ -201,6 +205,17 @@ public class FogDevice extends PowerDatacenter {
         } else {
             this.waitingTasks.add(executeTaskMsg.getTask().getTaskId());
         }
+    }
+
+    protected void processExecuteTaskWithData(SimEvent event) {
+        ExecuteTaskMsg executeTaskMsg = (ExecuteTaskMsg) event.getData();
+
+        send(
+                getId(),
+                (double) executeTaskMsg.getTask().getTotalInputDataSize() / this.downLinkBw,
+                Constants.MsgTag.EXECUTE_TASK,
+                executeTaskMsg
+        );
     }
 
     public List<FogHost> getHosts() {

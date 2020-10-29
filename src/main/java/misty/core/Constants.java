@@ -54,5 +54,6 @@ public class Constants {
         public static final int BROADCAST_ID = BASE + 12;
         public static final int FOG_TO_FOG = BASE + 13;
         public static final int DOWNLOAD_FOG_TO_FOG = BASE + 14;
+        public static final int EXECUTE_TASK_WITH_DATA = BASE + 15;
     }
 }

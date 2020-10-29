@@ -90,7 +90,7 @@ public class FogBrokerTest {
                     null, null, 0.0, 2.0, null));
         }};
 
-        FogBroker broker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper());
+        FogBroker broker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper(), 10, 10);
 
         TaskManager taskManager = new TaskManager(broker.getId(), new ArrayList<>(1) {{
             add(new Workflow(tasks, null));

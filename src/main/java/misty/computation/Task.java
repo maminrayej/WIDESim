@@ -68,4 +68,8 @@ public class Task extends Cloudlet {
     public List<Integer> getParents() {
         return new ArrayList<>(this.parents);
     }
+
+    public long getTotalInputDataSize() {
+        return this.inputFiles.stream().map(Data::getSize).reduce(0L, Long::sum);
+    }
 }
