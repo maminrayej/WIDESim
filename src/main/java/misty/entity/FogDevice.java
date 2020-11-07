@@ -99,6 +99,7 @@ public class FogDevice extends PowerDatacenter {
                 break;
             case Constants.MsgTag.FOG_TO_FOG:
                 processFogToFog(event);
+                break;
             case Constants.MsgTag.DOWNLOAD_FOG_TO_FOG:
                 processDownloadedFogToFog(event);
                 break;

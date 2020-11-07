@@ -3,6 +3,7 @@ package misty.mapper;
 import misty.computation.Task;
 import org.cloudbus.cloudsim.Vm;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,17 @@ public class SimpleTaskToVmMapper implements TaskToVmMapper {
                                      Set<Task> completedTasks,
                                      Set<Task> dispatchedTasks,
                                      Map<Integer, Integer> taskToVm) {
-        return null;
+        // Distribute tasks among created vms uniformly
+        HashMap<Integer, Integer> newTaskToVm = new HashMap<>();
+
+        for (Task task : queuedTasks) {
+            int taskId = task.getTaskId();
+
+            int vmId = taskId % createdVms.size();
+
+            newTaskToVm.put(taskId, vmId);
+        }
+
+        return newTaskToVm;
     }
 }
