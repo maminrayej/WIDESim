@@ -4,9 +4,11 @@ import misty.computation.Task;
 import org.cloudbus.cloudsim.Vm;
 import org.jgrapht.alg.util.Triple;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class SimpleVmProvisioner implements VmProvisioner {
 
@@ -18,6 +20,11 @@ public class SimpleVmProvisioner implements VmProvisioner {
                                                                          Set<Task> completedTasks,
                                                                          Set<Task> dispatchedTasks,
                                                                          List<Task> queuedTasks) {
-        return null;
+
+        // do not change vms:
+        // to be created: empty
+        // to be destroyed: empty
+        // to stay alive: already created vms
+        return Triple.of(new ArrayList<>(), new ArrayList<>(), createdVms.stream().map(Vm::getId).collect(Collectors.toList()));
     }
 }
