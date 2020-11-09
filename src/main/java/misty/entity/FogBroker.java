@@ -1,6 +1,5 @@
 package misty.entity;
 
-import misty.computation.Data;
 import misty.computation.Task;
 import misty.core.Constants;
 import misty.mapper.TaskToVmMapper;
@@ -28,22 +27,21 @@ public class FogBroker extends PowerDatacenterBroker {
     // variables for vm management
     private final VmProvisioner vmProvisioner;
     private final VmToFogDeviceMapper vmToFogDeviceMapper;
-    private Map<Integer, Integer> vmToFogDevice;
     private final Set<Integer> sentVmCreateRequests;
     private final Set<Integer> vmCreateAcks;
     private final Set<Integer> sentVmDestroyRequests;
     private final Set<Integer> vmDestroyAcks;
     private final List<Vm> failedVms;
-    private List<Vm> createdVms;
-    private List<Integer> toBeCreated;
-
     // variables for task management
     private final Map<Integer, Task> tasks;
     private final List<Task> waitingTaskQueue;
     private final TaskToVmMapper taskToVmMapper;
-    private Map<Integer, Integer> taskToVm;
     private final Set<Task> dispatchedTasks;
     private final Set<Task> completedTasks;
+    private Map<Integer, Integer> vmToFogDevice;
+    private List<Vm> createdVms;
+    private List<Integer> toBeCreated;
+    private Map<Integer, Integer> taskToVm;
 
     public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper, TaskToVmMapper taskToVmMapper, long downLinkBw, long upLinkBw) throws Exception {
         super(name);
@@ -120,8 +118,11 @@ public class FogBroker extends PowerDatacenterBroker {
         // store id of all fog devices that registered their selves
         this.fogDeviceIds.addAll(CloudSim.getCloudResourceList());
 
+        System.out.println("Broker: received fog device ids: " + this.fogDeviceIds.toString());
+
         // request each fog device to send its resource characteristics
         for (Integer fogDeviceId : this.fogDeviceIds) {
+            System.out.println("Broker: sending resource request to fog device: " + fogDeviceId);
             sendNow(fogDeviceId, Constants.MsgTag.RESOURCE_REQUEST);
         }
     }
@@ -150,12 +151,14 @@ public class FogBroker extends PowerDatacenterBroker {
 
             // map each requested vm to a fog device
             this.vmToFogDevice = this.vmToFogDeviceMapper.map(this.fogDeviceIdToCharacteristics, this.getVmList());
+            System.out.println("Broker: vm to fog device mapping: " + this.vmToFogDevice.toString());
 
             // ask each fog device to create the vm assigned to it
             for (Integer vmId : this.vmToFogDevice.keySet()) {
                 // the fog device that mapper chose for the vm with vmId
                 var fogDeviceId = this.vmToFogDevice.get(vmId);
 
+                System.out.printf("Broker: asking fog device: %s to create vm: %s", fogDeviceId, vmId);
                 sendNow(
                         fogDeviceId, // send message to fog device
                         Constants.MsgTag.VM_CREATE, // tell fog device to create a vm
@@ -169,14 +172,14 @@ public class FogBroker extends PowerDatacenterBroker {
     }
 
     protected void processVmCreateAck(SimEvent event) {
-        System.out.println("Broker: Vm create ack received from fog device: " + event.getSource());
-
         // add sender of the ack to fog devices that answered to creating the vm
         this.vmCreateAcks.add(event.getSource());
 
         VmCreateAckMsg ackMsg = (VmCreateAckMsg) event.getData();
         int vmId = ackMsg.getVmId();
         boolean isCreated = ackMsg.isCreated;
+
+        System.out.printf("Broker: vm ack received for vm: %s from fog device: %s with status: %s", vmId, event.getSource(), isCreated);
 
         if (isCreated)
             this.createdVms.add(VmList.getById(this.getVmList(), vmId));
@@ -197,7 +200,7 @@ public class FogBroker extends PowerDatacenterBroker {
                     this.taskToVm
             );
 
-            for (int taskId: this.taskToVm.keySet()) {
+            for (int taskId : this.taskToVm.keySet()) {
                 this.tasks.get(taskId).setVmId(this.taskToVm.get(taskId));
             }
 
@@ -210,13 +213,14 @@ public class FogBroker extends PowerDatacenterBroker {
                 // if vm is successfully created, and all parent tasks are complete,
                 // dispatch the task the to fog device which contains the vm
                 if (this.createdVms.stream().anyMatch(vm -> vm.getId() == mappedVmId)
-                        && this.completedTasks.containsAll(parentTasks))
-                {
+                        && this.completedTasks.containsAll(parentTasks)) {
                     int dstFogDeviceId = this.vmToFogDevice.get(mappedVmId);
 
                     // inform fog devices containing parent tasks to send output of parent tasks to the fog device containing the child task
                     for (int parentId : task.getParents()) {
                         int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
+
+                        System.out.printf("Broker: sending STAGE_MSG to fog device: %s for task: %s", fogDeviceId, task.getTaskId());
                         sendNow(
                                 fogDeviceId,
                                 Constants.MsgTag.STAGE_OUT_DATA,
@@ -226,6 +230,7 @@ public class FogBroker extends PowerDatacenterBroker {
 
                     // if task does not have any parent, its data must be stage in
                     if (task.getParents().isEmpty()) {
+                        System.out.printf("Broker: sending STAGE_IN data for task: %s to fog device: %s", task.getTaskId(), dstFogDeviceId);
                         send(
                                 dstFogDeviceId,
                                 (double) task.getTotalInputDataSize() / this.upLinkBw,
@@ -233,6 +238,7 @@ public class FogBroker extends PowerDatacenterBroker {
                                 new ExecuteTaskMsg(task, mappedVmId)
                         );
                     } else {
+                        System.out.printf("Broker: asking fog device: %s to execute task: %s", dstFogDeviceId, task.getTaskId());
                         sendNow(
                                 dstFogDeviceId, // fog device containing the vm
                                 Constants.MsgTag.EXECUTE_TASK, // tell fog device to execute the task
@@ -250,14 +256,18 @@ public class FogBroker extends PowerDatacenterBroker {
     }
 
     protected void processVmDestroyAck(SimEvent event) {
+        System.out.printf("Broker: vm destroy ack received from fog device: %s", event.getSource());
         this.vmDestroyAcks.add(event.getSource());
 
         if (this.vmDestroyAcks.containsAll(this.sentVmDestroyRequests)) {
+            System.out.println("Broker: all vm destroy acks received");
             // now that resources are freed, create vms
             this.sentVmCreateRequests.clear();
             this.vmCreateAcks.clear();
             for (int vmId : this.toBeCreated) {
                 var fogDeviceId = this.vmToFogDevice.get(vmId);
+
+                System.out.printf("Broker: asking fog device: %s to create vm: %s", fogDeviceId, vmId);
                 sendNow(
                         this.vmToFogDevice.get(vmId), // fog device containing the vm
                         Constants.MsgTag.VM_CREATE, // tell the fog device to create the vm
@@ -273,9 +283,12 @@ public class FogBroker extends PowerDatacenterBroker {
         Task task = doneMsg.getTask();
 
         this.completedTasks.add(task);
+        System.out.printf("Broker: received task completion msg for task: %s from fog device: %s", task.getTaskId(), event.getSource());
 
         // if all dispatched tasks are complete
         if (this.dispatchedTasks.size() == this.completedTasks.size()) {
+            System.out.println("Broker: all dispatched tasks are complete");
+
             var triple = this.vmProvisioner.provision(
                     this.failedVms,
                     this.createdVms,
@@ -290,11 +303,18 @@ public class FogBroker extends PowerDatacenterBroker {
             var toBeDestroyed = triple.getSecond(); // to be destroyed vms
             var stayAlive = triple.getThird(); // already created vms
 
+            System.out.printf("Broker: vm provision decision:\n" +
+                    "to be created: %s\n" +
+                    "to be destroyed: %s\n" +
+                    "to stay alive: %s\n", toBeCreated, toBeDestroyed, stayAlive);
+
             // Destroy vms
             this.sentVmDestroyRequests.clear();
             this.vmDestroyAcks.clear();
             for (int vmId : toBeDestroyed) {
                 var fogDeviceId = this.vmToFogDevice.get(vmId);
+
+                System.out.printf("Broker: asking fog device: %s to destroy vm: %s", fogDeviceId, vmId);
                 sendNow(
                         fogDeviceId, // fog device containing the vm
                         Constants.MsgTag.VM_DESTROY, // tell the fog device to destroy the vm
