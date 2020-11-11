@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PostProcessor {
 
-    public static void connectHostToDatabase(List<FogDevice> fogDevices) {
+    public static void connectHostToDatacenter(List<FogDevice> fogDevices) {
         // Connect each host to its fog device
         for (FogDevice fogDevice : fogDevices)
             for (FogHost host : fogDevice.getHosts())

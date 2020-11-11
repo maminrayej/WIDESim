@@ -4,6 +4,7 @@ import misty.core.Constants;
 import misty.core.Enums.*;
 import misty.entity.FogDevice;
 import misty.entity.FogHost;
+import misty.entity.FogVm;
 import misty.parse.Default;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
 import org.cloudbus.cloudsim.Pe;
@@ -61,10 +62,10 @@ public class Parser {
         }
     }
 
-    public Pair<List<FogDevice>, List<Vm>> parse() throws JSONException {
+    public Pair<List<FogDevice>, List<FogVm>> parse() throws JSONException {
         JSONObject root = new JSONObject(topologyJsonContent);
 
-        AtomicReference<List<Vm>> definedVms = new AtomicReference<>();
+        AtomicReference<List<FogVm>> definedVms = new AtomicReference<>();
 
         // Parse fog devices
         List<FogDevice> fogDevices = root.getJSONArray(Tags.FogDevice.FOG_DEVICES).toList().stream().map(fogDevice -> {
@@ -106,7 +107,7 @@ public class Parser {
                 double staticPowerPercent = getOrDefault(hostObj, Tags.Host.STATIC_POWER_PERCENT, Default.HOST.STATIC_POWER_PERCENT, Double.class);
 
                 // Parse vms
-                List<Vm> vms = hostObj.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
+                List<FogVm> vms = hostObj.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
                     // Parse vm attributes
                     JSONObject vmObj = new JSONObject((Map<?, ?>)vm);
                     int vmId = vmObj.getInt(Tags.Vm.VM_ID);
@@ -118,7 +119,7 @@ public class Parser {
                     String vmVmm = getOrDefault(vmObj, Tags.Vm.VMM, Default.VM.VMM.toString(), String.class);
                     String cloudletScheduler = getOrDefault(vmObj, Tags.Vm.CLOUDLET_SCHEDULER, Default.VM.CLOUDLET_SCHEDULER.toString(), String.class);
 
-                    return new Vm(
+                    return new FogVm(
                             vmId, Constants.INVALID_ID, mips, numOfPes, vmRam, vmBw, size, vmVmm,
                             CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes)
                     );

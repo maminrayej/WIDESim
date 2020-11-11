@@ -1,0 +1,16 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "workflow_0",
+      "tasks": [
+        {
+          "task_id": 0,
+          "runtime": 4000,
+          "input_files": [],
+          "children": [],
+          "output_file_size": 128
+        }
+      ]
+    }
+  ]
+}

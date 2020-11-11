@@ -32,7 +32,7 @@ public class TopologyPostProcessTest {
 
         List<FogDevice> fogDevices = devicesAndVms.getFirst();
 
-        PostProcessor.connectHostToDatabase(fogDevices);
+        PostProcessor.connectHostToDatacenter(fogDevices);
 
         for (FogDevice fogDevice : fogDevices)
             for (FogHost fogHost : fogDevice.getHosts())
@@ -50,7 +50,7 @@ public class TopologyPostProcessTest {
 
         List<FogDevice> fogDevices = devicesAndVms.getFirst();
 
-        PostProcessor.connectHostToDatabase(fogDevices);
+        PostProcessor.connectHostToDatacenter(fogDevices);
 
         TopologyAnalyzer analyzer = PostProcessor.buildTopologyAnalyzer(fogDevices);
 
@@ -85,7 +85,7 @@ public class TopologyPostProcessTest {
 
         List<FogDevice> fogDevices = devicesAndVms.getFirst();
 
-        PostProcessor.connectHostToDatabase(fogDevices);
+        PostProcessor.connectHostToDatacenter(fogDevices);
 
         TopologyAnalyzer analyzer = PostProcessor.buildTopologyAnalyzer(fogDevices);
 
