@@ -99,7 +99,7 @@ public class FogDevice extends Datacenter {
             case Constants.MsgTag.FOG_TO_FOG:
                 processFogToFog(event);
                 break;
-            case Constants.MsgTag.DOWNLOAD_FOG_TO_FOG:
+            case Constants.MsgTag.DOWNLOADED_FOG_TO_FOG:
                 processDownloadedFogToFog(event);
                 break;
             default:
@@ -162,6 +162,17 @@ public class FogDevice extends Datacenter {
     protected void processStageOutData(SimEvent event) {
         StageOutDataMsg stageOutDataMsg = (StageOutDataMsg) event.getData();
 
+        if (stageOutDataMsg.getDstFogDeviceId() == this.getId()) {
+            log("Received STAGE_OUT for task: %s and destination is a loop back: sending data instantly", stageOutDataMsg.getTaskId());
+            sendNow(
+                    getId(),
+                    Constants.MsgTag.DOWNLOADED_FOG_TO_FOG,
+                    new FogToFogMsg(getId(), stageOutDataMsg.getTaskId(), this.tasks.get(stageOutDataMsg.getTaskId()).getCloudletOutputSize())
+            );
+
+            return;
+        }
+
         String dstName = this.idToName.get(stageOutDataMsg.getDstFogDeviceId());
         log("Received STAGE_OUT data msg to fog device(%s,%s)", dstName, stageOutDataMsg.getDstFogDeviceId());
 
@@ -184,12 +195,12 @@ public class FogDevice extends Datacenter {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
 
         log("Downloading data from fog device: %s", event.getSource());
-        send(getId(), (double) fogToFogMsg.getData() / this.downLinkBw, Constants.MsgTag.DOWNLOAD_FOG_TO_FOG, fogToFogMsg);
+        send(getId(), (double) fogToFogMsg.getData() / this.downLinkBw, Constants.MsgTag.DOWNLOADED_FOG_TO_FOG, fogToFogMsg);
     }
 
     protected void processDownloadedFogToFog(SimEvent event) {
-        log("Downloading data");
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
+        log("Downloaded data of task %s", fogToFogMsg.getTaskId());
 
         if (this.getId() == fogToFogMsg.getDstFogDeviceId()) {
             log("Data is for me");

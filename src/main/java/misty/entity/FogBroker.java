@@ -44,7 +44,7 @@ public class FogBroker extends DatacenterBroker {
     private Map<Integer, Integer> vmToFogDevice;
     private List<Vm> createdVms;
     private List<Integer> toBeCreated;
-    private Map<Integer, Integer> taskToVm;
+    private final Map<Integer, Integer> taskToVm;
 
     public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper, TaskToVmMapper taskToVmMapper, long downLinkBw, long upLinkBw) throws Exception {
         super(name);
@@ -65,6 +65,7 @@ public class FogBroker extends DatacenterBroker {
 
         this.tasks = new HashMap<>();
         this.taskToVmMapper = taskToVmMapper;
+        this.taskToVm = new HashMap<>();
         this.vmToFogDevice = new HashMap<>();
         this.dispatchedTasks = new HashSet<>();
         this.completedTasks = new HashSet<>();
@@ -197,72 +198,7 @@ public class FogBroker extends DatacenterBroker {
         if (this.vmCreateAcks.containsAll(this.sentVmCreateRequests)) {
             log("All pending vm create acks received");
 
-            // map each task in task queue to a vm(either a created or failed one)
-            this.taskToVm = this.taskToVmMapper.map(
-                    this.createdVms,
-                    this.failedVms,
-                    this.waitingTaskQueue,
-                    this.completedTasks,
-                    this.dispatchedTasks,
-                    this.taskToVm
-            );
-            log("Tasks mapped to vms %s: {task_id=vm_id}", this.taskToVm);
-
-            for (int taskId : this.taskToVm.keySet()) {
-                this.tasks.get(taskId).setVmId(this.taskToVm.get(taskId));
-            }
-
-            for (Iterator<Task> it = this.waitingTaskQueue.iterator(); it.hasNext(); ) {
-                Task task = it.next();
-
-                // vm for current task
-                int mappedVmId = this.taskToVm.get(task.getTaskId());
-
-                List<Task> parentTasks = task.getParents().stream().map(this.tasks::get).collect(Collectors.toList());
-
-                // if vm is successfully created, and all parent tasks are complete,
-                // dispatch the task the to fog device which contains the vm
-                if (this.createdVms.stream().anyMatch(vm -> vm.getId() == mappedVmId)
-                        && this.completedTasks.containsAll(parentTasks)) {
-                    int dstFogDeviceId = this.vmToFogDevice.get(mappedVmId);
-
-                    // inform fog devices containing parent tasks to send output of parent tasks to the fog device containing the child task
-                    for (int parentId : task.getParents()) {
-                        int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
-
-                        log("Sending STAGE_OUT_MSG to fog device: %s for task: %s", fogDeviceId, task.getTaskId());
-                        sendNow(
-                                fogDeviceId,
-                                Constants.MsgTag.STAGE_OUT_DATA,
-                                new StageOutDataMsg(task.getTaskId(), dstFogDeviceId)
-                        );
-                    }
-
-                    // if task does not have any parent, its data must be stage in
-                    if (task.getParents().isEmpty()) {
-                        double delay = (double) task.getTotalInputDataSize() / this.upLinkBw;
-                        log("Sending STAGE_IN data for task: %s to fog device: %s with delay: %.2f", task.getTaskId(), dstFogDeviceId, delay);
-                        send(
-                                dstFogDeviceId,
-                                delay,
-                                Constants.MsgTag.EXECUTE_TASK_WITH_DATA,
-                                new ExecuteTaskMsg(task, mappedVmId)
-                        );
-                    } else {
-                        log("Asking fog device: %s to execute task: %s", dstFogDeviceId, task.getTaskId());
-                        sendNow(
-                                dstFogDeviceId, // fog device containing the vm
-                                Constants.MsgTag.EXECUTE_TASK, // tell fog device to execute the task
-                                new ExecuteTaskMsg(task, mappedVmId) // send task with its corresponding vm
-                        );
-                    }
-
-                    this.dispatchedTasks.add(task);
-
-                    // remove dispatched task from waiting queue
-                    it.remove();
-                }
-            }
+            dispatchTasks();
         }
     }
 
@@ -271,7 +207,7 @@ public class FogBroker extends DatacenterBroker {
         int taskId = data[1];
         boolean isSubmitted = data[2] == CloudSimTags.TRUE;
 
-        log("Task Received for task: %s with status: %s", taskId, isSubmitted);
+        log("Ack Received for task: %s with status: %s", taskId, isSubmitted);
     }
 
     protected void processVmDestroyAck(SimEvent event) {
@@ -328,6 +264,7 @@ public class FogBroker extends DatacenterBroker {
                     "\tto stay alive: %s\n", toBeCreated, toBeDestroyed, stayAlive);
 
             // Destroy vms
+            log("Trying to destroy vms...");
             this.sentVmDestroyRequests.clear();
             this.vmDestroyAcks.clear();
             for (int vmId : toBeDestroyed) {
@@ -342,11 +279,112 @@ public class FogBroker extends DatacenterBroker {
                 this.sentVmDestroyRequests.add(fogDeviceId);
             }
 
+            // if there is no vm to destroy
+            if (this.sentVmDestroyRequests.isEmpty()) {
+                log("There is no vm to destroy");
+                // create vms
+                log("Trying to create vms...");
+                this.sentVmCreateRequests.clear();
+                this.vmCreateAcks.clear();
+                for (int vmId : this.toBeCreated) {
+                    var fogDeviceId = this.vmToFogDevice.get(vmId);
+
+                    log("Asking fog device: %s to create vm: %s", fogDeviceId, vmId);
+                    sendNow(
+                            this.vmToFogDevice.get(vmId), // fog device containing the vm
+                            Constants.MsgTag.VM_CREATE, // tell the fog device to create the vm
+                            new VmCreateMsg(VmList.getById(getVmList(), vmId))
+                    );
+                    this.sentVmCreateRequests.add(fogDeviceId);
+                }
+            }
+
             this.createdVms.clear();
             this.failedVms.clear();
 
             // add stayAlive vms to createdVms because they are already created
             this.createdVms = stayAlive.stream().map(vmId -> (Vm) VmList.getById(this.getVmList(), vmId)).collect(Collectors.toList());
+
+            // if there is no vm to create either just execute the tasks
+            if (this.sentVmCreateRequests.isEmpty()) {
+                log("There is no vm to create");
+                log("Trying to dispatch tasks...");
+                dispatchTasks();
+            }
+        }
+    }
+
+    private void dispatchTasks() {
+        // map each task in task queue to a vm(either a created or failed one)
+        var newTaskToVm = this.taskToVmMapper.map(
+                this.createdVms,
+                this.failedVms,
+                this.waitingTaskQueue,
+                this.completedTasks,
+                this.dispatchedTasks,
+                this.taskToVm
+        );
+
+        // merge new mapping with the old one
+        this.taskToVm.putAll(newTaskToVm);
+
+
+        log("Tasks mapped to vms %s: {task_id=vm_id}", this.taskToVm);
+
+        for (int taskId : this.taskToVm.keySet()) {
+            this.tasks.get(taskId).setVmId(this.taskToVm.get(taskId));
+        }
+
+        for (Iterator<Task> it = this.waitingTaskQueue.iterator(); it.hasNext(); ) {
+            Task task = it.next();
+
+            // vm for current task
+            int mappedVmId = this.taskToVm.get(task.getTaskId());
+
+            List<Task> parentTasks = task.getParents().stream().map(this.tasks::get).collect(Collectors.toList());
+
+            // if vm is successfully created, and all parent tasks are complete,
+            // dispatch the task the to fog device which contains the vm
+            if (this.createdVms.stream().anyMatch(vm -> vm.getId() == mappedVmId)
+                    && this.completedTasks.containsAll(parentTasks)) {
+                int dstFogDeviceId = this.vmToFogDevice.get(mappedVmId);
+
+                // inform fog devices containing parent tasks to send output of parent tasks to the fog device containing the child task
+                for (int parentId : task.getParents()) {
+                    int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
+
+                    log("Sending STAGE_OUT_MSG to fog device: %s for task: %s", fogDeviceId, parentId);
+                    sendNow(
+                            fogDeviceId,
+                            Constants.MsgTag.STAGE_OUT_DATA,
+                            new StageOutDataMsg(parentId, dstFogDeviceId)
+                    );
+                }
+
+                // if task does not have any parent, its data must be stage in
+                if (task.getParents().isEmpty()) {
+                    double delay = (double) task.getTotalInputDataSize() / this.upLinkBw;
+                    log("Sending STAGE_IN data for task: %s to fog device: %s with delay: %.2f", task.getTaskId(), dstFogDeviceId, delay);
+                    send(
+                            dstFogDeviceId,
+                            delay,
+                            Constants.MsgTag.EXECUTE_TASK_WITH_DATA,
+                            new ExecuteTaskMsg(task, mappedVmId)
+                    );
+                } else {
+                    log("Asking fog device: %s to execute task: %s", dstFogDeviceId, task.getTaskId());
+                    sendNow(
+                            dstFogDeviceId, // fog device containing the vm
+                            Constants.MsgTag.EXECUTE_TASK, // tell fog device to execute the task
+                            new ExecuteTaskMsg(task, mappedVmId) // send task with its corresponding vm
+                    );
+                }
+
+                this.dispatchedTasks.add(task);
+
+                // remove dispatched task from waiting queue
+                it.remove();
+            }
         }
     }
 
