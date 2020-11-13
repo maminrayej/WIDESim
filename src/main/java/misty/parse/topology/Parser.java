@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -65,7 +66,7 @@ public class Parser {
     public Pair<List<FogDevice>, List<FogVm>> parse() throws JSONException {
         JSONObject root = new JSONObject(topologyJsonContent);
 
-        AtomicReference<List<FogVm>> definedVms = new AtomicReference<>();
+        AtomicReference<List<FogVm>> definedVms = new AtomicReference<>(new ArrayList<>());
 
         // Parse fog devices
         List<FogDevice> fogDevices = root.getJSONArray(Tags.FogDevice.FOG_DEVICES).toList().stream().map(fogDevice -> {
@@ -125,7 +126,7 @@ public class Parser {
                     );
                 }).collect(Collectors.toList());
 
-                definedVms.set(vms);
+                definedVms.get().addAll(vms);
 
                 // Parse pes
                 List<Pe> pes = hostObj.getJSONArray(Tags.Host.PES).toList().stream().map(pe -> {

@@ -200,7 +200,7 @@ public class FogDevice extends Datacenter {
 
     protected void processDownloadedFogToFog(SimEvent event) {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
-        log("Downloaded data of task %s", fogToFogMsg.getTaskId());
+        log("Downloaded data of task: %s", fogToFogMsg.getTaskId());
 
         if (this.getId() == fogToFogMsg.getDstFogDeviceId()) {
             log("Data is for me");
@@ -299,4 +299,8 @@ public class FogDevice extends Datacenter {
         Logger.log(tag, formatted, args);
     }
 
+    @Override
+    public String toString() {
+        return String.format("FogDevice(%s,%s)", this.getName(), getId());
+    }
 }
