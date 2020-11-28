@@ -1,0 +1,106 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "workflow_0",
+      "tasks": [
+        {
+          "task_id": 0,
+          "runtime": 40000,
+          "input_files": [
+            {
+              "from_task": 0,
+              "size": 4000000
+            }
+          ],
+          "children": [
+            {
+              "task_id": 1
+            },
+            {
+              "task_id": 2
+            }
+          ],
+          "output_file_size": 4000000
+        },
+        {
+          "task_id": 1,
+          "runtime": 50000,
+          "input_files": [],
+          "children": [
+            {
+              "task_id": 3
+            }
+          ],
+          "output_file_size": 5000000
+        },
+        {
+          "task_id": 2,
+          "runtime": 50000,
+          "input_files": [],
+          "children": [
+            {
+              "task_id": 3
+            }
+          ],
+          "output_file_size": 5000000
+        },
+        {
+          "task_id": 3,
+          "runtime": 60000,
+          "input_files": [],
+          "children": [],
+          "output_file_size": 6000000
+        }
+      ]
+    },
+    {
+      "workflow_id": "workflow_1",
+      "tasks": [
+        {
+          "task_id": 4,
+          "runtime": 40000,
+          "input_files": [
+            {
+              "from_task": 4,
+              "size": 4000000
+            }
+          ],
+          "children": [
+            {
+              "task_id": 5
+            }
+          ],
+          "output_file_size": 4000000
+        },
+        {
+          "task_id": 5,
+          "runtime": 50000,
+          "input_files": [],
+          "children": [
+            {
+              "task_id": 6
+            },
+            {
+              "task_id": 7
+            }
+          ],
+          "output_file_size": 5000000
+        },
+        {
+          "task_id": 6,
+          "runtime": 60000,
+          "input_files": [],
+          "children": [],
+          "output_file_size": 6000000
+        },
+        {
+          "task_id": 7,
+          "runtime": 60000,
+          "input_files": [],
+          "children": [],
+          "output_file_size": 6000000
+        }
+      ]
+    }
+  ]
+}

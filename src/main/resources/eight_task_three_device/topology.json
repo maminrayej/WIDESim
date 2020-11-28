@@ -1,0 +1,76 @@
+{
+  "fog_devices": [
+    {
+      "device_id": "device_0",
+      "neighbors": [
+        {
+          "neighbor_id": "device_1"
+        },
+        {
+          "neighbor_id": "device_2"
+        }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "vms": [
+            {
+              "vm_id": 0
+            }
+          ],
+          "pes": [
+            {
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "device_1",
+      "neighbors": [
+        {
+          "neighbor_id": "device_0"
+        }
+      ],
+      "hosts": [
+        {
+          "host_id": 1,
+          "vms": [
+            {
+              "vm_id": 1
+            }
+          ],
+          "pes": [
+            {
+              "pe_id": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "device_2",
+      "neighbors": [
+        {
+          "neighbor_id": "device_0"
+        }
+      ],
+      "hosts": [
+        {
+          "host_id": 2,
+          "vms": [
+            {
+              "vm_id": 2
+            }
+          ],
+          "pes": [
+            {
+              "pe_id": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
