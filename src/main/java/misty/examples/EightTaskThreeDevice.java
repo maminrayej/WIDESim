@@ -23,7 +23,7 @@ public class EightTaskThreeDevice {
         CloudSim.init(1, Calendar.getInstance(), false);
 
         // Parse topology
-        var topologyParser = new Parser(new File("/home/amin/projects/java/misty/src/main/resources/eight_task_three_device/topology.json"));
+        var topologyParser = new Parser(new File("src/main/resources/eight_task_three_device/topology.json"));
         var deviceAndVms = topologyParser.parse();
 
         var fogDevices = deviceAndVms.getFirst();
@@ -43,7 +43,7 @@ public class EightTaskThreeDevice {
         fogBroker.submitVmList(vms);
 
         // Parse workflows
-        var workflowParser = new misty.parse.workflow.Parser(new File("/home/amin/projects/java/misty/src/main/resources/eight_task_three_device/workflows.json"));
+        var workflowParser = new misty.parse.workflow.Parser(new File("src/main/resources/eight_task_three_device/workflows.json"));
         var workflows = workflowParser.parse();
 
         for (Workflow workflow: workflows) {

@@ -3,6 +3,7 @@ package parser;
 import misty.analyze.TopologyAnalyzer;
 import misty.entity.FogDevice;
 import misty.entity.FogHost;
+import misty.entity.FogVm;
 import misty.parse.topology.Parser;
 import misty.parse.topology.PostProcessor;
 import org.cloudbus.cloudsim.Vm;
@@ -28,7 +29,7 @@ public class TopologyPostProcessTest {
 
         Parser parser = new Parser(new File("src/test/resources/parser/topology/postprocess/topology.json"));
 
-        Pair<List<FogDevice>, List<Vm>> devicesAndVms = parser.parse();
+        Pair<List<FogDevice>, List<FogVm>> devicesAndVms = parser.parse();
 
         List<FogDevice> fogDevices = devicesAndVms.getFirst();
 
@@ -46,7 +47,7 @@ public class TopologyPostProcessTest {
 
         Parser parser = new Parser(new File("src/test/resources/parser/topology/postprocess/topology.json"));
 
-        Pair<List<FogDevice>, List<Vm>> devicesAndVms = parser.parse();
+        Pair<List<FogDevice>, List<FogVm>> devicesAndVms = parser.parse();
 
         List<FogDevice> fogDevices = devicesAndVms.getFirst();
 
@@ -81,7 +82,7 @@ public class TopologyPostProcessTest {
 
         Parser parser = new Parser(new File("src/test/resources/parser/topology/postprocess/topology.json"));
 
-        Pair<List<FogDevice>, List<Vm>> devicesAndVms = parser.parse();
+        Pair<List<FogDevice>, List<FogVm>> devicesAndVms = parser.parse();
 
         List<FogDevice> fogDevices = devicesAndVms.getFirst();
 
