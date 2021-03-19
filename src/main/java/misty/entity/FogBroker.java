@@ -76,8 +76,8 @@ public class FogBroker extends DatacenterBroker {
 
     @Override
     public void startEntity() {
-//        log("Starting Broker");
-        System.out.println("Starting FogBroker...");
+        // log("Starting Broker");
+        log("Starting FogBroker...");
 
         // broker sends INIT message to itself to start
         schedule(getId(), 0, Constants.MsgTag.INIT);
@@ -86,33 +86,17 @@ public class FogBroker extends DatacenterBroker {
     @Override
     public void processEvent(SimEvent event) {
 
+        // start the broker by requesting each fog device for its characteristics
+        // process incoming task from Task Manager
         switch (event.getTag()) {
-            // start the broker by requesting each fog device for its characteristics
-            case Constants.MsgTag.INIT:
-                init();
-                break;
-            // process incoming task from Task Manager
-            case Constants.MsgTag.INCOMING_TASK:
-                processIncomingTask(event);
-                break;
-            case Constants.MsgTag.RESOURCE_REQUEST_RESPONSE:
-                processResourceRequestResponse(event);
-                break;
-            case Constants.MsgTag.VM_CREATE_ACK:
-                processVmCreateAck(event);
-                break;
-            case Constants.MsgTag.VM_DESTROY_ACK:
-                processVmDestroyAck(event);
-                break;
-            case CloudSimTags.CLOUDLET_SUBMIT_ACK:
-                processTaskAck(event);
-                break;
-            case CloudSimTags.CLOUDLET_RETURN:
-                processTaskIsDone(event);
-                break;
-            default:
-                super.processEvent(event);
-                break;
+            case Constants.MsgTag.INIT -> init();
+            case Constants.MsgTag.INCOMING_TASK -> processIncomingTask(event);
+            case Constants.MsgTag.RESOURCE_REQUEST_RESPONSE -> processResourceRequestResponse(event);
+            case Constants.MsgTag.VM_CREATE_ACK -> processVmCreateAck(event);
+            case Constants.MsgTag.VM_DESTROY_ACK -> processVmDestroyAck(event);
+            case CloudSimTags.CLOUDLET_SUBMIT_ACK -> processTaskAck(event);
+            case CloudSimTags.CLOUDLET_RETURN -> processTaskIsDone(event);
+            default -> super.processEvent(event);
         }
     }
 

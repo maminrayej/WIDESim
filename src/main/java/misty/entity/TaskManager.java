@@ -3,6 +3,7 @@ package misty.entity;
 import misty.computation.Task;
 import misty.computation.Workflow;
 import misty.core.Constants;
+import misty.core.Logger;
 import misty.message.IncomingTaskMsg;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.SimEntity;
@@ -15,12 +16,12 @@ import java.util.List;
 public class TaskManager extends SimEntity {
 
     private final List<Task> tasks = new ArrayList<>();
-    private final Integer brokerId;
+    private final Integer workflowEngineId;
 
-    public TaskManager(Integer brokerId, List<Workflow> workflows) {
+    public TaskManager(Integer workflowEngineId, List<Workflow> workflows) {
         super("TaskManager");
 
-        this.brokerId = brokerId;
+        this.workflowEngineId = workflowEngineId;
 
         for (Workflow workflow : workflows)
             tasks.addAll(workflow.getTasks());
@@ -30,12 +31,12 @@ public class TaskManager extends SimEntity {
 
     @Override
     public void startEntity() {
-        System.out.println("Starting Task Manager...");
+        log("Starting Task Manager...");
 
         // dispatch tasks to broker
         for (Task task : tasks) {
-            System.out.printf("TaskManager: Sending task: %s of workflow: %s\n", task.getTaskId(), task.getWorkflowId());
-            schedule(brokerId, task.getEntryTime() - CloudSim.clock(), Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(task));
+            log("TaskManager: Sending task: %s of workflow: %s", task.getTaskId(), task.getWorkflowId());
+            schedule(workflowEngineId, task.getEntryTime() - CloudSim.clock(), Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(task));
         }
     }
 
@@ -45,5 +46,11 @@ public class TaskManager extends SimEntity {
 
     @Override
     public void shutdownEntity() {
+    }
+
+    private void log(String formatted, Object... args) {
+        String tag = String.format("TaskManager(%s)", getId());
+
+        Logger.log(tag, formatted, args);
     }
 }
