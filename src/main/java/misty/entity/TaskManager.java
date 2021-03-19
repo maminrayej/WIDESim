@@ -35,7 +35,7 @@ public class TaskManager extends SimEntity {
 
         // dispatch tasks to broker
         for (Task task : tasks) {
-            log("TaskManager: Sending task: %s of workflow: %s", task.getTaskId(), task.getWorkflowId());
+            log("Sending task: %s of workflow: %s", task.getTaskId(), task.getWorkflowId());
             schedule(workflowEngineId, task.getEntryTime() - CloudSim.clock(), Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(task));
         }
     }

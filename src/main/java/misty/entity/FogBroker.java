@@ -21,6 +21,8 @@ import java.util.stream.Collectors;
 
 public class FogBroker extends DatacenterBroker {
 
+    private int workflowEngineId;
+
     private final List<Integer> fogDeviceIds;
     private final Map<Integer, DatacenterCharacteristics> fogDeviceIdToCharacteristics;
 
@@ -128,6 +130,8 @@ public class FogBroker extends DatacenterBroker {
         this.tasks.put(task.getTaskId(), task);
 
         log("Task: %s of workflow: %s received", task.getTaskId(), task.getWorkflowId());
+
+        dispatchTasks();
     }
 
     protected void processResourceRequestResponse(SimEvent event) {
@@ -296,6 +300,9 @@ public class FogBroker extends DatacenterBroker {
                 dispatchTasks();
             }
         }
+
+        log("Notifying WorkflowEngine of completed Task(%s)...", task.getTaskId());
+        sendNow(workflowEngineId, Constants.MsgTag.TASK_IS_DONE, new TaskIsDoneMsg(task));
     }
 
     private void dispatchTasks() {
@@ -312,7 +319,6 @@ public class FogBroker extends DatacenterBroker {
         // merge new mapping with the old one
         this.taskToVm.putAll(newTaskToVm);
 
-
         log("Tasks mapped to vms %s: {task_id=vm_id}", this.taskToVm);
 
         for (int taskId : this.taskToVm.keySet()) {
@@ -323,7 +329,7 @@ public class FogBroker extends DatacenterBroker {
             Task task = it.next();
 
             // vm for current task
-            int mappedVmId = this.taskToVm.get(task.getTaskId());
+            Integer mappedVmId = this.taskToVm.get(task.getTaskId());
 
             List<Task> parentTasks = task.getParents().stream().map(this.tasks::get).collect(Collectors.toList());
 
@@ -375,6 +381,10 @@ public class FogBroker extends DatacenterBroker {
     @Override
     public <T extends Cloudlet> List<T> getCloudletReceivedList() {
         return (List<T>) new ArrayList<>(this.completedTasks);
+    }
+
+    public void setWorkflowEngineId(int workflowEngineId) {
+        this.workflowEngineId = workflowEngineId;
     }
 
     private void log(String formatted, Object... args) {

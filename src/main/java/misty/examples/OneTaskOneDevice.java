@@ -54,6 +54,7 @@ public class OneTaskOneDevice {
             misty.parse.workflow.PostProcessor.isWorkflowValid(analyzer);
         }
         var workflowEngine = new WorkflowEngine(fogBroker.getId());
+        fogBroker.setWorkflowEngineId(workflowEngine.getId());
 
         var taskManager = new TaskManager(workflowEngine.getId(), workflows);
 

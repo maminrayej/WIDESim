@@ -56,13 +56,17 @@ public class WorkflowEngine extends SimEntity {
         if (completedTasks.containsAll(task.getParents())) {
             log("Sending Task(%s) from workflow(%s)...", task.getTaskId(), task.getWorkflowId());
             sendNow(brokerId, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(task));
-        } else
+        } else {
+            log("Task(%s) is not ready to get executed. Adding it to waiting queue...", task.getTaskId());
             waitingTasks.add(task.getTaskId());
+        }
     }
 
     protected void processCompletedTask(SimEvent ev) {
         TaskIsDoneMsg doneMsg = (TaskIsDoneMsg) ev.getData();
         Task task = doneMsg.getTask();
+
+        log("Task(%s) received as complete", task.getTaskId());
 
         completedTasks.add(task.getTaskId());
 
@@ -72,11 +76,11 @@ public class WorkflowEngine extends SimEntity {
 
             if (completedTasks.containsAll(waitingTask.getParents())) {
                 iterator.remove();
+                log("Task(%s) is now ready to get executed. Releasing it...", waitingTask.getTaskId());
                 sendNow(brokerId, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(waitingTask));
             }
         }
 
-        log("Task(%s) received as complete", task.getTaskId());
     }
 
     private void log(String formatted, Object... args) {

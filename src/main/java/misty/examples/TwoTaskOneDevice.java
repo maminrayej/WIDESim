@@ -1,8 +1,10 @@
 package misty.examples;
 
+import misty.computation.Task;
 import misty.computation.Workflow;
 import misty.entity.FogBroker;
 import misty.entity.TaskManager;
+import misty.entity.WorkflowEngine;
 import misty.mapper.SimpleTaskToVmMapper;
 import misty.mapper.SimpleVmToFogDeviceMapper;
 import misty.parse.topology.Parser;
@@ -53,7 +55,12 @@ public class TwoTaskOneDevice {
             misty.parse.workflow.PostProcessor.isWorkflowValid(analyzer);
         }
 
-        var taskManager = new TaskManager(fogBroker.getId(), workflows);
+        var workflowEngine = new WorkflowEngine(fogBroker.getId());
+        fogBroker.setWorkflowEngineId(workflowEngine.getId());
+
+        var taskManager = new TaskManager(workflowEngine.getId(), workflows);
+
+//        var taskManager = new TaskManager(fogBroker.getId(), workflows);
 
         CloudSim.startSimulation();
 

@@ -16,15 +16,18 @@ public class SimpleTaskToVmMapper implements TaskToVmMapper {
                                      Set<Task> completedTasks,
                                      Set<Task> dispatchedTasks,
                                      Map<Integer, Integer> taskToVm) {
+
         // Distribute tasks among created vms uniformly
         HashMap<Integer, Integer> newTaskToVm = new HashMap<>();
 
-        for (Task task : queuedTasks) {
-            int taskId = task.getTaskId();
+        if (!createdVms.isEmpty()) {
+            for (Task task : queuedTasks) {
+                int taskId = task.getTaskId();
 
-            int vmId = taskId % createdVms.size();
+                int vmId = taskId % createdVms.size();
 
-            newTaskToVm.put(taskId, vmId);
+                newTaskToVm.put(taskId, vmId);
+            }
         }
 
         return newTaskToVm;
