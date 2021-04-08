@@ -8,8 +8,10 @@ import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
+import org.jgrapht.alg.util.Pair;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FogDevice extends Datacenter {
 
@@ -25,7 +27,9 @@ public class FogDevice extends Datacenter {
 
     private final Map<Integer, Task> tasks;
     private final List<Integer> waitingTasks;
-    private final HashSet<Integer> receivedData;
+
+    // cycle -> (taskId, isData)
+    private final HashMap<Integer, HashSet<Pair<Integer, Boolean>>> receivedData;
 
     public FogDevice(String name,
                      DatacenterCharacteristics characteristics,
@@ -45,7 +49,7 @@ public class FogDevice extends Datacenter {
 
         this.tasks = new HashMap<>();
         this.waitingTasks = new ArrayList<>();
-        this.receivedData = new HashSet<>();
+        this.receivedData = new HashMap<>();
 
         this.upLinkBw = upLinkBw;
         this.downLinkBw = downLinkBw;
@@ -53,7 +57,7 @@ public class FogDevice extends Datacenter {
 
     @Override
     public void startEntity() {
-        log("Device is starting...");
+        log("Starting FogDevice(%s)...", getId());
 
         // this resource should register to regional CIS.
         // However, if not specified, then register to system CIS (the
@@ -75,47 +79,25 @@ public class FogDevice extends Datacenter {
     @Override
     public void processEvent(SimEvent event) {
         switch (event.getTag()) {
-            case Constants.MsgTag.INIT:
-                processInit();
-                break;
-            case Constants.MsgTag.RESOURCE_REQUEST:
-                processResourceRequest(event);
-                break;
-            case Constants.MsgTag.BROADCAST_ID:
-                processBroadcastId(event);
-                break;
-            case Constants.MsgTag.VM_CREATE:
-                processVmCreate(event);
-                break;
-            case Constants.MsgTag.STAGE_OUT_DATA:
-                processStageOutData(event);
-                break;
-            case Constants.MsgTag.EXECUTE_TASK_WITH_DATA:
-                processExecuteTaskWithData(event);
-                break;
-            case Constants.MsgTag.EXECUTE_TASK:
-                processExecuteTask(event);
-                break;
-            case Constants.MsgTag.FOG_TO_FOG:
-                processFogToFog(event);
-                break;
-            case Constants.MsgTag.DOWNLOADED_FOG_TO_FOG:
-                processDownloadedFogToFog(event);
-                break;
-            default:
-                super.processEvent(event);
-                break;
+            case Constants.MsgTag.INIT -> processInit();
+            case Constants.MsgTag.RESOURCE_REQUEST -> processResourceRequest(event);
+            case Constants.MsgTag.BROADCAST_ID -> processBroadcastId(event);
+            case Constants.MsgTag.VM_CREATE -> processVmCreate(event);
+            case Constants.MsgTag.STAGE_OUT_DATA -> processStageOutData(event);
+            case Constants.MsgTag.EXECUTE_TASK_WITH_DATA -> processExecuteTaskWithData(event);
+            case Constants.MsgTag.EXECUTE_TASK -> processExecuteTask(event);
+            case Constants.MsgTag.FOG_TO_FOG -> processFogToFog(event);
+            case Constants.MsgTag.DOWNLOADED_FOG_TO_FOG -> processDownloadedFogToFog(event);
+            default -> super.processEvent(event);
         }
     }
 
     protected void processInit() {
-        log("Initializing fog device");
         List<Integer> fogDeviceIds = CloudSim.getCloudResourceList();
 
         // broadcast name and id of the fog device to other fog devices
         for (int fogDeviceId : fogDeviceIds) {
 
-            log("Broadcasting name and id");
             if (fogDeviceId != getId())
                 sendNow(fogDeviceId, Constants.MsgTag.BROADCAST_ID, new BroadcastIdMsg(this.getName(), this.getId()));
         }
@@ -126,12 +108,8 @@ public class FogDevice extends Datacenter {
 
         Vm vm = vmCreateMsg.getVm();
 
-        log("Receiving vm create msg for vm: %s, with user id: %s", vm.getId(), vm.getUserId());
-
         boolean result = getVmAllocationPolicy().allocateHostForVm(vm);
 
-        log("Result of vm creation: %s", result);
-        log("Sending ack to broker");
         sendNow(event.getSource(), Constants.MsgTag.VM_CREATE_ACK, new VmCreateAckMsg(getId(), vm.getId(), result));
 
         if (result) {
@@ -147,14 +125,12 @@ public class FogDevice extends Datacenter {
     }
 
     protected void processResourceRequest(SimEvent event) {
-        log("Sending resources");
         sendNow(event.getSource(), Constants.MsgTag.RESOURCE_REQUEST_RESPONSE, new ResourceRequestResponseMsg(this.getCharacteristics()));
     }
 
     protected void processBroadcastId(SimEvent event) {
         BroadcastIdMsg broadcastMsg = (BroadcastIdMsg) event.getData();
 
-        log("received name: %s and id: %s from fog device: %s", broadcastMsg.getName(), broadcastMsg.getId(), event.getSource());
         this.nameToId.put(broadcastMsg.getName(), broadcastMsg.getId());
         this.idToName.put(broadcastMsg.getId(), broadcastMsg.getName());
     }
@@ -162,32 +138,46 @@ public class FogDevice extends Datacenter {
     protected void processStageOutData(SimEvent event) {
         StageOutDataMsg stageOutDataMsg = (StageOutDataMsg) event.getData();
 
+        // If destination is this fog device
         if (stageOutDataMsg.getDstFogDeviceId() == this.getId()) {
-            log("Received STAGE_OUT for task: %s and destination is a loop back: sending data instantly", stageOutDataMsg.getTaskId());
+            log("Received STAGE_OUT data of Task(%s) on Cycle(%s) and destination is a loop back: sending data instantly", stageOutDataMsg.getTaskId(),
+                    stageOutDataMsg.getCycle());
             sendNow(
                     getId(),
                     Constants.MsgTag.DOWNLOADED_FOG_TO_FOG,
-                    new FogToFogMsg(getId(), stageOutDataMsg.getTaskId(), this.tasks.get(stageOutDataMsg.getTaskId()).getCloudletOutputSize())
+                    new FogToFogMsg(
+                            getId(),
+                            stageOutDataMsg.getTaskId(),
+                            stageOutDataMsg.getCycle(),
+                            this.tasks.get(stageOutDataMsg.getTaskId()).getCloudletOutputSize(),
+                            stageOutDataMsg.isData()
+                    )
             );
 
             return;
         }
 
+        // If destination is not this fog device, use routing table and send the message to next hop
         String dstName = this.idToName.get(stageOutDataMsg.getDstFogDeviceId());
-        log("Received STAGE_OUT data msg to fog device(%s,%s)", dstName, stageOutDataMsg.getDstFogDeviceId());
+        log("Received STAGE_OUT data of Task(%s) on Cycle(%s) to FogDevice(%s)", stageOutDataMsg.getTaskId(), this.tasks.get(stageOutDataMsg.getTaskId()).getCycle(), stageOutDataMsg.getDstFogDeviceId());
 
         String nextHopName = this.nextHop(dstName);
 
         int nextHopId = this.nameToId.get(nextHopName);
-        log("Next hop is fog device: (%s,%s)", nextHopName, nextHopId);
+
         Task task = this.tasks.get(stageOutDataMsg.getTaskId());
 
-        log("Uploading data to fog device(%s,%s)", nextHopName, nextHopId);
         send(
                 nextHopId,
-                (double) task.getCloudletOutputSize() / this.upLinkBw,
+                stageOutDataMsg.isData() ? (double) task.getCloudletOutputSize() / this.upLinkBw : 0,
                 Constants.MsgTag.FOG_TO_FOG,
-                new FogToFogMsg(stageOutDataMsg.getDstFogDeviceId(), stageOutDataMsg.getTaskId(), task.getCloudletOutputSize())
+                new FogToFogMsg(
+                        stageOutDataMsg.getDstFogDeviceId(),
+                        stageOutDataMsg.getTaskId(),
+                        stageOutDataMsg.getCycle(),
+                        task.getCloudletOutputSize(),
+                        stageOutDataMsg.isData()
+                )
         );
     }
 
@@ -195,28 +185,61 @@ public class FogDevice extends Datacenter {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
 
         log("Downloading data from fog device: %s", event.getSource());
-        send(getId(), (double) fogToFogMsg.getData() / this.downLinkBw, Constants.MsgTag.DOWNLOADED_FOG_TO_FOG, fogToFogMsg);
+        send(
+                getId(),
+                fogToFogMsg.isData() ? (double) fogToFogMsg.getData() / this.downLinkBw : 0,
+                Constants.MsgTag.DOWNLOADED_FOG_TO_FOG,
+                fogToFogMsg
+        );
     }
 
     protected void processDownloadedFogToFog(SimEvent event) {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
-        log("Downloaded data of task: %s", fogToFogMsg.getTaskId());
+        log("Downloaded data of Task(%s) on Cycle(%s)", fogToFogMsg.getTaskId(), fogToFogMsg.getCycle());
 
         if (this.getId() == fogToFogMsg.getDstFogDeviceId()) {
             log("Data is for me");
-            this.receivedData.add(fogToFogMsg.getTaskId());
 
-            // iterate over waiting tasks and check if any of them can be executed
-            for (int taskId : this.waitingTasks) {
+            this.receivedData.computeIfAbsent(fogToFogMsg.getCycle(), k -> new HashSet<>());
+
+            this.receivedData.get(fogToFogMsg.getCycle()).add(Pair.of(fogToFogMsg.getTaskId(), fogToFogMsg.isData()));
+
+            // Iterate over waiting tasks and check if any of them can be executed
+            for (Iterator<Integer> it = waitingTasks.iterator(); it.hasNext(); ) {
+                int taskId = it.next();
+
                 Task task = this.tasks.get(taskId);
 
-                if (this.receivedData.containsAll(task.getParents())) {
-                    log("Found task: %s from workflow: %s that can be executed", task.getTaskId(), task.getWorkflowId());
+                // Create a list of (parentId, isData=true)
+                var idToTrue = task.getParents().stream().map(id -> Pair.of(id, true)).collect(Collectors.toList());
+
+                if (this.receivedData.get(task.getCycle()).containsAll(idToTrue)) {
+                    log("Found Task(%s) from Workflow(%s) that can be executed", task.getTaskId(), task.getWorkflowId());
+
+                    task.getTaskState().setStartExecutionTime(task.getCycle(), CloudSim.clock());
                     sendNow(
                             getId(),
                             Constants.MsgTag.EXECUTE_TASK,
                             new ExecuteTaskMsg(task, task.getVmId())
                     );
+
+                    task.getTaskState().setExitFogDeviceWaitingQueue(task.getCycle(), CloudSim.clock());
+                    it.remove();
+                }
+                else if (this.receivedData.get(task.getCycle()).stream().anyMatch(pair -> task.getParents().contains(pair.getFirst()) && !pair.getSecond())) {
+                    log("One of parents of Task(%s) did not generate data on Cycle(%s). Sending back Task...", task.getTaskId(), task.getCycle());
+
+                    task.getCycleToGeneratedData().put(task.getCycle(), false);
+
+                    task.getTaskState().setStartExecutionTime(task.getCycle(), CloudSim.clock());
+                    sendNow(
+                            task.getUserId(),
+                            CloudSimTags.CLOUDLET_RETURN,
+                            task
+                    );
+
+                    task.getTaskState().setExitFogDeviceWaitingQueue(task.getCycle(), CloudSim.clock());
+                    it.remove();
                 }
             }
         } else {
@@ -228,7 +251,6 @@ public class FogDevice extends Datacenter {
 
             int nextHopId = this.nameToId.get(nextHopName);
 
-            log("Uploading data to next hop: (%s,%s) with destination: (%s,%s)", nextHopName, nextHopId, dstName, fogToFogMsg.getDstFogDeviceId());
             send(
                     nextHopId,
                     (double) fogToFogMsg.getData() / this.upLinkBw,
@@ -240,34 +262,56 @@ public class FogDevice extends Datacenter {
 
     protected void processExecuteTask(SimEvent event) {
         ExecuteTaskMsg executeTaskMsg = (ExecuteTaskMsg) event.getData();
+        Task task = executeTaskMsg.getTask();
 
-        log("Received execute msg for task: %s from workflow: %s to run on vm with id: %s", executeTaskMsg.getTask().getTaskId(), executeTaskMsg.getTask().getWorkflowId(), executeTaskMsg.getVmId());
-        this.tasks.put(executeTaskMsg.getTask().getTaskId(), executeTaskMsg.getTask());
+        log("Received execute msg for Task(%s) on Cycle(%s) from Workflow(%s) to run on Vm(%s)", task.getTaskId(), task.getCycle(), task.getWorkflowId(), executeTaskMsg.getVmId());
+        this.tasks.put(task.getTaskId(), task);
 
-        // check if all input data is provided
-        if (this.receivedData.containsAll(executeTaskMsg.getTask().getParents())) {
-            log("All parent data for task: %s are received. task can execute", executeTaskMsg.getTask().getTaskId());
-            // execute the task
+        this.receivedData.computeIfAbsent(task.getCycle(), k -> new HashSet<>());
+
+        var idToTrue = task.getParents().stream().map(id -> Pair.of(id, true)).collect(Collectors.toList());
+
+        task.getTaskState().setEnterFogDeviceWaitingQueue(task.getCycle(), CloudSim.clock());
+
+        if (this.receivedData.get(task.getCycle()).containsAll(idToTrue)) {
+            log("All parent data for Task(%s) are received. task can execute", task.getTaskId());
+
+            task.getTaskState().setStartExecutionTime(task.getCycle(), CloudSim.clock());
             sendNow(
                     getId(),
                     CloudSimTags.CLOUDLET_SUBMIT_ACK,
-                    executeTaskMsg.getTask()
+                    task
             );
 
-            this.waitingTasks.removeIf(taskId -> taskId == executeTaskMsg.getTask().getTaskId());
+            task.getTaskState().setExitFogDeviceWaitingQueue(task.getCycle(), CloudSim.clock());
+            this.waitingTasks.removeIf(taskId -> taskId == task.getTaskId());
+        } else if (this.receivedData.get(task.getCycle()).stream().anyMatch(pair -> task.getParents().contains(pair.getFirst()) && !pair.getSecond())) {
+            log("One of parents of Task(%s) did not generate data on Cycle(%s). Sending back Task...", task.getTaskId(), task.getCycle());
+
+            task.getCycleToGeneratedData().put(task.getCycle(), false);
+
+            task.getTaskState().setStartExecutionTime(task.getCycle(), CloudSim.clock());
+            sendNow(
+                    task.getUserId(),
+                    CloudSimTags.CLOUDLET_RETURN,
+                    task
+            );
+
+            task.getTaskState().setExitFogDeviceWaitingQueue(task.getCycle(), CloudSim.clock());
+            this.waitingTasks.removeIf(taskId -> taskId == task.getTaskId());
         } else {
             log("Not all parent data are available. task is added to waiting queue");
-            this.waitingTasks.add(executeTaskMsg.getTask().getTaskId());
+            task.getTaskState().setEnterFogDeviceWaitingQueue(task.getCycle(), CloudSim.clock());
+            this.waitingTasks.add(task.getTaskId());
         }
     }
 
     protected void processExecuteTaskWithData(SimEvent event) {
         ExecuteTaskMsg executeTaskMsg = (ExecuteTaskMsg) event.getData();
 
-        log("Received task: %s from workflow: %s with STAGE_IN data to run on vm: %s", executeTaskMsg.getTask().getTaskId(), executeTaskMsg.getTask().getWorkflowId(), executeTaskMsg.getVmId());
+        log("Received Task(%s) from Workflow(%s) with STAGE_IN data to run on Vm(%s)", executeTaskMsg.getTask().getTaskId(), executeTaskMsg.getTask().getWorkflowId(), executeTaskMsg.getVmId());
 
         double delay = (double) executeTaskMsg.getTask().getTotalInputDataSize() / this.downLinkBw;
-        log("Downloading STAGE_IN data with delay: %s", delay);
 
         send(
                 getId(),
@@ -294,13 +338,13 @@ public class FogDevice extends Datacenter {
     }
 
     private void log(String formatted, Object... args) {
-        String tag = String.format("FogDevice(%s,%s)", getName(), getId());
+        String tag = String.format("FogDevice(%s)", getId());
 
         Logger.log(tag, formatted, args);
     }
 
     @Override
     public String toString() {
-        return String.format("FogDevice(%s,%s)", this.getName(), getId());
+        return String.format("FogDevice(%s)", getId());
     }
 }

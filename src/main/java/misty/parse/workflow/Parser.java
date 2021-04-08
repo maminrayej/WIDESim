@@ -1,8 +1,6 @@
 package misty.parse.workflow;
 
-import misty.computation.Data;
-import misty.computation.Task;
-import misty.computation.Workflow;
+import misty.computation.*;
 import misty.core.Enums.UtilizationModelEnum;
 import misty.parse.Default;
 import org.json.JSONException;
@@ -41,16 +39,20 @@ public class Parser {
         JSONObject root = new JSONObject(workflowsJsonContent);
 
         return root.getJSONArray(Tags.WORKFLOWS).toList().stream().map(workflow -> {
-            JSONObject workflowObj = new JSONObject((Map<?, ?>)workflow);
+            JSONObject workflowObj = new JSONObject((Map<?, ?>) workflow);
             String workflowId = workflowObj.getString(Tags.WORKFLOW_ID);
 
             List<Task> tasks = workflowObj.getJSONArray(Tags.TASKS).toList().stream().map(task -> {
-                JSONObject taskObj = new JSONObject((Map<?, ?>)task);
+                JSONObject taskObj = new JSONObject((Map<?, ?>) task);
                 int taskId = taskObj.getInt(Tags.TASK_ID);
                 long runtime = taskObj.getLong(Tags.RUNTIME);
 
+                FractionalSelectivity selectivity = new FractionalSelectivity(getOrDefault(taskObj, Tags.SELECTIVITY, 1.0, Double.class));
+
+                ExecutionModel executionModel = new PeriodicExecutionModel(getOrDefault(taskObj, Tags.EXECUTION_PERIOD, 1.0, Double.class));
+
                 List<Data> inputFiles = taskObj.getJSONArray(Tags.INPUT_FILES).toList().stream().map(file -> {
-                    JSONObject fileObj = new JSONObject((Map<?, ?>)file);
+                    JSONObject fileObj = new JSONObject((Map<?, ?>) file);
                     int srcTaskId = fileObj.getInt(Tags.FROM_TASK);
                     long size = fileObj.getLong(Tags.SIZE);
 
@@ -65,7 +67,7 @@ public class Parser {
                         .getJSONArray(Tags.CHILDREN)
                         .toList()
                         .stream()
-                        .map(childId -> (new JSONObject((Map<?, ?>)childId)).getInt(Tags.TASK_ID))
+                        .map(childId -> (new JSONObject((Map<?, ?>) childId)).getInt(Tags.TASK_ID))
                         .collect(Collectors.toList());
 
                 double entry_time = getOrDefault(taskObj, Tags.ENTRY_TIME, Default.TASK.ENTRY_TIME, Double.class);
@@ -81,7 +83,7 @@ public class Parser {
                         UtilizationModelEnum.getUtilizationModel(cpuUtilModel),
                         UtilizationModelEnum.getUtilizationModel(ramUtilModel),
                         UtilizationModelEnum.getUtilizationModel(bwUtilModel),
-                        inputFiles, childTaskIds, deadLine, entry_time, workflowId
+                        inputFiles, childTaskIds, deadLine, entry_time, workflowId, selectivity, executionModel
                 );
             }).collect(Collectors.toList());
 
@@ -106,5 +108,7 @@ public class Parser {
         public static final String RAM_UTIL = "ram_util_model";
         public static final String BW_UTIL_MODEL = "bw_util_model";
         public static final String NUM_OF_PES = "num_of_pes";
+        public static final String SELECTIVITY = "selectivity";
+        public static final String EXECUTION_PERIOD = "execution_period";
     }
 }

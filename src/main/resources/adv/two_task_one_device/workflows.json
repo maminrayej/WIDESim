@@ -1,0 +1,35 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "workflow_0",
+      "tasks": [
+        {
+          "task_id": 0,
+          "runtime": 40000,
+          "selectivity": 0.8,
+          "execution_period": 10,
+          "input_files": [
+            {
+              "from_task": 0,
+              "size": 4000000
+            }
+          ],
+          "children": [
+            {
+              "task_id": 1
+            }
+          ],
+          "output_file_size": 128000
+        },
+        {
+          "task_id": 1,
+          "runtime": 50000,
+          "selectivity": 0.4,
+          "input_files": [],
+          "children": [],
+          "output_file_size": 5600
+        }
+      ]
+    }
+  ]
+}

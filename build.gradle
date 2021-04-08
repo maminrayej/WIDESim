@@ -26,6 +26,9 @@ dependencies {
     // common math3
     implementation 'org.apache.commons:commons-math3:3.6.1'
 
+    // tabular print
+    implementation 'com.jakewharton.fliptables:fliptables:1.1.0'
+
 //    testCompile group: 'junit', name: 'junit', version: '4.12'
 
     // junit 5
