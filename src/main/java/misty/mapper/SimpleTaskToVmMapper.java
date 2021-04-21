@@ -24,9 +24,13 @@ public class SimpleTaskToVmMapper implements TaskToVmMapper {
             for (Task task : queuedTasks) {
                 int taskId = task.getTaskId();
 
-                int vmId = taskId % createdVms.size();
+                if (task.getAssignedVmId() != null) {
+                    newTaskToVm.put(taskId, task.getAssignedVmId());
+                } else {
+                    int vmId = taskId % createdVms.size();
 
-                newTaskToVm.put(taskId, vmId);
+                    newTaskToVm.put(taskId, vmId);
+                }
             }
         }
 

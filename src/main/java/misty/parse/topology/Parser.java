@@ -112,6 +112,8 @@ public class Parser {
                     // Parse vm attributes
                     JSONObject vmObj = new JSONObject((Map<?, ?>)vm);
                     int vmId = vmObj.getInt(Tags.Vm.VM_ID);
+                    Integer assignedFogDeviceId = getOrDefault(vmObj, Tags.Vm.FOG_DEVICE_ID, null, Integer.class);
+
                     long size = getOrDefault(vmObj, Tags.Vm.SIZE, Default.VM.SIZE, Long.class);
                     double mips = getOrDefault(vmObj, Tags.Vm.MIPS, Default.VM.MIPS, Double.class);
                     int numOfPes = getOrDefault(vmObj, Tags.Vm.NUM_OF_PES, Default.VM.NUM_OF_PES, Integer.class);
@@ -122,7 +124,8 @@ public class Parser {
 
                     return new FogVm(
                             vmId, Constants.INVALID_ID, mips, numOfPes, vmRam, vmBw, size, vmVmm,
-                            CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes)
+                            CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes),
+                            assignedFogDeviceId
                     );
                 }).collect(Collectors.toList());
 
@@ -216,6 +219,7 @@ public class Parser {
 
         public static class Vm {
             public static final String VM_ID = "vm_id";
+            public static final String FOG_DEVICE_ID = "fog_device_id";
             public static final String SIZE = "size";
             public static final String MIPS = "mips";
             public static final String NUM_OF_PES = "num_of_pes";

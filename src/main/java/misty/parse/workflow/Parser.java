@@ -47,6 +47,11 @@ public class Parser {
                 int taskId = taskObj.getInt(Tags.TASK_ID);
                 long runtime = taskObj.getLong(Tags.RUNTIME);
 
+                double ram = getOrDefault(taskObj, Tags.RAM, 0.0, double.class);
+                double bw = getOrDefault(taskObj, Tags.BW, 0.0, double.class);
+
+                Integer vmId = getOrDefault(taskObj, Tags.VM_ID, null, Integer.class);
+
                 FractionalSelectivity selectivity = new FractionalSelectivity(getOrDefault(taskObj, Tags.SELECTIVITY, 1.0, Double.class));
 
                 ExecutionModel executionModel = new PeriodicExecutionModel(getOrDefault(taskObj, Tags.EXECUTION_PERIOD, 1.0, Double.class));
@@ -83,7 +88,8 @@ public class Parser {
                         UtilizationModelEnum.getUtilizationModel(cpuUtilModel),
                         UtilizationModelEnum.getUtilizationModel(ramUtilModel),
                         UtilizationModelEnum.getUtilizationModel(bwUtilModel),
-                        inputFiles, childTaskIds, deadLine, entry_time, workflowId, selectivity, executionModel
+                        inputFiles, childTaskIds, deadLine, entry_time, workflowId,
+                        selectivity, executionModel, ram, bw, vmId
                 );
             }).collect(Collectors.toList());
 
@@ -110,5 +116,8 @@ public class Parser {
         public static final String NUM_OF_PES = "num_of_pes";
         public static final String SELECTIVITY = "selectivity";
         public static final String EXECUTION_PERIOD = "execution_period";
+        public static final String RAM = "ram";
+        public static final String BW = "bw";
+        public static final String VM_ID = "vm_id";
     }
 }

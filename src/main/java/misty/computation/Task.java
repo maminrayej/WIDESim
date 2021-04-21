@@ -10,6 +10,9 @@ import java.util.List;
 
 public class Task extends Cloudlet {
 
+    private final double ram;
+    private final double bw;
+    private final Integer assignedVmId;
     private final List<Data> inputFiles;
     private final List<Integer> children;
     private HashSet<Integer> parents;
@@ -43,11 +46,16 @@ public class Task extends Cloudlet {
         this.executionModel = new PeriodicExecutionModel(1f);
 
         this.taskState = new TaskState();
+
+        this.ram = 0;
+        this.bw = 0;
+        this.assignedVmId = null;
     }
 
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
                 UtilizationModel utilizationModelCpu, UtilizationModel utilizationModelRam, UtilizationModel utilizationModelBw,
-                List<Data> inputFiles, List<Integer> children, double deadLine, double entryTime, String workflowName, SelectivityModel selectivityModel, ExecutionModel executionModel) {
+                List<Data> inputFiles, List<Integer> children, double deadLine, double entryTime, String workflowName, SelectivityModel selectivityModel, ExecutionModel executionModel,
+                double ram, double bw, Integer assignedVmId) {
         super(cloudletId, cloudletLength, pesNumber, cloudletFileSize, cloudletOutputSize, utilizationModelCpu, utilizationModelRam, utilizationModelBw);
         this.inputFiles = inputFiles;
         this.children = children;
@@ -63,7 +71,21 @@ public class Task extends Cloudlet {
         this.selectivityModel = selectivityModel;
 
         this.executionModel = executionModel;
+
+        this.ram = ram;
+        this.bw = bw;
+        this.assignedVmId = assignedVmId;
     }
+
+    public double getRam() {
+        return ram;
+    }
+
+    public double getBw() {
+        return bw;
+    }
+
+    public Integer getAssignedVmId() { return this.assignedVmId; }
 
     public List<Data> getInputFiles() {
         return inputFiles;

@@ -323,6 +323,7 @@ public class FogBroker extends DatacenterBroker {
 
     private void dispatchTasks() {
         // map each task in task queue to a vm(either a created or failed one)
+        // TODO: Pass some sort of hop count to this mapper.
         var newTaskToVm = this.taskToVmMapper.map(
                 this.createdVms,
                 this.failedVms,
