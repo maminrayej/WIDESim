@@ -40,4 +40,27 @@ public class PostProcessor {
             }
         }
     }
+
+    public static HashMap<Pair<Integer, Integer>, Integer> convertNameToId(List<FogDevice> fogDevices,
+                                                                           HashMap<Pair<String, String>, String> routingTable) {
+        HashMap<Pair<Integer, Integer>, Integer> convertedRoutingTable = new HashMap<>();
+
+        for (Pair<String, String> srcDst: routingTable.keySet()) {
+            String srcName = srcDst.getFirst();
+            String dstName = srcDst.getSecond();
+            String nextHopName = routingTable.get(srcDst);
+
+            Integer srcId = IdOfName(srcName, fogDevices);
+            Integer dstId = IdOfName(dstName, fogDevices);
+            Integer nextHopId = IdOfName(nextHopName, fogDevices);
+
+            convertedRoutingTable.put(Pair.of(srcId, dstId), nextHopId);
+        }
+
+        return convertedRoutingTable;
+    }
+
+    private static Integer IdOfName(String name, List<FogDevice> fogDevices) {
+        return fogDevices.stream().filter(fogDevice -> fogDevice.getName().equals(name)).findFirst().get().getId();
+    }
 }

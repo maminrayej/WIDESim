@@ -15,6 +15,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
 import org.cloudbus.cloudsim.lists.VmList;
+import org.jgrapht.alg.util.Pair;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,6 +29,8 @@ public class FogBroker extends DatacenterBroker {
 
     private final long downLinkBw;
     private final long upLinkBw;
+
+    private final HashMap<Pair<Integer, Integer>, Integer> routingTable;
 
     // variables for vm management
     private final VmProvisioner vmProvisioner;
@@ -50,7 +53,9 @@ public class FogBroker extends DatacenterBroker {
 
     private final int maximumCycle = 5;
 
-    public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper, TaskToVmMapper taskToVmMapper, long downLinkBw, long upLinkBw) throws Exception {
+    public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper,
+                     TaskToVmMapper taskToVmMapper, long downLinkBw, long upLinkBw,
+                     HashMap<Pair<Integer, Integer>, Integer> routingTable) throws Exception {
         super(name);
 
         this.waitingTaskQueue = new ArrayList<>();
@@ -76,6 +81,8 @@ public class FogBroker extends DatacenterBroker {
 
         this.upLinkBw = upLinkBw;
         this.downLinkBw = downLinkBw;
+
+        this.routingTable = routingTable;
     }
 
     @Override
@@ -330,7 +337,9 @@ public class FogBroker extends DatacenterBroker {
                 this.waitingTaskQueue,
                 this.completedTasks,
                 this.dispatchedTasks,
-                this.taskToVm
+                this.taskToVm,
+                routingTable,
+                vmToFogDevice
         );
 
         // merge new mapping with the old one

@@ -2,6 +2,7 @@ package misty.mapper;
 
 import misty.computation.Task;
 import org.cloudbus.cloudsim.Vm;
+import org.jgrapht.alg.util.Pair;
 
 import java.util.List;
 import java.util.Map;
@@ -13,5 +14,7 @@ public interface TaskToVmMapper {
                               List<Task> queuedTasks,
                               Set<Task> completedTasks,
                               Set<Task> dispatchedTasks,
-                              Map<Integer, Integer> taskToVm);
+                              Map<Integer, Integer> taskToVm,
+                              Map<Pair<Integer, Integer>, Integer> routingTable,
+                              Map<Integer, Integer> vmToFogDevice);
 }

@@ -34,9 +34,10 @@ public class ThreeTaskTwoDevice {
         var topologyAnalyzer = PostProcessor.buildTopologyAnalyzer(fogDevices);
         var routingTable = topologyAnalyzer.buildRoutingTable();
         PostProcessor.setRoutingTableOfFogDevices(fogDevices, routingTable);
+        var convertedRoutingTable = PostProcessor.convertNameToId(fogDevices, routingTable);
 
         var vms = deviceAndVms.getSecond();
-        var fogBroker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper(), 10L, 10L);
+        var fogBroker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper(), 10L, 10L, convertedRoutingTable);
         vms.forEach(vm -> {
             vm.setUid(Vm.getUid(fogBroker.getId(), vm.getId()));
             vm.setUserId(fogBroker.getId());
