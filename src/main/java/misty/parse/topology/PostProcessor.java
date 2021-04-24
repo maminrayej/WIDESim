@@ -45,10 +45,13 @@ public class PostProcessor {
                                                                            HashMap<Pair<String, String>, String> routingTable) {
         HashMap<Pair<Integer, Integer>, Integer> convertedRoutingTable = new HashMap<>();
 
+//        System.out.println(fogDevices);
+
         for (Pair<String, String> srcDst: routingTable.keySet()) {
             String srcName = srcDst.getFirst();
             String dstName = srcDst.getSecond();
             String nextHopName = routingTable.get(srcDst);
+//            System.out.printf("src: %s - dst: %s - nxt: %s\n", srcName, dstName, nextHopName);
 
             Integer srcId = IdOfName(srcName, fogDevices);
             Integer dstId = IdOfName(dstName, fogDevices);
@@ -61,6 +64,11 @@ public class PostProcessor {
     }
 
     private static Integer IdOfName(String name, List<FogDevice> fogDevices) {
-        return fogDevices.stream().filter(fogDevice -> fogDevice.getName().equals(name)).findFirst().get().getId();
+        var fd = fogDevices.stream().filter(fogDevice -> fogDevice.getName().equals(name)).findFirst();
+        if (fd.isEmpty()) {
+            return null;
+        } else {
+            return fd.get().getId();
+        }
     }
 }

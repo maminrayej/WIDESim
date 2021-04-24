@@ -1,6 +1,8 @@
 package misty.examples;
 
+import misty.computation.Task;
 import misty.computation.Workflow;
+import misty.core.Logger;
 import misty.entity.FogBroker;
 import misty.entity.TaskManager;
 import misty.entity.WorkflowEngine;
@@ -18,6 +20,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class OneTaskOneDevice {
     public static void main(String[] args) throws Exception {
@@ -64,8 +67,15 @@ public class OneTaskOneDevice {
         CloudSim.stopSimulation();
 
         //Final step: Print results when simulation is over
-        List<Cloudlet> newList = fogBroker.getCloudletReceivedList();
-        printCloudletList(newList);
+//        List<Cloudlet> newList = fogBroker.getCloudletReceivedList();
+//        printCloudletList(newList);
+
+        List<Task> tasks = fogBroker.getReceivedTasks();
+
+        IntStream.range(0, fogBroker.getMaximumCycle() + 1).forEach(cycle -> {
+            System.out.println("Cycle: " + cycle);
+            Logger.printResult(cycle, tasks);
+        });
     }
 
     private static void printCloudletList(List<Cloudlet> list) {
