@@ -6,9 +6,7 @@ import misty.entity.FogDevice;
 import misty.entity.FogHost;
 import misty.entity.FogVm;
 import misty.parse.Default;
-import org.cloudbus.cloudsim.DatacenterCharacteristics;
-import org.cloudbus.cloudsim.Pe;
-import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.*;
 import org.jgrapht.alg.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -107,30 +105,6 @@ public class Parser {
                 double maxPower = getOrDefault(hostObj, Tags.Host.MAX_POWER, Default.HOST.MAX_POWER, Double.class);
                 double staticPowerPercent = getOrDefault(hostObj, Tags.Host.STATIC_POWER_PERCENT, Default.HOST.STATIC_POWER_PERCENT, Double.class);
 
-                // Parse vms
-                List<FogVm> vms = hostObj.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
-                    // Parse vm attributes
-                    JSONObject vmObj = new JSONObject((Map<?, ?>)vm);
-                    int vmId = vmObj.getInt(Tags.Vm.VM_ID);
-                    Integer assignedFogDeviceId = getOrDefault(vmObj, Tags.Vm.FOG_DEVICE_ID, null, Integer.class);
-
-                    long size = getOrDefault(vmObj, Tags.Vm.SIZE, Default.VM.SIZE, Long.class);
-                    double mips = getOrDefault(vmObj, Tags.Vm.MIPS, Default.VM.MIPS, Double.class);
-                    int numOfPes = getOrDefault(vmObj, Tags.Vm.NUM_OF_PES, Default.VM.NUM_OF_PES, Integer.class);
-                    int vmRam = getOrDefault(vmObj, Tags.Vm.RAM, Default.VM.RAM, Integer.class);
-                    long vmBw = getOrDefault(vmObj, Tags.Vm.BW, Default.VM.BW, Long.class);
-                    String vmVmm = getOrDefault(vmObj, Tags.Vm.VMM, Default.VM.VMM.toString(), String.class);
-                    String cloudletScheduler = getOrDefault(vmObj, Tags.Vm.CLOUDLET_SCHEDULER, Default.VM.CLOUDLET_SCHEDULER.toString(), String.class);
-
-                    return new FogVm(
-                            vmId, Constants.INVALID_ID, mips, numOfPes, vmRam, vmBw, size, vmVmm,
-                            CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes),
-                            assignedFogDeviceId
-                    );
-                }).collect(Collectors.toList());
-
-                definedVms.get().addAll(vms);
-
                 // Parse pes
                 List<Pe> pes = hostObj.getJSONArray(Tags.Host.PES).toList().stream().map(pe -> {
                     // Parse pe attributes
@@ -161,12 +135,20 @@ public class Parser {
                     costPerMemory, costPerStorage, costPerBw
             );
 
+            HarddriveStorage s1 = null;
+            try {
+                s1 = new HarddriveStorage(deviceId, 1e12);
+            } catch (ParameterException e) {
+                e.printStackTrace();
+            }
+            s1.setMaxTransferRate(15);
+
             try {
                 return new FogDevice(
                         deviceId,
                         characteristics,
                         VmAllocPolicyEnum.getPolicy(vmAllocationPolicy, hosts),
-                        new LinkedList<>(),
+                        List.of(s1),
                         schedulingInterval,
                         neighborIds,
                         upLinkBw,
@@ -178,7 +160,29 @@ public class Parser {
             }
         }).collect(Collectors.toList());
 
-        return Pair.of(fogDevices, definedVms.get());
+        // Parse vms
+        List<FogVm> vms = root.getJSONArray(Tags.Host.VMS).toList().stream().map(vm -> {
+            // Parse vm attributes
+            JSONObject vmObj = new JSONObject((Map<?, ?>)vm);
+            int vmId = vmObj.getInt(Tags.Vm.VM_ID);
+            String assignedFogDeviceId = getOrDefault(vmObj, Tags.Vm.FOG_DEVICE_ID, null, String.class);
+
+            long size = getOrDefault(vmObj, Tags.Vm.SIZE, Default.VM.SIZE, Long.class);
+            double mips = getOrDefault(vmObj, Tags.Vm.MIPS, Default.VM.MIPS, Double.class);
+            int numOfPes = getOrDefault(vmObj, Tags.Vm.NUM_OF_PES, Default.VM.NUM_OF_PES, Integer.class);
+            int vmRam = getOrDefault(vmObj, Tags.Vm.RAM, Default.VM.RAM, Integer.class);
+            long vmBw = getOrDefault(vmObj, Tags.Vm.BW, Default.VM.BW, Long.class);
+            String vmVmm = getOrDefault(vmObj, Tags.Vm.VMM, Default.VM.VMM.toString(), String.class);
+            String cloudletScheduler = getOrDefault(vmObj, Tags.Vm.CLOUDLET_SCHEDULER, Default.VM.CLOUDLET_SCHEDULER.toString(), String.class);
+
+            return new FogVm(
+                    vmId, Constants.INVALID_ID, mips, numOfPes, vmRam, vmBw, size, vmVmm,
+                    CloudletSchedulerEnum.getScheduler(cloudletScheduler, mips, numOfPes),
+                    assignedFogDeviceId
+            );
+        }).collect(Collectors.toList());
+
+        return Pair.of(fogDevices, vms);
     }
 
     private static class Tags {

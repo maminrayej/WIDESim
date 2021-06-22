@@ -14,7 +14,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class FogDevice extends Datacenter {
-
     private final long upLinkBw;
     private final long downLinkBw;
 
@@ -138,10 +137,14 @@ public class FogDevice extends Datacenter {
     protected void processStageOutData(SimEvent event) {
         StageOutDataMsg stageOutDataMsg = (StageOutDataMsg) event.getData();
 
+        Task task = this.tasks.get(stageOutDataMsg.getTaskId());
+
+        long aggregatedOutputSize = stageOutDataMsg.getNeededFiles().stream().mapToLong(task::getFileSize).sum();
+
         // If destination is this fog device
         if (stageOutDataMsg.getDstFogDeviceId() == this.getId()) {
-            log("Received STAGE_OUT data of Task(%s) on Cycle(%s) and destination is a loop back: sending data instantly", stageOutDataMsg.getTaskId(),
-                    stageOutDataMsg.getCycle());
+            log("Received STAGE_OUT data of Task(%s) on Cycle(%s): (%s) and destination is a loop back: sending data instantly", stageOutDataMsg.getTaskId(),
+                    stageOutDataMsg.getCycle(), stageOutDataMsg.isData());
             sendNow(
                     getId(),
                     Constants.MsgTag.DOWNLOADED_FOG_TO_FOG,
@@ -149,7 +152,7 @@ public class FogDevice extends Datacenter {
                             getId(),
                             stageOutDataMsg.getTaskId(),
                             stageOutDataMsg.getCycle(),
-                            this.tasks.get(stageOutDataMsg.getTaskId()).getCloudletOutputSize(),
+                            aggregatedOutputSize,
                             stageOutDataMsg.isData()
                     )
             );
@@ -164,12 +167,10 @@ public class FogDevice extends Datacenter {
         String nextHopName = this.nextHop(dstName);
 
         int nextHopId = this.nameToId.get(nextHopName);
-
-        Task task = this.tasks.get(stageOutDataMsg.getTaskId());
-
+        log("Sending data of Task(%s) on Cycle(%s) to FogDevice(%s) with Delay(%s)", stageOutDataMsg.getTaskId(), this.tasks.get(stageOutDataMsg.getTaskId()).getCycle(), nextHopId, stageOutDataMsg.isData() ? (double) aggregatedOutputSize / this.upLinkBw : 0);
         send(
                 nextHopId,
-                stageOutDataMsg.isData() ? (double) task.getCloudletOutputSize() / this.upLinkBw : 0,
+                stageOutDataMsg.isData() ? (double) aggregatedOutputSize / this.upLinkBw : 0,
                 Constants.MsgTag.FOG_TO_FOG,
                 new FogToFogMsg(
                         stageOutDataMsg.getDstFogDeviceId(),
@@ -185,6 +186,19 @@ public class FogDevice extends Datacenter {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
 
         log("Downloading data from fog device: %s", event.getSource());
+        double delay = 0;
+        if (fogToFogMsg.isData()) {
+            double maxRate = Double.MIN_VALUE;
+            for (Storage storage : getStorageList()) {
+                double rate = storage.getMaxTransferRate();
+                if (rate > maxRate) {
+                    maxRate = rate;
+                }
+            }
+
+            delay = ((double) fogToFogMsg.getData() / this.downLinkBw) + ((double) fogToFogMsg.getData() / (double) Consts.MILLION / maxRate);
+        }
+
         send(
                 getId(),
                 fogToFogMsg.isData() ? (double) fogToFogMsg.getData() / this.downLinkBw : 0,
@@ -202,6 +216,7 @@ public class FogDevice extends Datacenter {
 
             this.receivedData.computeIfAbsent(fogToFogMsg.getCycle(), k -> new HashSet<>());
 
+            log("Updating received data with: Cycle(%s): Task(%s) -> %s", fogToFogMsg.getCycle(), fogToFogMsg.getTaskId(), fogToFogMsg.isData());
             this.receivedData.get(fogToFogMsg.getCycle()).add(Pair.of(fogToFogMsg.getTaskId(), fogToFogMsg.isData()));
 
             // Iterate over waiting tasks and check if any of them can be executed
@@ -311,7 +326,16 @@ public class FogDevice extends Datacenter {
 
         log("Received Task(%s) from Workflow(%s) with STAGE_IN data to run on Vm(%s)", executeTaskMsg.getTask().getTaskId(), executeTaskMsg.getTask().getWorkflowId(), executeTaskMsg.getVmId());
 
-        double delay = (double) executeTaskMsg.getTask().getTotalInputDataSize() / this.downLinkBw;
+        double maxRate = Double.MIN_VALUE;
+        for (Storage storage : getStorageList()) {
+            double rate = storage.getMaxTransferRate();
+            if (rate > maxRate) {
+                maxRate = rate;
+            }
+        }
+
+        double delay = ((double) executeTaskMsg.getTask().getTotalInputDataSize() / this.downLinkBw) + 0;
+//                ((double) executeTaskMsg.getTask().getTotalInputDataSize() / 1000000 / maxRate);
 
         send(
                 getId(),
@@ -346,5 +370,49 @@ public class FogDevice extends Datacenter {
     @Override
     public String toString() {
         return String.format("FogDevice(%s)", getId());
+    }
+
+    @Override
+    protected void updateCloudletProcessing() {
+        // if some time passed since last processing
+        // R: for term is to allow loop at simulation start. Otherwise, one initial
+        // simulation step is skipped and schedulers are not properly initialized
+        //this is a bug of CloudSim if the runtime is smaller than 0.1 (now is 0.01) it doesn't work at all
+        if (CloudSim.clock() < 0.111 || CloudSim.clock() > getLastProcessTime() + 0.01) {
+            List<? extends Host> list = getVmAllocationPolicy().getHostList();
+            double smallerTime = Double.MAX_VALUE;
+            // for each host...
+            for (Host host : list) {
+                // inform VMs to update processing
+                double time = host.updateVmsProcessing(CloudSim.clock());
+                // what time do we expect that the next cloudlet will finish?
+                if (time < smallerTime) {
+                    smallerTime = time;
+                }
+            }
+            // gurantees a minimal interval before scheduling the event
+            if (smallerTime < CloudSim.clock() + 0.11) {
+                smallerTime = CloudSim.clock() + 0.11;
+            }
+            if (smallerTime != Double.MAX_VALUE) {
+                schedule(getId(), (smallerTime - CloudSim.clock()), CloudSimTags.VM_DATACENTER_EVENT);
+            }
+            setLastProcessTime(CloudSim.clock());
+        }
+    }
+
+    @Override
+    protected void checkCloudletCompletion() {
+        List<? extends Host> list = getVmAllocationPolicy().getHostList();
+        for (Host host : list) {
+            for (Vm vm : host.getVmList()) {
+                while (vm.getCloudletScheduler().isFinishedCloudlets()) {
+                    Cloudlet cl = vm.getCloudletScheduler().getNextFinishedCloudlet();
+                    if (cl != null) {
+                        sendNow(cl.getUserId(), CloudSimTags.CLOUDLET_RETURN, cl);
+                    }
+                }
+            }
+        }
     }
 }

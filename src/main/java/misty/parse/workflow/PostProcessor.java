@@ -5,6 +5,8 @@ import misty.computation.Task;
 import misty.computation.Workflow;
 
 import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PostProcessor {
 
@@ -12,8 +14,19 @@ public class PostProcessor {
         for (Task parentTask : workflow.getTasks())
             for (int childId : parentTask.getChildren()) {
                 Task childTask = workflow.getTask(childId);
-                childTask.addParentId(parentTask.getTaskId());
+
+                if (childId != parentTask.getTaskId())
+                    childTask.addParentId(parentTask.getTaskId());
             }
+    }
+
+    public static void connectParentTasksToChildren(Workflow workflow) {
+        List<Task> tasks = workflow.getTasks();
+
+        for (var task : tasks) {
+            List<Integer> children = tasks.stream().filter(t -> t.getInputFiles().stream().anyMatch(f -> f.getSrcTaskId() == task.getTaskId())).map(Task::getTaskId).collect(Collectors.toList());
+            task.setChildren(children);
+        }
     }
 
     public static WorkflowAnalyzer buildWorkflowAnalyzer(Workflow workflow) {

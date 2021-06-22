@@ -2,19 +2,17 @@ package misty.computation;
 
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.UtilizationModel;
+import org.cloudbus.cloudsim.core.CloudSim;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Task extends Cloudlet {
 
-    private final double ram;
-    private final double bw;
+    private double ram;
+    private double bw;
     private final Integer assignedVmId;
     private final List<Data> inputFiles;
-    private final List<Integer> children;
+    private List<Integer> children;
     private HashSet<Integer> parents;
     private final double deadLine;
     private final double entryTime;
@@ -29,12 +27,23 @@ public class Task extends Cloudlet {
 
     private TaskState taskState;
 
+    private Map<String, Long> fileMap;
+    private Map<Integer, List<String>> neededFromParent;
+
+    public void setFileMap(Map<String, Long> fileMap) {
+        this.fileMap = fileMap;
+    }
+
+    public void setNeededFromParent(Map<Integer, List<String>> neededFromParent) {
+        this.neededFromParent = neededFromParent;
+    }
+
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
                 UtilizationModel utilizationModelCpu, UtilizationModel utilizationModelRam, UtilizationModel utilizationModelBw,
-                List<Data> inputFiles, List<Integer> children, double deadLine, double entryTime, String workflowName) {
+                List<Data> inputFiles, double deadLine, double entryTime, String workflowName) {
         super(cloudletId, cloudletLength, pesNumber, cloudletFileSize, cloudletOutputSize, utilizationModelCpu, utilizationModelRam, utilizationModelBw);
         this.inputFiles = inputFiles;
-        this.children = children;
+//        this.children = children;
         this.deadLine = deadLine;
         this.workflowId = workflowName;
         this.entryTime = entryTime;
@@ -54,11 +63,10 @@ public class Task extends Cloudlet {
 
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
                 UtilizationModel utilizationModelCpu, UtilizationModel utilizationModelRam, UtilizationModel utilizationModelBw,
-                List<Data> inputFiles, List<Integer> children, double deadLine, double entryTime, String workflowName, SelectivityModel selectivityModel, ExecutionModel executionModel,
+                List<Data> inputFiles, double deadLine, double entryTime, String workflowName, SelectivityModel selectivityModel, ExecutionModel executionModel,
                 double ram, double bw, Integer assignedVmId) {
         super(cloudletId, cloudletLength, pesNumber, cloudletFileSize, cloudletOutputSize, utilizationModelCpu, utilizationModelRam, utilizationModelBw);
         this.inputFiles = inputFiles;
-        this.children = children;
         this.deadLine = deadLine;
         this.workflowId = workflowName;
         this.entryTime = entryTime;
@@ -147,6 +155,10 @@ public class Task extends Cloudlet {
         this.parents = parents;
     }
 
+    public void setChildren(List<Integer> children) {
+        this.children = children;
+    }
+
     public void setSelectivityModel(SelectivityModel selectivityModel) {
         this.selectivityModel = selectivityModel;
     }
@@ -175,18 +187,21 @@ public class Task extends Cloudlet {
         var task = new Task(
                 getCloudletId(), getCloudletLength(), getNumberOfPes(), getCloudletFileSize(),
                 getCloudletOutputSize(), getUtilizationModelCpu(), getUtilizationModelRam(),
-                getUtilizationModelBw(), getInputFiles(), getChildren(), getDeadLine(),
+                getUtilizationModelBw(), getInputFiles(), getDeadLine(),
                 getEntryTime(), getWorkflowId()
         );
 
         task.setUserId(this.getUserId());
         task.setVmId(this.getVmId());
         task.setParents(this.parents);
+        task.setChildren(this.children);
         task.setSelectivityModel(this.selectivityModel);
         task.setCycleToGeneratedData(this.cycleToGeneratedData);
         task.setCycle(this.cycle);
         task.setExecutionModel(this.executionModel);
         task.setTaskState(this.taskState);
+        task.setFileMap(this.fileMap);
+        task.setNeededFromParent(this.neededFromParent);
 
         task.goToNextCycle();
 
@@ -199,11 +214,38 @@ public class Task extends Cloudlet {
         return cycleToGeneratedData.get(cycle);
     }
 
-    public boolean didYouGenerateData(int cycle) {
-        return cycleToGeneratedData.getOrDefault(cycle, false);
+    public Boolean didYouGenerateData(int cycle) {
+        return cycleToGeneratedData.getOrDefault(cycle, null);
     }
 
     public double getNextTimeExecution(double clock) {
         return executionModel.nextExecutionTime(clock);
     }
+
+    public long getFileSize(String fileName) {
+        return this.fileMap.get(fileName);
+    }
+
+    public List<String> neededFrom(Integer parentId) {
+        return this.neededFromParent.get(parentId);
+    }
+
+    public boolean isRoot() {
+        return getParents().size() == 0;
+    }
+
+    public void setRam(double ram) {
+        this.ram = ram;
+    }
+
+    public void setBw(double bw) {
+        this.bw = bw;
+    }
+
+//    @Override
+//    public void setExecStartTime(double clockTime) {
+//        super.setExecStartTime(clockTime);
+//        this.getTaskState().setStartExecutionTime(this.getCycle(), CloudSim.clock());
+//    }
+
 }

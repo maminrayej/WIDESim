@@ -8,39 +8,47 @@
           "runtime": 40000,
           "input_files": [
             {
-              "from_task": 0,
-              "size": 4000000
+              "file_id": "input_0",
+              "size": 400000
             }
           ],
-          "children": [
+          "output_files": [
             {
-              "task_id": 2
+              "file_id": "output_0",
+              "size": 400000
             }
-          ],
-          "output_file_size": 4000000
+          ]
         },
         {
           "task_id": 1,
-          "runtime": 50000,
+          "runtime": 30000,
           "input_files": [
             {
-              "from_task": 1,
-              "size": 5000000
+              "file_id": "input_1",
+              "size": 300000
             }
           ],
-          "children": [
+          "output_files": [
             {
-              "task_id": 2
+              "file_id": "output_1",
+              "size": 300000
             }
-          ],
-          "output_file_size": 5000000
+          ]
         },
         {
           "task_id": 2,
           "runtime": 60000,
-          "input_files": [],
-          "children": [],
-          "output_file_size": 6000000
+          "input_files": [
+            {
+              "file_id": "output_0",
+              "size": 400000
+            },
+            {
+              "file_id": "output_1",
+              "size": 500000
+            }
+          ],
+          "output_files" : []
         }
       ]
     }

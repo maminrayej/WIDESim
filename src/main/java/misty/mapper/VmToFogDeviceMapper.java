@@ -1,5 +1,6 @@
 package misty.mapper;
 
+import misty.entity.FogDevice;
 import misty.entity.FogVm;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
 
@@ -9,5 +10,5 @@ import java.util.Map;
 public interface VmToFogDeviceMapper {
 
     // vmId -> datacenterId
-    Map<Integer, Integer> map(Map<Integer, DatacenterCharacteristics> datacenterToCharacteristics, List<FogVm> vms);
+    Map<Integer, Integer> map(Map<Integer, DatacenterCharacteristics> datacenterToCharacteristics, List<FogVm> vms, List<FogDevice> fogDevices);
 }

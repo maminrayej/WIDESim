@@ -5,26 +5,30 @@
       "tasks": [
         {
           "task_id": 0,
-          "runtime": 40000,
+          "runtime": 1000,
           "input_files": [
             {
-              "from_task": 0,
+              "file_id": "input0",
               "size": 4000000
             }
           ],
-          "children": [
+          "output_files": [
             {
-              "task_id": 1
+              "file_id": "output0",
+              "size": 1000
             }
-          ],
-          "output_file_size": 128000
+          ]
         },
         {
           "task_id": 1,
-          "runtime": 50000,
-          "input_files": [],
-          "children": [],
-          "output_file_size": 5600
+          "runtime": 1000,
+          "input_files": [
+            {
+              "file_id": "output0",
+              "size": 4000000
+            }
+          ],
+          "output_files": []
         }
       ]
     }

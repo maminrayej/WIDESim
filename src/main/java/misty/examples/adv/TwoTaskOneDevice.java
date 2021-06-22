@@ -37,7 +37,7 @@ public class TwoTaskOneDevice {
         var convertedRoutingTable = PostProcessor.convertNameToId(fogDevices, routingTable);
 
         var vms = deviceAndVms.getSecond();
-        var fogBroker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper(), 10L, 10L, convertedRoutingTable);
+        var fogBroker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper(), 10L, 10L, convertedRoutingTable, fogDevices);
         vms.forEach(vm -> {
             vm.setUid(Vm.getUid(fogBroker.getId(), vm.getId()));
             vm.setUserId(fogBroker.getId());
@@ -71,7 +71,7 @@ public class TwoTaskOneDevice {
 
         IntStream.range(0, fogBroker.getMaximumCycle() + 1).forEach(cycle -> {
             System.out.println("Cycle: " + cycle);
-            Logger.printResult(cycle, tasks);
+            Logger.printResult(cycle, tasks, fogBroker.getVmToFogDevice(), fogDevices);
         });
     }
 }

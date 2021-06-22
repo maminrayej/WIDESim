@@ -25,6 +25,7 @@ public class FogBroker extends DatacenterBroker {
     private int workflowEngineId;
 
     private final List<Integer> fogDeviceIds;
+    private final List<FogDevice> fogDevices;
     private final Map<Integer, DatacenterCharacteristics> fogDeviceIdToCharacteristics;
 
     private final long downLinkBw;
@@ -46,20 +47,22 @@ public class FogBroker extends DatacenterBroker {
     private final TaskToVmMapper taskToVmMapper;
     private final Set<Task> dispatchedTasks;
     private final Set<Task> completedTasks;
+
     private Map<Integer, Integer> vmToFogDevice;
     private List<Vm> createdVms;
     private List<Integer> toBeCreated;
     private final Map<Integer, Integer> taskToVm;
 
-    private final int maximumCycle = 5;
+    private final int maximumCycle = 0;
 
     public FogBroker(String name, VmProvisioner vmProvisioner, VmToFogDeviceMapper vmToFogDeviceMapper,
                      TaskToVmMapper taskToVmMapper, long downLinkBw, long upLinkBw,
-                     HashMap<Pair<Integer, Integer>, Integer> routingTable) throws Exception {
+                     HashMap<Pair<Integer, Integer>, Integer> routingTable, List<FogDevice> fogDevices) throws Exception {
         super(name);
 
         this.waitingTaskQueue = new ArrayList<>();
         this.fogDeviceIds = new ArrayList<>();
+        this.fogDevices = fogDevices;
         this.fogDeviceIdToCharacteristics = new HashMap<>();
 
         this.vmProvisioner = vmProvisioner;
@@ -146,7 +149,7 @@ public class FogBroker extends DatacenterBroker {
         if (this.fogDeviceIdToCharacteristics.size() == this.fogDeviceIds.size()) {
             log("All resources received");
 
-            this.vmToFogDevice = this.vmToFogDeviceMapper.map(this.fogDeviceIdToCharacteristics, this.getVmList());
+            this.vmToFogDevice = this.vmToFogDeviceMapper.map(this.fogDeviceIdToCharacteristics, this.getVmList(), fogDevices);
 
             for (Integer vmId : this.vmToFogDevice.keySet()) {
                 var fogDeviceId = this.vmToFogDevice.get(vmId);
@@ -186,6 +189,8 @@ public class FogBroker extends DatacenterBroker {
         int[] data = (int[]) event.getData();
         int taskId = data[1];
         boolean isSubmitted = data[2] == CloudSimTags.TRUE;
+
+        log("Task(%s) ack: %s", taskId, isSubmitted);
     }
 
     protected void processVmDestroyAck(SimEvent event) {
@@ -229,18 +234,40 @@ public class FogBroker extends DatacenterBroker {
         int taskId = task.getTaskId();
         boolean isData = task.wantToGenerateData(task.getCycle() - 1, CloudSim.clock());
         log("Task(%s) on Cycle(%s) decided to generate data: %s", task.getTaskId(), task.getCycle() - 1, isData);
+
+        // Ask fog device hosting the task to send output of the task to its child tasks.
         for (Task child : dispatchedTasks.stream().filter(t -> t.getParents().contains(taskId)).collect(Collectors.toList())) {
             int vmId = taskToVm.get(child.getTaskId());
             int fogDeviceId = vmToFogDevice.get(vmId);
 
+            List<String> fileNames = child.neededFrom(task.getTaskId());
+            log("Sending STAGE_OUT_MSG to FogDevice(%s) for Task(%s) on Cycle(%s): (%s)", event.getSource(), task.getTaskId(), task.getCycle() - 1, isData);
             sendNow(
                     event.getSource(),
                     Constants.MsgTag.STAGE_OUT_DATA,
-                    new StageOutDataMsg(task.getTaskId(), task.getCycle() - 1, fogDeviceId, isData)
+                    new StageOutDataMsg(task.getTaskId(), task.getCycle() - 1, fogDeviceId, isData, fileNames)
             );
         }
 
         if (task.getCycle() <= maximumCycle) {
+            // Ask fog devices hosting parent tasks to send their output to fog device hosting this task
+            for (int parentId : task.getParents()) {
+                int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
+                Task parentTask = tasks.get(parentId);
+                List<String> neededFiles = task.neededFrom(parentId);
+                if (parentTask.didYouGenerateData(task.getCycle()) != null) {
+                    log("Sending STAGE_OUT_MSG to FogDevice(%s) for Task(%s) on Cycle(%s): (%s)", fogDeviceId, parentId, task.getCycle(), parentTask.didYouGenerateData(task.getCycle()));
+                    sendNow(
+                            fogDeviceId,
+                            Constants.MsgTag.STAGE_OUT_DATA,
+                            new StageOutDataMsg(parentId, task.getCycle(), event.getSource(), parentTask.didYouGenerateData(task.getCycle()), neededFiles)
+                    );
+                } else {
+                    log("Parent Task(%s) has not reached Cycle(%s) yet", parentId, task.getCycle());
+                }
+
+            }
+
             // Ask the fog device to execute the task again on the new cycle
             if (!task.getParents().isEmpty()) {
                 log("Asking FogDevice(%s) to execute Task(%s) on Cycle(%s)", event.getSource(), task.getTaskId(), task.getCycle());
@@ -364,16 +391,18 @@ public class FogBroker extends DatacenterBroker {
                     int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
                     Task parentTask = tasks.get(parentId);
                     log("Sending STAGE_OUT_MSG to FogDevice(%s) for Task(%s) on Cycle(%s)", fogDeviceId, parentId, task.getCycle());
+                    List<String> neededFiles = task.neededFrom(parentId);
                     sendNow(
                             fogDeviceId,
                             Constants.MsgTag.STAGE_OUT_DATA,
-                            new StageOutDataMsg(parentId, task.getCycle(), dstFogDeviceId, parentTask.didYouGenerateData(task.getCycle()))
+                            new StageOutDataMsg(parentId, task.getCycle(), dstFogDeviceId, parentTask.didYouGenerateData(task.getCycle()), neededFiles)
                     );
                 }
 
                 // if task does not have any parent, its data must be stage in
-                if (task.getParents().isEmpty()) {
-                    double delay = (double) task.getTotalInputDataSize() / this.upLinkBw;
+                if (task.isRoot()) {
+//                    double delay = (double) task.getTotalInputDataSize() / this.upLinkBw;
+                    double delay = 0;
                     log("Sending STAGE_IN data for Task(%s) to FogDevice(%s) with delay: %.2f", task.getTaskId(), dstFogDeviceId, delay);
                     send(
                             dstFogDeviceId,
@@ -421,4 +450,10 @@ public class FogBroker extends DatacenterBroker {
 
         Logger.log(tag, formatted, args);
     }
+
+    public Map<Integer, Integer> getVmToFogDevice() {
+        return vmToFogDevice;
+    }
+
+
 }

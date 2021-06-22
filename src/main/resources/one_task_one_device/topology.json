@@ -1,15 +1,36 @@
 {
-  "fog_devices": [{
-    "device_id": "device_0",
-    "neighbors": [{}],
-    "hosts": [{
-      "host_id": 0,
-      "vms": [{
-        "vm_id": 0
-      }],
-      "pes": [{
-        "pe_id": 0
-      }]
-    }]
-  }]
+  "fog_devices": [
+    {
+      "device_id": "device_0",
+      "neighbors": [
+        {}
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "pes": [
+            {
+              "pe_id": 0
+            }
+          ]
+        },
+        {
+          "host_id": 1,
+          "pes": [
+            {
+              "pe_id": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "vms": [
+    {
+      "vm_id": 0
+    },
+    {
+      "vm_id": 1
+    }
+  ]
 }

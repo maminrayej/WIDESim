@@ -39,7 +39,7 @@ public class Default {
 
     public static class VM {
         public static final long SIZE = Constants.DataUnit.MB;
-        public static final double MIPS = Constants.MetricUnit.GIGA;
+        public static final double MIPS = Constants.MetricUnit.KILO;
         public static final int NUM_OF_PES = 1;
         public static final int RAM = Constants.PowOfTwo.NINE;
         public static final long BW = Constants.PowOfTwo.TEN;
@@ -48,7 +48,7 @@ public class Default {
     }
 
     public static class PE {
-        public static final double MIPS = Constants.MetricUnit.GIGA;
+        public static final double MIPS = Constants.MetricUnit.KILO;
         public static final PeProvisionerEnum PE_PROVISIONING = PeProvisionerEnum.SIMPLE;
     }
 
