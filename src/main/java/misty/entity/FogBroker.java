@@ -137,7 +137,10 @@ public class FogBroker extends DatacenterBroker {
 
         log("Task(%s) of Workflow(%s) received", task.getTaskId(), task.getWorkflowId());
 
-        dispatchTasks();
+        // Wait for vms to get created, Then dispatch each incoming task
+        // Otherwise tasks will be dispatched after every vm is created(or failed to be created)
+        if (this.vmCreateAcks.containsAll(this.sentVmCreateRequests))
+            dispatchTasks();
     }
 
     protected void processResourceRequestResponse(SimEvent event) {
@@ -160,17 +163,17 @@ public class FogBroker extends DatacenterBroker {
                         new VmCreateMsg(VmList.getById(this.getVmList(), vmId)) // vm
                 );
 
-                this.sentVmCreateRequests.add(fogDeviceId);
+                this.sentVmCreateRequests.add(vmId);
             }
         }
     }
 
     protected void processVmCreateAck(SimEvent event) {
-        this.vmCreateAcks.add(event.getSource());
-
         VmCreateAckMsg ackMsg = (VmCreateAckMsg) event.getData();
         int vmId = ackMsg.getVmId();
         boolean isCreated = ackMsg.isCreated;
+
+        this.vmCreateAcks.add(vmId);
 
         if (isCreated)
             this.createdVms.add(VmList.getById(this.getVmList(), vmId));
@@ -356,6 +359,7 @@ public class FogBroker extends DatacenterBroker {
     }
 
     private void dispatchTasks() {
+        log("Dispatching tasks...");
         // map each task in task queue to a vm(either a created or failed one)
         var newTaskToVm = this.taskToVmMapper.map(
                 this.createdVms,
@@ -402,7 +406,7 @@ public class FogBroker extends DatacenterBroker {
                 // if task does not have any parent, its data must be stage in
                 if (task.isRoot()) {
 //                    double delay = (double) task.getTotalInputDataSize() / this.upLinkBw;
-                    double delay = 0;
+                    double delay = 0.11;
                     log("Sending STAGE_IN data for Task(%s) to FogDevice(%s) with delay: %.2f", task.getTaskId(), dstFogDeviceId, delay);
                     send(
                             dstFogDeviceId,

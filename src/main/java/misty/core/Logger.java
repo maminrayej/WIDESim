@@ -24,7 +24,7 @@ public class Logger {
         String[] headers = {
                 "Task ID",
 //                "On Device",
-//                "On Vm",
+                "On Vm",
 //                "Enter Broker Waiting Queue",
 //                "Exit Broker Waiting Queue",
 //                "Enter FogDevice Waiting Queue",
@@ -49,14 +49,14 @@ public class Logger {
             data[index] = new String[]{
                     task.getTaskId() + "",
 //                    fogDeviceName,
-//                    task.getVmId() + "",
+                    task.getVmId() + "",
 //                    state.enterBrokerWaitingQueue + "",
 //                    state.exitBrokerWaitingQueue + "",
 //                    state.enterFogDeviceWaitingQueue + "",
 //                    state.exitFogDeviceWaitingQueue + "",
-                    state.startExecutionTime + "",
-                    state.endExecutionTime + "",
-                    state.endExecutionTime - state.startExecutionTime + "",
+                    String.format("%.2f", state.startExecutionTime),
+                    String.format("%.2f", state.endExecutionTime),
+                    String.format("%.2f", state.endExecutionTime - state.startExecutionTime),
             };
         });
 

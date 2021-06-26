@@ -1,0 +1,55 @@
+{
+  "workflows": [
+    {
+      "workflow_id": "workflow_0",
+      "tasks": [
+        {
+          "task_id": 1,
+          "runtime": 1000,
+          "vm_id": 1,
+          "input_files": [
+            {
+              "file_id": "input_1",
+              "size": 1000
+            }
+          ],
+          "output_files": [
+            {
+              "file_id": "output_1",
+              "size": 1000
+            }
+          ]
+        },
+        {
+          "task_id": 2,
+          "runtime": 2000,
+          "vm_id": 2,
+          "input_files": [
+            {
+              "file_id": "output_1",
+              "size": 1000
+            }
+          ],
+          "output_files": [
+            {
+              "file_id": "output_2",
+              "size": 1000
+            }
+          ]
+        },
+        {
+          "task_id": 4,
+          "runtime": 4000,
+          "vm_id": 4,
+          "input_files": [
+            {
+              "file_id": "output_2",
+              "size": 1000
+            }
+          ],
+          "output_files": []
+        }
+      ]
+    }
+  ]
+}

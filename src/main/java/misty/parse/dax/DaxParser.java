@@ -11,10 +11,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class DaxParser {
@@ -33,7 +30,7 @@ public class DaxParser {
     public Workflow buildWorkflow() {
         NodeList jobNodes = workflowDax.getElementsByTagName("job");
 
-        Map<String, Integer> fileToOwner = new HashMap<>();
+        Map<String, List<Integer>> fileToOwner = new HashMap<>();
 
         List<Job> jobs = new ArrayList<>();
 
@@ -41,7 +38,9 @@ public class DaxParser {
             Node jobNode = jobNodes.item(i);
             NamedNodeMap attributes = jobNode.getAttributes();
             int id = Integer.parseInt(attributes.getNamedItem("id").getNodeValue().substring(2)) + 1;
-            long runtime = 1000L * (long) Double.parseDouble(attributes.getNamedItem("runtime").getNodeValue());
+//            long runtime = 1000L * (long) Double.parseDouble(attributes.getNamedItem("runtime").getNodeValue());
+            long runtime = (long)(1000 * Double.parseDouble(attributes.getNamedItem("runtime").getNodeValue()));
+
             if (runtime < 100)
                 runtime = 100;
 
@@ -62,11 +61,41 @@ public class DaxParser {
                 } else {
                     outputFiles.add(new File(fileId, size));
                     fileMap.put(fileId, size);
-                    fileToOwner.put(fileId, id);
+
+                    fileToOwner.computeIfAbsent(fileId, key -> new ArrayList<>());
+
+                    fileToOwner.get(fileId).add(id);
                 }
             }
 
             jobs.add(new Job(id, runtime, inputFiles, outputFiles, fileMap));
+        }
+
+        // Parse child-parent relationship part
+        Map<Integer, List<Integer>> childToParents = new HashMap<>();
+        Map<Integer, List<Integer>> parentToChildren = new HashMap<>();
+
+        NodeList childNodes = workflowDax.getElementsByTagName("child");
+
+        for (int i = 0; i < childNodes.getLength(); i++) {
+            Node childNode = childNodes.item(i);
+            NamedNodeMap attributes = childNode.getAttributes();
+            int childId = Integer.parseInt(attributes.getNamedItem("ref").getNodeValue().substring(2)) + 1;
+
+            NodeList parentNodes = ((Element) childNode).getElementsByTagName("parent");
+            for (int j = 0; j < parentNodes.getLength(); j++) {
+                Node parentNode = parentNodes.item(j);
+                NamedNodeMap parentAttributes = parentNode.getAttributes();
+                int parentId = Integer.parseInt(parentAttributes.getNamedItem("ref").getNodeValue().substring(2)) + 1;
+
+                // Connect child to its parent
+                childToParents.computeIfAbsent(childId, k -> new ArrayList<>());
+                childToParents.get(childId).add(parentId);
+
+                // Connect parent to its child
+                parentToChildren.computeIfAbsent(parentId, k -> new ArrayList<>());
+                parentToChildren.get(parentId).add(childId);
+            }
         }
 
         List<Task> tasks = new ArrayList<>();
@@ -80,7 +109,7 @@ public class DaxParser {
                     new UtilizationModelFull(),
                     new UtilizationModelFull(),
                     new UtilizationModelFull(),
-                    job.getInputFiles().stream().map(f -> new Data(fileToOwner.getOrDefault(f.getId(), job.getId()), job.getId(), f.getSize())).collect(Collectors.toList()),
+                    job.getInputFiles().stream().flatMap(f -> fileToOwner.getOrDefault(f.getId(), List.of(job.getId())).stream().map(owner -> new Data(f.getId(), owner, job.getId(), f.getSize()))).collect(Collectors.toList()),
                     Double.MAX_VALUE,
                     0,
                     workflowName,
@@ -91,7 +120,9 @@ public class DaxParser {
                     null
             );
 
-            List<Pair<Integer, String>> neededFilesPair = job.getInputFiles().stream().map(f -> Pair.of(fileToOwner.getOrDefault(f.getId(), job.getId()), f.getId())).collect(Collectors.toList());
+//            List<Pair<Integer, String>> neededFilesPair = job.getInputFiles().stream().map(f -> Pair.of(fileToOwner.getOrDefault(f.getId(), job.getId()), f.getId())).collect(Collectors.toList());
+            List<Pair<Integer, String>> neededFilesPair = task.getInputFiles().stream().map(data -> Pair.of(data.getSrcTaskId(), data.getFileName())).collect(Collectors.toList());
+
             Map<Integer, List<String>> neededFiles = new HashMap<>();
             neededFilesPair.forEach(pair -> {
                 neededFiles.computeIfAbsent(pair.getFirst(), k -> new ArrayList<>());
@@ -99,18 +130,25 @@ public class DaxParser {
                 neededFiles.get(pair.getFirst()).add(pair.getSecond());
             });
 
+            task.setParents(new HashSet<>(childToParents.getOrDefault(task.getTaskId(), new ArrayList<>())));
+            task.setChildren(parentToChildren.getOrDefault(task.getTaskId(), new ArrayList<>()));
+
             task.setFileMap(job.getFileMap());
             task.setNeededFromParent(neededFiles);
 
+            if (task.getTaskId() == 2) {
+                System.out.println("Needed files: " + task.getInputFiles().stream().map(Data::getFileName).collect(Collectors.toList()));
+                System.out.println("Needed files pair: " + neededFilesPair);
+                System.out.println("Needed files: " + neededFiles);
+                System.out.println("Parents: " + task.getParents());
+            }
+
             tasks.add(task);
         }
+        //        PostProcessor.connectParentTasksToChildren(workflow);
 
-        Workflow workflow = new Workflow(tasks, workflowName);
+//        PostProcessor.connectChildTasksToParent(workflow);
 
-        PostProcessor.connectParentTasksToChildren(workflow);
-
-        PostProcessor.connectChildTasksToParent(workflow);
-
-        return workflow;
+        return new Workflow(tasks, workflowName);
     }
 }

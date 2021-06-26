@@ -124,7 +124,7 @@ public class Parser {
                     neededFiles.get(pair.getFirst()).add(pair.getSecond());
                 });
 
-                List<Data> inputFiles = taskInfo.inputFiles.stream().map(f -> new Data(fileToOwner.getOrDefault(f.getId(), taskInfo.taskId), taskInfo.taskId, f.getSize())).collect(Collectors.toList());
+                List<Data> inputFiles = taskInfo.inputFiles.stream().map(f -> new Data(f.getId(), fileToOwner.getOrDefault(f.getId(), taskInfo.taskId), taskInfo.taskId, f.getSize())).collect(Collectors.toList());
                 Task task = new Task(
                         taskInfo.taskId, taskInfo.runtime, taskInfo.pes, taskInfo.inputFileSize, taskInfo.outputFileSize,
                         taskInfo.cpuModel, taskInfo.ramModel, taskInfo.bwModel, inputFiles,

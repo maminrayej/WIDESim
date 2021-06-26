@@ -55,5 +55,7 @@ public class Constants {
         public static final int FOG_TO_FOG = BASE + 13;
         public static final int DOWNLOADED_FOG_TO_FOG = BASE + 14;
         public static final int EXECUTE_TASK_WITH_DATA = BASE + 15;
+        public static final int DOWN_LINK_IS_FREE = BASE + 16;
+        public static final int UP_LINK_IS_FREE = BASE + 17;
     }
 }

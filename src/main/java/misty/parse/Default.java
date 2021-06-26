@@ -21,8 +21,8 @@ public class Default {
         public static final AllocPolicyEnum ALLOC_POLICY = AllocPolicyEnum.TIME_SHARED;
         public static final VmmEnum VMM = VmmEnum.XEN;
         public static final double SCHEDULING_INTERVAL = 0.0;
-        public static final long UP_LINK_BW = Constants.PowOfTwo.THREE * Constants.PowOfTwo.TEN * Constants.PowOfTwo.TEN; // 1 MB/s
-        public static final long DOWN_LINK_BW = Constants.PowOfTwo.THREE * Constants.PowOfTwo.TEN * Constants.PowOfTwo.TEN; // 1 MB/s
+        public static final long UP_LINK_BW = Constants.PowOfTwo.TEN;
+        public static final long DOWN_LINK_BW = Constants.PowOfTwo.TEN;
     }
 
     public static class HOST {

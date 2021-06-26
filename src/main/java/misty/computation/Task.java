@@ -13,7 +13,7 @@ public class Task extends Cloudlet {
     private final Integer assignedVmId;
     private final List<Data> inputFiles;
     private List<Integer> children;
-    private HashSet<Integer> parents;
+    private Set<Integer> parents;
     private final double deadLine;
     private final double entryTime;
     private final String workflowId;
@@ -151,7 +151,7 @@ public class Task extends Cloudlet {
         this.cycle++;
     }
 
-    public void setParents(HashSet<Integer> parents) {
+    public void setParents(Set<Integer> parents) {
         this.parents = parents;
     }
 

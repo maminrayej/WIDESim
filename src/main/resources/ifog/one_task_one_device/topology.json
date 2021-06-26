@@ -1,0 +1,24 @@
+{
+  "fog_devices": [
+    {
+      "device_id": "T1",
+      "neighbors": [],
+      "hosts": [
+        {
+          "host_id": 0,
+          "pes": [
+            {
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "vms": [
+    {
+      "vm_id": 1,
+      "fog_device_id": "T1"
+    }
+  ]
+}

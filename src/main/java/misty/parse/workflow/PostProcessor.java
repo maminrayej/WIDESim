@@ -25,6 +25,7 @@ public class PostProcessor {
 
         for (var task : tasks) {
             List<Integer> children = tasks.stream().filter(t -> t.getInputFiles().stream().anyMatch(f -> f.getSrcTaskId() == task.getTaskId())).map(Task::getTaskId).collect(Collectors.toList());
+            children.remove((Integer) task.getTaskId());
             task.setChildren(children);
         }
     }

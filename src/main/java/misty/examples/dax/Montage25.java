@@ -18,6 +18,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import java.io.File;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Montage25 {
@@ -45,11 +46,11 @@ public class Montage25 {
         });
         fogBroker.submitVmList(vms);
 
-        var daxParser = new DaxParser("src/main/resources/dax/Montage_25.xml");
+        var daxParser = new DaxParser("src/main/resources/dax/HEFT_paper.xml");
         var workflows = List.of(daxParser.buildWorkflow());
 
         for (Workflow workflow: workflows) {
-            misty.parse.workflow.PostProcessor.connectChildTasksToParent(workflow);
+//            misty.parse.workflow.PostProcessor.connectChildTasksToParent(workflow);
 
             var analyzer = misty.parse.workflow.PostProcessor.buildWorkflowAnalyzer(workflow);
             misty.parse.workflow.PostProcessor.isWorkflowValid(analyzer);

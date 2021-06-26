@@ -14,6 +14,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class FogDevice extends Datacenter {
+    private boolean isUpLinkBusy;
+    private boolean isDownLinkBusy;
+
+    private final ArrayDeque<NetworkRequest> downLinkQueue;
+    private final ArrayDeque<NetworkRequest> upLinkQueue;
+
     private final long upLinkBw;
     private final long downLinkBw;
 
@@ -52,6 +58,12 @@ public class FogDevice extends Datacenter {
 
         this.upLinkBw = upLinkBw;
         this.downLinkBw = downLinkBw;
+
+        this.isUpLinkBusy = false;
+        this.isDownLinkBusy = false;
+
+        this.upLinkQueue = new ArrayDeque<>();
+        this.downLinkQueue = new ArrayDeque<>();
     }
 
     @Override
@@ -87,7 +99,51 @@ public class FogDevice extends Datacenter {
             case Constants.MsgTag.EXECUTE_TASK -> processExecuteTask(event);
             case Constants.MsgTag.FOG_TO_FOG -> processFogToFog(event);
             case Constants.MsgTag.DOWNLOADED_FOG_TO_FOG -> processDownloadedFogToFog(event);
+            case Constants.MsgTag.DOWN_LINK_IS_FREE -> processDownLinkIsFree(event);
+            case Constants.MsgTag.UP_LINK_IS_FREE -> processUpLinkIsFree(event);
             default -> super.processEvent(event);
+        }
+    }
+
+    protected void processDownLinkIsFree(SimEvent event) {
+        NetworkRequest request = downLinkQueue.poll();
+
+        if (request != null) {
+            send(
+                    request.dstEntityId,
+                    request.delay,
+                    request.tag,
+                    request.msg
+            );
+
+            send(
+                    getId(),
+                    request.delay,
+                    Constants.MsgTag.DOWN_LINK_IS_FREE
+            );
+        } else {
+            isDownLinkBusy = false;
+        }
+    }
+
+    protected void processUpLinkIsFree(SimEvent event) {
+        NetworkRequest request = upLinkQueue.poll();
+
+        if (request != null) {
+            send(
+                    request.dstEntityId,
+                    request.delay,
+                    request.tag,
+                    request.msg
+            );
+
+            send(
+                    getId(),
+                    request.delay,
+                    Constants.MsgTag.UP_LINK_IS_FREE
+            );
+        } else {
+            isUpLinkBusy = false;
         }
     }
 
@@ -139,7 +195,13 @@ public class FogDevice extends Datacenter {
 
         Task task = this.tasks.get(stageOutDataMsg.getTaskId());
 
-        long aggregatedOutputSize = stageOutDataMsg.getNeededFiles().stream().mapToLong(task::getFileSize).sum();
+        if (stageOutDataMsg.getNeededFiles() == null) {
+            System.out.println(">>>> Needed files is empty! for task: " + task.getTaskId());
+        }
+        long aggregatedOutputSize = 0;
+        if (stageOutDataMsg.getNeededFiles() != null) {
+            aggregatedOutputSize = stageOutDataMsg.getNeededFiles().stream().mapToLong(task::getFileSize).sum();
+        }
 
         // If destination is this fog device
         if (stageOutDataMsg.getDstFogDeviceId() == this.getId()) {
@@ -167,44 +229,75 @@ public class FogDevice extends Datacenter {
         String nextHopName = this.nextHop(dstName);
 
         int nextHopId = this.nameToId.get(nextHopName);
+
         log("Sending data of Task(%s) on Cycle(%s) to FogDevice(%s) with Delay(%s)", stageOutDataMsg.getTaskId(), this.tasks.get(stageOutDataMsg.getTaskId()).getCycle(), nextHopId, stageOutDataMsg.isData() ? (double) aggregatedOutputSize / this.upLinkBw : 0);
-        send(
-                nextHopId,
-                stageOutDataMsg.isData() ? (double) aggregatedOutputSize / this.upLinkBw : 0,
-                Constants.MsgTag.FOG_TO_FOG,
-                new FogToFogMsg(
-                        stageOutDataMsg.getDstFogDeviceId(),
-                        stageOutDataMsg.getTaskId(),
-                        stageOutDataMsg.getCycle(),
-                        task.getCloudletOutputSize(),
-                        stageOutDataMsg.isData()
-                )
+        double delay = stageOutDataMsg.isData() ? (double) aggregatedOutputSize / this.upLinkBw : 0;
+        FogToFogMsg msg = new FogToFogMsg(
+                stageOutDataMsg.getDstFogDeviceId(),
+                stageOutDataMsg.getTaskId(),
+                stageOutDataMsg.getCycle(),
+                task.getCloudletOutputSize(),
+                stageOutDataMsg.isData()
         );
+
+        if (isUpLinkBusy) {
+            upLinkQueue.add(new NetworkRequest(
+                    nextHopId,
+                    delay,
+                    Constants.MsgTag.FOG_TO_FOG,
+                    msg
+            ));
+        } else {
+            isUpLinkBusy = true;
+
+            // Upload the data
+            send(
+                    nextHopId,
+                    delay,
+                    Constants.MsgTag.FOG_TO_FOG,
+                    msg
+            );
+
+            // Notify that uplink will be free after `delay` time has passed
+            send(
+                    getId(),
+                    delay,
+                    Constants.MsgTag.UP_LINK_IS_FREE
+            );
+        }
     }
 
     protected void processFogToFog(SimEvent event) {
         FogToFogMsg fogToFogMsg = (FogToFogMsg) event.getData();
 
         log("Downloading data from fog device: %s", event.getSource());
-        double delay = 0;
-        if (fogToFogMsg.isData()) {
-            double maxRate = Double.MIN_VALUE;
-            for (Storage storage : getStorageList()) {
-                double rate = storage.getMaxTransferRate();
-                if (rate > maxRate) {
-                    maxRate = rate;
-                }
-            }
 
-            delay = ((double) fogToFogMsg.getData() / this.downLinkBw) + ((double) fogToFogMsg.getData() / (double) Consts.MILLION / maxRate);
+        double delay = fogToFogMsg.isData() ? (double) fogToFogMsg.getData() / this.downLinkBw : 0;
+        if (isDownLinkBusy) {
+            downLinkQueue.add(new NetworkRequest(
+               getId(),
+               delay,
+               Constants.MsgTag.DOWNLOADED_FOG_TO_FOG,
+               fogToFogMsg
+            ));
+        } else {
+            isDownLinkBusy = true;
+
+            // Download the data
+            send(
+                    getId(),
+                    delay,
+                    Constants.MsgTag.DOWNLOADED_FOG_TO_FOG,
+                    fogToFogMsg
+            );
+
+            // Notify that download link will be free after `delay` time has passed
+            send(
+                    getId(),
+                    delay,
+                    Constants.MsgTag.DOWN_LINK_IS_FREE
+            );
         }
-
-        send(
-                getId(),
-                fogToFogMsg.isData() ? (double) fogToFogMsg.getData() / this.downLinkBw : 0,
-                Constants.MsgTag.DOWNLOADED_FOG_TO_FOG,
-                fogToFogMsg
-        );
     }
 
     protected void processDownloadedFogToFog(SimEvent event) {
@@ -240,8 +333,7 @@ public class FogDevice extends Datacenter {
 
                     task.getTaskState().setExitFogDeviceWaitingQueue(task.getCycle(), CloudSim.clock());
                     it.remove();
-                }
-                else if (this.receivedData.get(task.getCycle()).stream().anyMatch(pair -> task.getParents().contains(pair.getFirst()) && !pair.getSecond())) {
+                } else if (this.receivedData.get(task.getCycle()).stream().anyMatch(pair -> task.getParents().contains(pair.getFirst()) && !pair.getSecond())) {
                     log("One of parents of Task(%s) did not generate data on Cycle(%s). Sending back Task...", task.getTaskId(), task.getCycle());
 
                     task.getCycleToGeneratedData().put(task.getCycle(), false);
@@ -266,12 +358,31 @@ public class FogDevice extends Datacenter {
 
             int nextHopId = this.nameToId.get(nextHopName);
 
-            send(
-                    nextHopId,
-                    (double) fogToFogMsg.getData() / this.upLinkBw,
-                    Constants.MsgTag.FOG_TO_FOG,
-                    fogToFogMsg
-            );
+            double delay = (double) fogToFogMsg.getData() / this.upLinkBw;
+
+            if (isUpLinkBusy) {
+                upLinkQueue.add(new NetworkRequest(
+                   nextHopId,
+                   delay,
+                   Constants.MsgTag.FOG_TO_FOG,
+                   fogToFogMsg
+                ));
+            } else {
+                isUpLinkBusy = true;
+
+                send(
+                        nextHopId,
+                        delay,
+                        Constants.MsgTag.FOG_TO_FOG,
+                        fogToFogMsg
+                );
+
+                send(
+                        getId(),
+                        delay,
+                        Constants.MsgTag.UP_LINK_IS_FREE
+                );
+            }
         }
     }
 
@@ -334,15 +445,33 @@ public class FogDevice extends Datacenter {
             }
         }
 
-        double delay = ((double) executeTaskMsg.getTask().getTotalInputDataSize() / this.downLinkBw) + 0;
-//                ((double) executeTaskMsg.getTask().getTotalInputDataSize() / 1000000 / maxRate);
+//        double delay = ((double) executeTaskMsg.getTask().getTotalInputDataSize() / this.downLinkBw) + 0;
+        double delay = 0.0;
+        if (isDownLinkBusy) {
+            downLinkQueue.add(new NetworkRequest(
+                    getId(),
+                    delay,
+                    Constants.MsgTag.EXECUTE_TASK,
+                    executeTaskMsg
+            ));
+        } else {
+            isDownLinkBusy = true;
 
-        send(
-                getId(),
-                delay,
-                Constants.MsgTag.EXECUTE_TASK,
-                executeTaskMsg
-        );
+            // Download the data
+            send(
+                    getId(),
+                    delay,
+                    Constants.MsgTag.EXECUTE_TASK,
+                    executeTaskMsg
+            );
+
+            // Notify that download link will be free after `delay` time has passed
+            send(
+                    getId(),
+                    delay,
+                    Constants.MsgTag.DOWN_LINK_IS_FREE
+            );
+        }
     }
 
     public List<FogHost> getHosts() {
@@ -362,7 +491,7 @@ public class FogDevice extends Datacenter {
     }
 
     private void log(String formatted, Object... args) {
-        String tag = String.format("FogDevice(%s)", getId());
+        String tag = String.format("FogDevice(%s|%s)", getId(), getName());
 
         Logger.log(tag, formatted, args);
     }
@@ -414,5 +543,19 @@ public class FogDevice extends Datacenter {
                 }
             }
         }
+    }
+}
+
+class NetworkRequest {
+    int dstEntityId;
+    double delay;
+    int tag;
+    Object msg;
+
+    public NetworkRequest(int dstEntityId, double delay, int tag, Object msg) {
+        this.dstEntityId = dstEntityId;
+        this.delay = delay;
+        this.tag = tag;
+        this.msg = msg;
     }
 }

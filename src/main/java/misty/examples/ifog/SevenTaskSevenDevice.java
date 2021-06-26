@@ -27,7 +27,7 @@ public class SevenTaskSevenDevice {
         CloudSim.init(1, Calendar.getInstance(), false);
 
         // Parse topology
-        var topologyParser = new Parser(new File("src/main/resources/seven_task_seven_device/topology.json"));
+        var topologyParser = new Parser(new File("src/main/resources/ifog/seven_task_seven_device/topology.json"));
         var deviceAndVms = topologyParser.parse();
 
         var fogDevices = deviceAndVms.getFirst();
@@ -40,7 +40,7 @@ public class SevenTaskSevenDevice {
         var convertedRoutingTable = PostProcessor.convertNameToId(fogDevices, routingTable);
 
         var vms = deviceAndVms.getSecond();
-        var fogBroker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper(), 10L, 10L, convertedRoutingTable, fogDevices);
+        var fogBroker = new FogBroker("broker", new SimpleVmProvisioner(), new SimpleVmToFogDeviceMapper(), new SimpleTaskToVmMapper(), 1000L, 1000L, convertedRoutingTable, fogDevices);
         vms.forEach(vm -> {
             vm.setUid(Vm.getUid(fogBroker.getId(), vm.getId()));
             vm.setUserId(fogBroker.getId());
@@ -48,7 +48,7 @@ public class SevenTaskSevenDevice {
         fogBroker.submitVmList(vms);
 
         // Parse workflows
-        var workflowParser = new misty.parse.workflow.Parser(new File("src/main/resources/seven_task_seven_device/workflows.json"));
+        var workflowParser = new misty.parse.workflow.Parser(new File("src/main/resources/ifog/seven_task_seven_device/workflows.json"));
         var workflows = workflowParser.parse();
 
         for (Workflow workflow: workflows) {
