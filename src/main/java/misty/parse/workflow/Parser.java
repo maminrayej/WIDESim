@@ -83,8 +83,8 @@ public class Parser {
                     fileMap.put(file.getId(), file.getSize());
                 });
 
-                double ram = getOrDefault(taskObj, Tags.RAM, 0.0, double.class);
-                double bw = getOrDefault(taskObj, Tags.BW, 0.0, double.class);
+                double ram = getOrDefault(taskObj, Tags.RAM, null, Double.class);
+                double bw = getOrDefault(taskObj, Tags.BW, null, Double.class);
 
                 Integer vmId = getOrDefault(taskObj, Tags.VM_ID, null, Integer.class);
 
@@ -148,7 +148,7 @@ public class Parser {
         }).collect(Collectors.toList());
     }
 
-    private class TaskInfo {
+    private static class TaskInfo {
         public int taskId;
         public long runtime;
         public int pes;
@@ -164,15 +164,15 @@ public class Parser {
         public String workflowId;
         public SelectivityModel selectivityModel;
         public ExecutionModel executionModel;
-        public double ram;
-        public double bw;
+        public Double ram;
+        public Double bw;
         public Integer vmId;
         public Map<String, Long> fileMap;
 
         public TaskInfo(int taskId, long runtime, int pes, long inputFileSize, long outputFileSize, UtilizationModel cpuModel,
                         UtilizationModel ramModel, UtilizationModel bwModel, List<misty.parse.dax.File> inputFiles,
                         List<misty.parse.dax.File> outputFiles, double deadline, double entryTime, String workflowId,
-                        SelectivityModel selectivityModel, ExecutionModel executionModel, double ram, double bw, Integer vmId, Map<String, Long> fileMap) {
+                        SelectivityModel selectivityModel, ExecutionModel executionModel, Double ram, Double bw, Integer vmId, Map<String, Long> fileMap) {
             this.taskId = taskId;
             this.runtime = runtime;
             this.pes = pes;

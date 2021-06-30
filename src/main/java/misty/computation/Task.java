@@ -8,8 +8,8 @@ import java.util.*;
 
 public class Task extends Cloudlet {
 
-    private double ram;
-    private double bw;
+    private Double ram;
+    private Double bw;
     private final Integer assignedVmId;
     private final List<Data> inputFiles;
     private List<Integer> children;
@@ -43,7 +43,6 @@ public class Task extends Cloudlet {
                 List<Data> inputFiles, double deadLine, double entryTime, String workflowName) {
         super(cloudletId, cloudletLength, pesNumber, cloudletFileSize, cloudletOutputSize, utilizationModelCpu, utilizationModelRam, utilizationModelBw);
         this.inputFiles = inputFiles;
-//        this.children = children;
         this.deadLine = deadLine;
         this.workflowId = workflowName;
         this.entryTime = entryTime;
@@ -56,15 +55,15 @@ public class Task extends Cloudlet {
 
         this.taskState = new TaskState();
 
-        this.ram = 0;
-        this.bw = 0;
+        this.ram = null;
+        this.bw = null;
         this.assignedVmId = null;
     }
 
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
                 UtilizationModel utilizationModelCpu, UtilizationModel utilizationModelRam, UtilizationModel utilizationModelBw,
                 List<Data> inputFiles, double deadLine, double entryTime, String workflowName, SelectivityModel selectivityModel, ExecutionModel executionModel,
-                double ram, double bw, Integer assignedVmId) {
+                Double ram, Double bw, Integer assignedVmId) {
         super(cloudletId, cloudletLength, pesNumber, cloudletFileSize, cloudletOutputSize, utilizationModelCpu, utilizationModelRam, utilizationModelBw);
         this.inputFiles = inputFiles;
         this.deadLine = deadLine;
@@ -85,11 +84,11 @@ public class Task extends Cloudlet {
         this.assignedVmId = assignedVmId;
     }
 
-    public double getRam() {
+    public Double getRam() {
         return ram;
     }
 
-    public double getBw() {
+    public Double getBw() {
         return bw;
     }
 
@@ -234,18 +233,11 @@ public class Task extends Cloudlet {
         return getParents().size() == 0;
     }
 
-    public void setRam(double ram) {
+    public void setRam(Double ram) {
         this.ram = ram;
     }
 
-    public void setBw(double bw) {
+    public void setBw(Double bw) {
         this.bw = bw;
     }
-
-//    @Override
-//    public void setExecStartTime(double clockTime) {
-//        super.setExecStartTime(clockTime);
-//        this.getTaskState().setStartExecutionTime(this.getCycle(), CloudSim.clock());
-//    }
-
 }

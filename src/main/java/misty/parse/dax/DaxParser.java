@@ -115,12 +115,11 @@ public class DaxParser {
                     workflowName,
                     new FractionalSelectivity(1),
                     new PeriodicExecutionModel(1),
-                    0,
-                    0,
+                    null,
+                    null,
                     null
             );
 
-//            List<Pair<Integer, String>> neededFilesPair = job.getInputFiles().stream().map(f -> Pair.of(fileToOwner.getOrDefault(f.getId(), job.getId()), f.getId())).collect(Collectors.toList());
             List<Pair<Integer, String>> neededFilesPair = task.getInputFiles().stream().map(data -> Pair.of(data.getSrcTaskId(), data.getFileName())).collect(Collectors.toList());
 
             Map<Integer, List<String>> neededFiles = new HashMap<>();
@@ -145,9 +144,6 @@ public class DaxParser {
 
             tasks.add(task);
         }
-        //        PostProcessor.connectParentTasksToChildren(workflow);
-
-//        PostProcessor.connectChildTasksToParent(workflow);
 
         return new Workflow(tasks, workflowName);
     }

@@ -50,7 +50,6 @@ public class Montage25 {
         var workflows = List.of(daxParser.buildWorkflow());
 
         for (Workflow workflow: workflows) {
-//            misty.parse.workflow.PostProcessor.connectChildTasksToParent(workflow);
 
             var analyzer = misty.parse.workflow.PostProcessor.buildWorkflowAnalyzer(workflow);
             misty.parse.workflow.PostProcessor.isWorkflowValid(analyzer);
