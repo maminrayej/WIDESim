@@ -135,13 +135,6 @@ public class DaxParser {
             task.setFileMap(job.getFileMap());
             task.setNeededFromParent(neededFiles);
 
-            if (task.getTaskId() == 2) {
-                System.out.println("Needed files: " + task.getInputFiles().stream().map(Data::getFileName).collect(Collectors.toList()));
-                System.out.println("Needed files pair: " + neededFilesPair);
-                System.out.println("Needed files: " + neededFiles);
-                System.out.println("Parents: " + task.getParents());
-            }
-
             tasks.add(task);
         }
 

@@ -39,12 +39,12 @@ public class Logger {
             Task task = tasks.get(index);
             State state = task.getTaskState().getState(cycle);
 
-            String fogDeviceName = "";
-            for (FogDevice fogDevice: fogDevices) {
-                if (fogDevice.getId() == vmToFogDevice.get(task.getVmId())) {
-                    fogDeviceName = fogDevice.getName();
-                }
-            }
+//            String fogDeviceName = "";
+//            for (FogDevice fogDevice: fogDevices) {
+//                if (fogDevice.getId() == vmToFogDevice.get(task.getVmId())) {
+//                    fogDeviceName = fogDevice.getName();
+//                }
+//            }
 
             data[index] = new String[]{
                     task.getTaskId() + "",

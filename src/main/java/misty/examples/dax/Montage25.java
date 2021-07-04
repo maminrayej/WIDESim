@@ -26,7 +26,7 @@ public class Montage25 {
         CloudSim.init(1, Calendar.getInstance(), false);
 
         // Parse topology
-        var topologyParser = new Parser(new File("src/main/resources/one_task_one_device/topology.json"));
+        var topologyParser = new Parser(new File("src/main/resources/topologies/topology.json"));
         var deviceAndVms = topologyParser.parse();
 
         var fogDevices = deviceAndVms.getFirst();
