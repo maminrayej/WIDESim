@@ -27,7 +27,7 @@ public class SimpleTaskToVmMapper implements TaskToVmMapper {
                 } else {
                     int vmId = taskId % createdVms.size();
 
-                    newTaskToVm.put(taskId, vmId);
+                    newTaskToVm.put(taskId, createdVms.get(vmId).getId());
                 }
             }
         }
