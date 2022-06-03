@@ -884,7 +884,7 @@ public class CloudSim {
 			runStart();
 		}
 		while (true) {
-			if (runClockTick() || abruptTerminate) {
+			if (runClockTick()) {
 				break;
 			}
 
