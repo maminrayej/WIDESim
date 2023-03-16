@@ -8,12 +8,13 @@ import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
+import org.cloudbus.cloudsim.power.PowerDatacenter;
 import org.jgrapht.alg.util.Pair;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FogDevice extends Datacenter {
+public class FogDevice extends PowerDatacenter {
     private boolean isUpLinkBusy;
     private boolean isDownLinkBusy;
 
