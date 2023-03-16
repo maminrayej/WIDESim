@@ -8,6 +8,7 @@
           "runtime": 40000,
           "input_files": [
             {
+              "file_id": "input_0",
               "from_task": 0,
               "size": 4000000
             }

@@ -62,7 +62,6 @@ public class OneTaskOneDevice {
         fogBroker.setWorkflowEngineId(workflowEngine.getId());
 
         var taskManager = new TaskManager(workflowEngine.getId(), workflows);
-
 //        var taskManager = new TaskManager(fogBroker.getId(), workflows);
 
         CloudSim.startSimulation();
@@ -78,35 +77,5 @@ public class OneTaskOneDevice {
             System.out.println("Cycle: " + cycle);
             Logger.printResult(cycle, tasks, fogBroker.getVmToFogDevice(), fogDevices);
         });
-    }
-
-    private static void printCloudletList(List<Cloudlet> list) {
-        int size = list.size();
-        Cloudlet cloudlet;
-
-        String indent = "    ";
-        Log.printLine();
-        Log.printLine("========== OUTPUT ==========");
-        Log.printLine("Cloudlet ID" + indent + "STATUS" + indent
-                + "Data center ID" + indent + "VM ID" + indent + "Time" + indent
-                + "Start Time" + indent + "Finish Time");
-
-        DecimalFormat dft = new DecimalFormat("###.##");
-        for (int i = 0; i < size; i++) {
-            cloudlet = list.get(i);
-            Log.print(indent + cloudlet.getCloudletId() + indent + indent);
-
-            if (cloudlet.getStatus() == Cloudlet.SUCCESS) {
-                Log.print("SUCCESS");
-
-                Log.printLine(indent + indent + cloudlet.getResourceId()
-                        + indent + indent + indent + cloudlet.getVmId()
-                        + indent + indent
-                        + dft.format(cloudlet.getActualCPUTime()) + indent
-                        + indent + dft.format(cloudlet.getExecStartTime())
-                        + indent + indent
-                        + dft.format(cloudlet.getFinishTime()));
-            }
-        }
     }
 }

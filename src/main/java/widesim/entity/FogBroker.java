@@ -8,9 +8,9 @@ import widesim.mapper.VmToFogDeviceMapper;
 import widesim.message.*;
 import widesim.provision.VmProvisioner;
 import org.cloudbus.cloudsim.Cloudlet;
-import org.cloudbus.cloudsim.DatacenterBroker;
+import org.cloudbus.cloudsim.power.PowerDatacenterBroker;
 import org.cloudbus.cloudsim.DatacenterCharacteristics;
-import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.power.PowerVm;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
@@ -20,7 +20,7 @@ import org.jgrapht.alg.util.Pair;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class FogBroker extends DatacenterBroker {
+public class FogBroker extends PowerDatacenterBroker {
 
     private int workflowEngineId;
 
@@ -40,7 +40,7 @@ public class FogBroker extends DatacenterBroker {
     private final Set<Integer> vmCreateAcks;
     private final Set<Integer> sentVmDestroyRequests;
     private final Set<Integer> vmDestroyAcks;
-    private final List<Vm> failedVms;
+    private final List<PowerVm> failedVms;
     // variables for task management
     private final Map<Integer, Task> tasks;
     private final List<Task> waitingTaskQueue;
@@ -49,7 +49,7 @@ public class FogBroker extends DatacenterBroker {
     private final Set<Task> completedTasks;
 
     private Map<Integer, Integer> vmToFogDevice;
-    private List<Vm> createdVms;
+    private List<PowerVm> createdVms;
     private List<Integer> toBeCreated;
     private final Map<Integer, Integer> taskToVm;
 
@@ -347,7 +347,7 @@ public class FogBroker extends DatacenterBroker {
             this.failedVms.clear();
 
             // Add stayAlive vms to createdVms because they are already created
-            this.createdVms = stayAlive.stream().map(vmId -> (Vm) VmList.getById(this.getVmList(), vmId)).collect(Collectors.toList());
+            this.createdVms = stayAlive.stream().map(vmId -> (PowerVm) VmList.getById(this.getVmList(), vmId)).collect(Collectors.toList());
 
             // If there is no vm to create either just execute the tasks
             if (this.sentVmCreateRequests.isEmpty()) {

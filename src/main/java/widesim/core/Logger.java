@@ -37,7 +37,6 @@ public class Logger {
         IntStream.range(0, tasks.size()).forEach(index -> {
             Task task = tasks.get(index);
             State state = task.getTaskState().getState(cycle);
-
 //            String fogDeviceName = "";
 //            for (FogDevice fogDevice: fogDevices) {
 //                if (fogDevice.getId() == vmToFogDevice.get(task.getVmId())) {

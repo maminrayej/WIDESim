@@ -1,7 +1,7 @@
 package widesim.provision;
 
 import widesim.computation.Task;
-import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.power.PowerVm;
 import org.jgrapht.alg.util.Triple;
 
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 public class SimpleVmProvisioner implements VmProvisioner {
 
     @Override
-    public Triple<List<Integer>, List<Integer>, List<Integer>> provision(List<Vm> failedVms,
-                                                                         List<Vm> createdVms,
-                                                                         List<Vm> vms,
+    public Triple<List<Integer>, List<Integer>, List<Integer>> provision(List<PowerVm> failedVms,
+                                                                         List<PowerVm> createdVms,
+                                                                         List<PowerVm> vms,
                                                                          Map<Integer, Integer> taskToVm,
                                                                          Set<Task> completedTasks,
                                                                          Set<Task> dispatchedTasks,
@@ -25,6 +25,6 @@ public class SimpleVmProvisioner implements VmProvisioner {
         // to be created: empty
         // to be destroyed: empty
         // to stay alive: already created vms
-        return Triple.of(new ArrayList<>(), new ArrayList<>(), createdVms.stream().map(Vm::getId).collect(Collectors.toList()));
+        return Triple.of(new ArrayList<>(), new ArrayList<>(), createdVms.stream().map(PowerVm::getId).collect(Collectors.toList()));
     }
 }
