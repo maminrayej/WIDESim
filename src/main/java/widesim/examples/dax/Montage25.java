@@ -4,7 +4,6 @@ import widesim.computation.Task;
 import widesim.computation.Workflow;
 import widesim.core.Logger;
 import widesim.entity.FogBroker;
-import widesim.entity.FogVm;
 import widesim.entity.TaskManager;
 import widesim.entity.WorkflowEngine;
 import widesim.mapper.SimpleTaskToVmMapper;
@@ -14,6 +13,7 @@ import widesim.parse.topology.Parser;
 import widesim.parse.topology.PostProcessor;
 import widesim.provision.SimpleVmProvisioner;
 import org.cloudbus.cloudsim.power.PowerVm;
+import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
 
 import java.io.File;
@@ -66,8 +66,12 @@ public class Montage25 {
 
         List<Task> tasks = fogBroker.getReceivedTasks();
         System.out.println("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-        // for 
-        System.out.println(fogBroker.getVmList().size());
+        for (Vm vm : fogBroker.getVmList()) {
+            PowerVm newvm = (PowerVm) vm;
+            // System.out.println(vm.getTotalUtilizationOfCpu(0));
+            // System.out.println(vm.get(0));
+            System.out.println(newvm.getUtilizationVariance());
+        }
         IntStream.range(0, fogBroker.getMaximumCycle() + 1).forEach(cycle -> {
             System.out.println("Cycle: " + cycle);
             Logger.printResult(cycle, tasks, fogBroker.getVmToFogDevice(), fogDevices);

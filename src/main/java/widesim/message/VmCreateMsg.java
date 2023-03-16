@@ -1,15 +1,15 @@
 package widesim.message;
 
-import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.power.PowerVm;
 
 public class VmCreateMsg {
-    private final Vm vm;
+    private final PowerVm vm;
 
-    public VmCreateMsg(Vm vm) {
+    public VmCreateMsg(PowerVm vm) {
         this.vm = vm;
     }
 
-    public Vm getVm() {
+    public PowerVm getVm() {
         return vm;
     }
 }

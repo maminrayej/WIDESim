@@ -9,6 +9,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
 import org.cloudbus.cloudsim.power.PowerDatacenter;
+import org.cloudbus.cloudsim.power.PowerVm;
 import org.jgrapht.alg.util.Pair;
 
 import java.util.*;
@@ -162,7 +163,7 @@ public class FogDevice extends PowerDatacenter {
     protected void processVmCreate(SimEvent event) {
         VmCreateMsg vmCreateMsg = (VmCreateMsg) event.getData();
 
-        Vm vm = vmCreateMsg.getVm();
+        PowerVm vm = vmCreateMsg.getVm();
 
         boolean result = getVmAllocationPolicy().allocateHostForVm(vm);
 

@@ -153,6 +153,9 @@ public class PowerVm extends Vm {
 			}
 			variance /= n;
 		}
+		else {
+			System.out.println("Empty utilization history");
+		}
 		return variance;
 	}
 

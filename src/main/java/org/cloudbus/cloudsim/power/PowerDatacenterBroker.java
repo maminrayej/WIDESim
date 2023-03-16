@@ -8,7 +8,10 @@
 
 package org.cloudbus.cloudsim.power;
 
+import java.util.List;
+
 import org.cloudbus.cloudsim.DatacenterBroker;
+import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
 import org.cloudbus.cloudsim.core.CloudSimTags;
 import org.cloudbus.cloudsim.core.SimEvent;
