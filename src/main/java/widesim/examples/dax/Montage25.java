@@ -70,7 +70,7 @@ public class Montage25 {
             PowerVm newvm = (PowerVm) vm;
             // System.out.println(vm.getTotalUtilizationOfCpu(0));
             // System.out.println(vm.get(0));
-            System.out.println(newvm.getUtilizationVariance());
+            System.out.println(newvm.getUtilizationMean());
         }
         IntStream.range(0, fogBroker.getMaximumCycle() + 1).forEach(cycle -> {
             System.out.println("Cycle: " + cycle);
