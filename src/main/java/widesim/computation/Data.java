@@ -4,10 +4,10 @@ public class Data {
 
     private final int srcTaskId;
     private final int dstTaskId;
-    private final long size;
+    private final double size;
     private final String fileName;
 
-    public Data(String fileName, int srcTaskId, int dstTaskId, long size) {
+    public Data(String fileName, int srcTaskId, int dstTaskId, double size) {
         this.fileName = fileName;
         this.srcTaskId = srcTaskId;
         this.dstTaskId = dstTaskId;
@@ -22,7 +22,7 @@ public class Data {
         return dstTaskId;
     }
 
-    public long getSize() {
+    public double getSize() {
         return size;
     }
 

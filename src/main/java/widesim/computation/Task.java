@@ -1,6 +1,7 @@
 package widesim.computation;
 
 import org.cloudbus.cloudsim.Cloudlet;
+import org.cloudbus.cloudsim.Consts;
 import org.cloudbus.cloudsim.UtilizationModel;
 
 import java.util.*;
@@ -133,8 +134,8 @@ public class Task extends Cloudlet {
         return new ArrayList<>(this.parents);
     }
 
-    public long getTotalInputDataSize() {
-        return this.inputFiles.stream().map(Data::getSize).reduce(0L, Long::sum);
+    public double getTotalInputDataSize() {
+        return this.inputFiles.stream().map(Data::getSize).reduce(0.0, Double::sum);
     }
 
     public int getCycle() {
@@ -238,5 +239,17 @@ public class Task extends Cloudlet {
 
     public void setBw(Double bw) {
         this.bw = bw;
+    }
+
+    @Override
+    public double getProcessingCost() {
+        double cost = getCostPerSec() * getActualCPUTime();
+
+        double fileSize = 0;
+        for (Data file : getInputFiles()) {
+            fileSize += file.getSize() / Consts.MILLION;
+        }
+        cost += costPerBw * fileSize;
+        return cost;
     }
 }
