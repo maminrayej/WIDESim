@@ -83,8 +83,8 @@ public class Parser {
                     fileMap.put(file.getId(), file.getSize());
                 });
 
-                double ram = getOrDefault(taskObj, Tags.RAM, null, Double.class);
-                double bw = getOrDefault(taskObj, Tags.BW, null, Double.class);
+                double ram = getOrDefault(taskObj, Tags.RAM, 0.0, Double.class);
+                double bw = getOrDefault(taskObj, Tags.BW, 0.0, Double.class);
 
                 Integer vmId = getOrDefault(taskObj, Tags.VM_ID, null, Integer.class);
 
