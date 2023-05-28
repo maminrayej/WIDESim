@@ -1,5 +1,6 @@
 package widesim.entity;
 
+import org.cloudbus.cloudsim.Cloudlet;
 import widesim.computation.Task;
 import widesim.core.Constants;
 import widesim.core.Logger;
@@ -68,16 +69,22 @@ public class WorkflowEngine extends SimEntity {
 
         log("Task(%s) received as complete", task.getTaskId());
 
-        completedTasks.add(task.getTaskId());
+        if (task.getStatus() == Cloudlet.FAILED) {
+            waitingTasks.add(task.getTaskId());
+            // TODO: which execution is used for TaskState data?
+        } else {
 
-        for (Iterator<Integer> iterator = waitingTasks.iterator(); iterator.hasNext(); ) {
-            Integer waitingTaskId = iterator.next();
-            Task waitingTask = tasks.get(waitingTaskId);
+            completedTasks.add(task.getTaskId());
 
-            if (completedTasks.containsAll(waitingTask.getParents())) {
-                iterator.remove();
-                log("Task(%s) is now ready to get executed. Releasing it...", waitingTask.getTaskId());
-                sendNow(brokerId, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(waitingTask));
+            for (Iterator<Integer> iterator = waitingTasks.iterator(); iterator.hasNext(); ) {
+                Integer waitingTaskId = iterator.next();
+                Task waitingTask = tasks.get(waitingTaskId);
+
+                if (completedTasks.containsAll(waitingTask.getParents())) {
+                    iterator.remove();
+                    log("Task(%s) is now ready to get executed. Releasing it...", waitingTask.getTaskId());
+                    sendNow(brokerId, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(waitingTask));
+                }
             }
         }
 

@@ -3,6 +3,7 @@ package widesim.entity;
 import widesim.computation.Task;
 import widesim.core.Constants;
 import widesim.core.Logger;
+import widesim.failure.FailureGenerator;
 import widesim.mapper.TaskToVmMapper;
 import widesim.mapper.VmToFogDeviceMapper;
 import widesim.message.*;
@@ -220,6 +221,8 @@ public class FogBroker extends PowerDatacenterBroker {
     protected void processTaskIsDone(SimEvent event) {
         Task task = (Task) event.getData();
         log("Received task completion msg for Task(%s) from FogDevice(%s)", task.getTaskId(), event.getSource());
+
+        FailureGenerator.generate(task);
 
         task.getTaskState().setEndExecutionTime(task.getCycle(), CloudSim.clock());
 
