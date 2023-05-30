@@ -1,5 +1,6 @@
 package widesim.computation;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.Consts;
 import org.cloudbus.cloudsim.UtilizationModel;
@@ -29,6 +30,7 @@ public class Task extends Cloudlet {
 
     private Map<String, Long> fileMap;
     private Map<Integer, List<String>> neededFromParent;
+    private ArrayList<Double> failedExecutions;
 
     public void setFileMap(Map<String, Long> fileMap) {
         this.fileMap = fileMap;
@@ -58,6 +60,7 @@ public class Task extends Cloudlet {
         this.ram = null;
         this.bw = null;
         this.assignedVmId = null;
+        this.failedExecutions = new ArrayList<>();
     }
 
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
@@ -251,5 +254,9 @@ public class Task extends Cloudlet {
         }
         cost += costPerBw * fileSize;
         return cost;
+    }
+
+    public void addFailedExecution(double time) {
+        this.failedExecutions.add(time);
     }
 }

@@ -1,6 +1,7 @@
 package widesim.entity;
 
 import org.cloudbus.cloudsim.Cloudlet;
+import org.cloudbus.cloudsim.core.CloudSim;
 import widesim.computation.Task;
 import widesim.core.Constants;
 import widesim.core.Logger;
@@ -70,6 +71,14 @@ public class WorkflowEngine extends SimEntity {
         log("Task(%s) received as complete", task.getTaskId());
 
         if (task.getStatus() == Cloudlet.FAILED) {
+            log("Task(%s) failed. Adding it to waiting queue...", task.getTaskId());
+            task.addFailedExecution(CloudSim.clock());
+            try {
+                task.setCloudletStatus(Cloudlet.READY);
+                task.setExecStartTime(-1);
+            } catch (Exception e) {
+                log("Error while setting task status to READY");
+            }
             waitingTasks.add(task.getTaskId());
             // TODO: which execution is used for TaskState data?
         } else {
