@@ -8,6 +8,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 
 public class Logger {
@@ -34,6 +35,8 @@ public class Logger {
         };
         String[][] data = new String[tasks.size()][6];
 
+        AtomicReference<Double> endExecutionTime = new AtomicReference<>(0.0);
+
         IntStream.range(0, tasks.size()).forEach(index -> {
             Task task = tasks.get(index);
             State state = task.getTaskState().getState(cycle);
@@ -56,8 +59,11 @@ public class Logger {
                     String.format("%.2f", state.endExecutionTime),
                     String.format("%.2f", state.endExecutionTime - state.startExecutionTime),
             };
+
+            endExecutionTime.set(state.endExecutionTime);
         });
 
         System.out.println(FlipTable.of(headers, data));
+        System.out.println("End Execution Time: " + endExecutionTime);
     }
 }
