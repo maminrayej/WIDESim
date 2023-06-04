@@ -9,6 +9,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Logger {
@@ -25,6 +26,7 @@ public class Logger {
                 "Task ID",
 //                "On Device",
                 "On Vm",
+                "Failed Histories",
 //                "Enter Broker Waiting Queue",
 //                "Exit Broker Waiting Queue",
 //                "Enter FogDevice Waiting Queue",
@@ -51,6 +53,7 @@ public class Logger {
                     task.getTaskId() + "",
 //                    fogDeviceName,
                     task.getVmId() + "",
+                    task.getFailedExecutions().stream().map(Object::toString).collect(Collectors.joining(", ")) + "",
 //                    state.enterBrokerWaitingQueue + "",
 //                    state.exitBrokerWaitingQueue + "",
 //                    state.enterFogDeviceWaitingQueue + "",

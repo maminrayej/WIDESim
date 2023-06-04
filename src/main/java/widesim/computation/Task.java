@@ -85,6 +85,7 @@ public class Task extends Cloudlet {
         this.ram = ram;
         this.bw = bw;
         this.assignedVmId = assignedVmId;
+        this.failedExecutions = new ArrayList<>();
     }
 
     public Double getRam() {
@@ -258,5 +259,9 @@ public class Task extends Cloudlet {
 
     public void addFailedExecution(double time) {
         this.failedExecutions.add(time);
+    }
+
+    public ArrayList<Double> getFailedExecutions() {
+        return failedExecutions;
     }
 }
