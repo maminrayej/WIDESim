@@ -74,29 +74,28 @@ public class WorkflowEngine extends SimEntity {
             log("Task(%s) failed. Adding it to waiting queue...", task.getTaskId());
             task.addFailedExecution(CloudSim.clock());
             try {
-                task.setCloudletStatus(Cloudlet.READY);
+                task.setCloudletStatus(Cloudlet.CREATED);
                 task.setExecStartTime(-1);
             } catch (Exception e) {
                 log("Error while setting task status to READY");
             }
-            waitingTasks.add(task.getTaskId());
+//            waitingTasks.add(task.getTaskId());
+            schedule(this.getId(), 0, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(task));
             // TODO: which execution is used for TaskState data?
         } else {
-
             completedTasks.add(task.getTaskId());
-
-            for (Iterator<Integer> iterator = waitingTasks.iterator(); iterator.hasNext(); ) {
-                Integer waitingTaskId = iterator.next();
-                Task waitingTask = tasks.get(waitingTaskId);
-
-                if (completedTasks.containsAll(waitingTask.getParents())) {
-                    iterator.remove();
-                    log("Task(%s) is now ready to get executed. Releasing it...", waitingTask.getTaskId());
-                    sendNow(brokerId, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(waitingTask));
-                }
-            }
         }
 
+        for (Iterator<Integer> iterator = waitingTasks.iterator(); iterator.hasNext(); ) {
+            Integer waitingTaskId = iterator.next();
+            Task waitingTask = tasks.get(waitingTaskId);
+
+            if (completedTasks.containsAll(waitingTask.getParents())) {
+                iterator.remove();
+                log("Task(%s) is now ready to get executed. Releasing it...", waitingTask.getTaskId());
+                sendNow(brokerId, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(waitingTask));
+            }
+        }
     }
 
     private void log(String formatted, Object... args) {

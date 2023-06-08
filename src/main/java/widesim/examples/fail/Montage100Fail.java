@@ -25,7 +25,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Montage25Fail {
+public class Montage100Fail {
     public static void main(String[] args) throws Exception {
         CloudSim.init(1, Calendar.getInstance(), false);
 
