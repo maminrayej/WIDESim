@@ -222,7 +222,6 @@ public class FogBroker extends PowerDatacenterBroker {
         Task task = (Task) event.getData();
         log("Received task completion msg for Task(%s) from FogDevice(%s)", task.getTaskId(), event.getSource());
 
-        FailureGenerator.generate(task);
 
         task.getTaskState().setEndExecutionTime(task.getCycle(), CloudSim.clock());
 

@@ -5,6 +5,7 @@ import org.cloudbus.cloudsim.core.CloudSim;
 import widesim.computation.Task;
 import widesim.core.Constants;
 import widesim.core.Logger;
+import widesim.failure.FailureGenerator;
 import widesim.message.IncomingTaskMsg;
 import widesim.message.TaskIsDoneMsg;
 import org.cloudbus.cloudsim.core.SimEntity;
@@ -53,6 +54,7 @@ public class WorkflowEngine extends SimEntity {
 
         log("Task(%s) of workflow(%s) received", task.getTaskId(), task.getWorkflowId());
 
+
         tasks.put(task.getTaskId(), task);
 
         if (completedTasks.containsAll(task.getParents())) {
@@ -69,6 +71,7 @@ public class WorkflowEngine extends SimEntity {
         Task task = doneMsg.getTask();
 
         log("Task(%s) received as complete", task.getTaskId());
+        FailureGenerator.generate(task);
 
         if (task.getStatus() == Cloudlet.FAILED) {
             log("Task(%s) failed. Adding it to waiting queue...", task.getTaskId());

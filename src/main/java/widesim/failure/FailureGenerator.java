@@ -144,7 +144,10 @@ public class FailureGenerator {
         try {
 
             int failedTaskSum = 0;
-            if (checkFailureStatus(task, task.getVmId())) {
+//            if (checkFailureStatus(task, task.getVmId())) {
+            // genrate random number
+            double random = Math.random();
+            if (random < 0.1) {
                 taskFailed = true;
                 failedTaskSum++;
                 task.setCloudletStatus(Cloudlet.FAILED);

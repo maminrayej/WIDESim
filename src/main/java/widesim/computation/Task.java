@@ -42,7 +42,7 @@ public class Task extends Cloudlet {
 
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
                 UtilizationModel utilizationModelCpu, UtilizationModel utilizationModelRam, UtilizationModel utilizationModelBw,
-                List<Data> inputFiles, double deadLine, double entryTime, String workflowName) {
+                List<Data> inputFiles, double deadLine, double entryTime, String workflowName, ArrayList<Double> failedExecutions) {
         super(cloudletId, cloudletLength, pesNumber, cloudletFileSize, cloudletOutputSize, utilizationModelCpu, utilizationModelRam, utilizationModelBw);
         this.inputFiles = inputFiles;
         this.deadLine = deadLine;
@@ -60,7 +60,7 @@ public class Task extends Cloudlet {
         this.ram = null;
         this.bw = null;
         this.assignedVmId = null;
-        this.failedExecutions = new ArrayList<>();
+        this.failedExecutions = failedExecutions;
     }
 
     public Task(int cloudletId, long cloudletLength, int pesNumber, long cloudletFileSize, long cloudletOutputSize,
@@ -191,7 +191,7 @@ public class Task extends Cloudlet {
                 getCloudletId(), getCloudletLength(), getNumberOfPes(), getCloudletFileSize(),
                 getCloudletOutputSize(), getUtilizationModelCpu(), getUtilizationModelRam(),
                 getUtilizationModelBw(), getInputFiles(), getDeadLine(),
-                getEntryTime(), getWorkflowId()
+                getEntryTime(), getWorkflowId(), getFailedExecutions()
         );
 
         task.setUserId(this.getUserId());
