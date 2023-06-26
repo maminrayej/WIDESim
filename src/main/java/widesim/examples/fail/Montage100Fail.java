@@ -59,8 +59,7 @@ public class Montage100Fail {
 
         FailureParameters.FTCMonitor ftc_monitor = FailureParameters.FTCMonitor.MONITOR_ALL;
         FailureParameters.FTCFailure ftc_failure = FailureParameters.FTCFailure.FAILURE_ALL;
-        FailureParameters.FTCluteringAlgorithm ftc_method = FailureParameters.FTCluteringAlgorithm.FTCLUSTERING_NOOP;
-        FailureParameters.init(ftc_method, ftc_monitor, ftc_failure, failureGenerators);
+        FailureParameters.init(ftc_monitor, ftc_failure, failureGenerators);
         FailureMonitor.init();
         FailureGenerator.init();
 

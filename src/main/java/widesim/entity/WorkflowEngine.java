@@ -71,7 +71,6 @@ public class WorkflowEngine extends SimEntity {
         Task task = doneMsg.getTask();
 
         log("Task(%s) received as complete", task.getTaskId());
-        FailureGenerator.generate(task);
 
         if (task.getStatus() == Cloudlet.FAILED) {
             log("Task(%s) failed. Adding it to waiting queue...", task.getTaskId());
@@ -84,7 +83,6 @@ public class WorkflowEngine extends SimEntity {
             }
 //            waitingTasks.add(task.getTaskId());
             schedule(this.getId(), 0, Constants.MsgTag.INCOMING_TASK, new IncomingTaskMsg(task));
-            // TODO: which execution is used for TaskState data?
         } else {
             completedTasks.add(task.getTaskId());
         }

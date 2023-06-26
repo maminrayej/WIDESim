@@ -7,10 +7,7 @@ import org.apache.commons.math3.distribution.RealDistribution;
 import org.cloudbus.cloudsim.Cloudlet;
 
 import org.apache.commons.math3.distribution.WeibullDistribution;
-import widesim.failure.DistributionGenerator;
 import widesim.computation.Task;
-
-import static widesim.failure.DistributionGenerator.DistributionFamily.*;
 
 
 public class FailureGenerator {
@@ -64,37 +61,25 @@ public class FailureGenerator {
 
     protected static boolean checkFailureStatus(Task task, int vmId) throws Exception {
 
-
         DistributionGenerator generator;
-        generator = FailureParameters.getGenerator(0, 0);
-//        switch (FailureParameters.getFailureGeneratorMode()) {
-//            /**
-//             * Every task follows the same distribution.
-//             */
-//            case FAILURE_ALL:
-//                generator = FailureParameters.getGenerator(0, 0);
-//                break;
-//            /**
-//             * Generate failures based on the type of job.
-//             */
-//            case FAILURE_JOB:
-//                generator = FailureParameters.getGenerator(0, task.getDepth());
-//                break;
-//            /**
-//             * Generate failures based on the index of vm.
-//             */
-//            case FAILURE_VM:
-//                generator = FailureParameters.getGenerator(vmId, 0);
-//                break;
-//            /**
-//             * Generator failures based on vmId and level both
-//             */
-//            case FAILURE_VM_JOB:
-//                generator = FailureParameters.getGenerator(vmId, task.getDepth());
-//                break;
-//            default:
-//                return false;
-//        }
+        switch (FailureParameters.getFailureGeneratorMode()) {
+            /**
+             * Every task follows the same distribution.
+             */
+            case FAILURE_ALL:
+                generator = FailureParameters.getGenerator(0, 0);
+                break;
+
+            /**
+             * Generate failures based on the index of vm.
+             */
+            case FAILURE_VM:
+                generator = FailureParameters.getGenerator(vmId, 0);
+                break;
+
+            default:
+                return false;
+        }
 
         double start = task.getExecStartTime();
         double end = task.getFinishTime();
@@ -131,7 +116,7 @@ public class FailureGenerator {
     /**
      * Generates a failure or not
      *
-     * @param job
+     * @param task
      * @return whether it fails
      */
     //true means has failure
@@ -144,10 +129,7 @@ public class FailureGenerator {
         try {
 
             int failedTaskSum = 0;
-//            if (checkFailureStatus(task, task.getVmId())) {
-            // genrate random number
-            double random = Math.random();
-            if (random < 0.1) {
+            if (checkFailureStatus(task, task.getVmId())) {
                 taskFailed = true;
                 failedTaskSum++;
                 task.setCloudletStatus(Cloudlet.FAILED);
@@ -157,6 +139,7 @@ public class FailureGenerator {
 
             if (taskFailed) {
                 task.setCloudletStatus(Cloudlet.FAILED);
+                task.setCloudletFinishedSoFar(0);
             } else {
                 task.setCloudletStatus(Cloudlet.SUCCESS);
             }

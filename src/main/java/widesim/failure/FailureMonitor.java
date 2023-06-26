@@ -72,10 +72,6 @@ public class FailureMonitor {
         double t = record.length;
         double a = 0.0;
         switch (FailureParameters.getMonitorMode()) {
-            case MONITOR_JOB:
-                /**
-                 * not supported *
-                 */
             case MONITOR_ALL:
                 a = analyze(0, record.depth);
                 break;
@@ -118,14 +114,7 @@ public class FailureMonitor {
                 vm2record.get(record.vmId).add(record);
 
                 break;
-            case MONITOR_JOB:
 
-                if (!type2record.containsKey(record.depth)) {
-                    type2record.put(record.depth, new ArrayList<>());
-                }
-                type2record.get(record.depth).add(record);
-
-                break;
             case MONITOR_NONE:
                 break;
         }
@@ -157,17 +146,6 @@ public class FailureMonitor {
 
                 break;
 
-            case MONITOR_JOB:
-
-                if (type2record.containsKey(type)) {
-                    for (FailureRecord record : type2record.get(type)) {
-
-                        sumFailures += record.failedTasksNum;
-                        sumJobs += record.allTaskNum;
-                    }
-                }
-
-                break;
             case MONITOR_VM:
 
                 if (vm2record.containsKey(type)) {

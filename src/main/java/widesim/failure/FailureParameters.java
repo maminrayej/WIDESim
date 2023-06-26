@@ -1,7 +1,6 @@
 package widesim.failure;
 
 import org.cloudbus.cloudsim.Log;
-import widesim.failure.DistributionGenerator;
 import widesim.failure.DistributionGenerator.DistributionFamily;
 
 
@@ -16,35 +15,23 @@ public class FailureParameters {
      * @pre 0.0<= value <= 1.0
      */
     private static DistributionGenerator[][] generators;
-    /**
-     * Fault Tolerant Clustering algorithm
-     */
-    public enum FTCluteringAlgorithm {
 
-        FTCLUSTERING_DC, FTCLUSTERING_SR, FTCLUSTERING_DR, FTCLUSTERING_NOOP,
-        FTCLUSTERING_BLOCK, FTCLUSTERING_VERTICAL
-    }
-    /*
+    /**
      * FTC Monitor mode
      */
-
     public enum FTCMonitor {
 
-        MONITOR_NONE, MONITOR_ALL, MONITOR_VM, MONITOR_JOB, MONITOR_VM_JOB
-    }
-    /*
-     * FTC Failure Generator mode
-     */
-
-    public enum FTCFailure {
-
-        FAILURE_NONE, FAILURE_ALL, FAILURE_VM, FAILURE_JOB, FAILURE_VM_JOB
+        MONITOR_NONE, MONITOR_ALL, MONITOR_VM
     }
 
     /**
-     * Fault Tolerant Clustering method
+     * FTC Failure Generator mode
      */
-    private static FTCluteringAlgorithm FTClusteringAlgorithm = FTCluteringAlgorithm.FTCLUSTERING_NOOP;
+    public enum FTCFailure {
+
+        FAILURE_NONE, FAILURE_ALL, FAILURE_VM
+    }
+
     /**
      * Fault Tolerant Clustering monitor mode
      */
@@ -67,14 +54,11 @@ public class FailureParameters {
      *
      *  Init a FailureParameters
      *
-     * @param fMethod Fault Tolerant Clustering Algorithm
      * @param monitor Fault Tolerant Clustering Monitor mode
      * @param failure Failure generator mode
      * @param failureGenerators
      */
-    public static void init(FTCluteringAlgorithm fMethod, FTCMonitor monitor,
-                            FTCFailure failure, DistributionGenerator[][] failureGenerators) {
-        FTClusteringAlgorithm = fMethod;
+    public static void init(FTCMonitor monitor, FTCFailure failure, DistributionGenerator[][] failureGenerators) {
         monitorMode = monitor;
         failureMode = failure;
         generators = failureGenerators;
@@ -83,17 +67,15 @@ public class FailureParameters {
     /**
      *
      * Init a FailureParameters with distibution
-     * @param fMethod
      * @param monitor
      * @param dist
      * @param failureGenerators
      * @param failure
      */
-    public static void init(FTCluteringAlgorithm fMethod, FTCMonitor monitor,
-                            FTCFailure failure, DistributionGenerator[][] failureGenerators,
+    public static void init(FTCMonitor monitor, FTCFailure failure, DistributionGenerator[][] failureGenerators,
                             DistributionFamily dist) {
         distribution = dist;
-        init(fMethod, monitor, failure, failureGenerators);
+        init(monitor, failure, failureGenerators);
     }
     /**
      * Gets the task failure rate
@@ -166,17 +148,6 @@ public class FailureParameters {
      */
     public static FTCMonitor getMonitorMode() {
         return monitorMode;
-    }
-
-    /**
-     * Gets the fault tolerant clustering method
-     *
-     * @return the fault tolerant clustering method
-     * @pre $none
-     * @post $none
-     */
-    public static FTCluteringAlgorithm getFTCluteringAlgorithm() {
-        return FTClusteringAlgorithm;
     }
 
     /**

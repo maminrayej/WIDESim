@@ -53,7 +53,7 @@ public class Logger {
                     task.getTaskId() + "",
 //                    fogDeviceName,
                     task.getVmId() + "",
-                    task.getFailedExecutions().stream().map(Object::toString).collect(Collectors.joining(", ")) + "",
+                    task.getFailedExecutions().stream().map(num -> String.format("%.2f", num)).collect(Collectors.joining(", ")) + "",
 //                    state.enterBrokerWaitingQueue + "",
 //                    state.exitBrokerWaitingQueue + "",
 //                    state.enterFogDeviceWaitingQueue + "",

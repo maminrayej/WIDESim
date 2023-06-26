@@ -224,138 +224,141 @@ public class FogBroker extends PowerDatacenterBroker {
 
 
         task.getTaskState().setEndExecutionTime(task.getCycle(), CloudSim.clock());
-
+        boolean failed = FailureGenerator.generate(task);
         log("Notifying WorkflowEngine of completed Task(%s)...", task.getTaskId());
         sendNow(workflowEngineId, Constants.MsgTag.TASK_IS_DONE, new TaskIsDoneMsg(task));
 
         task = task.getNextCycle();
 
-        this.completedTasks.add(task);
-        this.tasks.put(task.getTaskId(), task);
+        if (!failed) {
 
-        task.getTaskState().setEnterBrokerWaitingQueue(task.getCycle(), CloudSim.clock());
+            this.completedTasks.add(task);
+            this.tasks.put(task.getTaskId(), task);
 
-        // Stage out data of the task to its dispatched children
-        int taskId = task.getTaskId();
-        boolean isData = task.wantToGenerateData(task.getCycle() - 1, CloudSim.clock());
-        log("Task(%s) on Cycle(%s) decided to generate data: %s", task.getTaskId(), task.getCycle() - 1, isData);
+            task.getTaskState().setEnterBrokerWaitingQueue(task.getCycle(), CloudSim.clock());
 
-        // Ask fog device hosting the task to send output of the task to its child tasks.
-        for (Task child : dispatchedTasks.stream().filter(t -> t.getParents().contains(taskId)).collect(Collectors.toList())) {
-            int vmId = taskToVm.get(child.getTaskId());
-            int fogDeviceId = vmToFogDevice.get(vmId);
+            // Stage out data of the task to its dispatched children
+            int taskId = task.getTaskId();
+            boolean isData = task.wantToGenerateData(task.getCycle() - 1, CloudSim.clock());
+            log("Task(%s) on Cycle(%s) decided to generate data: %s", task.getTaskId(), task.getCycle() - 1, isData);
 
-            List<String> fileNames = child.neededFrom(task.getTaskId());
-            log("Sending STAGE_OUT_MSG to FogDevice(%s) for Task(%s) on Cycle(%s): (%s)", event.getSource(), task.getTaskId(), task.getCycle() - 1, isData);
-            sendNow(
-                    event.getSource(),
-                    Constants.MsgTag.STAGE_OUT_DATA,
-                    new StageOutDataMsg(task.getTaskId(), task.getCycle() - 1, fogDeviceId, isData, fileNames)
-            );
-        }
+            // Ask fog device hosting the task to send output of the task to its child tasks.
+            for (Task child : dispatchedTasks.stream().filter(t -> t.getParents().contains(taskId)).collect(Collectors.toList())) {
+                int vmId = taskToVm.get(child.getTaskId());
+                int fogDeviceId = vmToFogDevice.get(vmId);
 
-        if (task.getCycle() <= maximumCycle) {
-            // Ask fog devices hosting parent tasks to send their output to fog device hosting this task
-            for (int parentId : task.getParents()) {
-                int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
-                Task parentTask = tasks.get(parentId);
-                List<String> neededFiles = task.neededFrom(parentId);
-                if (parentTask.didYouGenerateData(task.getCycle()) != null) {
-                    log("Sending STAGE_OUT_MSG to FogDevice(%s) for Task(%s) on Cycle(%s): (%s)", fogDeviceId, parentId, task.getCycle(), parentTask.didYouGenerateData(task.getCycle()));
-                    sendNow(
-                            fogDeviceId,
-                            Constants.MsgTag.STAGE_OUT_DATA,
-                            new StageOutDataMsg(parentId, task.getCycle(), event.getSource(), parentTask.didYouGenerateData(task.getCycle()), neededFiles)
-                    );
-                } else {
-                    log("Parent Task(%s) has not reached Cycle(%s) yet", parentId, task.getCycle());
+                List<String> fileNames = child.neededFrom(task.getTaskId());
+                log("Sending STAGE_OUT_MSG to FogDevice(%s) for Task(%s) on Cycle(%s): (%s)", event.getSource(), task.getTaskId(), task.getCycle() - 1, isData);
+                sendNow(
+                        event.getSource(),
+                        Constants.MsgTag.STAGE_OUT_DATA,
+                        new StageOutDataMsg(task.getTaskId(), task.getCycle() - 1, fogDeviceId, isData, fileNames)
+                );
+            }
+
+            if (task.getCycle() <= maximumCycle) {
+                // Ask fog devices hosting parent tasks to send their output to fog device hosting this task
+                for (int parentId : task.getParents()) {
+                    int fogDeviceId = this.vmToFogDevice.get(this.taskToVm.get(parentId));
+                    Task parentTask = tasks.get(parentId);
+                    List<String> neededFiles = task.neededFrom(parentId);
+                    if (parentTask.didYouGenerateData(task.getCycle()) != null) {
+                        log("Sending STAGE_OUT_MSG to FogDevice(%s) for Task(%s) on Cycle(%s): (%s)", fogDeviceId, parentId, task.getCycle(), parentTask.didYouGenerateData(task.getCycle()));
+                        sendNow(
+                                fogDeviceId,
+                                Constants.MsgTag.STAGE_OUT_DATA,
+                                new StageOutDataMsg(parentId, task.getCycle(), event.getSource(), parentTask.didYouGenerateData(task.getCycle()), neededFiles)
+                        );
+                    } else {
+                        log("Parent Task(%s) has not reached Cycle(%s) yet", parentId, task.getCycle());
+                    }
+
                 }
 
+                // Ask the fog device to execute the task again on the new cycle
+                if (!task.getParents().isEmpty()) {
+                    log("Asking FogDevice(%s) to execute Task(%s) on Cycle(%s)", event.getSource(), task.getTaskId(), task.getCycle());
+                    task.getTaskState().setExitBrokerWaitingQueue(task.getCycle(), CloudSim.clock());
+                    sendNow(
+                            event.getSource(),
+                            Constants.MsgTag.EXECUTE_TASK,
+                            new ExecuteTaskMsg(task, task.getVmId())
+                    );
+                } else {
+                    log("Asking FogDevice(%s) to execute root Task(%s) on Cycle(%s)", event.getSource(), task.getTaskId(), task.getCycle());
+                    double nextExecutionTime = task.getNextTimeExecution(CloudSim.clock());
+                    task.getTaskState().setExitBrokerWaitingQueue(task.getCycle(), nextExecutionTime);
+                    send(
+                            event.getSource(),
+                            task.getNextTimeExecution(CloudSim.clock()) - CloudSim.clock(),
+                            Constants.MsgTag.EXECUTE_TASK,
+                            new ExecuteTaskMsg(task, task.getVmId())
+                    );
+                }
             }
 
-            // Ask the fog device to execute the task again on the new cycle
-            if (!task.getParents().isEmpty()) {
-                log("Asking FogDevice(%s) to execute Task(%s) on Cycle(%s)", event.getSource(), task.getTaskId(), task.getCycle());
-                task.getTaskState().setExitBrokerWaitingQueue(task.getCycle(), CloudSim.clock());
-                sendNow(
-                        event.getSource(),
-                        Constants.MsgTag.EXECUTE_TASK,
-                        new ExecuteTaskMsg(task, task.getVmId())
+            // If all dispatched tasks are complete
+            if (this.dispatchedTasks.size() == this.completedTasks.size()) {
+                log("All dispatched tasks are complete");
+
+                var triple = this.vmProvisioner.provision(
+                        this.failedVms,
+                        this.createdVms,
+                        this.getVmList(),
+                        this.taskToVm,
+                        this.completedTasks,
+                        this.dispatchedTasks,
+                        this.waitingTaskQueue
                 );
-            } else {
-                log("Asking FogDevice(%s) to execute root Task(%s) on Cycle(%s)", event.getSource(), task.getTaskId(), task.getCycle());
-                double nextExecutionTime = task.getNextTimeExecution(CloudSim.clock());
-                task.getTaskState().setExitBrokerWaitingQueue(task.getCycle(), nextExecutionTime);
-                send(
-                        event.getSource(),
-                        task.getNextTimeExecution(CloudSim.clock()) - CloudSim.clock(),
-                        Constants.MsgTag.EXECUTE_TASK,
-                        new ExecuteTaskMsg(task, task.getVmId())
-                );
-            }
-        }
 
-        // If all dispatched tasks are complete
-        if (this.dispatchedTasks.size() == this.completedTasks.size()) {
-            log("All dispatched tasks are complete");
+                this.toBeCreated = triple.getFirst(); // to be created vms
+                var toBeDestroyed = triple.getSecond(); // to be destroyed vms
+                var stayAlive = triple.getThird(); // already created vms
 
-            var triple = this.vmProvisioner.provision(
-                    this.failedVms,
-                    this.createdVms,
-                    this.getVmList(),
-                    this.taskToVm,
-                    this.completedTasks,
-                    this.dispatchedTasks,
-                    this.waitingTaskQueue
-            );
-
-            this.toBeCreated = triple.getFirst(); // to be created vms
-            var toBeDestroyed = triple.getSecond(); // to be destroyed vms
-            var stayAlive = triple.getThird(); // already created vms
-
-            // Destroy vms
-            this.sentVmDestroyRequests.clear();
-            this.vmDestroyAcks.clear();
-            for (int vmId : toBeDestroyed) {
-                var fogDeviceId = this.vmToFogDevice.get(vmId);
-
-                sendNow(
-                        fogDeviceId, // fog device containing the vm
-                        Constants.MsgTag.VM_DESTROY, // tell the fog device to destroy the vm
-                        new VmDestroyMsg(vmId)
-                );
-                this.sentVmDestroyRequests.add(fogDeviceId);
-            }
-
-            if (this.sentVmDestroyRequests.isEmpty()) {
-                log("There is no vm to destroy");
-
-                // Create vms
-                this.sentVmCreateRequests.clear();
-                this.vmCreateAcks.clear();
-                for (int vmId : this.toBeCreated) {
+                // Destroy vms
+                this.sentVmDestroyRequests.clear();
+                this.vmDestroyAcks.clear();
+                for (int vmId : toBeDestroyed) {
                     var fogDeviceId = this.vmToFogDevice.get(vmId);
 
                     sendNow(
-                            this.vmToFogDevice.get(vmId), // fog device containing the vm
-                            Constants.MsgTag.VM_CREATE, // tell the fog device to create the vm
-                            new VmCreateMsg(VmList.getById(getVmList(), vmId))
+                            fogDeviceId, // fog device containing the vm
+                            Constants.MsgTag.VM_DESTROY, // tell the fog device to destroy the vm
+                            new VmDestroyMsg(vmId)
                     );
-                    this.sentVmCreateRequests.add(fogDeviceId);
+                    this.sentVmDestroyRequests.add(fogDeviceId);
                 }
-            }
 
-            this.createdVms.clear();
-            this.failedVms.clear();
+                if (this.sentVmDestroyRequests.isEmpty()) {
+                    log("There is no vm to destroy");
 
-            // Add stayAlive vms to createdVms because they are already created
-            this.createdVms = stayAlive.stream().map(vmId -> (PowerVm) VmList.getById(this.getVmList(), vmId)).collect(Collectors.toList());
+                    // Create vms
+                    this.sentVmCreateRequests.clear();
+                    this.vmCreateAcks.clear();
+                    for (int vmId : this.toBeCreated) {
+                        var fogDeviceId = this.vmToFogDevice.get(vmId);
 
-            // If there is no vm to create either just execute the tasks
-            if (this.sentVmCreateRequests.isEmpty()) {
-                log("There is no vm to create");
-                log("Trying to dispatch tasks...");
-                dispatchTasks();
+                        sendNow(
+                                this.vmToFogDevice.get(vmId), // fog device containing the vm
+                                Constants.MsgTag.VM_CREATE, // tell the fog device to create the vm
+                                new VmCreateMsg(VmList.getById(getVmList(), vmId))
+                        );
+                        this.sentVmCreateRequests.add(fogDeviceId);
+                    }
+                }
+
+                this.createdVms.clear();
+                this.failedVms.clear();
+
+                // Add stayAlive vms to createdVms because they are already created
+                this.createdVms = stayAlive.stream().map(vmId -> (PowerVm) VmList.getById(this.getVmList(), vmId)).collect(Collectors.toList());
+
+                // If there is no vm to create either just execute the tasks
+                if (this.sentVmCreateRequests.isEmpty()) {
+                    log("There is no vm to create");
+                    log("Trying to dispatch tasks...");
+                    dispatchTasks();
+                }
             }
         }
     }
