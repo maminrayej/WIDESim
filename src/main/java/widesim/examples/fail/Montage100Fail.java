@@ -30,7 +30,7 @@ public class Montage100Fail {
         CloudSim.init(1, Calendar.getInstance(), false);
 
         // Parse topology
-        var topologyParser = new Parser(new File("src/main/resources/topologies/topology.json"));
+        var topologyParser = new Parser(new File("src/main/resources/topologies/new_topology.json"));
         var deviceAndVms = topologyParser.parse();
 
         var fogDevices = deviceAndVms.getFirst();

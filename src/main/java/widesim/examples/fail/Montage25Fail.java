@@ -29,7 +29,7 @@ public class Montage25Fail {
     public static void main(String[] args) throws Exception {
         CloudSim.init(1, Calendar.getInstance(), false);
 
-        var topologyParser = new Parser(new File("src/main/resources/topologies/topology.json"));
+        var topologyParser = new Parser(new File("src/main/resources/topologies/new_topology.json"));
         var deviceAndVms = topologyParser.parse();
 
         var fogDevices = deviceAndVms.getFirst();
