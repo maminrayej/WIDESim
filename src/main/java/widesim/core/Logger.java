@@ -63,7 +63,9 @@ public class Logger {
                     String.format("%.2f", state.endExecutionTime - state.startExecutionTime),
             };
 
-            endExecutionTime.set(state.endExecutionTime);
+            if (endExecutionTime.get() < state.endExecutionTime) {
+                endExecutionTime.set(state.endExecutionTime);
+            }
         });
 
         System.out.println(FlipTable.of(headers, data));
