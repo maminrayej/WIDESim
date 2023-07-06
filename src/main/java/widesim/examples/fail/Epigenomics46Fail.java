@@ -1,5 +1,8 @@
 package widesim.examples.fail;
 
+import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.power.PowerVm;
 import widesim.computation.Task;
 import widesim.computation.Workflow;
 import widesim.core.Logger;
@@ -16,16 +19,13 @@ import widesim.parse.dax.DaxParser;
 import widesim.parse.topology.Parser;
 import widesim.parse.topology.PostProcessor;
 import widesim.provision.SimpleVmProvisioner;
-import org.cloudbus.cloudsim.power.PowerVm;
-import org.cloudbus.cloudsim.Vm;
-import org.cloudbus.cloudsim.core.CloudSim;
 
 import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Epigenomics100Fail {
+public class Epigenomics46Fail {
     public static void main(String[] args) throws Exception {
         CloudSim.init(1, Calendar.getInstance(), false);
 
