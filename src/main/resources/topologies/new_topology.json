@@ -1,69 +1,72 @@
 {
-    "fog_devices": [
-      {
-        "device_id": "0",
-        "neighbors": [],
-        "hosts": [
-          {
-            "host_id": 0,
-            "ram": 512,
-            "bw": 1024,
-            "vms": [
-              {
-                "vm_id": 0
-              }
-            ],
-            "pes": [
-              {
-                "mips": 1000,
-                "pe_id": 0
-              }
-            ]
-          },
-          {
-            "host_id": 1,
-            "ram": 512,
-            "bw": 1024,
-            "vms": [
-              {
-                "vm_id": 1
-              }
-            ],
-            "pes": [
-              {
-                "mips": 1000,
-                "pe_id": 0
-              }
-            ]
-          },
-          {
-            "host_id": 2,
-            "ram": 512,
-            "bw": 1024,
-            "vms": [
-              {
-                "vm_id": 2
-              }
-            ],
-            "pes": [
-              {
-                "mips": 1000,
-                "pe_id": 0
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "vms": [
-      {
-        "vm_id": 0
-      },
-      {
-        "vm_id": 1
-      },
-      {
-        "vm_id": 2
-      }
-    ]
-  }
+  "fog_devices": [
+    {
+      "device_id": "0",
+      "neighbors": [],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 512,
+          "bw": 1024,
+          "vms": [
+            {
+              "vm_id": 0,
+              "size": 10000
+            }
+          ],
+          "pes": [
+            {
+              "mips": 1000,
+              "pe_id": 0
+            }
+          ]
+        },
+        {
+          "host_id": 1,
+          "ram": 512,
+          "bw": 1024,
+          "vms": [
+            {
+              "vm_id": 1,
+              "size": 10000
+            }
+          ],
+          "pes": [
+            {
+              "mips": 1000,
+              "pe_id": 0
+            }
+          ]
+        },
+        {
+          "host_id": 2,
+          "ram": 512,
+          "bw": 1024,
+          "vms": [
+            {
+              "vm_id": 2,
+              "size": 10000
+            }
+          ],
+          "pes": [
+            {
+              "mips": 1000,
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "vms": [
+    {
+      "vm_id": 0
+    },
+    {
+      "vm_id": 1
+    },
+    {
+      "vm_id": 2
+    }
+  ]
+}
