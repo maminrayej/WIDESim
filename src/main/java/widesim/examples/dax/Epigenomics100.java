@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Inspiral100 {
+public class Epigenomics100 {
     public static void main(String[] args) throws Exception {
         CloudSim.init(1, Calendar.getInstance(), false);
 
@@ -46,7 +46,7 @@ public class Inspiral100 {
         });
         fogBroker.submitVmList(vms);
 
-        var daxParser = new DaxParser("src/main/resources/dax/Inspiral_100.xml");
+        var daxParser = new DaxParser("src/main/resources/dax/Epigenomics_100.xml");
         var workflows = List.of(daxParser.buildWorkflow());
 
         for (Workflow workflow: workflows) {
