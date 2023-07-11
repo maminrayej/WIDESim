@@ -1,8 +1,5 @@
 package widesim.examples.dax;
 
-import org.cloudbus.cloudsim.Vm;
-import org.cloudbus.cloudsim.core.CloudSim;
-import org.cloudbus.cloudsim.power.PowerVm;
 import widesim.computation.Task;
 import widesim.computation.Workflow;
 import widesim.core.Logger;
@@ -15,13 +12,16 @@ import widesim.parse.dax.DaxParser;
 import widesim.parse.topology.Parser;
 import widesim.parse.topology.PostProcessor;
 import widesim.provision.SimpleVmProvisioner;
+import org.cloudbus.cloudsim.power.PowerVm;
+import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.core.CloudSim;
 
 import java.io.File;
 import java.util.Calendar;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Montage100 {
+public class Montage50 {
     public static void main(String[] args) throws Exception {
         CloudSim.init(1, Calendar.getInstance(), false);
 
@@ -46,7 +46,7 @@ public class Montage100 {
         });
         fogBroker.submitVmList(vms);
 
-        var daxParser = new DaxParser("src/main/resources/dax/Montage_100.xml");
+        var daxParser = new DaxParser("src/main/resources/dax/Montage_50.xml");
         var workflows = List.of(daxParser.buildWorkflow());
 
         for (Workflow workflow: workflows) {
