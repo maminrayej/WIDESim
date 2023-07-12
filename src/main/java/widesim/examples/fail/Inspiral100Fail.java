@@ -4,6 +4,7 @@ import widesim.computation.Task;
 import widesim.computation.Workflow;
 import widesim.core.Logger;
 import widesim.entity.FogBroker;
+import widesim.entity.TaskManager;
 import widesim.entity.WorkflowEngine;
 import widesim.failure.DistributionGenerator;
 import widesim.failure.FailureGenerator;
@@ -52,8 +53,10 @@ public class Inspiral100Fail {
         var workflows = List.of(daxParser.buildWorkflow());
 
         DistributionGenerator[][] failureGenerators = new DistributionGenerator[1][1];
-        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.WEIBULL,
-                100, 1.0, 30, 300, 0.78);
+//        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.WEIBULL,
+//                100, 1.0, 30, 300, 0.78);
+        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.NORMAL,
+        0, 1.0, 30, 300, 0.78);
         FailureParameters.FTCMonitor ftc_monitor = FailureParameters.FTCMonitor.MONITOR_ALL;
         FailureParameters.FTCFailure ftc_failure = FailureParameters.FTCFailure.FAILURE_ALL;
         FailureParameters.init(ftc_monitor, ftc_failure, failureGenerators);
@@ -69,6 +72,7 @@ public class Inspiral100Fail {
         var workflowEngine = new WorkflowEngine(fogBroker.getId());
         fogBroker.setWorkflowEngineId(workflowEngine.getId());
 
+        var taskManager = new TaskManager(workflowEngine.getId(), workflows);
         CloudSim.startSimulation();
 
         CloudSim.stopSimulation();

@@ -38,6 +38,7 @@ public class Logger {
         String[][] data = new String[tasks.size()][6];
 
         AtomicReference<Double> endExecutionTime = new AtomicReference<>(0.0);
+        AtomicReference<Integer> totalFailures = new AtomicReference<>(0);
 
         IntStream.range(0, tasks.size()).forEach(index -> {
             Task task = tasks.get(index);
@@ -48,6 +49,8 @@ public class Logger {
 //                    fogDeviceName = fogDevice.getName();
 //                }
 //            }
+
+            totalFailures.set(totalFailures.get() + task.getFailedExecutions().size());
 
             data[index] = new String[]{
                     task.getTaskId() + "",
@@ -70,5 +73,6 @@ public class Logger {
 
         System.out.println(FlipTable.of(headers, data));
         System.out.println("End Execution Time: " + endExecutionTime);
+        System.out.println("Total Failures: " + totalFailures);
     }
 }

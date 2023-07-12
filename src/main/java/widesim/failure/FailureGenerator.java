@@ -60,7 +60,6 @@ public class FailureGenerator {
     }
 
     protected static boolean checkFailureStatus(Task task, int vmId) throws Exception {
-
         DistributionGenerator generator;
         switch (FailureParameters.getFailureGeneratorMode()) {
             /**
@@ -80,22 +79,21 @@ public class FailureGenerator {
             default:
                 return false;
         }
-
         double start = task.getExecStartTime();
         double end = task.getFinishTime();
 
 
         double[] samples = generator.getCumulativeSamples();
 
-        while (samples[samples.length - 1] < start) {
-            generator.extendSamples();
-            samples = generator.getCumulativeSamples();
-            failureSizeExtension++;
-            if (failureSizeExtension >= maxFailureSizeExtension) {
-                throw new Exception("Error rate is too high such that the simulator terminates");
-
-            }
-        }
+//        while (samples[samples.length - 1] < start) {
+//            generator.extendSamples();
+//            samples = generator.getCumulativeSamples();
+//            failureSizeExtension++;
+//            if (failureSizeExtension >= maxFailureSizeExtension) {
+//                throw new Exception("Error rate is too high such that the simulator terminates");
+//
+//            }
+//        }
 
         for (int sampleId = 0; sampleId < samples.length; sampleId++) {
             if (end < samples[sampleId]) {
