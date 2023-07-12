@@ -21,7 +21,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Montage100 {
+public class Sipht30 {
     public static void main(String[] args) throws Exception {
         CloudSim.init(1, Calendar.getInstance(), false);
 
@@ -46,7 +46,7 @@ public class Montage100 {
         });
         fogBroker.submitVmList(vms);
 
-        var daxParser = new DaxParser("src/main/resources/dax/Montage_100.xml");
+        var daxParser = new DaxParser("src/main/resources/dax/Sipht_30.xml");
         var workflows = List.of(daxParser.buildWorkflow());
 
         for (Workflow workflow: workflows) {

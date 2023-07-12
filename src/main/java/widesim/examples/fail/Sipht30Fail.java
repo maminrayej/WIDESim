@@ -1,4 +1,4 @@
-package widesim.examples.dax;
+package widesim.examples.fail;
 
 import org.cloudbus.cloudsim.Vm;
 import org.cloudbus.cloudsim.core.CloudSim;
@@ -9,6 +9,10 @@ import widesim.core.Logger;
 import widesim.entity.FogBroker;
 import widesim.entity.TaskManager;
 import widesim.entity.WorkflowEngine;
+import widesim.failure.DistributionGenerator;
+import widesim.failure.FailureGenerator;
+import widesim.failure.FailureMonitor;
+import widesim.failure.FailureParameters;
 import widesim.mapper.SimpleTaskToVmMapper;
 import widesim.mapper.SimpleVmToFogDeviceMapper;
 import widesim.parse.dax.DaxParser;
@@ -21,7 +25,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class Montage100 {
+public class Sipht30Fail {
     public static void main(String[] args) throws Exception {
         CloudSim.init(1, Calendar.getInstance(), false);
 
@@ -46,8 +50,17 @@ public class Montage100 {
         });
         fogBroker.submitVmList(vms);
 
-        var daxParser = new DaxParser("src/main/resources/dax/Montage_100.xml");
+        var daxParser = new DaxParser("src/main/resources/dax/Sipht_30.xml");
         var workflows = List.of(daxParser.buildWorkflow());
+
+        DistributionGenerator[][] failureGenerators = new DistributionGenerator[1][1];
+        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.WEIBULL,
+                100, 1.0, 30, 300, 0.78);
+        FailureParameters.FTCMonitor ftc_monitor = FailureParameters.FTCMonitor.MONITOR_ALL;
+        FailureParameters.FTCFailure ftc_failure = FailureParameters.FTCFailure.FAILURE_ALL;
+        FailureParameters.init(ftc_monitor, ftc_failure, failureGenerators);
+        FailureMonitor.init();
+        FailureGenerator.init();
 
         for (Workflow workflow: workflows) {
 
