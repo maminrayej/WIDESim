@@ -5,7 +5,9 @@ import widesim.computation.Task;
 import widesim.computation.TaskState.State;
 import widesim.entity.FogDevice;
 import org.cloudbus.cloudsim.core.CloudSim;
+import widesim.failure.FailureParameters;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
@@ -22,20 +24,17 @@ public class Logger {
     }
 
     public static void printResult(int cycle, List<Task> tasks, Map<Integer, Integer> vmToFogDevice, List<FogDevice> fogDevices) {
-        String[] headers = {
-                "Task ID",
-//                "On Device",
-                "On Vm",
-                "Failed Histories",
-//                "Enter Broker Waiting Queue",
-//                "Exit Broker Waiting Queue",
-//                "Enter FogDevice Waiting Queue",
-//                "Exit Fog Device Waiting Queue",
-                "Start Execution Time",
-                "End Execution Time",
-                "Duration",
-        };
-        String[][] data = new String[tasks.size()][6];
+        ArrayList<String> headersList = new ArrayList<>();
+        headersList.add("Task ID");
+        headersList.add("On Vm");
+        if (FailureParameters.getFailureGeneratorMode() != FailureParameters.FTCFailure.FAILURE_NONE) {
+            headersList.add("Failed Histories");
+        }
+        headersList.add("Start Execution Time");
+        headersList.add("End Execution Time");
+        headersList.add("Duration");
+        String[] headers = headersList.toArray(new String[0]);
+        String[][] data = new String[tasks.size()][headers.length];
 
         AtomicReference<Double> endExecutionTime = new AtomicReference<>(0.0);
         AtomicReference<Integer> totalFailures = new AtomicReference<>(0);
@@ -52,19 +51,29 @@ public class Logger {
 
             totalFailures.set(totalFailures.get() + task.getFailedExecutions().size());
 
-            data[index] = new String[]{
-                    task.getTaskId() + "",
-//                    fogDeviceName,
-                    task.getVmId() + "",
-                    task.getFailedExecutions().stream().map(num -> String.format("%.2f", num)).collect(Collectors.joining(", ")) + "",
-//                    state.enterBrokerWaitingQueue + "",
-//                    state.exitBrokerWaitingQueue + "",
-//                    state.enterFogDeviceWaitingQueue + "",
-//                    state.exitFogDeviceWaitingQueue + "",
-                    String.format("%.2f", state.startExecutionTime),
-                    String.format("%.2f", state.endExecutionTime),
-                    String.format("%.2f", state.endExecutionTime - state.startExecutionTime),
-            };
+            if (FailureParameters.getFailureGeneratorMode() != FailureParameters.FTCFailure.FAILURE_NONE) {
+                data[index] = new String[]{
+                        task.getTaskId() + "",
+                        //                    fogDeviceName,
+                        task.getVmId() + "",
+                        task.getFailedExecutions().stream().map(num -> String.format("%.2f", num)).collect(Collectors.joining(", ")) + "",
+                        //                    state.enterBrokerWaitingQueue + "",
+                        //                    state.exitBrokerWaitingQueue + "",
+                        //                    state.enterFogDeviceWaitingQueue + "",
+                        //                    state.exitFogDeviceWaitingQueue + "",
+                        String.format("%.2f", state.startExecutionTime),
+                        String.format("%.2f", state.endExecutionTime),
+                        String.format("%.2f", state.endExecutionTime - state.startExecutionTime),
+                };
+            } else {
+                data[index] = new String[]{
+                        task.getTaskId() + "",
+                        task.getVmId() + "",
+                        String.format("%.2f", state.startExecutionTime),
+                        String.format("%.2f", state.endExecutionTime),
+                        String.format("%.2f", state.endExecutionTime - state.startExecutionTime),
+                };
+            }
 
             if (endExecutionTime.get() < state.endExecutionTime) {
                 endExecutionTime.set(state.endExecutionTime);
