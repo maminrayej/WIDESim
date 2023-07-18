@@ -53,10 +53,10 @@ public class Montage25Fail {
         var workflows = List.of(daxParser.buildWorkflow());
 
         DistributionGenerator[][] failureGenerators = new DistributionGenerator[1][1];
-        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.WEIBULL,
-                100, 1.0, 30, 300, 0.78);
-//        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.NORMAL,
-//        0, 1.0, 30, 300, 0.78);
+//        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.WEIBULL,
+//                100, 1.0, 30, 300, 0.78);
+        failureGenerators[0][0] = new DistributionGenerator(DistributionGenerator.DistributionFamily.NORMAL,
+        0, 1.0, 30, 300, 0.78);
         FailureParameters.FTCMonitor ftc_monitor = FailureParameters.FTCMonitor.MONITOR_ALL;
         FailureParameters.FTCFailure ftc_failure = FailureParameters.FTCFailure.FAILURE_ALL;
         FailureParameters.init(ftc_monitor, ftc_failure, failureGenerators);

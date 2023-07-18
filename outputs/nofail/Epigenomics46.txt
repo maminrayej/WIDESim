@@ -1,0 +1,1786 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :Epigenomics46.main()
+Initialising...
+Starting CloudSim version 3.0
+[0.00]|[FogDevice(2|0)]: Starting FogDevice(2)...
+[0.00]|[FogBroker(3)]: Starting FogBroker...
+[0.00]|[WorkflowEngine(4)]: Starting WorkflowEngine...
+[0.00]|[TaskManager(5)]: Starting Task Manager...
+[0.00]|[TaskManager(5)]: Sending task: 1 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 2 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 3 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 4 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 5 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 6 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 7 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 8 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 9 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 10 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 11 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 12 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 13 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 14 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 15 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 16 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 17 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 18 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 19 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 20 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 21 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 22 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 23 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 24 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 25 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 26 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 27 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 28 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 29 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 30 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 31 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 32 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 33 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 34 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 35 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 36 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 37 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 38 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 39 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 40 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 41 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 42 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 43 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 44 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 45 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 46 of workflow: Epigenomics_46.xml
+[0.00]|[TaskManager(5)]: Sending task: 47 of workflow: Epigenomics_46.xml
+Entities started.
+[0.00]|[FogBroker(3)]: Requesting for fog devices characteristics...
+[0.00]|[WorkflowEngine(4)]: Task(1) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Sending Task(1) from workflow(Epigenomics_46.xml)...
+[0.00]|[WorkflowEngine(4)]: Task(2) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Sending Task(2) from workflow(Epigenomics_46.xml)...
+[0.00]|[WorkflowEngine(4)]: Task(3) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(3) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(4) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(4) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(5) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(5) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(6) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(6) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(7) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(7) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(8) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(8) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(9) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(9) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(10) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(10) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(11) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(11) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(12) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(12) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(13) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(13) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(14) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(14) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(15) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(15) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(16) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(16) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(17) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(17) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(18) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(18) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(19) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(19) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(20) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(20) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(21) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(21) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(22) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(22) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(23) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(23) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(24) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(24) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(25) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(25) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(26) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(26) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(27) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(27) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(28) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(28) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(29) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(29) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(30) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(30) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(31) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(31) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(32) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(32) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(33) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(33) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(34) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(34) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(35) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(35) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(36) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(36) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(37) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(37) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(38) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(38) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(39) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(39) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(40) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(40) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(41) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(41) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(42) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(42) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(43) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(43) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(44) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(44) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(45) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(45) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(46) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(46) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(47) of workflow(Epigenomics_46.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(47) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[FogBroker(3)]: Task(1) of Workflow(Epigenomics_46.xml) received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: Task(2) of Workflow(Epigenomics_46.xml) received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: All resources received
+[0.00]|[FogBroker(3)]: All pending vm create acks received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: Sending STAGE_IN data for Task(1) to FogDevice(2) with delay: 0.11
+[0.00]|[FogBroker(3)]: Sending STAGE_IN data for Task(2) to FogDevice(2) with delay: 0.11
+[0.11]|[FogDevice(2|0)]: Received Task(1) from Workflow(Epigenomics_46.xml) with STAGE_IN data to run on Vm(1)
+[0.11]|[FogDevice(2|0)]: Received Task(2) from Workflow(Epigenomics_46.xml) with STAGE_IN data to run on Vm(2)
+[0.11]|[FogDevice(2|0)]: Received execute msg for Task(1) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[0.11]|[FogDevice(2|0)]: All parent data for Task(1) are received. task can execute
+0.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[0.11]|[FogDevice(2|0)]: Received execute msg for Task(2) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[0.11]|[FogDevice(2|0)]: All parent data for Task(2) are received. task can execute
+0.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[0.11]|[FogBroker(3)]: Task(1) ack: true
+[0.11]|[FogBroker(3)]: Task(2) ack: true
+28.41: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+28.41: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+28.41: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+28.41: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+28.41: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+28.41: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[28.41]|[FogBroker(3)]: Received task completion msg for Task(2) from FogDevice(2)
+[28.41]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(2)...
+[28.41]|[FogBroker(3)]: Task(2) on Cycle(0) decided to generate data: true
+[28.41]|[WorkflowEngine(4)]: Task(2) received as complete
+[28.41]|[WorkflowEngine(4)]: Task(8) is now ready to get executed. Releasing it...
+[28.41]|[WorkflowEngine(4)]: Task(9) is now ready to get executed. Releasing it...
+[28.41]|[WorkflowEngine(4)]: Task(10) is now ready to get executed. Releasing it...
+[28.41]|[WorkflowEngine(4)]: Task(11) is now ready to get executed. Releasing it...
+[28.41]|[WorkflowEngine(4)]: Task(12) is now ready to get executed. Releasing it...
+[28.41]|[FogBroker(3)]: Task(8) of Workflow(Epigenomics_46.xml) received
+[28.41]|[FogBroker(3)]: Dispatching tasks...
+[28.41]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[28.41]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(8) on Cycle(0)
+[28.41]|[FogBroker(3)]: Task(9) of Workflow(Epigenomics_46.xml) received
+[28.41]|[FogBroker(3)]: Dispatching tasks...
+[28.41]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[28.41]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(9) on Cycle(0)
+[28.41]|[FogBroker(3)]: Task(10) of Workflow(Epigenomics_46.xml) received
+[28.41]|[FogBroker(3)]: Dispatching tasks...
+[28.41]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[28.41]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(10) on Cycle(0)
+[28.41]|[FogBroker(3)]: Task(11) of Workflow(Epigenomics_46.xml) received
+[28.41]|[FogBroker(3)]: Dispatching tasks...
+[28.41]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[28.41]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(11) on Cycle(0)
+[28.41]|[FogBroker(3)]: Task(12) of Workflow(Epigenomics_46.xml) received
+[28.41]|[FogBroker(3)]: Dispatching tasks...
+[28.41]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[28.41]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(12) on Cycle(0)
+[28.41]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(8) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[28.41]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[28.41]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(9) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[28.41]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[28.41]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(10) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[28.41]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[28.41]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(11) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[28.41]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[28.41]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(12) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[28.41]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[28.41]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[28.41]|[FogDevice(2|0)]: Data is for me
+[28.41]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[28.41]|[FogDevice(2|0)]: Found Task(8) from Workflow(Epigenomics_46.xml) that can be executed
+[28.41]|[FogDevice(2|0)]: Found Task(9) from Workflow(Epigenomics_46.xml) that can be executed
+[28.41]|[FogDevice(2|0)]: Found Task(10) from Workflow(Epigenomics_46.xml) that can be executed
+[28.41]|[FogDevice(2|0)]: Found Task(11) from Workflow(Epigenomics_46.xml) that can be executed
+[28.41]|[FogDevice(2|0)]: Found Task(12) from Workflow(Epigenomics_46.xml) that can be executed
+[28.41]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[28.41]|[FogDevice(2|0)]: Data is for me
+[28.41]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[28.41]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[28.41]|[FogDevice(2|0)]: Data is for me
+[28.41]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[28.41]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[28.41]|[FogDevice(2|0)]: Data is for me
+[28.41]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[28.41]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[28.41]|[FogDevice(2|0)]: Data is for me
+[28.41]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(8) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[28.41]|[FogDevice(2|0)]: All parent data for Task(8) are received. task can execute
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(9) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[28.41]|[FogDevice(2|0)]: All parent data for Task(9) are received. task can execute
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(10) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[28.41]|[FogDevice(2|0)]: All parent data for Task(10) are received. task can execute
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(11) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[28.41]|[FogDevice(2|0)]: All parent data for Task(11) are received. task can execute
+[28.41]|[FogDevice(2|0)]: Received execute msg for Task(12) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[28.41]|[FogDevice(2|0)]: All parent data for Task(12) are received. task can execute
+[28.41]|[FogBroker(3)]: Task(8) ack: true
+[28.41]|[FogBroker(3)]: Task(9) ack: true
+[28.41]|[FogBroker(3)]: Task(10) ack: true
+[28.41]|[FogBroker(3)]: Task(11) ack: true
+[28.41]|[FogBroker(3)]: Task(12) ack: true
+37.08: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+37.08: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+37.08: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+37.08: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+37.08: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+37.08: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+39.58: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+39.58: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+39.58: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+39.58: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+39.58: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+39.58: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+39.77: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+39.77: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+39.77: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+39.77: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+39.77: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+39.77: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[39.77]|[FogBroker(3)]: Received task completion msg for Task(12) from FogDevice(2)
+[39.77]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(12)...
+[39.77]|[FogBroker(3)]: Task(12) on Cycle(0) decided to generate data: true
+[39.77]|[WorkflowEngine(4)]: Task(12) received as complete
+[39.77]|[WorkflowEngine(4)]: Task(22) is now ready to get executed. Releasing it...
+[39.77]|[FogBroker(3)]: Task(22) of Workflow(Epigenomics_46.xml) received
+[39.77]|[FogBroker(3)]: Dispatching tasks...
+[39.77]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(12) on Cycle(0)
+[39.77]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(22) on Cycle(0)
+[39.77]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(12) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[39.77]|[FogDevice(2|0)]: Received execute msg for Task(22) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[39.77]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[39.77]|[FogDevice(2|0)]: Downloaded data of Task(12) on Cycle(0)
+[39.77]|[FogDevice(2|0)]: Data is for me
+[39.77]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(12) -> true
+[39.77]|[FogDevice(2|0)]: Found Task(22) from Workflow(Epigenomics_46.xml) that can be executed
+[39.77]|[FogDevice(2|0)]: Received execute msg for Task(22) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[39.77]|[FogDevice(2|0)]: All parent data for Task(22) are received. task can execute
+[39.77]|[FogBroker(3)]: Task(22) ack: true
+42.76: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+42.76: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+42.76: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+42.76: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+42.76: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+42.76: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[42.76]|[FogBroker(3)]: Received task completion msg for Task(9) from FogDevice(2)
+[42.76]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(9)...
+[42.76]|[FogBroker(3)]: Task(9) on Cycle(0) decided to generate data: true
+[42.76]|[WorkflowEngine(4)]: Task(9) received as complete
+[42.76]|[WorkflowEngine(4)]: Task(19) is now ready to get executed. Releasing it...
+[42.76]|[FogBroker(3)]: Task(19) of Workflow(Epigenomics_46.xml) received
+[42.76]|[FogBroker(3)]: Dispatching tasks...
+[42.76]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(9) on Cycle(0)
+[42.76]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(19) on Cycle(0)
+[42.76]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(9) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[42.76]|[FogDevice(2|0)]: Received execute msg for Task(19) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[42.76]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[42.76]|[FogDevice(2|0)]: Downloaded data of Task(9) on Cycle(0)
+[42.76]|[FogDevice(2|0)]: Data is for me
+[42.76]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(9) -> true
+[42.76]|[FogDevice(2|0)]: Found Task(19) from Workflow(Epigenomics_46.xml) that can be executed
+[42.76]|[FogDevice(2|0)]: Received execute msg for Task(19) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[42.76]|[FogDevice(2|0)]: All parent data for Task(19) are received. task can execute
+[42.76]|[FogBroker(3)]: Task(19) ack: true
+44.56: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+44.56: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+44.56: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+44.56: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+44.56: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+44.56: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+45.23: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+45.23: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+45.23: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+45.23: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+45.23: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+45.23: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+45.85: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+45.85: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+45.85: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+45.85: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+45.85: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+45.85: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+46.05: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+46.05: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+46.05: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+46.05: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+46.05: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+46.05: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[46.05]|[FogBroker(3)]: Received task completion msg for Task(22) from FogDevice(2)
+[46.05]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(22)...
+[46.05]|[FogBroker(3)]: Task(22) on Cycle(0) decided to generate data: true
+[46.05]|[WorkflowEngine(4)]: Task(22) received as complete
+[46.05]|[WorkflowEngine(4)]: Task(32) is now ready to get executed. Releasing it...
+[46.05]|[FogBroker(3)]: Task(32) of Workflow(Epigenomics_46.xml) received
+[46.05]|[FogBroker(3)]: Dispatching tasks...
+[46.05]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(22) on Cycle(0)
+[46.05]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(32) on Cycle(0)
+[46.05]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(22) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[46.05]|[FogDevice(2|0)]: Received execute msg for Task(32) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[46.05]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[46.05]|[FogDevice(2|0)]: Downloaded data of Task(22) on Cycle(0)
+[46.05]|[FogDevice(2|0)]: Data is for me
+[46.05]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(22) -> true
+[46.05]|[FogDevice(2|0)]: Found Task(32) from Workflow(Epigenomics_46.xml) that can be executed
+[46.05]|[FogDevice(2|0)]: Received execute msg for Task(32) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[46.05]|[FogDevice(2|0)]: All parent data for Task(32) are received. task can execute
+[46.05]|[FogBroker(3)]: Task(32) ack: true
+49.71: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+49.71: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+49.71: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+49.71: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+49.71: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+49.71: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[49.71]|[FogBroker(3)]: Received task completion msg for Task(10) from FogDevice(2)
+[49.71]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(10)...
+[49.71]|[FogBroker(3)]: Task(10) on Cycle(0) decided to generate data: true
+[49.71]|[WorkflowEngine(4)]: Task(10) received as complete
+[49.71]|[WorkflowEngine(4)]: Task(20) is now ready to get executed. Releasing it...
+[49.71]|[FogBroker(3)]: Task(20) of Workflow(Epigenomics_46.xml) received
+[49.71]|[FogBroker(3)]: Dispatching tasks...
+[49.71]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(10) on Cycle(0)
+[49.71]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(20) on Cycle(0)
+[49.71]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(10) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[49.71]|[FogDevice(2|0)]: Received execute msg for Task(20) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[49.71]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[49.71]|[FogDevice(2|0)]: Downloaded data of Task(10) on Cycle(0)
+[49.71]|[FogDevice(2|0)]: Data is for me
+[49.71]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(10) -> true
+[49.71]|[FogDevice(2|0)]: Found Task(20) from Workflow(Epigenomics_46.xml) that can be executed
+[49.71]|[FogDevice(2|0)]: Received execute msg for Task(20) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[49.71]|[FogDevice(2|0)]: All parent data for Task(20) are received. task can execute
+[49.71]|[FogBroker(3)]: Task(20) ack: true
+50.59: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+50.59: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+50.59: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+50.59: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+50.59: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+50.59: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+50.80: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+50.80: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+50.80: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+50.80: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+50.80: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+50.80: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[50.80]|[FogBroker(3)]: Received task completion msg for Task(19) from FogDevice(2)
+[50.80]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(19)...
+[50.80]|[FogBroker(3)]: Task(19) on Cycle(0) decided to generate data: true
+[50.80]|[WorkflowEngine(4)]: Task(19) received as complete
+[50.80]|[WorkflowEngine(4)]: Task(29) is now ready to get executed. Releasing it...
+[50.80]|[FogBroker(3)]: Task(29) of Workflow(Epigenomics_46.xml) received
+[50.80]|[FogBroker(3)]: Dispatching tasks...
+[50.80]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(19) on Cycle(0)
+[50.80]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(29) on Cycle(0)
+[50.80]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(19) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[50.80]|[FogDevice(2|0)]: Received execute msg for Task(29) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[50.80]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[50.80]|[FogDevice(2|0)]: Downloaded data of Task(19) on Cycle(0)
+[50.80]|[FogDevice(2|0)]: Data is for me
+[50.80]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(19) -> true
+[50.80]|[FogDevice(2|0)]: Found Task(29) from Workflow(Epigenomics_46.xml) that can be executed
+[50.80]|[FogDevice(2|0)]: Received execute msg for Task(29) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[50.80]|[FogDevice(2|0)]: All parent data for Task(29) are received. task can execute
+[50.80]|[FogBroker(3)]: Task(29) ack: true
+53.12: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.12: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.12: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.12: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.12: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.12: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.91: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.91: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.91: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.91: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.91: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.91: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.68: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.68: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.68: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.68: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.68: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.68: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[54.68]|[FogBroker(3)]: Received task completion msg for Task(11) from FogDevice(2)
+[54.68]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(11)...
+[54.68]|[FogBroker(3)]: Task(11) on Cycle(0) decided to generate data: true
+[54.68]|[WorkflowEngine(4)]: Task(11) received as complete
+[54.68]|[WorkflowEngine(4)]: Task(21) is now ready to get executed. Releasing it...
+[54.68]|[FogBroker(3)]: Task(21) of Workflow(Epigenomics_46.xml) received
+[54.68]|[FogBroker(3)]: Dispatching tasks...
+[54.68]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(11) on Cycle(0)
+[54.68]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(21) on Cycle(0)
+[54.68]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(11) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[54.68]|[FogDevice(2|0)]: Received execute msg for Task(21) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[54.68]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[54.68]|[FogDevice(2|0)]: Downloaded data of Task(11) on Cycle(0)
+[54.68]|[FogDevice(2|0)]: Data is for me
+[54.68]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(11) -> true
+[54.68]|[FogDevice(2|0)]: Found Task(21) from Workflow(Epigenomics_46.xml) that can be executed
+[54.68]|[FogDevice(2|0)]: Received execute msg for Task(21) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[54.68]|[FogDevice(2|0)]: All parent data for Task(21) are received. task can execute
+[54.68]|[FogBroker(3)]: Task(21) ack: true
+55.00: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+55.00: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+55.00: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+55.00: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+55.00: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+55.00: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[55.00]|[FogBroker(3)]: Received task completion msg for Task(8) from FogDevice(2)
+[55.00]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(8)...
+[55.00]|[FogBroker(3)]: Task(8) on Cycle(0) decided to generate data: true
+[55.00]|[WorkflowEngine(4)]: Task(8) received as complete
+[55.00]|[WorkflowEngine(4)]: Task(18) is now ready to get executed. Releasing it...
+[55.00]|[FogBroker(3)]: Task(18) of Workflow(Epigenomics_46.xml) received
+[55.00]|[FogBroker(3)]: Dispatching tasks...
+[55.00]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(8) on Cycle(0)
+[55.00]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(18) on Cycle(0)
+[55.00]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(8) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[55.00]|[FogDevice(2|0)]: Received execute msg for Task(18) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[55.00]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[55.00]|[FogDevice(2|0)]: Downloaded data of Task(8) on Cycle(0)
+[55.00]|[FogDevice(2|0)]: Data is for me
+[55.00]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(8) -> true
+[55.00]|[FogDevice(2|0)]: Found Task(18) from Workflow(Epigenomics_46.xml) that can be executed
+[55.00]|[FogDevice(2|0)]: Received execute msg for Task(18) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[55.00]|[FogDevice(2|0)]: All parent data for Task(18) are received. task can execute
+[55.00]|[FogBroker(3)]: Task(18) ack: true
+56.36: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+56.36: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+56.36: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+56.36: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+56.36: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+56.36: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+57.69: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+57.69: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+57.69: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+57.69: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+57.69: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+57.69: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[57.69]|[FogBroker(3)]: Received task completion msg for Task(1) from FogDevice(2)
+[57.69]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(1)...
+[57.69]|[FogBroker(3)]: Task(1) on Cycle(0) decided to generate data: true
+[57.69]|[WorkflowEngine(4)]: Task(1) received as complete
+[57.69]|[WorkflowEngine(4)]: Task(3) is now ready to get executed. Releasing it...
+[57.69]|[WorkflowEngine(4)]: Task(4) is now ready to get executed. Releasing it...
+[57.69]|[WorkflowEngine(4)]: Task(5) is now ready to get executed. Releasing it...
+[57.69]|[WorkflowEngine(4)]: Task(6) is now ready to get executed. Releasing it...
+[57.69]|[WorkflowEngine(4)]: Task(7) is now ready to get executed. Releasing it...
+[57.69]|[FogBroker(3)]: Task(3) of Workflow(Epigenomics_46.xml) received
+[57.69]|[FogBroker(3)]: Dispatching tasks...
+[57.69]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[57.69]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(3) on Cycle(0)
+[57.69]|[FogBroker(3)]: Task(4) of Workflow(Epigenomics_46.xml) received
+[57.69]|[FogBroker(3)]: Dispatching tasks...
+[57.69]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[57.69]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(4) on Cycle(0)
+[57.69]|[FogBroker(3)]: Task(5) of Workflow(Epigenomics_46.xml) received
+[57.69]|[FogBroker(3)]: Dispatching tasks...
+[57.69]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[57.69]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(5) on Cycle(0)
+[57.69]|[FogBroker(3)]: Task(6) of Workflow(Epigenomics_46.xml) received
+[57.69]|[FogBroker(3)]: Dispatching tasks...
+[57.69]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[57.69]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(6) on Cycle(0)
+[57.69]|[FogBroker(3)]: Task(7) of Workflow(Epigenomics_46.xml) received
+[57.69]|[FogBroker(3)]: Dispatching tasks...
+[57.69]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[57.69]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(7) on Cycle(0)
+[57.69]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(3) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[57.69]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[57.69]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(4) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[57.69]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[57.69]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(5) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[57.69]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[57.69]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(6) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[57.69]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[57.69]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(7) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[57.69]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[57.69]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[57.69]|[FogDevice(2|0)]: Data is for me
+[57.69]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[57.69]|[FogDevice(2|0)]: Found Task(3) from Workflow(Epigenomics_46.xml) that can be executed
+[57.69]|[FogDevice(2|0)]: Found Task(4) from Workflow(Epigenomics_46.xml) that can be executed
+[57.69]|[FogDevice(2|0)]: Found Task(5) from Workflow(Epigenomics_46.xml) that can be executed
+[57.69]|[FogDevice(2|0)]: Found Task(6) from Workflow(Epigenomics_46.xml) that can be executed
+[57.69]|[FogDevice(2|0)]: Found Task(7) from Workflow(Epigenomics_46.xml) that can be executed
+[57.69]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[57.69]|[FogDevice(2|0)]: Data is for me
+[57.69]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[57.69]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[57.69]|[FogDevice(2|0)]: Data is for me
+[57.69]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[57.69]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[57.69]|[FogDevice(2|0)]: Data is for me
+[57.69]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[57.69]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[57.69]|[FogDevice(2|0)]: Data is for me
+[57.69]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(3) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[57.69]|[FogDevice(2|0)]: All parent data for Task(3) are received. task can execute
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(4) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[57.69]|[FogDevice(2|0)]: All parent data for Task(4) are received. task can execute
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(5) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[57.69]|[FogDevice(2|0)]: All parent data for Task(5) are received. task can execute
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(6) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[57.69]|[FogDevice(2|0)]: All parent data for Task(6) are received. task can execute
+[57.69]|[FogDevice(2|0)]: Received execute msg for Task(7) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[57.69]|[FogDevice(2|0)]: All parent data for Task(7) are received. task can execute
+[57.69]|[FogBroker(3)]: Task(3) ack: true
+[57.69]|[FogBroker(3)]: Task(4) ack: true
+[57.69]|[FogBroker(3)]: Task(5) ack: true
+[57.69]|[FogBroker(3)]: Task(6) ack: true
+[57.69]|[FogBroker(3)]: Task(7) ack: true
+57.80: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+57.80: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+57.80: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+57.80: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+57.80: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+57.80: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[57.80]|[FogBroker(3)]: Received task completion msg for Task(21) from FogDevice(2)
+[57.80]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(21)...
+[57.80]|[FogBroker(3)]: Task(21) on Cycle(0) decided to generate data: true
+[57.80]|[WorkflowEngine(4)]: Task(21) received as complete
+[57.80]|[WorkflowEngine(4)]: Task(31) is now ready to get executed. Releasing it...
+[57.80]|[FogBroker(3)]: Task(31) of Workflow(Epigenomics_46.xml) received
+[57.80]|[FogBroker(3)]: Dispatching tasks...
+[57.80]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(21) on Cycle(0)
+[57.80]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(31) on Cycle(0)
+[57.80]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(21) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[57.80]|[FogDevice(2|0)]: Received execute msg for Task(31) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[57.80]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[57.80]|[FogDevice(2|0)]: Downloaded data of Task(21) on Cycle(0)
+[57.80]|[FogDevice(2|0)]: Data is for me
+[57.80]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(21) -> true
+[57.80]|[FogDevice(2|0)]: Found Task(31) from Workflow(Epigenomics_46.xml) that can be executed
+[57.80]|[FogDevice(2|0)]: Received execute msg for Task(31) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[57.80]|[FogDevice(2|0)]: All parent data for Task(31) are received. task can execute
+[57.80]|[FogBroker(3)]: Task(31) ack: true
+59.19: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.19: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+59.19: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.19: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+59.19: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.19: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[59.19]|[FogBroker(3)]: Received task completion msg for Task(20) from FogDevice(2)
+[59.19]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(20)...
+[59.19]|[FogBroker(3)]: Task(20) on Cycle(0) decided to generate data: true
+[59.19]|[WorkflowEngine(4)]: Task(20) received as complete
+[59.19]|[WorkflowEngine(4)]: Task(30) is now ready to get executed. Releasing it...
+[59.19]|[FogBroker(3)]: Task(30) of Workflow(Epigenomics_46.xml) received
+[59.19]|[FogBroker(3)]: Dispatching tasks...
+[59.19]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(20) on Cycle(0)
+[59.19]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(30) on Cycle(0)
+[59.19]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(20) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[59.19]|[FogDevice(2|0)]: Received execute msg for Task(30) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[59.19]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[59.19]|[FogDevice(2|0)]: Downloaded data of Task(20) on Cycle(0)
+[59.19]|[FogDevice(2|0)]: Data is for me
+[59.19]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(20) -> true
+[59.19]|[FogDevice(2|0)]: Found Task(30) from Workflow(Epigenomics_46.xml) that can be executed
+[59.19]|[FogDevice(2|0)]: Received execute msg for Task(30) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[59.19]|[FogDevice(2|0)]: All parent data for Task(30) are received. task can execute
+[59.19]|[FogBroker(3)]: Task(30) ack: true
+59.31: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.31: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+59.31: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.31: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+59.31: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.31: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+59.48: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.48: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+59.48: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.48: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+59.48: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+59.48: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.16: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.16: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.16: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.16: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.16: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.16: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[60.16]|[FogBroker(3)]: Received task completion msg for Task(29) from FogDevice(2)
+[60.16]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(29)...
+[60.16]|[FogBroker(3)]: Task(29) on Cycle(0) decided to generate data: true
+[60.16]|[WorkflowEngine(4)]: Task(29) received as complete
+[60.16]|[WorkflowEngine(4)]: Task(39) is now ready to get executed. Releasing it...
+[60.16]|[FogBroker(3)]: Task(39) of Workflow(Epigenomics_46.xml) received
+[60.16]|[FogBroker(3)]: Dispatching tasks...
+[60.16]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(29) on Cycle(0)
+[60.16]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(39) on Cycle(0)
+[60.16]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(29) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[60.16]|[FogDevice(2|0)]: Received execute msg for Task(39) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[60.16]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[60.16]|[FogDevice(2|0)]: Downloaded data of Task(29) on Cycle(0)
+[60.16]|[FogDevice(2|0)]: Data is for me
+[60.16]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(29) -> true
+[60.16]|[FogDevice(2|0)]: Found Task(39) from Workflow(Epigenomics_46.xml) that can be executed
+[60.16]|[FogDevice(2|0)]: Received execute msg for Task(39) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[60.16]|[FogDevice(2|0)]: All parent data for Task(39) are received. task can execute
+[60.16]|[FogBroker(3)]: Task(39) ack: true
+60.82: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.82: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.82: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.82: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.82: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.82: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.98: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.98: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.98: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.98: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+60.98: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+60.98: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[60.98]|[FogBroker(3)]: Received task completion msg for Task(18) from FogDevice(2)
+[60.98]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(18)...
+[60.98]|[FogBroker(3)]: Task(18) on Cycle(0) decided to generate data: true
+[60.98]|[WorkflowEngine(4)]: Task(18) received as complete
+[60.98]|[WorkflowEngine(4)]: Task(28) is now ready to get executed. Releasing it...
+[60.98]|[FogBroker(3)]: Task(28) of Workflow(Epigenomics_46.xml) received
+[60.98]|[FogBroker(3)]: Dispatching tasks...
+[60.98]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(18) on Cycle(0)
+[60.98]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(28) on Cycle(0)
+[60.98]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(18) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[60.98]|[FogDevice(2|0)]: Received execute msg for Task(28) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[60.98]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[60.98]|[FogDevice(2|0)]: Downloaded data of Task(18) on Cycle(0)
+[60.98]|[FogDevice(2|0)]: Data is for me
+[60.98]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(18) -> true
+[60.98]|[FogDevice(2|0)]: Found Task(28) from Workflow(Epigenomics_46.xml) that can be executed
+[60.98]|[FogDevice(2|0)]: Received execute msg for Task(28) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[60.98]|[FogDevice(2|0)]: All parent data for Task(28) are received. task can execute
+[60.98]|[FogBroker(3)]: Task(28) ack: true
+62.58: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.58: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+62.58: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.58: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+62.58: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.58: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.05: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.05: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.05: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.05: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.05: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.05: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.29: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.29: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.29: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.29: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.29: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.29: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[63.29]|[FogBroker(3)]: Received task completion msg for Task(32) from FogDevice(2)
+[63.29]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(32)...
+[63.29]|[FogBroker(3)]: Task(32) on Cycle(0) decided to generate data: true
+[63.29]|[WorkflowEngine(4)]: Task(32) received as complete
+[63.29]|[WorkflowEngine(4)]: Task(42) is now ready to get executed. Releasing it...
+[63.29]|[FogBroker(3)]: Task(42) of Workflow(Epigenomics_46.xml) received
+[63.29]|[FogBroker(3)]: Dispatching tasks...
+[63.29]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(32) on Cycle(0)
+[63.29]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(42) on Cycle(0)
+[63.29]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(32) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.29]|[FogDevice(2|0)]: Received execute msg for Task(42) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[63.29]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[63.29]|[FogDevice(2|0)]: Downloaded data of Task(32) on Cycle(0)
+[63.29]|[FogDevice(2|0)]: Data is for me
+[63.29]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(32) -> true
+[63.29]|[FogDevice(2|0)]: Found Task(42) from Workflow(Epigenomics_46.xml) that can be executed
+[63.29]|[FogDevice(2|0)]: Received execute msg for Task(42) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[63.29]|[FogDevice(2|0)]: All parent data for Task(42) are received. task can execute
+[63.29]|[FogBroker(3)]: Task(42) ack: true
+66.13: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+66.13: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+66.13: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+66.13: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+66.13: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+66.13: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.63: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.63: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.63: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.63: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.63: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.63: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.79: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.79: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.79: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.79: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.79: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.79: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.87: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.87: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.87: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.87: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+68.87: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+68.87: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+70.16: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+70.16: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+70.16: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+70.16: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+70.16: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+70.16: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[70.16]|[FogBroker(3)]: Received task completion msg for Task(5) from FogDevice(2)
+[70.16]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(5)...
+[70.16]|[FogBroker(3)]: Task(5) on Cycle(0) decided to generate data: true
+[70.16]|[WorkflowEngine(4)]: Task(5) received as complete
+[70.16]|[WorkflowEngine(4)]: Task(15) is now ready to get executed. Releasing it...
+[70.16]|[FogBroker(3)]: Task(15) of Workflow(Epigenomics_46.xml) received
+[70.16]|[FogBroker(3)]: Dispatching tasks...
+[70.16]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(5) on Cycle(0)
+[70.16]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(15) on Cycle(0)
+[70.16]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(5) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[70.16]|[FogDevice(2|0)]: Received execute msg for Task(15) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[70.16]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[70.16]|[FogDevice(2|0)]: Downloaded data of Task(5) on Cycle(0)
+[70.16]|[FogDevice(2|0)]: Data is for me
+[70.16]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(5) -> true
+[70.16]|[FogDevice(2|0)]: Found Task(15) from Workflow(Epigenomics_46.xml) that can be executed
+[70.16]|[FogDevice(2|0)]: Received execute msg for Task(15) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[70.16]|[FogDevice(2|0)]: All parent data for Task(15) are received. task can execute
+[70.16]|[FogBroker(3)]: Task(15) ack: true
+70.27: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+70.27: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+70.27: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+70.27: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+70.27: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+70.27: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[70.27]|[FogBroker(3)]: Received task completion msg for Task(30) from FogDevice(2)
+[70.27]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(30)...
+[70.27]|[FogBroker(3)]: Task(30) on Cycle(0) decided to generate data: true
+[70.27]|[WorkflowEngine(4)]: Task(30) received as complete
+[70.27]|[WorkflowEngine(4)]: Task(40) is now ready to get executed. Releasing it...
+[70.27]|[FogBroker(3)]: Task(40) of Workflow(Epigenomics_46.xml) received
+[70.27]|[FogBroker(3)]: Dispatching tasks...
+[70.27]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(30) on Cycle(0)
+[70.27]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(40) on Cycle(0)
+[70.27]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(30) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[70.27]|[FogDevice(2|0)]: Received execute msg for Task(40) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[70.27]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[70.27]|[FogDevice(2|0)]: Downloaded data of Task(30) on Cycle(0)
+[70.27]|[FogDevice(2|0)]: Data is for me
+[70.27]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(30) -> true
+[70.27]|[FogDevice(2|0)]: Found Task(40) from Workflow(Epigenomics_46.xml) that can be executed
+[70.27]|[FogDevice(2|0)]: Received execute msg for Task(40) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[70.27]|[FogDevice(2|0)]: All parent data for Task(40) are received. task can execute
+[70.27]|[FogBroker(3)]: Task(40) ack: true
+72.97: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+72.97: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+72.97: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+72.97: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+72.97: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+72.97: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.49: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.49: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.49: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.49: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.49: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.49: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.65: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.65: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.65: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.65: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.65: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.65: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[73.65]|[FogBroker(3)]: Received task completion msg for Task(28) from FogDevice(2)
+[73.65]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(28)...
+[73.65]|[FogBroker(3)]: Task(28) on Cycle(0) decided to generate data: true
+[73.65]|[WorkflowEngine(4)]: Task(28) received as complete
+[73.65]|[WorkflowEngine(4)]: Task(38) is now ready to get executed. Releasing it...
+[73.65]|[FogBroker(3)]: Task(38) of Workflow(Epigenomics_46.xml) received
+[73.65]|[FogBroker(3)]: Dispatching tasks...
+[73.65]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(28) on Cycle(0)
+[73.65]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(38) on Cycle(0)
+[73.65]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(28) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[73.65]|[FogDevice(2|0)]: Received execute msg for Task(38) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[73.65]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[73.65]|[FogDevice(2|0)]: Downloaded data of Task(28) on Cycle(0)
+[73.65]|[FogDevice(2|0)]: Data is for me
+[73.65]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(28) -> true
+[73.65]|[FogDevice(2|0)]: Found Task(38) from Workflow(Epigenomics_46.xml) that can be executed
+[73.65]|[FogDevice(2|0)]: Received execute msg for Task(38) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[73.65]|[FogDevice(2|0)]: All parent data for Task(38) are received. task can execute
+[73.65]|[FogBroker(3)]: Task(38) ack: true
+74.07: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+74.07: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+74.07: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+74.07: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+74.07: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+74.07: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[74.07]|[FogBroker(3)]: Received task completion msg for Task(7) from FogDevice(2)
+[74.07]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(7)...
+[74.07]|[FogBroker(3)]: Task(7) on Cycle(0) decided to generate data: true
+[74.07]|[WorkflowEngine(4)]: Task(7) received as complete
+[74.07]|[WorkflowEngine(4)]: Task(17) is now ready to get executed. Releasing it...
+[74.07]|[FogBroker(3)]: Task(17) of Workflow(Epigenomics_46.xml) received
+[74.07]|[FogBroker(3)]: Dispatching tasks...
+[74.07]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(7) on Cycle(0)
+[74.07]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(17) on Cycle(0)
+[74.07]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(7) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[74.07]|[FogDevice(2|0)]: Received execute msg for Task(17) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[74.07]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[74.07]|[FogDevice(2|0)]: Downloaded data of Task(7) on Cycle(0)
+[74.07]|[FogDevice(2|0)]: Data is for me
+[74.07]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(7) -> true
+[74.07]|[FogDevice(2|0)]: Found Task(17) from Workflow(Epigenomics_46.xml) that can be executed
+[74.07]|[FogDevice(2|0)]: Received execute msg for Task(17) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[74.07]|[FogDevice(2|0)]: All parent data for Task(17) are received. task can execute
+[74.07]|[FogBroker(3)]: Task(17) ack: true
+74.13: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+74.13: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+74.13: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+74.13: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+74.13: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+74.13: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+77.23: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.23: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+77.23: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.23: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+77.23: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.23: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[77.23]|[FogBroker(3)]: Received task completion msg for Task(17) from FogDevice(2)
+[77.23]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(17)...
+[77.23]|[FogBroker(3)]: Task(17) on Cycle(0) decided to generate data: true
+[77.23]|[WorkflowEngine(4)]: Task(17) received as complete
+[77.23]|[WorkflowEngine(4)]: Task(27) is now ready to get executed. Releasing it...
+[77.23]|[FogBroker(3)]: Task(27) of Workflow(Epigenomics_46.xml) received
+[77.23]|[FogBroker(3)]: Dispatching tasks...
+[77.23]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(17) on Cycle(0)
+[77.23]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(27) on Cycle(0)
+[77.23]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(17) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[77.23]|[FogDevice(2|0)]: Received execute msg for Task(27) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[77.23]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[77.23]|[FogDevice(2|0)]: Downloaded data of Task(17) on Cycle(0)
+[77.23]|[FogDevice(2|0)]: Data is for me
+[77.23]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(17) -> true
+[77.23]|[FogDevice(2|0)]: Found Task(27) from Workflow(Epigenomics_46.xml) that can be executed
+[77.23]|[FogDevice(2|0)]: Received execute msg for Task(27) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[77.23]|[FogDevice(2|0)]: All parent data for Task(27) are received. task can execute
+[77.23]|[FogBroker(3)]: Task(27) ack: true
+77.27: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.27: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+77.27: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.27: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+77.27: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.27: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[77.27]|[FogBroker(3)]: Received task completion msg for Task(31) from FogDevice(2)
+[77.27]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(31)...
+[77.27]|[FogBroker(3)]: Task(31) on Cycle(0) decided to generate data: true
+[77.27]|[WorkflowEngine(4)]: Task(31) received as complete
+[77.27]|[WorkflowEngine(4)]: Task(41) is now ready to get executed. Releasing it...
+[77.27]|[FogBroker(3)]: Task(41) of Workflow(Epigenomics_46.xml) received
+[77.27]|[FogBroker(3)]: Dispatching tasks...
+[77.27]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(31) on Cycle(0)
+[77.27]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(41) on Cycle(0)
+[77.27]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(31) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[77.27]|[FogDevice(2|0)]: Received execute msg for Task(41) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[77.27]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[77.27]|[FogDevice(2|0)]: Downloaded data of Task(31) on Cycle(0)
+[77.27]|[FogDevice(2|0)]: Data is for me
+[77.27]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(31) -> true
+[77.27]|[FogDevice(2|0)]: Found Task(41) from Workflow(Epigenomics_46.xml) that can be executed
+[77.27]|[FogDevice(2|0)]: Received execute msg for Task(41) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[77.27]|[FogDevice(2|0)]: All parent data for Task(41) are received. task can execute
+[77.27]|[FogBroker(3)]: Task(41) ack: true
+77.34: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.34: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+77.34: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.34: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+77.34: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+77.34: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+80.10: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+80.10: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+80.10: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+80.10: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+80.10: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+80.10: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[80.10]|[FogBroker(3)]: Received task completion msg for Task(15) from FogDevice(2)
+[80.10]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(15)...
+[80.10]|[FogBroker(3)]: Task(15) on Cycle(0) decided to generate data: true
+[80.10]|[WorkflowEngine(4)]: Task(15) received as complete
+[80.10]|[WorkflowEngine(4)]: Task(25) is now ready to get executed. Releasing it...
+[80.10]|[FogBroker(3)]: Task(25) of Workflow(Epigenomics_46.xml) received
+[80.10]|[FogBroker(3)]: Dispatching tasks...
+[80.10]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(15) on Cycle(0)
+[80.10]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(25) on Cycle(0)
+[80.10]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(15) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[80.10]|[FogDevice(2|0)]: Received execute msg for Task(25) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[80.10]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[80.10]|[FogDevice(2|0)]: Downloaded data of Task(15) on Cycle(0)
+[80.10]|[FogDevice(2|0)]: Data is for me
+[80.10]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(15) -> true
+[80.10]|[FogDevice(2|0)]: Found Task(25) from Workflow(Epigenomics_46.xml) that can be executed
+[80.10]|[FogDevice(2|0)]: Received execute msg for Task(25) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[80.10]|[FogDevice(2|0)]: All parent data for Task(25) are received. task can execute
+[80.10]|[FogBroker(3)]: Task(25) ack: true
+80.97: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+80.97: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+80.97: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+80.97: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+80.97: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+80.97: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+81.50: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+81.50: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+81.50: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+81.50: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+81.50: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+81.50: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+83.80: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+83.80: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+83.80: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+83.80: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+83.80: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+83.80: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[83.80]|[FogBroker(3)]: Received task completion msg for Task(3) from FogDevice(2)
+[83.80]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(3)...
+[83.80]|[FogBroker(3)]: Task(3) on Cycle(0) decided to generate data: true
+[83.80]|[WorkflowEngine(4)]: Task(3) received as complete
+[83.80]|[WorkflowEngine(4)]: Task(13) is now ready to get executed. Releasing it...
+[83.80]|[FogBroker(3)]: Task(13) of Workflow(Epigenomics_46.xml) received
+[83.80]|[FogBroker(3)]: Dispatching tasks...
+[83.80]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(3) on Cycle(0)
+[83.80]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(13) on Cycle(0)
+[83.80]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(3) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[83.80]|[FogDevice(2|0)]: Received execute msg for Task(13) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[83.80]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[83.80]|[FogDevice(2|0)]: Downloaded data of Task(3) on Cycle(0)
+[83.80]|[FogDevice(2|0)]: Data is for me
+[83.80]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(3) -> true
+[83.80]|[FogDevice(2|0)]: Found Task(13) from Workflow(Epigenomics_46.xml) that can be executed
+[83.80]|[FogDevice(2|0)]: Received execute msg for Task(13) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[83.80]|[FogDevice(2|0)]: All parent data for Task(13) are received. task can execute
+[83.80]|[FogBroker(3)]: Task(13) ack: true
+85.16: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.16: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+85.16: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.16: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+85.16: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.16: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[85.16]|[FogBroker(3)]: Received task completion msg for Task(6) from FogDevice(2)
+[85.16]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(6)...
+[85.16]|[FogBroker(3)]: Task(6) on Cycle(0) decided to generate data: true
+[85.16]|[WorkflowEngine(4)]: Task(6) received as complete
+[85.16]|[WorkflowEngine(4)]: Task(16) is now ready to get executed. Releasing it...
+[85.16]|[FogBroker(3)]: Task(16) of Workflow(Epigenomics_46.xml) received
+[85.16]|[FogBroker(3)]: Dispatching tasks...
+[85.16]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(6) on Cycle(0)
+[85.16]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(16) on Cycle(0)
+[85.16]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(6) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[85.16]|[FogDevice(2|0)]: Received execute msg for Task(16) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[85.16]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[85.16]|[FogDevice(2|0)]: Downloaded data of Task(6) on Cycle(0)
+[85.16]|[FogDevice(2|0)]: Data is for me
+[85.16]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(6) -> true
+[85.16]|[FogDevice(2|0)]: Found Task(16) from Workflow(Epigenomics_46.xml) that can be executed
+[85.16]|[FogDevice(2|0)]: Received execute msg for Task(16) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[85.16]|[FogDevice(2|0)]: All parent data for Task(16) are received. task can execute
+[85.16]|[FogBroker(3)]: Task(16) ack: true
+88.72: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+88.72: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+88.72: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+88.72: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+88.72: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+88.72: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+89.61: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+89.61: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+89.61: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+89.61: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+89.61: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+89.61: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[89.61]|[FogBroker(3)]: Received task completion msg for Task(13) from FogDevice(2)
+[89.61]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(13)...
+[89.61]|[FogBroker(3)]: Task(13) on Cycle(0) decided to generate data: true
+[89.61]|[WorkflowEngine(4)]: Task(13) received as complete
+[89.61]|[WorkflowEngine(4)]: Task(23) is now ready to get executed. Releasing it...
+[89.61]|[FogBroker(3)]: Task(23) of Workflow(Epigenomics_46.xml) received
+[89.61]|[FogBroker(3)]: Dispatching tasks...
+[89.61]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(13) on Cycle(0)
+[89.61]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(23) on Cycle(0)
+[89.61]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(13) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[89.61]|[FogDevice(2|0)]: Received execute msg for Task(23) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[89.61]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[89.61]|[FogDevice(2|0)]: Downloaded data of Task(13) on Cycle(0)
+[89.61]|[FogDevice(2|0)]: Data is for me
+[89.61]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(13) -> true
+[89.61]|[FogDevice(2|0)]: Found Task(23) from Workflow(Epigenomics_46.xml) that can be executed
+[89.61]|[FogDevice(2|0)]: Received execute msg for Task(23) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[89.61]|[FogDevice(2|0)]: All parent data for Task(23) are received. task can execute
+[89.61]|[FogBroker(3)]: Task(23) ack: true
+90.00: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+90.00: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+90.00: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+90.00: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+90.00: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+90.00: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[90.00]|[FogBroker(3)]: Received task completion msg for Task(27) from FogDevice(2)
+[90.00]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(27)...
+[90.00]|[FogBroker(3)]: Task(27) on Cycle(0) decided to generate data: true
+[90.00]|[WorkflowEngine(4)]: Task(27) received as complete
+[90.00]|[WorkflowEngine(4)]: Task(37) is now ready to get executed. Releasing it...
+[90.00]|[FogBroker(3)]: Task(37) of Workflow(Epigenomics_46.xml) received
+[90.00]|[FogBroker(3)]: Dispatching tasks...
+[90.00]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(27) on Cycle(0)
+[90.00]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(37) on Cycle(0)
+[90.00]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(27) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[90.00]|[FogDevice(2|0)]: Received execute msg for Task(37) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[90.00]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[90.00]|[FogDevice(2|0)]: Downloaded data of Task(27) on Cycle(0)
+[90.00]|[FogDevice(2|0)]: Data is for me
+[90.00]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(27) -> true
+[90.00]|[FogDevice(2|0)]: Found Task(37) from Workflow(Epigenomics_46.xml) that can be executed
+[90.00]|[FogDevice(2|0)]: Received execute msg for Task(37) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[90.00]|[FogDevice(2|0)]: All parent data for Task(37) are received. task can execute
+[90.00]|[FogBroker(3)]: Task(37) ack: true
+90.81: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+90.81: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+90.81: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+90.81: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+90.81: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+90.81: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+92.89: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+92.89: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+92.89: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+92.89: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+92.89: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+92.89: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+93.61: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.61: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+93.61: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.61: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+93.61: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.61: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[93.61]|[FogBroker(3)]: Received task completion msg for Task(16) from FogDevice(2)
+[93.61]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(16)...
+[93.61]|[FogBroker(3)]: Task(16) on Cycle(0) decided to generate data: true
+[93.61]|[WorkflowEngine(4)]: Task(16) received as complete
+[93.61]|[WorkflowEngine(4)]: Task(26) is now ready to get executed. Releasing it...
+[93.61]|[FogBroker(3)]: Task(26) of Workflow(Epigenomics_46.xml) received
+[93.61]|[FogBroker(3)]: Dispatching tasks...
+[93.61]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(16) on Cycle(0)
+[93.61]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(26) on Cycle(0)
+[93.61]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(16) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[93.61]|[FogDevice(2|0)]: Received execute msg for Task(26) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[93.61]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[93.61]|[FogDevice(2|0)]: Downloaded data of Task(16) on Cycle(0)
+[93.61]|[FogDevice(2|0)]: Data is for me
+[93.61]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(16) -> true
+[93.61]|[FogDevice(2|0)]: Found Task(26) from Workflow(Epigenomics_46.xml) that can be executed
+[93.61]|[FogDevice(2|0)]: Received execute msg for Task(26) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[93.61]|[FogDevice(2|0)]: All parent data for Task(26) are received. task can execute
+[93.61]|[FogBroker(3)]: Task(26) ack: true
+93.71: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.71: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+93.71: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.71: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+93.71: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.71: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.21: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.21: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.21: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.21: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.21: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.21: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.76: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.76: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.76: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.76: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.76: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.76: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[94.76]|[FogBroker(3)]: Received task completion msg for Task(25) from FogDevice(2)
+[94.76]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(25)...
+[94.76]|[FogBroker(3)]: Task(25) on Cycle(0) decided to generate data: true
+[94.76]|[WorkflowEngine(4)]: Task(25) received as complete
+[94.76]|[WorkflowEngine(4)]: Task(35) is now ready to get executed. Releasing it...
+[94.76]|[FogBroker(3)]: Task(35) of Workflow(Epigenomics_46.xml) received
+[94.76]|[FogBroker(3)]: Dispatching tasks...
+[94.76]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(25) on Cycle(0)
+[94.76]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(35) on Cycle(0)
+[94.76]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(25) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.76]|[FogDevice(2|0)]: Received execute msg for Task(35) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[94.76]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[94.76]|[FogDevice(2|0)]: Downloaded data of Task(25) on Cycle(0)
+[94.76]|[FogDevice(2|0)]: Data is for me
+[94.76]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(25) -> true
+[94.76]|[FogDevice(2|0)]: Found Task(35) from Workflow(Epigenomics_46.xml) that can be executed
+[94.76]|[FogDevice(2|0)]: Received execute msg for Task(35) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[94.76]|[FogDevice(2|0)]: All parent data for Task(35) are received. task can execute
+[94.76]|[FogBroker(3)]: Task(35) ack: true
+96.25: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+96.25: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+96.25: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+96.25: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+96.25: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+96.25: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+97.49: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+97.49: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+97.49: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+97.49: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+97.49: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+97.49: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[97.49]|[FogBroker(3)]: Received task completion msg for Task(4) from FogDevice(2)
+[97.49]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(4)...
+[97.49]|[FogBroker(3)]: Task(4) on Cycle(0) decided to generate data: true
+[97.49]|[WorkflowEngine(4)]: Task(4) received as complete
+[97.49]|[WorkflowEngine(4)]: Task(14) is now ready to get executed. Releasing it...
+[97.49]|[FogBroker(3)]: Task(14) of Workflow(Epigenomics_46.xml) received
+[97.49]|[FogBroker(3)]: Dispatching tasks...
+[97.49]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(4) on Cycle(0)
+[97.49]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(14) on Cycle(0)
+[97.49]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(4) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.49]|[FogDevice(2|0)]: Received execute msg for Task(14) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[97.49]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[97.49]|[FogDevice(2|0)]: Downloaded data of Task(4) on Cycle(0)
+[97.49]|[FogDevice(2|0)]: Data is for me
+[97.49]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(4) -> true
+[97.49]|[FogDevice(2|0)]: Found Task(14) from Workflow(Epigenomics_46.xml) that can be executed
+[97.49]|[FogDevice(2|0)]: Received execute msg for Task(14) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[97.49]|[FogDevice(2|0)]: All parent data for Task(14) are received. task can execute
+[97.49]|[FogBroker(3)]: Task(14) ack: true
+99.72: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+99.72: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+99.72: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+99.72: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+99.72: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+99.72: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+103.51: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+103.51: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+103.51: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+103.51: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+103.51: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+103.51: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+104.71: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+104.71: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+104.71: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+104.71: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+104.71: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+104.71: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[104.71]|[FogBroker(3)]: Received task completion msg for Task(23) from FogDevice(2)
+[104.71]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(23)...
+[104.71]|[FogBroker(3)]: Task(23) on Cycle(0) decided to generate data: true
+[104.71]|[WorkflowEngine(4)]: Task(23) received as complete
+[104.71]|[WorkflowEngine(4)]: Task(33) is now ready to get executed. Releasing it...
+[104.71]|[FogBroker(3)]: Task(33) of Workflow(Epigenomics_46.xml) received
+[104.71]|[FogBroker(3)]: Dispatching tasks...
+[104.71]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(23) on Cycle(0)
+[104.71]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(33) on Cycle(0)
+[104.71]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(23) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[104.71]|[FogDevice(2|0)]: Received execute msg for Task(33) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[104.71]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[104.71]|[FogDevice(2|0)]: Downloaded data of Task(23) on Cycle(0)
+[104.71]|[FogDevice(2|0)]: Data is for me
+[104.71]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(23) -> true
+[104.71]|[FogDevice(2|0)]: Found Task(33) from Workflow(Epigenomics_46.xml) that can be executed
+[104.71]|[FogDevice(2|0)]: Received execute msg for Task(33) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[104.71]|[FogDevice(2|0)]: All parent data for Task(33) are received. task can execute
+[104.71]|[FogBroker(3)]: Task(33) ack: true
+105.94: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+105.94: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+105.94: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+105.94: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+105.94: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+105.94: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[105.94]|[FogBroker(3)]: Received task completion msg for Task(14) from FogDevice(2)
+[105.94]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(14)...
+[105.94]|[FogBroker(3)]: Task(14) on Cycle(0) decided to generate data: true
+[105.94]|[WorkflowEngine(4)]: Task(14) received as complete
+[105.94]|[WorkflowEngine(4)]: Task(24) is now ready to get executed. Releasing it...
+[105.94]|[FogBroker(3)]: Task(24) of Workflow(Epigenomics_46.xml) received
+[105.94]|[FogBroker(3)]: Dispatching tasks...
+[105.94]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(14) on Cycle(0)
+[105.94]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(24) on Cycle(0)
+[105.94]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(14) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[105.94]|[FogDevice(2|0)]: Received execute msg for Task(24) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[105.94]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[105.94]|[FogDevice(2|0)]: Downloaded data of Task(14) on Cycle(0)
+[105.94]|[FogDevice(2|0)]: Data is for me
+[105.94]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(14) -> true
+[105.94]|[FogDevice(2|0)]: Found Task(24) from Workflow(Epigenomics_46.xml) that can be executed
+[105.94]|[FogDevice(2|0)]: Received execute msg for Task(24) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[105.94]|[FogDevice(2|0)]: All parent data for Task(24) are received. task can execute
+[105.94]|[FogBroker(3)]: Task(24) ack: true
+106.01: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+106.01: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+106.01: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+106.01: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+106.01: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+106.01: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+106.19: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+106.19: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+106.19: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+106.19: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+106.19: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+106.19: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+109.21: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+109.21: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+109.21: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+109.21: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+109.21: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+109.21: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[109.21]|[FogBroker(3)]: Received task completion msg for Task(26) from FogDevice(2)
+[109.21]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(26)...
+[109.21]|[FogBroker(3)]: Task(26) on Cycle(0) decided to generate data: true
+[109.21]|[WorkflowEngine(4)]: Task(26) received as complete
+[109.21]|[WorkflowEngine(4)]: Task(36) is now ready to get executed. Releasing it...
+[109.21]|[FogBroker(3)]: Task(36) of Workflow(Epigenomics_46.xml) received
+[109.21]|[FogBroker(3)]: Dispatching tasks...
+[109.21]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(26) on Cycle(0)
+[109.21]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(36) on Cycle(0)
+[109.21]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(26) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[109.21]|[FogDevice(2|0)]: Received execute msg for Task(36) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[109.21]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[109.21]|[FogDevice(2|0)]: Downloaded data of Task(26) on Cycle(0)
+[109.21]|[FogDevice(2|0)]: Data is for me
+[109.21]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(26) -> true
+[109.21]|[FogDevice(2|0)]: Found Task(36) from Workflow(Epigenomics_46.xml) that can be executed
+[109.21]|[FogDevice(2|0)]: Received execute msg for Task(36) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[109.21]|[FogDevice(2|0)]: All parent data for Task(36) are received. task can execute
+[109.21]|[FogBroker(3)]: Task(36) ack: true
+116.10: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+116.10: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+116.10: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+116.10: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+116.10: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+116.10: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+117.82: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+117.82: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+117.82: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+117.82: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+117.82: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+117.82: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[117.82]|[FogBroker(3)]: Received task completion msg for Task(24) from FogDevice(2)
+[117.82]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(24)...
+[117.82]|[FogBroker(3)]: Task(24) on Cycle(0) decided to generate data: true
+[117.82]|[WorkflowEngine(4)]: Task(24) received as complete
+[117.82]|[WorkflowEngine(4)]: Task(34) is now ready to get executed. Releasing it...
+[117.82]|[FogBroker(3)]: Task(34) of Workflow(Epigenomics_46.xml) received
+[117.82]|[FogBroker(3)]: Dispatching tasks...
+[117.82]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(24) on Cycle(0)
+[117.82]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(34) on Cycle(0)
+[117.82]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(24) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[117.82]|[FogDevice(2|0)]: Received execute msg for Task(34) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[117.82]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[117.82]|[FogDevice(2|0)]: Downloaded data of Task(24) on Cycle(0)
+[117.82]|[FogDevice(2|0)]: Data is for me
+[117.82]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(24) -> true
+[117.82]|[FogDevice(2|0)]: Found Task(34) from Workflow(Epigenomics_46.xml) that can be executed
+[117.82]|[FogDevice(2|0)]: Received execute msg for Task(34) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[117.82]|[FogDevice(2|0)]: All parent data for Task(34) are received. task can execute
+[117.82]|[FogBroker(3)]: Task(34) ack: true
+2774.72: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+2774.72: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+2774.72: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+2774.72: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+2774.72: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+2774.72: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+4726.68: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+4726.68: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+4726.68: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+4726.68: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+4726.68: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+4726.68: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+7031.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+7031.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+7031.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+7031.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+7031.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+7031.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[7031.11]|[FogBroker(3)]: Received task completion msg for Task(40) from FogDevice(2)
+[7031.11]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(40)...
+[7031.11]|[FogBroker(3)]: Task(40) on Cycle(0) decided to generate data: true
+[7031.11]|[WorkflowEngine(4)]: Task(40) received as complete
+8174.49: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+8174.49: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+8174.49: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+8174.49: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+8174.49: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+8174.49: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[8174.49]|[FogBroker(3)]: Received task completion msg for Task(38) from FogDevice(2)
+[8174.49]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(38)...
+[8174.49]|[FogBroker(3)]: Task(38) on Cycle(0) decided to generate data: true
+[8174.49]|[WorkflowEngine(4)]: Task(38) received as complete
+10253.47: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+10253.47: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+10253.47: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+10253.47: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+10253.47: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+10253.47: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[10253.47]|[FogBroker(3)]: Received task completion msg for Task(35) from FogDevice(2)
+[10253.47]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(35)...
+[10253.47]|[FogBroker(3)]: Task(35) on Cycle(0) decided to generate data: true
+[10253.47]|[WorkflowEngine(4)]: Task(35) received as complete
+10937.40: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+10937.40: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+10937.40: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+10937.40: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+10937.40: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+10937.40: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[10937.40]|[FogBroker(3)]: Received task completion msg for Task(37) from FogDevice(2)
+[10937.40]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(37)...
+[10937.40]|[FogBroker(3)]: Task(37) on Cycle(0) decided to generate data: true
+[10937.40]|[WorkflowEngine(4)]: Task(37) received as complete
+11168.29: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11168.29: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+11168.29: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11168.29: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+11168.29: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11168.29: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[11168.29]|[FogBroker(3)]: Received task completion msg for Task(34) from FogDevice(2)
+[11168.29]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(34)...
+[11168.29]|[FogBroker(3)]: Task(34) on Cycle(0) decided to generate data: true
+[11168.29]|[WorkflowEngine(4)]: Task(34) received as complete
+11681.97: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11681.97: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+11681.97: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11681.97: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+11681.97: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11681.97: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+11837.41: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11837.41: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+11837.41: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11837.41: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+11837.41: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+11837.41: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[11837.41]|[FogBroker(3)]: Received task completion msg for Task(42) from FogDevice(2)
+[11837.41]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(42)...
+[11837.41]|[FogBroker(3)]: Task(42) on Cycle(0) decided to generate data: true
+[11837.41]|[WorkflowEngine(4)]: Task(42) received as complete
+12092.03: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+12092.03: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+12092.03: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+12092.03: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+12092.03: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+12092.03: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+12522.33: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+12522.33: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+12522.33: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+12522.33: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+12522.33: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+12522.33: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[12522.33]|[FogBroker(3)]: Received task completion msg for Task(41) from FogDevice(2)
+[12522.33]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(41)...
+[12522.33]|[FogBroker(3)]: Task(41) on Cycle(0) decided to generate data: true
+[12522.33]|[WorkflowEngine(4)]: Task(41) received as complete
+13583.23: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13583.23: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+13583.23: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13583.23: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+13583.23: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13583.23: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+13786.39: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13786.39: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+13786.39: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13786.39: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+13786.39: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13786.39: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+14337.22: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14337.22: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+14337.22: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14337.22: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+14337.22: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14337.22: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[14337.22]|[FogBroker(3)]: Received task completion msg for Task(39) from FogDevice(2)
+[14337.22]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(39)...
+[14337.22]|[FogBroker(3)]: Task(39) on Cycle(0) decided to generate data: true
+[14337.22]|[WorkflowEngine(4)]: Task(39) received as complete
+[14337.22]|[WorkflowEngine(4)]: Task(44) is now ready to get executed. Releasing it...
+[14337.22]|[FogBroker(3)]: Task(44) of Workflow(Epigenomics_46.xml) received
+[14337.22]|[FogBroker(3)]: Dispatching tasks...
+[14337.22]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(38) on Cycle(0)
+[14337.22]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(39) on Cycle(0)
+[14337.22]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(40) on Cycle(0)
+[14337.22]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(41) on Cycle(0)
+[14337.22]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(42) on Cycle(0)
+[14337.22]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(44) on Cycle(0)
+[14337.22]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(38) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[14337.22]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(39) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[14337.22]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(40) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[14337.22]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(41) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[14337.22]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(42) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[14337.22]|[FogDevice(2|0)]: Received execute msg for Task(44) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[14337.22]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[14337.22]|[FogDevice(2|0)]: Downloaded data of Task(38) on Cycle(0)
+[14337.22]|[FogDevice(2|0)]: Data is for me
+[14337.22]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(38) -> true
+[14337.22]|[FogDevice(2|0)]: Downloaded data of Task(39) on Cycle(0)
+[14337.22]|[FogDevice(2|0)]: Data is for me
+[14337.22]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(39) -> true
+[14337.22]|[FogDevice(2|0)]: Downloaded data of Task(40) on Cycle(0)
+[14337.22]|[FogDevice(2|0)]: Data is for me
+[14337.22]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(40) -> true
+[14337.22]|[FogDevice(2|0)]: Downloaded data of Task(41) on Cycle(0)
+[14337.22]|[FogDevice(2|0)]: Data is for me
+[14337.22]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(41) -> true
+[14337.22]|[FogDevice(2|0)]: Downloaded data of Task(42) on Cycle(0)
+[14337.22]|[FogDevice(2|0)]: Data is for me
+[14337.22]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(42) -> true
+[14337.22]|[FogDevice(2|0)]: Found Task(44) from Workflow(Epigenomics_46.xml) that can be executed
+[14337.22]|[FogDevice(2|0)]: Received execute msg for Task(44) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[14337.22]|[FogDevice(2|0)]: All parent data for Task(44) are received. task can execute
+[14337.22]|[FogBroker(3)]: Task(44) ack: true
+14352.24: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14352.24: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+14352.24: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14352.24: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+14352.24: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14352.24: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[14352.24]|[FogBroker(3)]: Received task completion msg for Task(44) from FogDevice(2)
+[14352.24]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(44)...
+[14352.24]|[FogBroker(3)]: Task(44) on Cycle(0) decided to generate data: true
+[14352.24]|[WorkflowEngine(4)]: Task(44) received as complete
+14794.09: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14794.09: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+14794.09: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14794.09: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+14794.09: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+14794.09: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+15926.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+15926.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+15926.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+15926.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+15926.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+15926.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[15926.11]|[FogBroker(3)]: Received task completion msg for Task(33) from FogDevice(2)
+[15926.11]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(33)...
+[15926.11]|[FogBroker(3)]: Task(33) on Cycle(0) decided to generate data: true
+[15926.11]|[WorkflowEngine(4)]: Task(33) received as complete
+16067.53: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16067.53: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+16067.53: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16067.53: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+16067.53: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16067.53: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[16067.53]|[FogBroker(3)]: Received task completion msg for Task(36) from FogDevice(2)
+[16067.53]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(36)...
+[16067.53]|[FogBroker(3)]: Task(36) on Cycle(0) decided to generate data: true
+[16067.53]|[FogBroker(3)]: All dispatched tasks are complete
+[16067.53]|[FogBroker(3)]: There is no vm to destroy
+[16067.53]|[FogBroker(3)]: There is no vm to create
+[16067.53]|[FogBroker(3)]: Trying to dispatch tasks...
+[16067.53]|[FogBroker(3)]: Dispatching tasks...
+[16067.53]|[WorkflowEngine(4)]: Task(36) received as complete
+[16067.53]|[WorkflowEngine(4)]: Task(43) is now ready to get executed. Releasing it...
+[16067.53]|[FogBroker(3)]: Task(43) of Workflow(Epigenomics_46.xml) received
+[16067.53]|[FogBroker(3)]: Dispatching tasks...
+[16067.53]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(33) on Cycle(0)
+[16067.53]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(34) on Cycle(0)
+[16067.53]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(35) on Cycle(0)
+[16067.53]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(36) on Cycle(0)
+[16067.53]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(37) on Cycle(0)
+[16067.53]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(43) on Cycle(0)
+[16067.53]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(33) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16067.53]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(34) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16067.53]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(35) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16067.53]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(36) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16067.53]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(37) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16067.53]|[FogDevice(2|0)]: Received execute msg for Task(43) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[16067.53]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[16067.53]|[FogDevice(2|0)]: Downloaded data of Task(33) on Cycle(0)
+[16067.53]|[FogDevice(2|0)]: Data is for me
+[16067.53]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(33) -> true
+[16067.53]|[FogDevice(2|0)]: Downloaded data of Task(34) on Cycle(0)
+[16067.53]|[FogDevice(2|0)]: Data is for me
+[16067.53]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(34) -> true
+[16067.53]|[FogDevice(2|0)]: Downloaded data of Task(35) on Cycle(0)
+[16067.53]|[FogDevice(2|0)]: Data is for me
+[16067.53]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(35) -> true
+[16067.53]|[FogDevice(2|0)]: Downloaded data of Task(36) on Cycle(0)
+[16067.53]|[FogDevice(2|0)]: Data is for me
+[16067.53]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(36) -> true
+[16067.53]|[FogDevice(2|0)]: Downloaded data of Task(37) on Cycle(0)
+[16067.53]|[FogDevice(2|0)]: Data is for me
+[16067.53]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(37) -> true
+[16067.53]|[FogDevice(2|0)]: Found Task(43) from Workflow(Epigenomics_46.xml) that can be executed
+[16067.53]|[FogDevice(2|0)]: Received execute msg for Task(43) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[16067.53]|[FogDevice(2|0)]: All parent data for Task(43) are received. task can execute
+[16067.53]|[FogBroker(3)]: Task(43) ack: true
+16080.65: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16080.65: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+16080.65: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16080.65: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+16080.65: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16080.65: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[16080.65]|[FogBroker(3)]: Received task completion msg for Task(43) from FogDevice(2)
+[16080.65]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(43)...
+[16080.65]|[FogBroker(3)]: Task(43) on Cycle(0) decided to generate data: true
+[16080.65]|[FogBroker(3)]: All dispatched tasks are complete
+[16080.65]|[FogBroker(3)]: There is no vm to destroy
+[16080.65]|[FogBroker(3)]: There is no vm to create
+[16080.65]|[FogBroker(3)]: Trying to dispatch tasks...
+[16080.65]|[FogBroker(3)]: Dispatching tasks...
+[16080.65]|[WorkflowEngine(4)]: Task(43) received as complete
+[16080.65]|[WorkflowEngine(4)]: Task(45) is now ready to get executed. Releasing it...
+[16080.65]|[FogBroker(3)]: Task(45) of Workflow(Epigenomics_46.xml) received
+[16080.65]|[FogBroker(3)]: Dispatching tasks...
+[16080.65]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(43) on Cycle(0)
+[16080.65]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(44) on Cycle(0)
+[16080.65]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(45) on Cycle(0)
+[16080.65]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(43) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16080.65]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(44) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16080.65]|[FogDevice(2|0)]: Received execute msg for Task(45) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[16080.65]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[16080.65]|[FogDevice(2|0)]: Downloaded data of Task(43) on Cycle(0)
+[16080.65]|[FogDevice(2|0)]: Data is for me
+[16080.65]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(43) -> true
+[16080.65]|[FogDevice(2|0)]: Downloaded data of Task(44) on Cycle(0)
+[16080.65]|[FogDevice(2|0)]: Data is for me
+[16080.65]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(44) -> true
+[16080.65]|[FogDevice(2|0)]: Found Task(45) from Workflow(Epigenomics_46.xml) that can be executed
+[16080.65]|[FogDevice(2|0)]: Received execute msg for Task(45) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(0)
+[16080.65]|[FogDevice(2|0)]: All parent data for Task(45) are received. task can execute
+[16080.65]|[FogBroker(3)]: Task(45) ack: true
+16106.18: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16106.18: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+16106.18: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16106.18: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+16106.18: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16106.18: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[16106.18]|[FogBroker(3)]: Received task completion msg for Task(45) from FogDevice(2)
+[16106.18]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(45)...
+[16106.18]|[FogBroker(3)]: Task(45) on Cycle(0) decided to generate data: true
+[16106.18]|[FogBroker(3)]: All dispatched tasks are complete
+[16106.18]|[FogBroker(3)]: There is no vm to destroy
+[16106.18]|[FogBroker(3)]: There is no vm to create
+[16106.18]|[FogBroker(3)]: Trying to dispatch tasks...
+[16106.18]|[FogBroker(3)]: Dispatching tasks...
+[16106.18]|[WorkflowEngine(4)]: Task(45) received as complete
+[16106.18]|[WorkflowEngine(4)]: Task(46) is now ready to get executed. Releasing it...
+[16106.18]|[FogBroker(3)]: Task(46) of Workflow(Epigenomics_46.xml) received
+[16106.18]|[FogBroker(3)]: Dispatching tasks...
+[16106.18]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(45) on Cycle(0)
+[16106.18]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(46) on Cycle(0)
+[16106.18]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(45) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16106.18]|[FogDevice(2|0)]: Received execute msg for Task(46) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[16106.18]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[16106.18]|[FogDevice(2|0)]: Downloaded data of Task(45) on Cycle(0)
+[16106.18]|[FogDevice(2|0)]: Data is for me
+[16106.18]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(45) -> true
+[16106.18]|[FogDevice(2|0)]: Found Task(46) from Workflow(Epigenomics_46.xml) that can be executed
+[16106.18]|[FogDevice(2|0)]: Received execute msg for Task(46) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(1)
+[16106.18]|[FogDevice(2|0)]: All parent data for Task(46) are received. task can execute
+[16106.18]|[FogBroker(3)]: Task(46) ack: true
+16106.28: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16106.28: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+16106.28: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16106.28: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+16106.28: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+16106.28: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[16106.28]|[FogBroker(3)]: Received task completion msg for Task(46) from FogDevice(2)
+[16106.28]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(46)...
+[16106.28]|[FogBroker(3)]: Task(46) on Cycle(0) decided to generate data: true
+[16106.28]|[FogBroker(3)]: All dispatched tasks are complete
+[16106.28]|[FogBroker(3)]: There is no vm to destroy
+[16106.28]|[FogBroker(3)]: There is no vm to create
+[16106.28]|[FogBroker(3)]: Trying to dispatch tasks...
+[16106.28]|[FogBroker(3)]: Dispatching tasks...
+[16106.28]|[WorkflowEngine(4)]: Task(46) received as complete
+[16106.28]|[WorkflowEngine(4)]: Task(47) is now ready to get executed. Releasing it...
+[16106.28]|[FogBroker(3)]: Task(47) of Workflow(Epigenomics_46.xml) received
+[16106.28]|[FogBroker(3)]: Dispatching tasks...
+[16106.28]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(46) on Cycle(0)
+[16106.28]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(47) on Cycle(0)
+[16106.28]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(46) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[16106.28]|[FogDevice(2|0)]: Received execute msg for Task(47) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[16106.28]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[16106.28]|[FogDevice(2|0)]: Downloaded data of Task(46) on Cycle(0)
+[16106.28]|[FogDevice(2|0)]: Data is for me
+[16106.28]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(46) -> true
+[16106.28]|[FogDevice(2|0)]: Found Task(47) from Workflow(Epigenomics_46.xml) that can be executed
+[16106.28]|[FogDevice(2|0)]: Received execute msg for Task(47) on Cycle(0) from Workflow(Epigenomics_46.xml) to run on Vm(2)
+[16106.28]|[FogDevice(2|0)]: All parent data for Task(47) are received. task can execute
+[16106.28]|[FogBroker(3)]: Task(47) ack: true
+17740.24: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+17740.24: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+17740.24: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+17740.24: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+17740.24: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+17740.24: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[17740.24]|[FogBroker(3)]: Received task completion msg for Task(47) from FogDevice(2)
+[17740.24]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(47)...
+[17740.24]|[FogBroker(3)]: Task(47) on Cycle(0) decided to generate data: true
+[17740.24]|[FogBroker(3)]: All dispatched tasks are complete
+[17740.24]|[FogBroker(3)]: There is no vm to destroy
+[17740.24]|[FogBroker(3)]: There is no vm to create
+[17740.24]|[FogBroker(3)]: Trying to dispatch tasks...
+[17740.24]|[FogBroker(3)]: Dispatching tasks...
+[17740.24]|[WorkflowEngine(4)]: Task(47) received as complete
+18748.41: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+18748.41: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+18748.41: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+18748.41: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+18748.41: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+18748.41: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+18961.01: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+18961.01: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+18961.01: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+18961.01: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+18961.01: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+18961.01: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+21438.30: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+21438.30: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+21438.30: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+21438.30: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+21438.30: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+21438.30: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+23613.01: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+23613.01: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+23613.01: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+23613.01: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+23613.01: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+23613.01: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+Simulation: No more future events
+CloudInformationService: Notify all CloudSim entities for shutting down.
+0 is shutting down...
+[23613.01]|[WorkflowEngine(4)]: Shutting down entity...
+Simulation completed.
+Simulation completed.
+2366.6666666666665
+700.0
+1000.0
+Cycle: 0
+╔═════════╤═══════╤══════════════════════╤════════════════════╤══════════╗
+║ Task ID │ On Vm │ Start Execution Time │ End Execution Time │ Duration ║
+╠═════════╪═══════╪══════════════════════╪════════════════════╪══════════╣
+║ 1       │ 1     │ 0.11                 │ 57.69              │ 57.58    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 2       │ 2     │ 0.11                 │ 28.41              │ 28.30    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 3       │ 0     │ 57.69                │ 83.80              │ 26.11    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 4       │ 1     │ 57.69                │ 97.49              │ 39.80    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 5       │ 2     │ 57.69                │ 70.16              │ 12.47    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 6       │ 0     │ 57.69                │ 85.16              │ 27.47    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 7       │ 1     │ 57.69                │ 74.07              │ 16.39    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 8       │ 2     │ 28.41                │ 55.00              │ 26.59    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 9       │ 0     │ 28.41                │ 42.76              │ 14.35    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 10      │ 1     │ 28.41                │ 49.71              │ 21.30    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 11      │ 2     │ 28.41                │ 54.68              │ 26.27    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 12      │ 0     │ 28.41                │ 39.77              │ 11.36    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 13      │ 1     │ 83.80                │ 89.61              │ 5.81     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 14      │ 2     │ 97.49                │ 105.94             │ 8.45     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 15      │ 0     │ 70.16                │ 80.10              │ 9.94     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 16      │ 1     │ 85.16                │ 93.61              │ 8.45     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 17      │ 2     │ 74.07                │ 77.23              │ 3.16     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 18      │ 0     │ 55.00                │ 60.98              │ 5.97     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 19      │ 1     │ 42.76                │ 50.80              │ 8.04     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 20      │ 2     │ 49.71                │ 59.19              │ 9.48     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 21      │ 0     │ 54.68                │ 57.80              │ 3.11     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 22      │ 1     │ 39.77                │ 46.05              │ 6.28     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 23      │ 2     │ 89.61                │ 104.71             │ 15.10    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 24      │ 0     │ 105.94               │ 117.82             │ 11.88    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 25      │ 1     │ 80.10                │ 94.76              │ 14.66    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 26      │ 2     │ 93.61                │ 109.21             │ 15.60    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 27      │ 0     │ 77.23                │ 90.00              │ 12.76    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 28      │ 1     │ 60.98                │ 73.65              │ 12.67    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 29      │ 2     │ 50.80                │ 60.16              │ 9.36     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 30      │ 0     │ 59.19                │ 70.27              │ 11.08    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 31      │ 1     │ 57.80                │ 77.27              │ 19.47    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 32      │ 2     │ 46.05                │ 63.29              │ 17.24    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 33      │ 0     │ 104.71               │ 15926.11           │ 15821.39 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 34      │ 1     │ 117.82               │ 11168.29           │ 11050.48 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 35      │ 2     │ 94.76                │ 10253.47           │ 10158.71 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 36      │ 0     │ 109.21               │ 16067.53           │ 15958.32 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 37      │ 1     │ 90.00                │ 10937.40           │ 10847.40 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 38      │ 2     │ 73.65                │ 8174.49            │ 8100.84  ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 39      │ 0     │ 60.16                │ 14337.22           │ 14277.06 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 40      │ 1     │ 70.27                │ 7031.11            │ 6960.85  ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 41      │ 2     │ 77.27                │ 12522.33           │ 12445.06 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 42      │ 0     │ 63.29                │ 11837.41           │ 11774.12 ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 43      │ 1     │ 16067.53             │ 16080.65           │ 13.12    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 44      │ 2     │ 14337.22             │ 14352.24           │ 15.02    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 45      │ 0     │ 16080.65             │ 16106.18           │ 25.53    ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 46      │ 1     │ 16106.18             │ 16106.28           │ 0.10     ║
+╟─────────┼───────┼──────────────────────┼────────────────────┼──────────╢
+║ 47      │ 2     │ 16106.28             │ 17740.24           │ 1633.96  ║
+╚═════════╧═══════╧══════════════════════╧════════════════════╧══════════╝
+
+End Execution Time: 17740.242
+
+BUILD SUCCESSFUL in 633ms
+3 actionable tasks: 1 executed, 2 up-to-date

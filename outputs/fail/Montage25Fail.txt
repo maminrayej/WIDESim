@@ -1,0 +1,1204 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+
+> Task :Montage25Fail.main()
+Initialising...
+Starting CloudSim version 3.0
+[0.00]|[FogDevice(2|0)]: Starting FogDevice(2)...
+[0.00]|[FogBroker(3)]: Starting FogBroker...
+[0.00]|[WorkflowEngine(4)]: Starting WorkflowEngine...
+[0.00]|[TaskManager(5)]: Starting Task Manager...
+[0.00]|[TaskManager(5)]: Sending task: 1 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 2 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 3 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 4 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 5 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 6 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 7 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 8 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 9 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 10 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 11 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 12 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 13 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 14 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 15 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 16 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 17 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 18 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 19 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 20 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 21 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 22 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 23 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 24 of workflow: Montage_25.xml
+[0.00]|[TaskManager(5)]: Sending task: 25 of workflow: Montage_25.xml
+Entities started.
+[0.00]|[FogBroker(3)]: Requesting for fog devices characteristics...
+[0.00]|[WorkflowEngine(4)]: Task(1) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Sending Task(1) from workflow(Montage_25.xml)...
+[0.00]|[WorkflowEngine(4)]: Task(2) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Sending Task(2) from workflow(Montage_25.xml)...
+[0.00]|[WorkflowEngine(4)]: Task(3) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Sending Task(3) from workflow(Montage_25.xml)...
+[0.00]|[WorkflowEngine(4)]: Task(4) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Sending Task(4) from workflow(Montage_25.xml)...
+[0.00]|[WorkflowEngine(4)]: Task(5) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Sending Task(5) from workflow(Montage_25.xml)...
+[0.00]|[WorkflowEngine(4)]: Task(6) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(6) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(7) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(7) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(8) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(8) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(9) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(9) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(10) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(10) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(11) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(11) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(12) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(12) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(13) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(13) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(14) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(14) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(15) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(15) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(16) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(16) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(17) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(17) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(18) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(18) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(19) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(19) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(20) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(20) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(21) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(21) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(22) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(22) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(23) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(23) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(24) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(24) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[WorkflowEngine(4)]: Task(25) of workflow(Montage_25.xml) received
+[0.00]|[WorkflowEngine(4)]: Task(25) is not ready to get executed. Adding it to waiting queue...
+[0.00]|[FogBroker(3)]: Task(1) of Workflow(Montage_25.xml) received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: Task(2) of Workflow(Montage_25.xml) received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: Task(3) of Workflow(Montage_25.xml) received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: Task(4) of Workflow(Montage_25.xml) received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: Task(5) of Workflow(Montage_25.xml) received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: All resources received
+[0.00]|[FogBroker(3)]: All pending vm create acks received
+[0.00]|[FogBroker(3)]: Dispatching tasks...
+[0.00]|[FogBroker(3)]: Sending STAGE_IN data for Task(1) to FogDevice(2) with delay: 0.11
+[0.00]|[FogBroker(3)]: Sending STAGE_IN data for Task(2) to FogDevice(2) with delay: 0.11
+[0.00]|[FogBroker(3)]: Sending STAGE_IN data for Task(3) to FogDevice(2) with delay: 0.11
+[0.00]|[FogBroker(3)]: Sending STAGE_IN data for Task(4) to FogDevice(2) with delay: 0.11
+[0.00]|[FogBroker(3)]: Sending STAGE_IN data for Task(5) to FogDevice(2) with delay: 0.11
+[0.11]|[FogDevice(2|0)]: Received Task(1) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(1)
+[0.11]|[FogDevice(2|0)]: Received Task(2) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(2)
+[0.11]|[FogDevice(2|0)]: Received Task(3) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(0)
+[0.11]|[FogDevice(2|0)]: Received Task(4) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(1)
+[0.11]|[FogDevice(2|0)]: Received Task(5) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(2)
+[0.11]|[FogDevice(2|0)]: Received execute msg for Task(1) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[0.11]|[FogDevice(2|0)]: All parent data for Task(1) are received. task can execute
+0.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[0.11]|[FogDevice(2|0)]: Received execute msg for Task(2) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[0.11]|[FogDevice(2|0)]: All parent data for Task(2) are received. task can execute
+0.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[0.11]|[FogDevice(2|0)]: Received execute msg for Task(3) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[0.11]|[FogDevice(2|0)]: All parent data for Task(3) are received. task can execute
+[0.11]|[FogBroker(3)]: Task(1) ack: true
+0.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[0.11]|[FogDevice(2|0)]: Received execute msg for Task(4) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[0.11]|[FogDevice(2|0)]: All parent data for Task(4) are received. task can execute
+[0.11]|[FogBroker(3)]: Task(2) ack: true
+0.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[0.11]|[FogDevice(2|0)]: Received execute msg for Task(5) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[0.11]|[FogDevice(2|0)]: All parent data for Task(5) are received. task can execute
+[0.11]|[FogBroker(3)]: Task(3) ack: true
+0.11: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+0.11: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+0.11: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[0.11]|[FogBroker(3)]: Task(4) ack: true
+[0.11]|[FogBroker(3)]: Task(5) ack: true
+13.47: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.47: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.47: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.47: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.47: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.47: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[13.47]|[FogBroker(3)]: Received task completion msg for Task(3) from FogDevice(2)
+[13.47]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(3)...
+[13.47]|[WorkflowEngine(4)]: Task(3) received as complete
+[13.47]|[WorkflowEngine(4)]: Task(3) failed. Adding it to waiting queue...
+[13.47]|[WorkflowEngine(4)]: Task(3) of workflow(Montage_25.xml) received
+[13.47]|[WorkflowEngine(4)]: Sending Task(3) from workflow(Montage_25.xml)...
+[13.47]|[FogBroker(3)]: Task(3) of Workflow(Montage_25.xml) received
+[13.47]|[FogBroker(3)]: Dispatching tasks...
+[13.47]|[FogBroker(3)]: Sending STAGE_IN data for Task(3) to FogDevice(2) with delay: 0.11
+13.50: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.50: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.50: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.50: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.50: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.50: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[13.58]|[FogDevice(2|0)]: Received Task(3) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(0)
+[13.58]|[FogDevice(2|0)]: Received execute msg for Task(3) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[13.58]|[FogDevice(2|0)]: All parent data for Task(3) are received. task can execute
+13.58: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.58: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.58: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.58: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.58: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.58: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[13.58]|[FogBroker(3)]: Task(3) ack: true
+13.94: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.94: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.94: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.94: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+13.94: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+13.94: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+26.89: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+26.89: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+26.89: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+26.89: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+26.89: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+26.89: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[26.89]|[FogBroker(3)]: Received task completion msg for Task(1) from FogDevice(2)
+[26.89]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(1)...
+[26.89]|[WorkflowEngine(4)]: Task(1) received as complete
+[26.89]|[WorkflowEngine(4)]: Task(1) failed. Adding it to waiting queue...
+[26.89]|[WorkflowEngine(4)]: Task(1) of workflow(Montage_25.xml) received
+[26.89]|[WorkflowEngine(4)]: Sending Task(1) from workflow(Montage_25.xml)...
+[26.89]|[FogBroker(3)]: Task(1) of Workflow(Montage_25.xml) received
+[26.89]|[FogBroker(3)]: Dispatching tasks...
+[26.89]|[FogBroker(3)]: Sending STAGE_IN data for Task(1) to FogDevice(2) with delay: 0.11
+26.94: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+26.94: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+26.94: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+26.94: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+26.94: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+26.94: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[26.94]|[FogBroker(3)]: Received task completion msg for Task(3) from FogDevice(2)
+[26.94]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(3)...
+[26.94]|[WorkflowEngine(4)]: Task(3) received as complete
+[26.94]|[WorkflowEngine(4)]: Task(3) failed. Adding it to waiting queue...
+[26.94]|[WorkflowEngine(4)]: Task(3) of workflow(Montage_25.xml) received
+[26.94]|[WorkflowEngine(4)]: Sending Task(3) from workflow(Montage_25.xml)...
+[26.94]|[FogBroker(3)]: Task(3) of Workflow(Montage_25.xml) received
+[26.94]|[FogBroker(3)]: Dispatching tasks...
+[26.94]|[FogBroker(3)]: Sending STAGE_IN data for Task(3) to FogDevice(2) with delay: 0.11
+27.00: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.00: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.00: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.00: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.00: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.00: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[27.00]|[FogDevice(2|0)]: Received Task(1) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(1)
+[27.00]|[FogDevice(2|0)]: Received execute msg for Task(1) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[27.00]|[FogDevice(2|0)]: All parent data for Task(1) are received. task can execute
+[27.00]|[FogBroker(3)]: Task(1) ack: true
+[27.05]|[FogDevice(2|0)]: Received Task(3) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(0)
+[27.05]|[FogDevice(2|0)]: Received execute msg for Task(3) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[27.05]|[FogDevice(2|0)]: All parent data for Task(3) are received. task can execute
+27.05: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.05: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.05: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.05: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.05: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.05: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[27.05]|[FogBroker(3)]: Task(3) ack: true
+27.10: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.10: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.10: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.10: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.10: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.10: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.20: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.20: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.20: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.20: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.20: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.20: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[27.20]|[FogBroker(3)]: Received task completion msg for Task(4) from FogDevice(2)
+[27.20]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(4)...
+[27.20]|[WorkflowEngine(4)]: Task(4) received as complete
+[27.20]|[WorkflowEngine(4)]: Task(4) failed. Adding it to waiting queue...
+[27.20]|[WorkflowEngine(4)]: Task(4) of workflow(Montage_25.xml) received
+[27.20]|[WorkflowEngine(4)]: Sending Task(4) from workflow(Montage_25.xml)...
+[27.20]|[FogBroker(3)]: Task(4) of Workflow(Montage_25.xml) received
+[27.20]|[FogBroker(3)]: Dispatching tasks...
+[27.20]|[FogBroker(3)]: Sending STAGE_IN data for Task(4) to FogDevice(2) with delay: 0.11
+[27.31]|[FogDevice(2|0)]: Received Task(4) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(1)
+[27.31]|[FogDevice(2|0)]: Received execute msg for Task(4) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[27.31]|[FogDevice(2|0)]: All parent data for Task(4) are received. task can execute
+27.31: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.31: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.31: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.31: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.31: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.31: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[27.31]|[FogBroker(3)]: Task(4) ack: true
+27.67: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.67: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.67: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.67: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.67: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.67: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[27.67]|[FogBroker(3)]: Received task completion msg for Task(5) from FogDevice(2)
+[27.67]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(5)...
+[27.67]|[WorkflowEngine(4)]: Task(5) received as complete
+[27.67]|[WorkflowEngine(4)]: Task(5) failed. Adding it to waiting queue...
+[27.67]|[WorkflowEngine(4)]: Task(5) of workflow(Montage_25.xml) received
+[27.67]|[WorkflowEngine(4)]: Sending Task(5) from workflow(Montage_25.xml)...
+[27.67]|[FogBroker(3)]: Task(5) of Workflow(Montage_25.xml) received
+[27.67]|[FogBroker(3)]: Dispatching tasks...
+[27.67]|[FogBroker(3)]: Sending STAGE_IN data for Task(5) to FogDevice(2) with delay: 0.11
+27.78: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.78: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.78: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.78: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.78: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.78: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[27.78]|[FogDevice(2|0)]: Received Task(5) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(2)
+[27.78]|[FogDevice(2|0)]: Received execute msg for Task(5) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[27.78]|[FogDevice(2|0)]: All parent data for Task(5) are received. task can execute
+[27.78]|[FogBroker(3)]: Received task completion msg for Task(2) from FogDevice(2)
+[27.78]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(2)...
+[27.78]|[WorkflowEngine(4)]: Task(2) received as complete
+[27.78]|[WorkflowEngine(4)]: Task(2) failed. Adding it to waiting queue...
+[27.78]|[FogBroker(3)]: Task(5) ack: true
+[27.78]|[WorkflowEngine(4)]: Task(2) of workflow(Montage_25.xml) received
+[27.78]|[WorkflowEngine(4)]: Sending Task(2) from workflow(Montage_25.xml)...
+[27.78]|[FogBroker(3)]: Task(2) of Workflow(Montage_25.xml) received
+[27.78]|[FogBroker(3)]: Dispatching tasks...
+[27.78]|[FogBroker(3)]: Sending STAGE_IN data for Task(2) to FogDevice(2) with delay: 0.11
+[27.89]|[FogDevice(2|0)]: Received Task(2) from Workflow(Montage_25.xml) with STAGE_IN data to run on Vm(2)
+[27.89]|[FogDevice(2|0)]: Received execute msg for Task(2) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[27.89]|[FogDevice(2|0)]: All parent data for Task(2) are received. task can execute
+27.89: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.89: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.89: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.89: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+27.89: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+27.89: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[27.89]|[FogBroker(3)]: Task(2) ack: true
+40.41: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+40.41: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+40.41: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+40.41: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+40.41: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+40.41: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[40.41]|[FogBroker(3)]: Received task completion msg for Task(3) from FogDevice(2)
+[40.41]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(3)...
+[40.41]|[FogBroker(3)]: Task(3) on Cycle(0) decided to generate data: true
+[40.41]|[WorkflowEngine(4)]: Task(3) received as complete
+[40.41]|[WorkflowEngine(4)]: Task(11) is now ready to get executed. Releasing it...
+[40.41]|[FogBroker(3)]: Task(11) of Workflow(Montage_25.xml) received
+[40.41]|[FogBroker(3)]: Dispatching tasks...
+[40.41]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(3) on Cycle(0)
+[40.41]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(11) on Cycle(0)
+[40.41]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(3) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[40.41]|[FogDevice(2|0)]: Received execute msg for Task(11) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[40.41]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[40.41]|[FogDevice(2|0)]: Downloaded data of Task(3) on Cycle(0)
+[40.41]|[FogDevice(2|0)]: Data is for me
+[40.41]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(3) -> true
+[40.41]|[FogDevice(2|0)]: Found Task(11) from Workflow(Montage_25.xml) that can be executed
+[40.41]|[FogDevice(2|0)]: Received execute msg for Task(11) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[40.41]|[FogDevice(2|0)]: All parent data for Task(11) are received. task can execute
+[40.41]|[FogBroker(3)]: Task(11) ack: true
+41.56: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+41.56: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+41.56: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+41.56: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+41.56: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+41.56: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.67: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.67: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.67: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.67: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.67: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.67: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[53.67]|[FogBroker(3)]: Received task completion msg for Task(1) from FogDevice(2)
+[53.67]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(1)...
+[53.67]|[FogBroker(3)]: Task(1) on Cycle(0) decided to generate data: true
+[53.67]|[WorkflowEngine(4)]: Task(1) received as complete
+[53.67]|[WorkflowEngine(4)]: Task(9) is now ready to get executed. Releasing it...
+[53.67]|[FogBroker(3)]: Task(9) of Workflow(Montage_25.xml) received
+[53.67]|[FogBroker(3)]: Dispatching tasks...
+[53.67]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[53.67]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(3) on Cycle(0)
+[53.67]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(9) on Cycle(0)
+[53.67]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[53.67]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(3) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[53.67]|[FogDevice(2|0)]: Received execute msg for Task(9) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[53.67]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[53.67]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[53.67]|[FogDevice(2|0)]: Data is for me
+[53.67]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[53.67]|[FogDevice(2|0)]: Found Task(9) from Workflow(Montage_25.xml) that can be executed
+[53.67]|[FogDevice(2|0)]: Downloaded data of Task(3) on Cycle(0)
+[53.67]|[FogDevice(2|0)]: Data is for me
+[53.67]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(3) -> true
+[53.67]|[FogDevice(2|0)]: Received execute msg for Task(9) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[53.67]|[FogDevice(2|0)]: All parent data for Task(9) are received. task can execute
+[53.67]|[FogBroker(3)]: Task(9) ack: true
+53.78: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.78: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.78: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.78: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+53.78: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+53.78: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.09: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.09: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.09: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.09: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.09: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.09: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[54.09]|[FogBroker(3)]: Received task completion msg for Task(4) from FogDevice(2)
+[54.09]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(4)...
+[54.09]|[FogBroker(3)]: Task(4) on Cycle(0) decided to generate data: true
+[54.09]|[WorkflowEngine(4)]: Task(4) received as complete
+54.51: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.51: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.51: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.51: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+54.51: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+54.51: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+55.55: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+55.55: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+55.55: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+55.55: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+55.55: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+55.55: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+62.64: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.64: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+62.64: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.64: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+62.64: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.64: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[62.64]|[FogBroker(3)]: Received task completion msg for Task(5) from FogDevice(2)
+[62.64]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(5)...
+[62.64]|[FogBroker(3)]: Task(5) on Cycle(0) decided to generate data: true
+[62.64]|[WorkflowEngine(4)]: Task(5) received as complete
+[62.64]|[WorkflowEngine(4)]: Task(14) is now ready to get executed. Releasing it...
+[62.64]|[FogBroker(3)]: Task(14) of Workflow(Montage_25.xml) received
+[62.64]|[FogBroker(3)]: Dispatching tasks...
+[62.64]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(4) on Cycle(0)
+[62.64]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(5) on Cycle(0)
+[62.64]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(14) on Cycle(0)
+[62.64]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(4) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[62.64]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(5) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[62.64]|[FogDevice(2|0)]: Received execute msg for Task(14) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[62.64]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[62.64]|[FogDevice(2|0)]: Downloaded data of Task(4) on Cycle(0)
+[62.64]|[FogDevice(2|0)]: Data is for me
+[62.64]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(4) -> true
+[62.64]|[FogDevice(2|0)]: Downloaded data of Task(5) on Cycle(0)
+[62.64]|[FogDevice(2|0)]: Data is for me
+[62.64]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(5) -> true
+[62.64]|[FogDevice(2|0)]: Found Task(14) from Workflow(Montage_25.xml) that can be executed
+[62.64]|[FogDevice(2|0)]: Received execute msg for Task(14) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[62.64]|[FogDevice(2|0)]: All parent data for Task(14) are received. task can execute
+[62.64]|[FogBroker(3)]: Task(14) ack: true
+62.96: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.96: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+62.96: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.96: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+62.96: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+62.96: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.12: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.12: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.12: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.12: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+63.12: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+63.12: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[63.12]|[FogBroker(3)]: Received task completion msg for Task(2) from FogDevice(2)
+[63.12]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(2)...
+[63.12]|[FogBroker(3)]: Task(2) on Cycle(0) decided to generate data: true
+[63.12]|[WorkflowEngine(4)]: Task(2) received as complete
+[63.12]|[WorkflowEngine(4)]: Task(6) is now ready to get executed. Releasing it...
+[63.12]|[WorkflowEngine(4)]: Task(7) is now ready to get executed. Releasing it...
+[63.12]|[WorkflowEngine(4)]: Task(8) is now ready to get executed. Releasing it...
+[63.12]|[WorkflowEngine(4)]: Task(10) is now ready to get executed. Releasing it...
+[63.12]|[WorkflowEngine(4)]: Task(12) is now ready to get executed. Releasing it...
+[63.12]|[WorkflowEngine(4)]: Task(13) is now ready to get executed. Releasing it...
+[63.12]|[FogBroker(3)]: Task(6) of Workflow(Montage_25.xml) received
+[63.12]|[FogBroker(3)]: Dispatching tasks...
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[63.12]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(6) on Cycle(0)
+[63.12]|[FogBroker(3)]: Task(7) of Workflow(Montage_25.xml) received
+[63.12]|[FogBroker(3)]: Dispatching tasks...
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[63.12]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(7) on Cycle(0)
+[63.12]|[FogBroker(3)]: Task(8) of Workflow(Montage_25.xml) received
+[63.12]|[FogBroker(3)]: Dispatching tasks...
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(4) on Cycle(0)
+[63.12]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(8) on Cycle(0)
+[63.12]|[FogBroker(3)]: Task(10) of Workflow(Montage_25.xml) received
+[63.12]|[FogBroker(3)]: Dispatching tasks...
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(3) on Cycle(0)
+[63.12]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(10) on Cycle(0)
+[63.12]|[FogBroker(3)]: Task(12) of Workflow(Montage_25.xml) received
+[63.12]|[FogBroker(3)]: Dispatching tasks...
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(4) on Cycle(0)
+[63.12]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(12) on Cycle(0)
+[63.12]|[FogBroker(3)]: Task(13) of Workflow(Montage_25.xml) received
+[63.12]|[FogBroker(3)]: Dispatching tasks...
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[63.12]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(5) on Cycle(0)
+[63.12]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(13) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(6) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[63.12]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(7) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[63.12]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(4) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(8) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[63.12]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(3) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(10) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[63.12]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(4) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(12) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[63.12]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(5) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(13) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[63.12]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[63.12]|[FogDevice(2|0)]: Found Task(6) from Workflow(Montage_25.xml) that can be executed
+[63.12]|[FogDevice(2|0)]: Found Task(7) from Workflow(Montage_25.xml) that can be executed
+[63.12]|[FogDevice(2|0)]: Found Task(8) from Workflow(Montage_25.xml) that can be executed
+[63.12]|[FogDevice(2|0)]: Found Task(10) from Workflow(Montage_25.xml) that can be executed
+[63.12]|[FogDevice(2|0)]: Found Task(12) from Workflow(Montage_25.xml) that can be executed
+[63.12]|[FogDevice(2|0)]: Found Task(13) from Workflow(Montage_25.xml) that can be executed
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(4) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(4) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(3) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(3) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(4) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(4) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[63.12]|[FogDevice(2|0)]: Downloaded data of Task(5) on Cycle(0)
+[63.12]|[FogDevice(2|0)]: Data is for me
+[63.12]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(5) -> true
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(6) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[63.12]|[FogDevice(2|0)]: All parent data for Task(6) are received. task can execute
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(7) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[63.12]|[FogDevice(2|0)]: All parent data for Task(7) are received. task can execute
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(8) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[63.12]|[FogDevice(2|0)]: All parent data for Task(8) are received. task can execute
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(10) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[63.12]|[FogDevice(2|0)]: All parent data for Task(10) are received. task can execute
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(12) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[63.12]|[FogDevice(2|0)]: All parent data for Task(12) are received. task can execute
+[63.12]|[FogDevice(2|0)]: Received execute msg for Task(13) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[63.12]|[FogDevice(2|0)]: All parent data for Task(13) are received. task can execute
+[63.12]|[FogBroker(3)]: Task(6) ack: true
+[63.12]|[FogBroker(3)]: Task(7) ack: true
+[63.12]|[FogBroker(3)]: Task(8) ack: true
+[63.12]|[FogBroker(3)]: Task(10) ack: true
+[63.12]|[FogBroker(3)]: Task(12) ack: true
+[63.12]|[FogBroker(3)]: Task(13) ack: true
+64.48: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+64.48: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+64.48: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+64.48: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+64.48: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+64.48: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+67.20: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+67.20: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+67.20: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+67.20: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+67.20: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+67.20: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[67.20]|[FogBroker(3)]: Received task completion msg for Task(9) from FogDevice(2)
+[67.20]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(9)...
+[67.20]|[FogBroker(3)]: Task(9) on Cycle(0) decided to generate data: true
+[67.20]|[WorkflowEngine(4)]: Task(9) received as complete
+71.94: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+71.94: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+71.94: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+71.94: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+71.94: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+71.94: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[71.94]|[FogBroker(3)]: Received task completion msg for Task(11) from FogDevice(2)
+[71.94]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(11)...
+[71.94]|[FogBroker(3)]: Task(11) on Cycle(0) decided to generate data: true
+[71.94]|[WorkflowEngine(4)]: Task(11) received as complete
+73.71: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.71: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.71: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.71: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+73.71: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+73.71: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+84.10: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+84.10: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+84.10: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+84.10: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+84.10: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+84.10: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+84.30: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+84.30: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+84.30: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+84.30: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+84.30: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+84.30: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+85.50: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.50: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+85.50: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.50: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+85.50: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.50: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[85.50]|[FogBroker(3)]: Received task completion msg for Task(12) from FogDevice(2)
+[85.50]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(12)...
+[85.50]|[FogBroker(3)]: Task(12) on Cycle(0) decided to generate data: true
+[85.50]|[WorkflowEngine(4)]: Task(12) received as complete
+85.61: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.61: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+85.61: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.61: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+85.61: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+85.61: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[85.61]|[FogBroker(3)]: Received task completion msg for Task(6) from FogDevice(2)
+[85.61]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(6)...
+[85.61]|[FogBroker(3)]: Task(6) on Cycle(0) decided to generate data: true
+[85.61]|[WorkflowEngine(4)]: Task(6) received as complete
+86.48: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+86.48: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+86.48: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+86.48: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+86.48: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+86.48: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[86.48]|[FogBroker(3)]: Received task completion msg for Task(14) from FogDevice(2)
+[86.48]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(14)...
+[86.48]|[FogBroker(3)]: Task(14) on Cycle(0) decided to generate data: true
+[86.48]|[WorkflowEngine(4)]: Task(14) received as complete
+87.15: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+87.15: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+87.15: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+87.15: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+87.15: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+87.15: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[87.15]|[FogBroker(3)]: Received task completion msg for Task(8) from FogDevice(2)
+[87.15]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(8)...
+[87.15]|[FogBroker(3)]: Task(8) on Cycle(0) decided to generate data: true
+[87.15]|[WorkflowEngine(4)]: Task(8) received as complete
+93.75: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.75: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+93.75: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.75: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+93.75: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+93.75: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.59: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.59: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.59: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.59: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.59: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.59: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[94.59]|[FogBroker(3)]: Received task completion msg for Task(10) from FogDevice(2)
+[94.59]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(10)...
+[94.59]|[FogBroker(3)]: Task(10) on Cycle(0) decided to generate data: true
+[94.59]|[WorkflowEngine(4)]: Task(10) received as complete
+94.65: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.65: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.65: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.65: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.65: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.65: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.79: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.79: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.79: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.79: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.79: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.79: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[94.79]|[FogBroker(3)]: Received task completion msg for Task(7) from FogDevice(2)
+[94.79]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(7)...
+[94.79]|[FogBroker(3)]: Task(7) on Cycle(0) decided to generate data: true
+[94.79]|[WorkflowEngine(4)]: Task(7) received as complete
+94.90: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.90: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.90: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.90: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.90: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.90: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[94.90]|[FogBroker(3)]: Received task completion msg for Task(13) from FogDevice(2)
+[94.90]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(13)...
+[94.90]|[FogBroker(3)]: Task(13) on Cycle(0) decided to generate data: true
+[94.90]|[FogBroker(3)]: All dispatched tasks are complete
+[94.90]|[FogBroker(3)]: There is no vm to destroy
+[94.90]|[FogBroker(3)]: There is no vm to create
+[94.90]|[FogBroker(3)]: Trying to dispatch tasks...
+[94.90]|[FogBroker(3)]: Dispatching tasks...
+[94.90]|[WorkflowEngine(4)]: Task(13) received as complete
+[94.90]|[WorkflowEngine(4)]: Task(15) is now ready to get executed. Releasing it...
+[94.90]|[FogBroker(3)]: Task(15) of Workflow(Montage_25.xml) received
+[94.90]|[FogBroker(3)]: Dispatching tasks...
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(6) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(7) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(8) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(9) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(10) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(11) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(12) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(13) on Cycle(0)
+[94.90]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(14) on Cycle(0)
+[94.90]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(15) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(6) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(7) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(8) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(9) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(10) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(11) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(12) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(13) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(14) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[94.90]|[FogDevice(2|0)]: Received execute msg for Task(15) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[94.90]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(6) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(6) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(7) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(7) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(8) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(8) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(9) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(9) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(10) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(10) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(11) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(11) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(12) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(12) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(13) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(13) -> true
+[94.90]|[FogDevice(2|0)]: Downloaded data of Task(14) on Cycle(0)
+[94.90]|[FogDevice(2|0)]: Data is for me
+[94.90]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(14) -> true
+[94.90]|[FogDevice(2|0)]: Found Task(15) from Workflow(Montage_25.xml) that can be executed
+[94.90]|[FogDevice(2|0)]: Received execute msg for Task(15) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[94.90]|[FogDevice(2|0)]: All parent data for Task(15) are received. task can execute
+[94.90]|[FogBroker(3)]: Task(15) ack: true
+94.98: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.98: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.98: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.98: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+94.98: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+94.98: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+95.62: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+95.62: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+95.62: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+95.62: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+95.62: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+95.62: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[95.62]|[FogBroker(3)]: Received task completion msg for Task(15) from FogDevice(2)
+[95.62]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(15)...
+[95.62]|[FogBroker(3)]: Task(15) on Cycle(0) decided to generate data: true
+[95.62]|[FogBroker(3)]: All dispatched tasks are complete
+[95.62]|[FogBroker(3)]: There is no vm to destroy
+[95.62]|[FogBroker(3)]: There is no vm to create
+[95.62]|[FogBroker(3)]: Trying to dispatch tasks...
+[95.62]|[FogBroker(3)]: Dispatching tasks...
+[95.62]|[WorkflowEngine(4)]: Task(15) received as complete
+[95.62]|[WorkflowEngine(4)]: Task(16) is now ready to get executed. Releasing it...
+[95.62]|[FogBroker(3)]: Task(16) of Workflow(Montage_25.xml) received
+[95.62]|[FogBroker(3)]: Dispatching tasks...
+[95.62]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(15) on Cycle(0)
+[95.62]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(16) on Cycle(0)
+[95.62]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(15) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[95.62]|[FogDevice(2|0)]: Received execute msg for Task(16) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[95.62]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[95.62]|[FogDevice(2|0)]: Downloaded data of Task(15) on Cycle(0)
+[95.62]|[FogDevice(2|0)]: Data is for me
+[95.62]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(15) -> true
+[95.62]|[FogDevice(2|0)]: Found Task(16) from Workflow(Montage_25.xml) that can be executed
+[95.62]|[FogDevice(2|0)]: Received execute msg for Task(16) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[95.62]|[FogDevice(2|0)]: All parent data for Task(16) are received. task can execute
+[95.62]|[FogBroker(3)]: Task(16) ack: true
+95.76: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+95.76: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+95.76: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+95.76: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+95.76: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+95.76: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+97.04: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+97.04: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+97.04: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+97.04: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+97.04: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+97.04: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[97.04]|[FogBroker(3)]: Received task completion msg for Task(16) from FogDevice(2)
+[97.04]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(16)...
+[97.04]|[FogBroker(3)]: Task(16) on Cycle(0) decided to generate data: true
+[97.04]|[FogBroker(3)]: All dispatched tasks are complete
+[97.04]|[FogBroker(3)]: There is no vm to destroy
+[97.04]|[FogBroker(3)]: There is no vm to create
+[97.04]|[FogBroker(3)]: Trying to dispatch tasks...
+[97.04]|[FogBroker(3)]: Dispatching tasks...
+[97.04]|[WorkflowEngine(4)]: Task(16) received as complete
+[97.04]|[WorkflowEngine(4)]: Task(17) is now ready to get executed. Releasing it...
+[97.04]|[WorkflowEngine(4)]: Task(18) is now ready to get executed. Releasing it...
+[97.04]|[WorkflowEngine(4)]: Task(19) is now ready to get executed. Releasing it...
+[97.04]|[WorkflowEngine(4)]: Task(20) is now ready to get executed. Releasing it...
+[97.04]|[WorkflowEngine(4)]: Task(21) is now ready to get executed. Releasing it...
+[97.04]|[FogBroker(3)]: Task(17) of Workflow(Montage_25.xml) received
+[97.04]|[FogBroker(3)]: Dispatching tasks...
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(16) on Cycle(0)
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(1) on Cycle(0)
+[97.04]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(17) on Cycle(0)
+[97.04]|[FogBroker(3)]: Task(18) of Workflow(Montage_25.xml) received
+[97.04]|[FogBroker(3)]: Dispatching tasks...
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(16) on Cycle(0)
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(2) on Cycle(0)
+[97.04]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(18) on Cycle(0)
+[97.04]|[FogBroker(3)]: Task(19) of Workflow(Montage_25.xml) received
+[97.04]|[FogBroker(3)]: Dispatching tasks...
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(16) on Cycle(0)
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(3) on Cycle(0)
+[97.04]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(19) on Cycle(0)
+[97.04]|[FogBroker(3)]: Task(20) of Workflow(Montage_25.xml) received
+[97.04]|[FogBroker(3)]: Dispatching tasks...
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(16) on Cycle(0)
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(4) on Cycle(0)
+[97.04]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(20) on Cycle(0)
+[97.04]|[FogBroker(3)]: Task(21) of Workflow(Montage_25.xml) received
+[97.04]|[FogBroker(3)]: Dispatching tasks...
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(16) on Cycle(0)
+[97.04]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(5) on Cycle(0)
+[97.04]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(21) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(16) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(1) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(17) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[97.04]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(16) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(2) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(18) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[97.04]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(16) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(3) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(19) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[97.04]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(16) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(4) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(20) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[97.04]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(16) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(5) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(21) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[97.04]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(16) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(16) -> true
+[97.04]|[FogDevice(2|0)]: Found Task(17) from Workflow(Montage_25.xml) that can be executed
+[97.04]|[FogDevice(2|0)]: Found Task(18) from Workflow(Montage_25.xml) that can be executed
+[97.04]|[FogDevice(2|0)]: Found Task(19) from Workflow(Montage_25.xml) that can be executed
+[97.04]|[FogDevice(2|0)]: Found Task(20) from Workflow(Montage_25.xml) that can be executed
+[97.04]|[FogDevice(2|0)]: Found Task(21) from Workflow(Montage_25.xml) that can be executed
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(1) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(1) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(16) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(16) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(2) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(2) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(16) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(16) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(3) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(3) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(16) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(16) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(4) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(4) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(16) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(16) -> true
+[97.04]|[FogDevice(2|0)]: Downloaded data of Task(5) on Cycle(0)
+[97.04]|[FogDevice(2|0)]: Data is for me
+[97.04]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(5) -> true
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(17) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[97.04]|[FogDevice(2|0)]: All parent data for Task(17) are received. task can execute
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(18) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[97.04]|[FogDevice(2|0)]: All parent data for Task(18) are received. task can execute
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(19) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[97.04]|[FogDevice(2|0)]: All parent data for Task(19) are received. task can execute
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(20) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[97.04]|[FogDevice(2|0)]: All parent data for Task(20) are received. task can execute
+[97.04]|[FogDevice(2|0)]: Received execute msg for Task(21) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[97.04]|[FogDevice(2|0)]: All parent data for Task(21) are received. task can execute
+[97.04]|[FogBroker(3)]: Task(17) ack: true
+[97.04]|[FogBroker(3)]: Task(18) ack: true
+[97.04]|[FogBroker(3)]: Task(19) ack: true
+[97.04]|[FogBroker(3)]: Task(20) ack: true
+[97.04]|[FogBroker(3)]: Task(21) ack: true
+107.43: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.43: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.43: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.43: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.43: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.43: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.68: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.68: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.68: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.68: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.68: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.68: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.87: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.87: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.87: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.87: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+107.87: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+107.87: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[107.87]|[FogBroker(3)]: Received task completion msg for Task(19) from FogDevice(2)
+[107.87]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(19)...
+[107.87]|[FogBroker(3)]: Task(19) on Cycle(0) decided to generate data: true
+[107.87]|[WorkflowEngine(4)]: Task(19) received as complete
+117.82: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+117.82: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+117.82: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+117.82: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+117.82: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+117.82: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[117.82]|[FogBroker(3)]: Received task completion msg for Task(17) from FogDevice(2)
+[117.82]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(17)...
+[117.82]|[FogBroker(3)]: Task(17) on Cycle(0) decided to generate data: true
+[117.82]|[WorkflowEngine(4)]: Task(17) received as complete
+118.32: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.32: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.32: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.32: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.32: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.32: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[118.32]|[FogBroker(3)]: Received task completion msg for Task(18) from FogDevice(2)
+[118.32]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(18)...
+[118.32]|[FogBroker(3)]: Task(18) on Cycle(0) decided to generate data: true
+[118.32]|[WorkflowEngine(4)]: Task(18) received as complete
+118.43: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.43: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.43: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.43: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.43: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.43: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[118.43]|[FogBroker(3)]: Received task completion msg for Task(20) from FogDevice(2)
+[118.43]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(20)...
+[118.43]|[FogBroker(3)]: Task(20) on Cycle(0) decided to generate data: true
+[118.43]|[WorkflowEngine(4)]: Task(20) received as complete
+118.54: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.54: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.54: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.54: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.54: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.54: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[118.54]|[FogBroker(3)]: Received task completion msg for Task(21) from FogDevice(2)
+[118.54]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(21)...
+[118.54]|[FogBroker(3)]: Task(21) on Cycle(0) decided to generate data: true
+[118.54]|[FogBroker(3)]: All dispatched tasks are complete
+[118.54]|[FogBroker(3)]: There is no vm to destroy
+[118.54]|[FogBroker(3)]: There is no vm to create
+[118.54]|[FogBroker(3)]: Trying to dispatch tasks...
+[118.54]|[FogBroker(3)]: Dispatching tasks...
+[118.54]|[WorkflowEngine(4)]: Task(21) received as complete
+[118.54]|[WorkflowEngine(4)]: Task(22) is now ready to get executed. Releasing it...
+[118.54]|[FogBroker(3)]: Task(22) of Workflow(Montage_25.xml) received
+[118.54]|[FogBroker(3)]: Dispatching tasks...
+[118.54]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(17) on Cycle(0)
+[118.54]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(18) on Cycle(0)
+[118.54]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(19) on Cycle(0)
+[118.54]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(20) on Cycle(0)
+[118.54]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(21) on Cycle(0)
+[118.54]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(22) on Cycle(0)
+[118.54]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(17) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[118.54]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(18) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[118.54]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(19) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[118.54]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(20) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[118.54]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(21) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[118.54]|[FogDevice(2|0)]: Received execute msg for Task(22) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[118.54]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[118.54]|[FogDevice(2|0)]: Downloaded data of Task(17) on Cycle(0)
+[118.54]|[FogDevice(2|0)]: Data is for me
+[118.54]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(17) -> true
+[118.54]|[FogDevice(2|0)]: Downloaded data of Task(18) on Cycle(0)
+[118.54]|[FogDevice(2|0)]: Data is for me
+[118.54]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(18) -> true
+[118.54]|[FogDevice(2|0)]: Downloaded data of Task(19) on Cycle(0)
+[118.54]|[FogDevice(2|0)]: Data is for me
+[118.54]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(19) -> true
+[118.54]|[FogDevice(2|0)]: Downloaded data of Task(20) on Cycle(0)
+[118.54]|[FogDevice(2|0)]: Data is for me
+[118.54]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(20) -> true
+[118.54]|[FogDevice(2|0)]: Downloaded data of Task(21) on Cycle(0)
+[118.54]|[FogDevice(2|0)]: Data is for me
+[118.54]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(21) -> true
+[118.54]|[FogDevice(2|0)]: Found Task(22) from Workflow(Montage_25.xml) that can be executed
+[118.54]|[FogDevice(2|0)]: Received execute msg for Task(22) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[118.54]|[FogDevice(2|0)]: All parent data for Task(22) are received. task can execute
+[118.54]|[FogBroker(3)]: Task(22) ack: true
+118.56: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.56: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.56: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.56: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.56: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.56: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.90: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.90: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.90: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.90: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+118.90: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+118.90: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+119.93: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+119.93: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+119.93: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+119.93: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+119.93: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+119.93: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[119.93]|[FogBroker(3)]: Received task completion msg for Task(22) from FogDevice(2)
+[119.93]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(22)...
+[119.93]|[FogBroker(3)]: Task(22) on Cycle(0) decided to generate data: true
+[119.93]|[FogBroker(3)]: All dispatched tasks are complete
+[119.93]|[FogBroker(3)]: There is no vm to destroy
+[119.93]|[FogBroker(3)]: There is no vm to create
+[119.93]|[FogBroker(3)]: Trying to dispatch tasks...
+[119.93]|[FogBroker(3)]: Dispatching tasks...
+[119.93]|[WorkflowEngine(4)]: Task(22) received as complete
+[119.93]|[WorkflowEngine(4)]: Task(23) is now ready to get executed. Releasing it...
+[119.93]|[FogBroker(3)]: Task(23) of Workflow(Montage_25.xml) received
+[119.93]|[FogBroker(3)]: Dispatching tasks...
+[119.93]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(22) on Cycle(0)
+[119.93]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(23) on Cycle(0)
+[119.93]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(22) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[119.93]|[FogDevice(2|0)]: Received execute msg for Task(23) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[119.93]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[119.93]|[FogDevice(2|0)]: Downloaded data of Task(22) on Cycle(0)
+[119.93]|[FogDevice(2|0)]: Data is for me
+[119.93]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(22) -> true
+[119.93]|[FogDevice(2|0)]: Found Task(23) from Workflow(Montage_25.xml) that can be executed
+[119.93]|[FogDevice(2|0)]: Received execute msg for Task(23) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(2)
+[119.93]|[FogDevice(2|0)]: All parent data for Task(23) are received. task can execute
+[119.93]|[FogBroker(3)]: Task(23) ack: true
+122.96: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+122.96: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+122.96: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+122.96: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+122.96: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+122.96: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[122.96]|[FogBroker(3)]: Received task completion msg for Task(23) from FogDevice(2)
+[122.96]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(23)...
+[122.96]|[FogBroker(3)]: Task(23) on Cycle(0) decided to generate data: true
+[122.96]|[FogBroker(3)]: All dispatched tasks are complete
+[122.96]|[FogBroker(3)]: There is no vm to destroy
+[122.96]|[FogBroker(3)]: There is no vm to create
+[122.96]|[FogBroker(3)]: Trying to dispatch tasks...
+[122.96]|[FogBroker(3)]: Dispatching tasks...
+[122.96]|[WorkflowEngine(4)]: Task(23) received as complete
+[122.96]|[WorkflowEngine(4)]: Task(24) is now ready to get executed. Releasing it...
+[122.96]|[FogBroker(3)]: Task(24) of Workflow(Montage_25.xml) received
+[122.96]|[FogBroker(3)]: Dispatching tasks...
+[122.96]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(23) on Cycle(0)
+[122.96]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(24) on Cycle(0)
+[122.96]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(23) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[122.96]|[FogDevice(2|0)]: Received execute msg for Task(24) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[122.96]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[122.96]|[FogDevice(2|0)]: Downloaded data of Task(23) on Cycle(0)
+[122.96]|[FogDevice(2|0)]: Data is for me
+[122.96]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(23) -> true
+[122.96]|[FogDevice(2|0)]: Found Task(24) from Workflow(Montage_25.xml) that can be executed
+[122.96]|[FogDevice(2|0)]: Received execute msg for Task(24) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(0)
+[122.96]|[FogDevice(2|0)]: All parent data for Task(24) are received. task can execute
+[122.96]|[FogBroker(3)]: Task(24) ack: true
+126.82: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+126.82: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+126.82: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+126.82: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+126.82: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+126.82: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[126.82]|[FogBroker(3)]: Received task completion msg for Task(24) from FogDevice(2)
+[126.82]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(24)...
+[126.82]|[FogBroker(3)]: Task(24) on Cycle(0) decided to generate data: true
+[126.82]|[FogBroker(3)]: All dispatched tasks are complete
+[126.82]|[FogBroker(3)]: There is no vm to destroy
+[126.82]|[FogBroker(3)]: There is no vm to create
+[126.82]|[FogBroker(3)]: Trying to dispatch tasks...
+[126.82]|[FogBroker(3)]: Dispatching tasks...
+[126.82]|[WorkflowEngine(4)]: Task(24) received as complete
+[126.82]|[WorkflowEngine(4)]: Task(25) is now ready to get executed. Releasing it...
+[126.82]|[FogBroker(3)]: Task(25) of Workflow(Montage_25.xml) received
+[126.82]|[FogBroker(3)]: Dispatching tasks...
+[126.82]|[FogBroker(3)]: Sending STAGE_OUT_MSG to FogDevice(2) for Task(24) on Cycle(0)
+[126.82]|[FogBroker(3)]: Asking FogDevice(2) to execute Task(25) on Cycle(0)
+[126.82]|[FogDevice(2|0)]: Received STAGE_OUT data of Task(24) on Cycle(0): (true) and destination is a loop back: sending data instantly
+[126.82]|[FogDevice(2|0)]: Received execute msg for Task(25) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[126.82]|[FogDevice(2|0)]: Not all parent data are available. task is added to waiting queue
+[126.82]|[FogDevice(2|0)]: Downloaded data of Task(24) on Cycle(0)
+[126.82]|[FogDevice(2|0)]: Data is for me
+[126.82]|[FogDevice(2|0)]: Updating received data with: Cycle(0): Task(24) -> true
+[126.82]|[FogDevice(2|0)]: Found Task(25) from Workflow(Montage_25.xml) that can be executed
+[126.82]|[FogDevice(2|0)]: Received execute msg for Task(25) on Cycle(0) from Workflow(Montage_25.xml) to run on Vm(1)
+[126.82]|[FogDevice(2|0)]: All parent data for Task(25) are received. task can execute
+[126.82]|[FogBroker(3)]: Task(25) ack: true
+127.27: [Host #0] Total allocated MIPS for VM #0 (Host #0) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+127.27: [Host #0] MIPS for VM #0 by PEs (1 * 1000.0). PE #0: 1000.00.
+127.27: [Host #1] Total allocated MIPS for VM #1 (Host #1) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+127.27: [Host #1] MIPS for VM #1 by PEs (1 * 1000.0). PE #0: 1000.00.
+127.27: [Host #2] Total allocated MIPS for VM #2 (Host #2) is 1000.00, was requested 0.00 out of total 1000.00 (0.00%)
+127.27: [Host #2] MIPS for VM #2 by PEs (1 * 1000.0). PE #0: 1000.00.
+[127.27]|[FogBroker(3)]: Received task completion msg for Task(25) from FogDevice(2)
+[127.27]|[FogBroker(3)]: Notifying WorkflowEngine of completed Task(25)...
+[127.27]|[FogBroker(3)]: Task(25) on Cycle(0) decided to generate data: true
+[127.27]|[FogBroker(3)]: All dispatched tasks are complete
+[127.27]|[FogBroker(3)]: There is no vm to destroy
+[127.27]|[FogBroker(3)]: There is no vm to create
+[127.27]|[FogBroker(3)]: Trying to dispatch tasks...
+[127.27]|[FogBroker(3)]: Dispatching tasks...
+[127.27]|[WorkflowEngine(4)]: Task(25) received as complete
+Simulation: No more future events
+CloudInformationService: Notify all CloudSim entities for shutting down.
+0 is shutting down...
+[127.27]|[WorkflowEngine(4)]: Shutting down entity...
+Simulation completed.
+Simulation completed.
+666.6666666666666
+1233.3333333333335
+700.0
+Cycle: 0
+╔═════════╤═══════╤══════════════════╤══════════════════════╤════════════════════╤══════════╗
+║ Task ID │ On Vm │ Failed Histories │ Start Execution Time │ End Execution Time │ Duration ║
+╠═════════╪═══════╪══════════════════╪══════════════════════╪════════════════════╪══════════╣
+║ 1       │ 1     │ 26.89            │ 27.00                │ 53.67              │ 26.67    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 2       │ 2     │ 27.78            │ 27.89                │ 63.12              │ 35.23    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 3       │ 0     │ 13.47, 26.94     │ 27.05                │ 40.41              │ 13.36    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 4       │ 1     │ 27.20            │ 27.31                │ 54.09              │ 26.78    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 5       │ 2     │ 27.67            │ 27.78                │ 62.64              │ 34.86    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 6       │ 0     │                  │ 63.12                │ 85.61              │ 22.49    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 7       │ 1     │                  │ 63.12                │ 94.79              │ 31.67    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 8       │ 2     │                  │ 63.12                │ 87.15              │ 24.03    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 9       │ 0     │                  │ 53.67                │ 67.20              │ 13.53    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 10      │ 1     │                  │ 63.12                │ 94.59              │ 31.47    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 11      │ 2     │                  │ 40.41                │ 71.94              │ 31.53    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 12      │ 0     │                  │ 63.12                │ 85.50              │ 22.38    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 13      │ 1     │                  │ 63.12                │ 94.90              │ 31.78    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 14      │ 2     │                  │ 62.64                │ 86.48              │ 23.84    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 15      │ 0     │                  │ 94.90                │ 95.62              │ 0.72     ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 16      │ 1     │                  │ 95.62                │ 97.04              │ 1.42     ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 17      │ 2     │                  │ 97.04                │ 117.82             │ 20.78    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 18      │ 0     │                  │ 97.04                │ 118.32             │ 21.28    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 19      │ 1     │                  │ 97.04                │ 107.87             │ 10.83    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 20      │ 2     │                  │ 97.04                │ 118.43             │ 21.39    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 21      │ 0     │                  │ 97.04                │ 118.54             │ 21.50    ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 22      │ 1     │                  │ 118.54               │ 119.93             │ 1.39     ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 23      │ 2     │                  │ 119.93               │ 122.96             │ 3.03     ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 24      │ 0     │                  │ 122.96               │ 126.82             │ 3.86     ║
+╟─────────┼───────┼──────────────────┼──────────────────────┼────────────────────┼──────────╢
+║ 25      │ 1     │                  │ 126.82               │ 127.27             │ 0.45     ║
+╚═════════╧═══════╧══════════════════╧══════════════════════╧════════════════════╧══════════╝
+
+End Execution Time: 127.266
+Total Failures: 6
+
+BUILD SUCCESSFUL in 687ms
+3 actionable tasks: 1 executed, 2 up-to-date

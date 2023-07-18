@@ -82,6 +82,8 @@ public class Logger {
 
         System.out.println(FlipTable.of(headers, data));
         System.out.println("End Execution Time: " + endExecutionTime);
-        System.out.println("Total Failures: " + totalFailures);
+        if (FailureParameters.getFailureGeneratorMode() != FailureParameters.FTCFailure.FAILURE_NONE) {
+            System.out.println("Total Failures: " + totalFailures);
+        }
     }
 }
