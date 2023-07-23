@@ -1,0 +1,65 @@
+Initialising...
+Starting CloudSim version 3.0
+Datacenter_0 is starting...
+Starting WorkflowSim 1.1.0
+planner_0 is starting...
+planner_0_Merger_ is starting...
+planner_0_Merger__Engine_0 is starting...
+planner_0_Merger__Engine_0_Scheduler_0 is starting...
+Entities started.
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Cloud Resource List received with 1 resource(s)
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Trying to Create VM #0 in Datacenter_0
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Trying to Create VM #1 in Datacenter_0
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Trying to Create VM #2 in Datacenter_0
+0.1: planner_0_Merger__Engine_0_Scheduler_0: VM #0 has been created in Datacenter #2, Host #0
+0.1: planner_0_Merger__Engine_0_Scheduler_0: VM #1 has been created in Datacenter #2, Host #1
+0.1: planner_0_Merger__Engine_0_Scheduler_0: VM #2 has been created in Datacenter #2, Host #2
+2880.667: planner_0_Merger__Engine_0_Scheduler_0: Destroying VM #0
+2880.667: planner_0_Merger__Engine_0_Scheduler_0: Destroying VM #1
+2880.667: planner_0_Merger__Engine_0_Scheduler_0: Destroying VM #2
+planner_0_Merger__Engine_0_Scheduler_0 is shutting down...
+Simulation: No more future events
+CloudInformationService: Notify all CloudSim entities for shutting down.
+Datacenter_0 is shutting down...
+planner_0 is shutting down...
+planner_0_Merger_ is shutting down...
+planner_0_Merger__Engine_0 is shutting down...
+planner_0_Merger__Engine_0_Scheduler_0 is shutting down...
+Simulation completed.
+Simulation completed.
+
+========== OUTPUT ==========
+Job ID    Task ID    STATUS    Data center ID    VM ID        Time    Start Time    Finish Time    Depth
+    30        Stage-in    SUCCESS        2            1            0.11        0.1            0.21            0
+    5        6,    SUCCESS        2            0            35.14        0.21            35.35            1
+    2        3,    SUCCESS        2            0            35.25        0.21            35.46            1
+    1        2,    SUCCESS        2            2            35.94        0.21            36.15            1
+    4        5,    SUCCESS        2            2            36.05        0.21            36.26            1
+    3        4,    SUCCESS        2            1            65.3        0.21            65.5            1
+    0        1,    SUCCESS        2            1            65.61        0.21            65.82            1
+    6        7,    SUCCESS        2            1            66.81        0.21            67.02            1
+    12        13,    SUCCESS        2            1            682.82        35.35            718.17            2
+    8        9,    SUCCESS        2            0            700.39        36.15            736.54            2
+    11        12,    SUCCESS        2            0            885.35        36.26            921.61            2
+    9        10,    SUCCESS        2            1            945.28        35.46            980.74            2
+    13        14,    SUCCESS        2            2            1032.33        67.02            1099.35            2
+    10        11,    SUCCESS        2            2            1382.17        65.5            1447.67            2
+    7        8,    SUCCESS        2            2            1537.72        65.82            1603.54            2
+    14        15,    SUCCESS        2            0            5.61        1603.54            1609.15            3
+    17        18,    SUCCESS        2            0            9.86        1609.15            1619.01            4
+    19        20,    SUCCESS        2            2            9.96        1609.15            1619.11            4
+    16        17,    SUCCESS        2            2            10.41        1609.15            1619.56            4
+    20        21,    SUCCESS        2            0            10.69        1609.15            1619.85            4
+    18        19,    SUCCESS        2            1            19.51        1609.15            1628.67            4
+    21        22,    SUCCESS        2            1            19.51        1609.15            1628.67            4
+    15        16,    SUCCESS        2            1            21.04        1609.15            1630.2            4
+    26        27,    SUCCESS        2            0            611.49        1619.11            2230.61            5
+    25        26,    SUCCESS        2            2            766.06        1628.67            2394.73            5
+    24        25,    SUCCESS        2            1            843        1619.01            2462.01            5
+    23        24,    SUCCESS        2            0            918.35        1619.56            2537.91            5
+    27        28,    SUCCESS        2            1            934.35        1619.85            2554.2            5
+    28        29,    SUCCESS        2            2            985.16        1628.67            2613.83            5
+    22        23,    SUCCESS        2            2            1245.62        1630.2            2875.82            5
+    29        30,    SUCCESS        2            0            4.85        2875.82            2880.67            6
+
+End Execution Time: 2880.67

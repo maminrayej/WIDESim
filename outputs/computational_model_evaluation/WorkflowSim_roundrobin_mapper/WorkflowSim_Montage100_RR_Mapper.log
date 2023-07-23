@@ -1,0 +1,135 @@
+Initialising...
+Starting CloudSim version 3.0
+Datacenter_0 is starting...
+Starting WorkflowSim 1.1.0
+planner_0 is starting...
+planner_0_Merger_ is starting...
+planner_0_Merger__Engine_0 is starting...
+planner_0_Merger__Engine_0_Scheduler_0 is starting...
+Entities started.
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Cloud Resource List received with 1 resource(s)
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Trying to Create VM #0 in Datacenter_0
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Trying to Create VM #1 in Datacenter_0
+0.0: planner_0_Merger__Engine_0_Scheduler_0: Trying to Create VM #2 in Datacenter_0
+0.1: planner_0_Merger__Engine_0_Scheduler_0: VM #0 has been created in Datacenter #2, Host #0
+0.1: planner_0_Merger__Engine_0_Scheduler_0: VM #1 has been created in Datacenter #2, Host #1
+0.1: planner_0_Merger__Engine_0_Scheduler_0: VM #2 has been created in Datacenter #2, Host #2
+394.07899999999995: planner_0_Merger__Engine_0_Scheduler_0: Destroying VM #0
+394.07899999999995: planner_0_Merger__Engine_0_Scheduler_0: Destroying VM #1
+394.07899999999995: planner_0_Merger__Engine_0_Scheduler_0: Destroying VM #2
+planner_0_Merger__Engine_0_Scheduler_0 is shutting down...
+Simulation: No more future events
+CloudInformationService: Notify all CloudSim entities for shutting down.
+Datacenter_0 is shutting down...
+planner_0 is shutting down...
+planner_0_Merger_ is shutting down...
+planner_0_Merger__Engine_0 is shutting down...
+planner_0_Merger__Engine_0_Scheduler_0 is shutting down...
+Simulation completed.
+Simulation completed.
+
+========== OUTPUT ==========
+Job ID    Task ID    STATUS    Data center ID    VM ID        Time    Start Time    Finish Time    Depth
+    100        Stage-in    SUCCESS        2            2            0.11        0.1            0.21            0
+    1        2,    SUCCESS        2            2            65.57        0.21            65.78            1
+    4        5,    SUCCESS        2            2            65.76        0.21            65.97            1
+    14        15,    SUCCESS        2            0            65.85        0.21            66.06            1
+    13        14,    SUCCESS        2            2            66.35        0.21            66.56            1
+    10        11,    SUCCESS        2            2            66.93        0.21            67.14            1
+    2        3,    SUCCESS        2            0            67.04        0.21            67.25            1
+    7        8,    SUCCESS        2            2            67.33        0.21            67.54            1
+    5        6,    SUCCESS        2            0            68        0.21            68.21            1
+    8        9,    SUCCESS        2            0            68.4        0.21            68.61            1
+    11        12,    SUCCESS        2            0            69.66        0.21            69.87            1
+    6        7,    SUCCESS        2            1            97.67        0.21            97.88            1
+    3        4,    SUCCESS        2            1            98.48        0.21            98.69            1
+    15        16,    SUCCESS        2            1            103.21        0.21            103.42            1
+    12        13,    SUCCESS        2            1            103.96        0.21            104.17            1
+    9        10,    SUCCESS        2            1            105.36        0.21            105.57            1
+    0        1,    SUCCESS        2            1            108.26        0.21            108.47            1
+    68        69,    SUCCESS        2            0            152.54        66.56            219.1            2
+    35        36,    SUCCESS        2            0            152.87        67.25            220.12            2
+    38        39,    SUCCESS        2            0            152.36        68.21            220.58            2
+    59        60,    SUCCESS        2            0            156.1        67.14            223.23            2
+    23        24,    SUCCESS        2            0            157.17        67.54            224.71            2
+    50        51,    SUCCESS        2            0            157.1        68.61            225.71            2
+    53        54,    SUCCESS        2            0            157.04        69.87            226.91            2
+    37        38,    SUCCESS        2            2            169.88        66.56            236.44            2
+    55        56,    SUCCESS        2            2            171.72        67.14            238.86            2
+    61        62,    SUCCESS        2            2            174.99        67.14            242.13            2
+    58        59,    SUCCESS        2            2            175.45        67.54            242.99            2
+    46        47,    SUCCESS        2            2            176        67.54            243.54            2
+    70        71,    SUCCESS        2            2            178.37        67.54            245.91            2
+    52        53,    SUCCESS        2            2            178.33        68.61            246.94            2
+    49        50,    SUCCESS        2            2            178.76        68.61            247.37            2
+    64        65,    SUCCESS        2            2            178.88        69.87            248.75            2
+    60        61,    SUCCESS        2            1            196.66        67.14            263.79            2
+    27        28,    SUCCESS        2            1            199.32        66.56            265.88            2
+    63        64,    SUCCESS        2            1            196.12        69.87            265.99            2
+    57        58,    SUCCESS        2            1            198.19        68.21            266.4            2
+    51        52,    SUCCESS        2            1            199        68.61            267.62            2
+    72        73,    SUCCESS        2            1            201.23        66.56            267.8            2
+    48        49,    SUCCESS        2            1            198.15        69.87            268.02            2
+    24        25,    SUCCESS        2            1            199.82        68.61            268.44            2
+    69        70,    SUCCESS        2            1            200.39        68.21            268.6            2
+    43        44,    SUCCESS        2            2            185.34        97.88            283.21            2
+    56        57,    SUCCESS        2            0            184.68        98.69            283.37            2
+    40        41,    SUCCESS        2            2            186.55        97.88            284.42            2
+    47        48,    SUCCESS        2            0            186.11        98.69            284.8            2
+    22        23,    SUCCESS        2            2            187.26        97.88            285.13            2
+    31        32,    SUCCESS        2            2            186.78        98.69            285.47            2
+    41        42,    SUCCESS        2            0            187.87        97.88            285.75            2
+    29        30,    SUCCESS        2            0            187.84        98.69            286.53            2
+    76        77,    SUCCESS        2            2            184.32        103.42            287.74            2
+    34        35,    SUCCESS        2            2            184.74        103.42            288.16            2
+    71        72,    SUCCESS        2            0            184.14        104.17            288.31            2
+    74        75,    SUCCESS        2            0            185        103.42            288.42            2
+    28        29,    SUCCESS        2            2            185        103.42            288.42            2
+    67        68,    SUCCESS        2            2            184.45        104.17            288.62            2
+    73        74,    SUCCESS        2            2            185.35        103.42            288.77            2
+    32        33,    SUCCESS        2            0            184.71        104.17            288.88            2
+    25        26,    SUCCESS        2            2            183.42        105.57            288.99            2
+    44        45,    SUCCESS        2            0            184.99        104.17            289.16            2
+    16        17,    SUCCESS        2            2            180.8        108.47            289.27            2
+    19        20,    SUCCESS        2            2            180.91        108.47            289.38            2
+    77        78,    SUCCESS        2            0            186.07        103.42            289.49            2
+    65        66,    SUCCESS        2            0            185.32        104.17            289.49            2
+    39        40,    SUCCESS        2            1            191.84        97.88            289.72            2
+    26        27,    SUCCESS        2            0            185.66        104.17            289.83            2
+    20        21,    SUCCESS        2            0            181.47        108.47            289.94            2
+    62        63,    SUCCESS        2            0            181.47        108.47            289.94            2
+    17        18,    SUCCESS        2            0            181.59        108.47            290.06            2
+    33        34,    SUCCESS        2            1            191.84        98.69            290.53            2
+    21        22,    SUCCESS        2            1            192.11        98.69            290.8            2
+    30        31,    SUCCESS        2            1            194.68        97.88            292.55            2
+    42        43,    SUCCESS        2            1            187.1        105.57            292.66            2
+    75        76,    SUCCESS        2            1            189.35        103.42            292.77            2
+    54        55,    SUCCESS        2            1            187.54        105.57            293.11            2
+    36        37,    SUCCESS        2            1            189.06        104.17            293.23            2
+    66        67,    SUCCESS        2            1            189.21        104.17            293.38            2
+    45        46,    SUCCESS        2            1            185.06        108.47            293.53            2
+    18        19,    SUCCESS        2            1            185.17        108.47            293.64            2
+    78        79,    SUCCESS        2            1            4.96        293.64            298.6            3
+    79        80,    SUCCESS        2            2            5.34        298.6            303.94            4
+    85        86,    SUCCESS        2            2            52.47        303.94            356.4            5
+    82        83,    SUCCESS        2            2            52.93        303.94            356.87            5
+    91        92,    SUCCESS        2            2            53.17        303.94            357.11            5
+    88        89,    SUCCESS        2            2            53.28        303.94            357.22            5
+    94        95,    SUCCESS        2            2            53.28        303.94            357.22            5
+    84        85,    SUCCESS        2            1            53.39        303.94            357.33            5
+    93        94,    SUCCESS        2            1            53.45        303.94            357.39            5
+    90        91,    SUCCESS        2            1            53.59        303.94            357.53            5
+    87        88,    SUCCESS        2            1            53.61        303.94            357.55            5
+    81        82,    SUCCESS        2            1            53.82        303.94            357.76            5
+    83        84,    SUCCESS        2            0            64.37        303.94            368.31            5
+    92        93,    SUCCESS        2            0            64.48        303.94            368.42            5
+    95        96,    SUCCESS        2            0            64.6        303.94            368.53            5
+    89        90,    SUCCESS        2            0            64.84        303.94            368.77            5
+    80        81,    SUCCESS        2            0            64.95        303.94            368.88            5
+    86        87,    SUCCESS        2            0            64.95        303.94            368.88            5
+    96        97,    SUCCESS        2            1            7.72        368.88            376.6            6
+    97        98,    SUCCESS        2            2            9.6        376.6            386.2            7
+    98        99,    SUCCESS        2            0            7.05        386.2            393.25            8
+    99        100,    SUCCESS        2            1            0.83        393.25            394.08            9
+
+End Execution Time: 394.08
