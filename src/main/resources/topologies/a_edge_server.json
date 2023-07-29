@@ -1,0 +1,153 @@
+{
+  "fog_devices": [
+    {
+      "device_id": "cloud_device_0",
+      "neighbors": [
+        { "neighbor_id": "edge_device_0" },
+        { "neighbor_id": "edge_device_1" }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 1024,
+          "bw": 500,
+          "pes": [
+            {
+              "mips": 6000,
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "edge_device_0",
+      "neighbors": [
+        { "neighbor_id": "cloud_device_0" },
+        { "neighbor_id": "edge_device_1" },
+        { "neighbor_id": "phone" },
+        { "neighbor_id": "camera" },
+        { "neighbor_id": "car" }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 512,
+          "bw": 1000,
+          "pes": [
+            {
+              "mips": 4000,
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "edge_device_1",
+      "neighbors": [
+        { "neighbor_id": "cloud_device_0" },
+        { "neighbor_id": "edge_device_0" },
+        { "neighbor_id": "drone" }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 512,
+          "bw": 1000,
+          "pes": [
+            {
+              "mips": 4000,
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "phone",
+      "neighbors": [
+        { "neighbor_id": "edge_device_0" }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 64,
+          "bw": 4000,
+          "pes": [
+            {
+              "mips": 500,
+              "pe_id": 0
+            },
+            {
+              "mips": 500,
+              "pe_id": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "camera",
+      "neighbors": [
+        { "neighbor_id": "edge_device_0" }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 64,
+          "bw": 4000,
+          "pes": [
+            {
+              "mips": 500,
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "car",
+      "neighbors": [
+        { "neighbor_id": "edge_device_0" }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 64,
+          "bw": 4000,
+          "pes": [
+            {
+              "mips": 500,
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "device_id": "drone",
+      "neighbors": [
+        { "neighbor_id": "edge_device_1" }
+      ],
+      "hosts": [
+        {
+          "host_id": 0,
+          "ram": 64,
+          "bw": 4000,
+          "pes": [
+            {
+              "mips": 500,
+              "pe_id": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "vms": [
+    {
+      "vm_id": 0
+    }
+  ]
+}
